@@ -4,14 +4,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Categorias</title>
+<link rel="stylesheet" href="../../resources/css/cotegoria.css">
 
-    <link rel="stylesheet" href="../../resources/css/cotegoria.css">
+    <link rel="stylesheet" href="../../resources/css/cs.css">
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+
 
 </head>
 
 <body>
+    <header class="header">
+        <div class="logo">
+            <a href="#"><img src="" alt="">GADGETSIT</a>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#">Categoria</a></li>
+                <li>
+                    <a href="#">Productos</a>
+                    <ul class="submenu">
+                        <li><a href="#">Promociones</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Usuarios</a></li>
+                <li><a href="#">Comentarios</a></li>
+
+            </ul>
+        </nav>
+        <a class="btn" href="#"><button>Contact</button></a>
+
+        <a onclick="openNav()" class="menu" href="#"><button>Menu</button></a>
+
+        <div id="mobile-menu" class="overlay">
+            <a onclick="closeNav()" href="" class="close">&times;</a>
+
+            <div class="overlay-content">
+                <a href="#">Categoria</a>
+                <a href="#">Productos</a>
+                <a href="#">Promociones</a>
+                <a href="#">Usuarios</a>
+                <a href="#">Comentarios</a>
+
+            </div>
+        </div>
+
+    </header>
+
+
+
+
 
     <div class="card-header">
         Categoria
@@ -33,7 +75,7 @@
                 <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="btn-icon"> Actualizar
             </button>
 
-            
+
             <button class="btn btn-rojo">
                 <img src="../../resources/img/Group.svg" alt="Eliminar" class="btn-iconn"> Eliminar
             </button>
@@ -44,6 +86,26 @@
 
 
 
+
+
+
+
+
+
+
+
+    <script>
+        function openNav() {
+            document.getElementById("mobile-menu").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("mobile-menu").style.width = "0";
+        }
+
+
+
+    </script>
 </body>
 
 </html>
