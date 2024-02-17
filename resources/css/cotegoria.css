@@ -1,11 +1,12 @@
-body {
+
+.gadgetit-container {
     font-family: Arial, sans-serif;
     background: #ffffff;
     margin: 0;
     padding: 20px;
 }
-
-.card {
+/* Estilos para la tarjeta (card) */
+.gadgetit-card {
     background: #EAEAEA;
     border-radius: 10px;
     display: flex;
@@ -16,60 +17,48 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.card-header {
+.gadgetit-card-header {
     color: grey;
     font-size: 18px;
     font-weight: bold;
 }
 
-.card-image {
+.gadgetit-card-image {
     flex-basis: 20%;
 }
 
-.card-image img {
+.gadgetit-card-image img {
     width: 50%;
     height: auto;
     border-radius: 10px;
 }
 
-.card-content {
+.gadgetit-card-content {
     flex-basis: 50%;
 }
 
-.card-title {
+.gadgetit-card-title {
     color: #414141;
     font-size: 35px;
     font-weight: bold;
     margin-top: -5px;
 }
 
-.card-description {
+.gadgetit-card-description {
     color: #666;
     margin-top: 10px;
     font-size: 19px;
 }
 
-.card-actions {
+.gadgetit-card-actions {
     flex-basis: 30%;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
 }
 
-.action-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.action-title {
-    margin-bottom: 5px;
-    color: #333;
-    font-size: 16px;
-    font-weight: normal;
-}
-
-.btn {
+/* Estilos para los botones */
+.gadgetit-btn {
     height: 60px;
     border: none;
     border-radius: 20px;
@@ -80,88 +69,78 @@ body {
     margin-top: 10px;
 }
 
-.btn-verde {
+.gadgetit-btn-verde {
     background-color: #02D693;
 }
 
-.btn-rojo {
+.gadgetit-btn-rojo {
     background-color: #ff2e2e;
 }
 
-.btn-icon {
+.gadgetit-btn-icon {
     height: 20px;
     width: 20px;
     margin-right: 5px;
     vertical-align: middle;
 }
 
-.btn-iconn {
+.gadgetit-btn-iconn {
     height: 25px;
     width: 25px;
     margin-right: 5px;
     vertical-align: middle;
 }
 
-.btn-verde:hover {
+/* Estilos para el hover de los botones */
+.gadgetit-btn-verde:hover {
     background-color: #00c788;
 }
 
-.btn-rojo:hover {
+.gadgetit-btn-rojo:hover {
     background-color: rgb(225, 0, 0);
 }
 
 /* Media query para dispositivos móviles */
 @media (max-width: 767px) {
-    .card {
+    .gadgetit-card {
         flex-direction: column;
-        /* Cambia la disposición de los elementos a vertical */
         padding: 10px;
-
     }
 
-    .card-image,
-    .card-content,
-    .card-actions {
+    .gadgetit-card-image,
+    .gadgetit-card-content,
+    .gadgetit-card-actions {
         text-align: center;
-
         flex-basis: auto;
-        /* Permite que los elementos ocupen el ancho disponible */
         width: 100%;
-        /* Ajusta los elementos para que ocupen todo el ancho */
         margin-bottom: 10px;
-        /* Añade un espacio entre los elementos cuando están apilados */
     }
 
-    .card-image img {
+    .gadgetit-card-image img {
         width: 40%;
-        /* Ajusta la imagen para que ocupe todo el ancho disponible */
     }
 
-    .card-actions {
+    .gadgetit-card-actions {
         flex-direction: row;
-        /* Mantiene los botones en fila */
         justify-content: space-around;
-        /* Distribuye los botones uniformemente */
     }
 
-    .btn {
+    .gadgetit-btn {
         padding: 10px 20px;
         font-size: 15px;
     }
 
-    .card-title {
+    .gadgetit-card-title {
         color: #414141;
         font-size: 28px;
         font-weight: bold;
         margin-top: -5px;
     }
 
-    .action-title {
+    .gadgetit-action-title {
         margin-bottom: 5px;
         color: #333;
         font-size: 14px;
         font-weight: normal;
     }
-
-    
 }

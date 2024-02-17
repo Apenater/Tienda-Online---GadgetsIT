@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
- <link rel="stylesheet" href="../../resources/css/cs.css">
+    <link rel="stylesheet" href="../../resources/css/cs.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,6 +19,153 @@
 
 
 </head>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Estilos para la tarjeta (card) */
+.card {
+    background: #EAEAEA;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    color: grey;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.card-image {
+    flex-basis: 20%;
+}
+
+.card-image img {
+    width: 50%;
+    height: auto;
+    border-radius: 10px;
+}
+
+.card-content {
+    flex-basis: 50%;
+}
+
+.card-title {
+    color: #414141;
+    font-size: 35px;
+    font-weight: bold;
+    margin-top: -5px;
+}
+
+.card-description {
+    color: #666;
+    margin-top: 10px;
+    font-size: 19px;
+}
+
+.card-actions {
+    flex-basis: 30%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+/* Estilos para los botones */
+.btn {
+    height: 60px;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 40px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-verde {
+    background-color: #02D693;
+}
+
+.btn-rojo {
+    background-color: #ff2e2e;
+}
+
+.btn-icon,
+.btn-iconn {
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+.btn-iconn {
+    height: 25px;
+    width: 25px;
+}
+
+/* Estilos para el hover de los botones */
+.btn-verde:hover {
+    background-color: #00c788;
+}
+
+.btn-rojo:hover {
+    background-color: rgb(225, 0, 0);
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 767px) {
+    .card {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .card-image,
+    .card-content,
+    .card-actions {
+        text-align: center;
+        flex-basis: auto;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .card-image img {
+        width: 40%;
+    }
+
+    .card-actions {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .btn {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
+    .card-title {
+        color: #414141;
+        font-size: 28px;
+        font-weight: bold;
+        margin-top: -5px;
+    }
+
+    .action-title {
+        margin-bottom: 5px;
+        color: #333;
+        font-size: 14px;
+        font-weight: normal;
+    }
+}
+</style>
 
 <body>
 
@@ -47,7 +194,7 @@
 
         <div id="mobile-menu" class="overlay">
             <a onclick="closeNav()" href="" class="close">&times;</a>
-            
+
             <div class="overlay-content">
                 <a href="#">Home</a>
                 <a href="#">Categorías</a>
@@ -57,26 +204,47 @@
                 <a href="#">Pedidos</a>
             </div>
         </div>
-        
-        
-        
-        
-
     </header>
+    <div class="card-header">
+        Categoria
+    </div>
+
+    <div class="card">
+        <div class="card-image">
+            <img src="../../resources/css/pru.svg" alt="Speakers">
+        </div>
+        <div class="card-content">
+            <div class="card-title">Speakers</div>
+
+            <div class="card-description">Amazon wireless speakers</div>
+        </div>
+
+        <div class="card-actions">
+
+            <button class="btn btn-verde">
+                <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="btn-icon"> Actualizar
+            </button>
+
+
+            <button class="btn btn-rojo">
+                <img src="../../resources/img/Group.svg" alt="Eliminar" class="btn-iconn"> Eliminar
+            </button>
+        </div>
+
+
+    </div>
 
 </body>
 
 <script>
-function openNav() {
-    document.getElementById("mobile-menu").style.width = "100%";
-}
+    function openNav() {
+        document.getElementById("mobile-menu").style.width = "100%";
+    }
 
-function closeNav() {
-    document.getElementById("mobile-menu").style.width = "0";
-}
-
-
-
+    function closeNav() {
+        document.getElementById("mobile-menu").style.width = "0";
+    }
 </script>
+
 
 </html>

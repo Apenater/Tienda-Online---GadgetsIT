@@ -5,107 +5,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
-<link rel="stylesheet" href="../../resources/css/cotegoria.css">
+    <link rel="stylesheet" href="../../resources/css/cotegoria.css">
 
-    <link rel="stylesheet" href="../../resources/css/cs.css">
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
-
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
 <body>
-    <header class="header">
-        <div class="logo">
-            <a href="#"><img src="" alt="">GADGETSIT</a>
-        </div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="#">Categoria</a></li>
-                <li>
-                    <a href="#">Productos</a>
-                    <ul class="submenu">
-                        <li><a href="#">Promociones</a></li>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown link
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
                     </ul>
-                </li>
-                <li><a href="#">Usuarios</a></li>
-                <li><a href="#">Comentarios</a></li>
-
-            </ul>
-        </nav>
-        <a class="btn" href="#"><button>Contact</button></a>
-
-        <a onclick="openNav()" class="menu" href="#"><button>Menu</button></a>
-
-        <div id="mobile-menu" class="overlay">
-            <a onclick="closeNav()" href="" class="close">&times;</a>
-
-            <div class="overlay-content">
-                <a href="#">Categoria</a>
-                <a href="#">Productos</a>
-                <a href="#">Promociones</a>
-                <a href="#">Usuarios</a>
-                <a href="#">Comentarios</a>
-
+                </div>
             </div>
-        </div>
-
+        </nav>
     </header>
 
-
-
-
-
-    <div class="card-header">
-        Categoria
+    <div class="gadgetit-container"> 
+        <div class="gadgetit-card-header">
+            Categoria
+        </div>
+    
+        <div class="gadgetit-card">
+            <div class="gadgetit-card-image">
+                <img src="../../resources/css/pru.svg" alt="Speakers">
+            </div>
+            <div class="gadgetit-card-content">
+                <div class="gadgetit-card-title">Speakers</div>
+                <div class="gadgetit-card-description">Amazon wireless speakers</div>
+            </div>
+            <div class="gadgetit-card-actions">
+                <button class="gadgetit-btn gadgetit-btn-verde">
+                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Actualizar
+                </button>
+                <button class="gadgetit-btn gadgetit-btn-rojo">
+                    <img src="../../resources/img/Group.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                </button>
+            </div>
+        </div>
     </div>
-
-    <div class="card">
-        <div class="card-image">
-            <img src="../../resources/css/pru.svg" alt="Speakers">
-        </div>
-        <div class="card-content">
-            <div class="card-title">Speakers</div>
-
-            <div class="card-description">Amazon wireless speakers</div>
-        </div>
-
-        <div class="card-actions">
-
-            <button class="btn btn-verde">
-                <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="btn-icon"> Actualizar
-            </button>
-
-
-            <button class="btn btn-rojo">
-                <img src="../../resources/img/Group.svg" alt="Eliminar" class="btn-iconn"> Eliminar
-            </button>
-        </div>
-
-
     </div>
+   
+    
 
-
-
-
-
-
-
-
-
-
-
-    <script>
-        function openNav() {
-            document.getElementById("mobile-menu").style.width = "100%";
-        }
-
-        function closeNav() {
-            document.getElementById("mobile-menu").style.width = "0";
-        }
-
-
-
-    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
