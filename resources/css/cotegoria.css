@@ -1,19 +1,21 @@
-
+/* *************************************************************************** */
 .gadgetit-container {
     font-family: Arial, sans-serif;
     background: #ffffff;
     margin: 0;
     padding: 20px;
+    padding-top: 60px; 
 }
-/* Estilos para la tarjeta (card) */
+
 .gadgetit-card {
+
     background: #EAEAEA;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 2px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -21,6 +23,11 @@
     color: grey;
     font-size: 18px;
     font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px; 
+
 }
 
 .gadgetit-card-image {
@@ -57,7 +64,6 @@
     align-items: flex-start;
 }
 
-/* Estilos para los botones */
 .gadgetit-btn {
     height: 60px;
     border: none;
@@ -77,6 +83,23 @@
     background-color: #ff2e2e;
 }
 
+.gadgetit-btn-agragar {
+    height: 50px;
+    border: none;
+    border-radius: 16px;
+    padding: 10px 40px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+    background-color: #00b179;
+}
+
+.gadgetit-btn-agragar:hover {
+    background-color: #009465;
+
+}
+
 .gadgetit-btn-icon {
     height: 20px;
     width: 20px;
@@ -91,7 +114,6 @@
     vertical-align: middle;
 }
 
-/* Estilos para el hover de los botones */
 .gadgetit-btn-verde:hover {
     background-color: #00c788;
 }
@@ -100,7 +122,6 @@
     background-color: rgb(225, 0, 0);
 }
 
-/* Media query para dispositivos móviles */
 @media (max-width: 767px) {
     .gadgetit-card {
         flex-direction: column;
@@ -144,3 +165,7 @@
         font-weight: normal;
     }
 }
+
+
+
+
