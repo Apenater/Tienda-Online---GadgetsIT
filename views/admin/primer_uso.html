@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login admin</title>
 
-<link rel="stylesheet" href="../../resources/css/admin/login.css">
+<link rel="stylesheet" href="../../resources/css/admin/primer_uso.css">
 </head>
 
 <body>
@@ -14,14 +14,22 @@
     <div class="login-wrapper">
         <div class="login-branding">
             <h1 class="login-logo">GADGETSIT</h1>
-            <p class="login-description">Login admin</p>
+            <p class="login-description">Registrate admin</p>
         </div>
 
     </div>
     <div class="login-container">
         <h1>Holaaa admin!</h1>
-        <p>Welcome Back</p>
+        <p>Registrate</p>
         <form action="/login" method="post">
+            <div class="input-group">
+                <input type="name" id="name" name="name" placeholder="Nombre" required>
+                <span class="input-icon">&#128100;</span> 
+            </div>
+            <div class="input-group">
+                <input type="username" id="username" name="username" placeholder="Username" required>
+                <span class="input-icon">&#64;</span>
+            </div>
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder="Email Address" required>
                 <span class="input-icon">&#9993;</span>
@@ -29,6 +37,10 @@
             <div class="input-group">
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <span class="input-icon">&#128274;</span>
+            </div>
+            <div class="input-group">
+                <input type="phone" id="phone" name="phone" placeholder="Telefono" required>
+                <span class="input-icon">&#128222;</span> 
             </div>
             <button type="submit" class="login-btn">Login</button>
         </form>
