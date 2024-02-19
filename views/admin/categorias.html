@@ -40,6 +40,8 @@
         </nav>
     </header>
 
+
+
     <div class="gadgetit-container">
         <div class="gadgetit-card-header">
             <span>Categoria</span>
@@ -62,7 +64,7 @@
                     Actualizar
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/Group.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
                 </button>
             </div>
         </div>
@@ -83,7 +85,7 @@
                     Actualizar
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/Group.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
                 </button>
             </div>
         </div>
@@ -104,7 +106,7 @@
                     Actualizar
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/Group.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
                 </button>
             </div>
         </div>
@@ -125,7 +127,7 @@
                     Actualizar
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/Group.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
                 </button>
             </div>
         </div>
@@ -137,7 +139,7 @@
             <div class="box">
                 <figure>
                     <a href="#">
-                        <img src="logo_blanco.svg" alt="Logo de SLee Dw">
+                        <img src="../../resources/img/logo.svg" alt="Logo de SLee Dw">
                     </a>
                 </figure>
             </div>
@@ -155,11 +157,54 @@
 
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
 
-        
+
+
+
+
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+        data-bs-whatever="@mdo">Open modal for @mdo</button>
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">New message</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Recipient:</label>
+                            <input type="text" class="form-control" id="recipient-name">
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Message:</label>
+                            <textarea class="form-control" id="message-text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+
+
 
 </body>
 

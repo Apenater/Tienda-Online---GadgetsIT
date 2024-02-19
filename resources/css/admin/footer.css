@@ -1,7 +1,23 @@
+html {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+
 .pie-pagina {
     width: 100%;
-    background-color: #0a141d;
-    margin-top: auto;
+
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #000000;
 }
 
 .pie-pagina .grupo-1 {
@@ -11,7 +27,8 @@
     display: grid;
     grid-template-columns: auto 1fr auto;
     grid-gap: 50px;
-    padding: 15px 0px; /* Ajusta el padding para hacerlo más delgado */
+    padding: 15px 0px;
+    /* Ajusta el padding para hacerlo más delgado */
 }
 
 .pie-pagina .grupo-1 .box {
@@ -58,10 +75,11 @@
 
 .pie-pagina .grupo-2 {
     background-color: #0a1a2a;
-    padding: 10px 10px; /* Ajusta el padding para hacerlo más delgado */
+    padding: 10px 10px;
+    /* Ajusta el padding para hacerlo más delgado */
     text-align: center;
     color: #fff;
-    
+
 }
 
 .pie-pagina .grupo-2 small {

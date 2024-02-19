@@ -1,10 +1,10 @@
-/* *************************************************************************** */
 .gadgetit-container {
     font-family: Arial, sans-serif;
     background: #ffffff;
     margin: 0;
     padding: 20px;
-    padding-top: 60px; 
+    padding-top: 10px;
+
 }
 
 .gadgetit-card-header {
@@ -17,14 +17,13 @@
 }
 
 .gadgetit-card {
-
     background: #EAEAEA;
     border-radius: 10px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    margin-bottom: 2px;
+    padding-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
@@ -35,7 +34,7 @@
 }
 
 .gadgetit-card-image img {
-    width: 50%;
+    width: 30%;
     height: auto;
     border-radius: 10px;
 }
@@ -46,7 +45,7 @@
 
 .gadgetit-card-title {
     color: #414141;
-    font-size: 35px;
+    font-size: 28px;
     font-weight: bold;
     margin-top: -5px;
 }
@@ -54,7 +53,7 @@
 .gadgetit-card-description {
     color: #666;
     margin-top: 10px;
-    font-size: 19px;
+    font-size: 16px;
 }
 
 .gadgetit-card-actions {
@@ -73,6 +72,7 @@
     font-size: 18px;
     cursor: pointer;
     margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .gadgetit-btn-verde {
@@ -91,8 +91,9 @@
     color: white;
     font-size: 18px;
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 80px;
     background-color: #00b179;
+  
 }
 
 .gadgetit-btn-agragar:hover {
@@ -167,5 +168,15 @@
 }
 
 
-
-
+.btn-primary{
+    height: 50px;
+    border: none;
+    border-radius: 16px;
+    padding: 10px 40px;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 80px;
+    background-color: #00b179;
+  
+}
