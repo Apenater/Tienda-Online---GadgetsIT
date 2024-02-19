@@ -1,21 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorias</title>
-    <link rel="stylesheet" href="../../resources/css/admin/cotegoria.css">
+    <title>Promociones</title>
+    <link rel="stylesheet" href="../../resources/css/admin/promociones.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
-    <link rel="stylesheet" href="../../resources/css/admin/header.css">
-
-    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
-
-
 
 <body>
 
@@ -44,7 +39,7 @@
 
     <div class="gadgetit-container">
         <div class="gadgetit-card-header">
-            <span>Categoria</span>
+            <span>Promociones | activas</span>
             <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
             </button>
@@ -54,37 +49,44 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nueva Categoría</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Descuento</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="category-name" class="col-form-label">Nombre de la categoría:</label>
+                                <label for="category-name" class="col-form-label">Nombre del descuento:</label>
                                 <input type="text" class="form-control" id="category-name">
                             </div>
                             <div class="mb-3">
-                                <label for="category-description" class="col-form-label">Descripción de la categoría:</label>
+                                <label for="category-description" class="col-form-label">Descuento descripción:
+                                </label>
                                 <textarea class="form-control" id="category-description"></textarea>
                             </div>
-                            <div class="mb-3">
-                                <label for="inputGroupFile01" class="form-label">Selecciona una imagen para la categoría:</label>
-                                <input type="file" class="form-control" id="inputGroupFile01">
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" placeholder="Descuento %">
                             </div>
+                            <textarea class="form-control" id="category-description"></textarea>
+                            <select class="form-select form-select-sm" aria-label="Small select example">
+                                <option selected>Elejir producto:</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success " >Agregar</button>
+                        <button type="button" class="btn btn-success ">Agregar</button>
                     </div>
                 </div>
             </div>
         </div>
-        
-        
+
+
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/ps.svg" alt="Speakers">
+                <img src="../../resources/img/img.svg" alt="Speakers">
             </div>
             <div class="gadgetit-card-content">
                 <div class="gadgetit-card-title">Speakers</div>
@@ -105,7 +107,7 @@
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/a.svg" alt="Speakers">
+                <img src="../../resources/img/Image.svg" alt="Speakers">
             </div>
             <div class="gadgetit-card-content">
                 <div class="gadgetit-card-title">Speakers</div>
@@ -126,7 +128,7 @@
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/ps.svg" alt="Speakers">
+                <img src="../../resources/img/Image.svg" alt="Speakers">
             </div>
             <div class="gadgetit-card-content">
                 <div class="gadgetit-card-title">Speakers</div>
@@ -147,7 +149,7 @@
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/ipo.svg" alt="Speakers">
+                <img src="../../resources/img/img.svg" alt="Speakers">
             </div>
             <div class="gadgetit-card-content">
                 <div class="gadgetit-card-title">Speakers</div>
@@ -175,7 +177,7 @@
                     </a>
                 </figure>
             </div>
-           
+
         </div>
 
     </footer>
@@ -185,16 +187,9 @@
 
 
 
-
-
-
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
-
 
 
 </body>

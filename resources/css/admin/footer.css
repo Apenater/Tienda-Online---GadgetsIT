@@ -24,11 +24,9 @@ body {
     width: 100%;
     max-width: 1200px;
     margin: auto;
-    display: grid;
-    grid-template-columns: auto 1fr auto;
-    grid-gap: 50px;
-    padding: 15px 0px;
-    /* Ajusta el padding para hacerlo más delgado */
+    display: flex;
+    justify-content: center; /* Centra los elementos horizontalmente */
+    padding: 15px 0; /* Ajusta el padding según sea necesario */
 }
 
 .pie-pagina .grupo-1 .box {
@@ -40,6 +38,7 @@ body {
 
 .pie-pagina .grupo-1 .box figure {
     width: 80px;
+    
 }
 
 .pie-pagina .grupo-1 .box h2,

@@ -1,9 +1,9 @@
-
-span{
-color: #666;
-font-size: 30px;
-margin-top: 50px;
+span {
+    color: #666;
+    font-size: 30px;
+    margin-top: 50px;
 }
+
 .gadgetit-container {
     font-family: Arial, sans-serif;
     background: #ffffff;
@@ -99,7 +99,7 @@ margin-top: 50px;
     cursor: pointer;
     margin-top: 80px;
     background-color: #00b179;
-  
+
 }
 
 .gadgetit-btn-agragar:hover {
@@ -174,7 +174,7 @@ margin-top: 50px;
 }
 
 
-.btn-primary{
+.btn-primary {
     height: 50px;
     border: none;
     border-radius: 16px;
@@ -184,7 +184,5 @@ margin-top: 50px;
     cursor: pointer;
     margin-top: 80px;
     background-color: #00b179;
-  
+
 }
-
-
