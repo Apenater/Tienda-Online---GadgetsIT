@@ -7,6 +7,15 @@
     padding-top: 60px; 
 }
 
+.gadgetit-card-header {
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .gadgetit-card {
 
     background: #EAEAEA;
@@ -19,16 +28,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.gadgetit-card-header {
-    color: grey;
-    font-size: 18px;
-    font-weight: bold;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px; 
 
-}
 
 .gadgetit-card-image {
     flex-basis: 20%;

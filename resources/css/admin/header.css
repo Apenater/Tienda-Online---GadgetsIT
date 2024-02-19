@@ -1,0 +1,35 @@
+/* Estilos generales del navbar */
+.navbar {
+    background-color: #ffffff; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 1.5rem; 
+    color: #333;
+    font-weight: bold; 
+}
+
+.navbar-toggler {
+
+}
+
+.navbar-nav {
+    font-size: 1rem; 
+}
+
+.nav-link {
+    color: #333;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link.active {
+    color: #000000; 
+    border-bottom: 3px solid #000000; 
+}
+
+@media (max-width: 992px) {
+    
+}
+
