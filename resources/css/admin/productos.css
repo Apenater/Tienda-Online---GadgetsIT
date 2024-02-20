@@ -33,8 +33,6 @@ span {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-
-
 .gadgetit-card-image {
     flex-basis: 20%;
 }
@@ -46,7 +44,7 @@ span {
 }
 
 .gadgetit-card-content {
-    flex-basis: 50%;
+    flex-basis: 25%;
 }
 
 .gadgetit-card-title {
@@ -67,6 +65,7 @@ span {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
+
 }
 
 .gadgetit-btn {
@@ -151,6 +150,7 @@ span {
     .gadgetit-card-actions {
         flex-direction: row;
         justify-content: space-around;
+        ;
     }
 
     .gadgetit-btn {
