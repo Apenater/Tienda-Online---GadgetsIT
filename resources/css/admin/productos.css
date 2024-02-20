@@ -10,6 +10,7 @@ span {
     margin: 0;
     padding: 20px;
     padding-top: 10px;
+    
 
 }
 
@@ -170,6 +171,13 @@ span {
         color: #333;
         font-size: 14px;
         font-weight: normal;
+    }
+
+    .gadgetit-btn-agragar {
+        
+        margin-top: 150px;
+  
+    
     }
 }
 
