@@ -10,7 +10,6 @@ span {
     margin: 0;
     padding: 20px;
     padding-top: 10px;
-    
 
 }
 
@@ -33,6 +32,8 @@ span {
     padding-bottom: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+
 
 .gadgetit-card-image {
     flex-basis: 20%;
@@ -66,7 +67,6 @@ span {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-
 }
 
 .gadgetit-btn {
@@ -103,7 +103,7 @@ span {
 }
 
 .gadgetit-btn-agragar:hover {
-    background-color: #009465;
+    background-color: #00a571;
 
 }
 
@@ -122,7 +122,7 @@ span {
 }
 
 .gadgetit-btn-verde:hover {
-    background-color: #00c788;
+    background-color: #00ac75;
 }
 
 .gadgetit-btn-rojo:hover {
@@ -151,7 +151,6 @@ span {
     .gadgetit-card-actions {
         flex-direction: row;
         justify-content: space-around;
-        ;
     }
 
     .gadgetit-btn {
@@ -174,10 +173,7 @@ span {
     }
 
     .gadgetit-btn-agragar {
-        
         margin-top: 150px;
-  
-    
     }
 }
 
