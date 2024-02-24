@@ -136,7 +136,7 @@ margin-top: 50px;
     }
 
     .gadgetit-card-image,
-    .gadgetit-card-content,
+    .gadgetit-card-content
     .gadgetit-card-actions {
         text-align: center;
         flex-basis: auto;
@@ -151,6 +151,7 @@ margin-top: 50px;
     .gadgetit-card-actions {
         flex-direction: row;
         justify-content: space-around;
+        
     }
 
     .gadgetit-btn {

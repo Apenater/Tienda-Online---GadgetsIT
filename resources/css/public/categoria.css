@@ -1,0 +1,7 @@
+.buttons .button:first-child {
+    background-color: #8c67ef;
+  }
+  
+  .buttons .button:last-child {
+    background-color: #3273dc; 
+  }
