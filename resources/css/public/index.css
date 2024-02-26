@@ -18,7 +18,7 @@ main {
     background-size: cover;
 }
 
-.navegacion a {
+.navegacion a, button{
     text-decoration: none;
     font-size: 1rem;
     color: black;
@@ -74,4 +74,3 @@ main {
     font-weight: bold;
 
 }
-

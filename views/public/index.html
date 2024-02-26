@@ -28,23 +28,30 @@
 <body>
     <header class="header fixed-top">
         <div class="contenedor contenido-header">
-            <div class="barra">
-                <div class="logo">
-                    <a href="/">GADGETSIT</a>
-                </div>
-
-                <nav class="navegacion">
-                    <a href="#">Home</a>
-                    <a href="#">Marcas</a>
-                    <a href="#">Acerca de Nosotros</a>
-                    <a href="#">Iniciar Sesión</a>
-                    <a href="#">Pedidos</a>
-                    <a href="#"><img src="../../resources/img/carrito.svg" alt=""></a>
-                </nav>
+          <div class="barra">
+            <div class="logo">
+              <a href="/">GADGETSIT</a>
             </div>
-
+      
+            <nav class="navegacion">
+              <a href="#">Home</a>
+              <div class="dropdown">
+                <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                  Categorias
+                </a>
+                <ul class="dropdown-menu bg-light text-dark border-light" aria-labelledby="dropdownMenuButton">
+                  <li><a class="dropdown-item" href="#">Productos</a></li>
+                  <li><a class="dropdown-item" href="#">Marcas</a></li>
+                </ul>
+              </div>
+              <a href="#">Acerca de Nosotros</a>
+              <a href="#">Iniciar Sesión</a>
+              <a href="#">Pedidos</a>
+              <a href="#"><img src="../../resources/img/carrito.svg" alt=""></a>
+            </nav>
+          </div>
         </div>
-    </header>
+      </header>
 
     <main class="contenedor">
           
