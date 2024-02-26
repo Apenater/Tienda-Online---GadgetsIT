@@ -1,11 +1,16 @@
+main {
+    padding-top: 10rem;
+}
+
 .contenedor {
     width: 95%;
     max-width: 120rem;
     margin: 0 auto;
 }
 
-.header {
+.header {   
     padding: 1rem 0 3rem;
+    background-color: #FAFAFA;
 }
 
 .header.inicio {
@@ -61,3 +66,12 @@
         margin-right: 0
     }
 }
+
+.logo a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #463E55;
+    font-weight: bold;
+
+}
+
