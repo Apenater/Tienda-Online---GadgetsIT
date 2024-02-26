@@ -80,3 +80,8 @@ main {
     margin-bottom: 0;
     background-color: #000000;
 }
+
+.buscador {
+    max-width: 30rem;
+    margin: 0 auto;
+}
