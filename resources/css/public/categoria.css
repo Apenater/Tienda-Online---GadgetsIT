@@ -1,1 +1,54 @@
+.card {
+    width: 600px; /* Ancho más grande para la tarjeta */
+    background: #000;
+    border-radius: 10px;
+    overflow: hidden;
 
+    position: relative;
+    font-size: 1rem;
+  }
+
+  .card img {
+    width: 70%; /* Imagen menos ancha */
+    opacity: 0.7;
+    display: block;
+    margin: 0 auto; /* Centra la imagen */
+  }
+
+  .card-content {
+    position: absolute;
+    top: 30%; /* Posición vertical ajustada */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+    width: 100%; /* Asegura que el contenido no se desborde */
+  }
+
+  .card-title {
+    font-size: 2em; /* Título más grande */
+    font-weight: bold;
+    margin: 0.25em 0;
+  }
+
+  .card-subtitle {
+    font-size: 1.2em; /* Subtítulo más grande */
+    margin: 0.5em 0;
+  }
+
+  .card-btn {
+    display: inline-block;
+    padding: 0.5em 1em;
+    background-color: #1a73e8; /* Color del botón */
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 20px;
+  }
+
+  .card-btn:hover {
+    background-color: #1558b3;
+  }
+
+  

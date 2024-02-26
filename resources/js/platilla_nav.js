@@ -1,64 +1,52 @@
 const HEADER = document.querySelector('header');
 
 HEADER.innerHTML = `
-<nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-brand">
-        <a class="navbar-item" href="../../views/public/categorias.html">
-            <img src="../../resources/img/gadgetsit.svg" width="112" height="28">
-        </a>
-
-        <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false"
-            data-target="navbarBasicExample">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-        </a>
-    </div>
-
-    <div id="navbarBasicExample" class="navbar-menu">
-        <div class="navbar-end">
-            <a class="navbar-item">
-                Home
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" href="../../views/public/categorias.html">
+                <img src="../../resources/img/gadgetsit.svg" width="112" height="28">
             </a>
 
-            <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link ">
-                    Categorias
+            <a role="button" class="navbar-burger " aria-label="menu" aria-expanded="false"
+                data-target="navbarBasicExample">
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
+            </a>
+        </div>
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-end">
+                <a class="navbar-item">
+                    Home
                 </a>
-
-                <div class="navbar-dropdown">
-                    <a class="navbar-item">
-                        Marcas
+                <div class="navbar-item has-dropdown is-hoverable">
+                    <a class="navbar-link ">
+                        Categorias
                     </a>
+                    <div class="navbar-dropdown">
+                        <a class="navbar-item">
+                            Marcas
+                        </a>
+                    </div>
                 </div>
-            </div>
-
-            <a class="navbar-item">
-                Pedidos
-            </a>
-
-            <a class="navbar-item">
-            Carrito
-            <img src="../../resources/img/carrito.svg" alt="Actualizar" class="gadgetit-btn-icon">
-            </a>
-            
-
-            <div class="navbar-item">
-
-
-                <div class="buttons">
-                    <a class="button is-link">
-                        <strong>Sign up</strong>
-                    </a>
-                   
+                <a class="navbar-item">
+                    Pedidos
+                </a>
+                <a class="navbar-item">
+                    Carrito
+                    <img src="../../resources/img/carrito.svg" alt="Actualizar" class="gadgetit-btn-icon">
+                </a>
+                <div class="navbar-item">
+                    <div class="buttons">
+                        <a class="button is-link">
+                            <strong>Sign up</strong>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</nav>
-
-
-`;
+    </nav>`;
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
         $navbarBurgers.forEach(el => {
             el.addEventListener('click', () => {
 
-                // Get the target from the "data-target" attribute 
+                // Get the target from the "data-target" attribute
                 const target = el.dataset.target;
                 const $target = document.getElementById(target);
 
