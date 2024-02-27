@@ -122,4 +122,13 @@ button {
   .boton.agregar-carrito .texto {
     margin: 0 auto;
   }
-  
+
+.lista li {
+    margin-top: 5px;
+    font-weight: 500;
+    color: #838383;
+}
+
+.Opiniones {
+    margin-top: 8rem;
+}
