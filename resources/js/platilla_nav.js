@@ -48,7 +48,6 @@ HEADER.innerHTML = `
         </div>
     </nav>`;
 
-
 document.addEventListener('DOMContentLoaded', () => {
 
     // Get all "navbar-burger" elements
