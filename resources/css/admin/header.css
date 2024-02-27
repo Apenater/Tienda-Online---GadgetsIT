@@ -12,7 +12,11 @@
 }
 
 .navbar-toggler {
+    height: 55px;
+}
 
+.navbar-toggler-icon{
+    margin: 0;
 }
 
 .navbar-nav {
