@@ -1,54 +1,66 @@
-.card {
-    width: 600px; /* Ancho más grande para la tarjeta */
-    background: #000;
-    border-radius: 10px;
-    overflow: hidden;
+.contenedoor-tarjetas {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap-reverse; 
+}
 
-    position: relative;
-    font-size: 1rem;
+.cardd {
+  margin: 20px;
+  width: 600px; 
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url('../../img/fondo.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  font-size: 20px; 
+  float: left;
+}
+
+.cardd-content {
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.cardd img {
+  width: 50%; /* Este porcentaje permite que la imagen se ajuste automáticamente */
+  display: block;
+  margin: -60px auto 0;
+  position: relative;
+  z-index: 1;
+  top: -10px;
+}
+
+.cardd-title {
+  font-size: 35px; /* Este valor se ajustará para pantallas más pequeñas */
+  font-weight: bold;
+  margin-bottom: 0.25em;
+}
+
+.cardd-subtitle {
+  font-size: 20px; /* Este valor se ajustará para pantallas más pequeñas */
+  margin-bottom: 2em;
+}
+
+/* Media queries para hacer la tarjeta responsiva */
+@media (max-width: 768px) {
+  .cardd {
+    width: 90%; /* Hace que la tarjeta ocupe el 90% del ancho de la pantalla en dispositivos más pequeños */
+    font-size: 18px; /* Ajusta ligeramente el tamaño de la fuente para pantallas más pequeñas */
   }
 
-  .card img {
-    width: 70%; /* Imagen menos ancha */
-    opacity: 0.7;
-    display: block;
-    margin: 0 auto; /* Centra la imagen */
+  .cardd-title {
+    font-size: 30px; /* Reduce el tamaño de la fuente del título para pantallas más pequeñas */
   }
 
-  .card-content {
-    position: absolute;
-    top: 30%; /* Posición vertical ajustada */
-    left: 50%;
-    transform: translate(-50%, -50%);
-    color: #fff;
-    text-align: center;
-    width: 100%; /* Asegura que el contenido no se desborde */
+  .cardd-subtitle {
+    font-size: 18px; /* Reduce el tamaño de la fuente del subtítulo para pantallas más pequeñas */
   }
 
-  .card-title {
-    font-size: 2em; /* Título más grande */
-    font-weight: bold;
-    margin: 0.25em 0;
+  .cardd img {
+    margin-top: -50px; /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
   }
-
-  .card-subtitle {
-    font-size: 1.2em; /* Subtítulo más grande */
-    margin: 0.5em 0;
-  }
-
-  .card-btn {
-    display: inline-block;
-    padding: 0.5em 1em;
-    background-color: #1a73e8; /* Color del botón */
-    color: #fff;
-    text-transform: uppercase;
-    text-decoration: none;
-    font-size: 1em;
-    border-radius: 20px;
-  }
-
-  .card-btn:hover {
-    background-color: #1558b3;
-  }
-
-  
+}
