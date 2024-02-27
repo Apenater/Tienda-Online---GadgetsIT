@@ -48,7 +48,7 @@ button {
     }
 }
 
-/*Media Querys para el menu*/
+/*Media Querys para la barra de navegacion*/
 @media (min-width:768px) {
     .navegacion {
         display: flex;
@@ -81,11 +81,6 @@ button {
     max-width: 30rem;
     margin: 0 auto;
     padding-bottom: 3rem;
-}
-
-.card {
-    border-style: none;
-    border-color: #FFFF;
 }
 
 .card-body {
@@ -123,4 +118,8 @@ button {
 
 .descripcion-precio {
     flex-grow: 1;
+}
+
+.card img {
+    height: 10rem;
 }
