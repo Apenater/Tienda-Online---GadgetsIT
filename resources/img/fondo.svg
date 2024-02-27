@@ -2,11 +2,19 @@
 <g clip-path="url(#clip0_5_1100)">
 <rect width="685" height="513" rx="20" fill="black"/>
 <g filter="url(#filter0_f_5_1100)">
-<path d="M475 272C475 353.186 412.544 419 335.5 419C258.456 419 196 353.186 196 272C196 190.814 258.456 125 335.5 125C412.544 125 475 190.814 475 272Z" fill="#D9D9D9" fill-opacity="0.9"/>
+<path d="M385 270C385 312.526 351.421 347 310 347C268.579 347 235 312.526 235 270C235 227.474 268.579 193 310 193C351.421 193 385 227.474 385 270Z" fill="white" fill-opacity="0.9"/>
+</g>
+<g filter="url(#filter1_f_5_1100)">
+<path d="M594 250C594 261.598 481.176 271 342 271C202.824 271 90 261.598 90 250C90 238.402 202.824 229 342 229C481.176 229 594 238.402 594 250Z" fill="white" fill-opacity="0.9"/>
 </g>
 </g>
 <defs>
-<filter id="filter0_f_5_1100" x="-104" y="-175" width="879" height="894" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter0_f_5_1100" x="-65" y="-107" width="750" height="754" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_5_1100"/>
+</filter>
+<filter id="filter1_f_5_1100" x="-210" y="-71" width="1104" height="642" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_5_1100"/>

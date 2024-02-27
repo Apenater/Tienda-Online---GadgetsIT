@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    p{
+        color: aliceblue;
+    }
+    .uno {
+        background-color: black;
+        width: 100%;
+        height: auto;
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .uno .dos-track {
+        display: flex;
+        animation: scroll 40s linear infinite;
+        -webkit-animation: scroll 40s linear infinite;
+        width: calc(200px * 14);
+    }
+
+    .uno .tres {
+        width: 200px;
+        display: flex;
+        align-items: center;
+        /* Centra el contenido verticalmente */
+        justify-content: center;
+        /* Centra el contenido horizontalmente */
+        text-align: center;
+        /* Asegura que el texto esté centrado si ocupa varias líneas */
+    }
+    @keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); /* Asume que duplicaste el contenido, moviendo solo la mitad para que parezca infinito */
+    }
+}
+
+</style>
+
+<body>
+    <div class="uno">
+        <div class="dos-track">
+            <div class="tres">
+                <p>Texto 1</p>
+            </div>
+            <div class="tres">
+                <p>Texto 2</p>
+            </div>
+            <div class="tres">
+                <p>Texto 3</p>
+            </div>
+            <div class="tres">
+                <p>Texto 4</p>
+            </div>
+            <div class="tres">
+                <p>Texto 5</p>
+            </div>
+            <div class="tres">
+                <p>Texto 6</p>
+            </div>
+        </div>
+        
+    </div>
+
+
+</body>
+
+</html>
