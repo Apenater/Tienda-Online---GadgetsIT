@@ -1,23 +1,31 @@
-.contenedoor-tarjetas {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap-reverse; 
+body {
+  background-color: #080808;
 }
 
-.cardd {
+.contenedoor-tarjetas {
+  margin-top: 50px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  /* Cambiado de wrap-reverse a wrap */
+}
+
+.negro {
+  height: 450px;
   margin: 20px;
-  width: 600px; 
+  width: 600px;
   border-radius: 20px;
   overflow: hidden;
   background-image: url('../../img/fondo.svg');
   background-size: cover;
   background-repeat: no-repeat;
   position: relative;
-  font-size: 20px; 
-  float: left;
+  font-size: 20px;
+
 }
 
-.cardd-content {
+
+.negro-content {
   color: #ffffff;
   text-align: center;
   padding: 20px;
@@ -25,42 +33,149 @@
   z-index: 2;
 }
 
-.cardd img {
-  width: 50%; /* Este porcentaje permite que la imagen se ajuste automáticamente */
+.negro img {
+  width: 50%;
   display: block;
   margin: -60px auto 0;
   position: relative;
   z-index: 1;
-  top: -10px;
+  top: 22px;
 }
 
-.cardd-title {
-  font-size: 35px; /* Este valor se ajustará para pantallas más pequeñas */
+.negro-title {
+  font-size: 35px;
+  /* Este valor se ajustará para pantallas más pequeñas */
   font-weight: bold;
   margin-bottom: 0.25em;
 }
 
-.cardd-subtitle {
-  font-size: 20px; /* Este valor se ajustará para pantallas más pequeñas */
+.negro-subtitle {
+  font-size: 20px;
   margin-bottom: 2em;
+  position: relative;
+  display: inline-block;
+  text-decoration: underline;
+  /* Aplica un subrayado */
+  text-decoration-color: #ffffff;
+  text-decoration-style: solid;
 }
 
-/* Media queries para hacer la tarjeta responsiva */
+
+
+
+
+
+@media (max-width: 1500px) {
+
+  .contenedoor-tarjetas {
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en la pantalla pequeña */
+    width: 100%;
+    /* Asegura que el contenedor use todo el ancho disponible */
+  }
+}
+
+
+
+@media (max-width: 910px) {
+
+  .contenedoor-tarjetas {
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en la pantalla pequeña */
+    width: 100%;
+    /* Asegura que el contenedor use todo el ancho disponible */
+  }
+}
+
+
 @media (max-width: 768px) {
-  .cardd {
-    width: 90%; /* Hace que la tarjeta ocupe el 90% del ancho de la pantalla en dispositivos más pequeños */
-    font-size: 18px; /* Ajusta ligeramente el tamaño de la fuente para pantallas más pequeñas */
+
+  .contenedoor-tarjetas {
+    display: flex;
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    flex-wrap: wrap;
+    /* Permite que los elementos se envuelvan en la pantalla pequeña */
+    width: 100%;
+    /* Asegura que el contenedor use todo el ancho disponible */
   }
 
-  .cardd-title {
-    font-size: 30px; /* Reduce el tamaño de la fuente del título para pantallas más pequeñas */
+
+  .negro {
+    width: 90%;
+    /* Hace que la tarjeta ocupe el 90% del ancho de la pantalla en dispositivos más pequeños */
+    font-size: 18px;
+    /* Ajusta ligeramente el tamaño de la fuente para pantallas más pequeñas */
   }
 
-  .cardd-subtitle {
-    font-size: 18px; /* Reduce el tamaño de la fuente del subtítulo para pantallas más pequeñas */
+  .negro-title {
+    font-size: 30px;
+    /* Reduce el tamaño de la fuente del título para pantallas más pequeñas */
   }
 
-  .cardd img {
-    margin-top: -50px; /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
+  .negro-subtitle {
+    font-size: 18px;
+    /* Reduce el tamaño de la fuente del subtítulo para pantallas más pequeñas */
   }
+
+  .negro img {
+    margin-top: -50px;
+    /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
+  }
+}
+
+/**********************************************************************************************************  
+**********************************************************************************************************
+************************************* S E G U N D A     T A R J E T A ****************************************************
+***********************************************************************************************************
+************************************************************************************************************/
+
+
+
+p {
+  color: aliceblue;
+}
+.uno {
+  background-color: black;
+  width: 100%;
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  position: absolute; /* Ajuste para sobreponerse */
+  top: 0; /* Altura aproximada del navbar */
+  z-index: 0; /* Asegurar que el slider esté debajo del contenido del navbar */
+}
+
+.dos-track {
+  display: flex;
+  animation: scroll 40s linear infinite;
+  width: calc(200px * 14);
+}
+
+.tres {
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+@keyframes scroll {
+  from {
+      transform: translateX(0);
+  }
+  to {
+      transform: translateX(-50%);
+  }
+}
+
+/* Asegurando que el navbar se muestre por encima de todo */
+.navbar {
+  z-index: 1;
 }
