@@ -48,6 +48,7 @@ button {
     }
 }
 
+/*Media Querys para el menu*/
 @media (min-width:768px) {
     .navegacion {
         display: flex;
@@ -74,12 +75,6 @@ button {
     color: #463E55;
     font-weight: bold;
 
-}
-
-.footer {
-    padding: 2.5rem 0;
-    margin-bottom: 0;
-    background-color: #000000;
 }
 
 .buscador {
