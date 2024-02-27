@@ -1,10 +1,3 @@
-
-html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
-
 .pie-pagina {
     position: absolute; /* Cambia a 'fixed' si quieres que el footer sea siempre visible */
     left: 0;
@@ -31,39 +24,8 @@ html, body {
 }
 
 .pie-pagina .grupo-1 .box figure {
-    width: 80px;
+    width: auto;
     
-}
-
-.pie-pagina .grupo-1 .box h2,
-.pie-pagina .grupo-1 .box p {
-    color: #fff;
-    text-align: center;
-    font-size: 22px;
-    font-family: 'Montserrat', sans-serif;
-}
-
-.pie-pagina .grupo-1 .red-social {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.pie-pagina .grupo-1 .red-social a {
-    display: inline-block;
-    text-decoration: none;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
-    color: #fff;
-    margin: 0 10px;
-    text-align: center;
-    transition: all 300ms ease;
-}
-
-.pie-pagina .grupo-1 .red-social a:hover {
-    color: #e77f3ab9;
 }
 
 .pie-pagina .grupo-2 {
@@ -75,12 +37,6 @@ html, body {
 
 }
 
-.pie-pagina .grupo-2 small {
-    font-size: 15px;
-    font-family: 'Montserrat', sans-serif;
-    letter-spacing: 1px;
-}
-
 @media screen and (max-width: 800px) {
     .pie-pagina .grupo-1 {
         width: 90%;
@@ -89,8 +45,6 @@ html, body {
         padding: 15px 0px;
     }
 }
-
-
 
 @keyframes transitionIn {
     from {
