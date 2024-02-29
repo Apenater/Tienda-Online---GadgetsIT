@@ -2,10 +2,6 @@ const HEADER = document.querySelector('header');
 
 HEADER.innerHTML = `
 
-
- 
-
-
 <div class="uno ">
         <div class="dos-track">
             <div class="tres"><p>50% en cel</p></div>
