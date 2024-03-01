@@ -1,63 +1,39 @@
-.pie-pagina {
+/* Estilos generales del navbar */
+.navbar {
+    background-color: #ffffff; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #ffffff;
+}
+
+.navbar-brand {
+    font-size: 1.5rem; 
+    color: #ffffff;
+    font-weight: bold; 
+}
+
+.navbar-toggler {
+    height: 45px;
+}
+
+.navbar-toggler-icon{
+    margin: 0;
+}
+
+.navbar-nav {
+    font-size: 1rem; 
+}
+
+.nav-link {
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link.active {
+    color: #ffffff; 
+    border-bottom: 3px solid #ffffff; 
+}
+
+@media (max-width: 992px) {
     
-    position: absolute; /* Cambia a 'fixed' si quieres que el footer sea siempre visible */
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-color: #000000;
-   position: relative;
 }
 
-.pie-pagina .grupo-1 {
-    width: 100%;
-    max-width: 1200px;
-    margin: auto;
-    display: flex;
-    justify-content: center; 
-    padding: 15px 0; 
-}
-
-.pie-pagina .grupo-1 .box {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.pie-pagina .grupo-1 .box figure {
-    width: auto;
-    
-}
-
-.pie-pagina .grupo-2 {
-    background-color: #0a1a2a;
-    padding: 10px 10px;
-    text-align: center;
-    color: #fff;
-
-}
-
-@media screen and (max-width: 800px) {
-    .pie-pagina .grupo-1 {
-        width: 90%;
-        grid-template-columns: repeat(1, 1fr);
-        grid-gap: 30px;
-        padding: 15px 0px;
-    }
-}
-
-@keyframes transitionIn {
-    from {
-        opacity: 0;
-        transform: translateY(-10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-out {
-    opacity: 0 !important;
-}

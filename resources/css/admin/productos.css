@@ -14,6 +14,7 @@ span {
 
 .text-products {
     margin: 20px 0px;
+    color: black;
 }
 
 .gadgetit-card-header {
@@ -25,7 +26,7 @@ span {
     justify-content: space-between;
     align-items: center;
     margin: 0 1.5%;
-    padding-top: 70px;
+    padding-top: 10px;
 }
 
 .gadgetit-card {
@@ -158,51 +159,62 @@ span {
 /* Media Queries */
 
 /* Pequeños dispositivos (teléfonos, 600px y abajo) */
-
-@media (max-width: 767px) {
+@media only screen and (max-width: 600px) {
     .gadgetit-card {
         flex-direction: column;
-        padding: 10px;
-    }
-
-    .gadgetit-card-image,
-    .gadgetit-card-content,
-    .gadgetit-card-actions {
-        text-align: center;
-        flex-basis: auto;
-        width: 50%;
-        margin-bottom: 10px;
     }
 
     .gadgetit-card-image img {
-        width: 40%;
+        width: auto;
+        margin: 0 auto; /* Centrar imagen */
     }
 
-    .gadgetit-card-actions {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-
-    .gadgetit-btn {
-        padding: 10px 20px;
-        font-size: 15px;
+    .gadgetit-btn,
+    .gadgetit-btn-rojo,
+    .gadgetit-btn-agregar,
+    .gadgetit-btn-icon,
+    .gadgetit-btn-iconn,
+    .btn-primary {
+        padding: 0 20px; /* Ajustar padding para botones */
+        height: 40px; /* Reducir altura para botones */
+        font-size: 14px; /* Ajustar tamaño de fuente para texto de botón */
     }
 
     .gadgetit-card-title {
-        color: #414141;
-        font-size: 28px;
-        font-weight: bold;
-        margin-top: -5px;
+        font-size: 20px; /* Ajustar tamaño de fuente para título */
     }
 
-    .gadgetit-action-title {
-        margin-bottom: 5px;
-        color: #333;
-        font-size: 14px;
-        font-weight: normal;
+    .gadgetit-card-description {
+        font-size: 14px; /* Ajustar tamaño de fuente para descripción */
     }
 }
 
+/* Medianos dispositivos (tabletas, 768px y abajo) */
+@media only screen and (max-width: 768px) {
+    .gadgetit-card {
+        flex-direction: column;
+    }
+
+    .gadgetit-card-image img {
+        width: 50%; /* Ajustar ancho de imagen */
+        margin: 0 auto; /* Centrar imagen */
+    }
+
+    .gadgetit-card-content {
+        margin-top: 20px; /* Añadir margen superior para el contenido */
+    }
+}
+
+/* Grandes dispositivos (laptops/desktops, 992px y arriba) */
+@media only screen and (min-width: 992px) {
+    .gadgetit-card {
+        flex-direction: row; /* Mantener disposición horizontal */
+    }
+
+    .gadgetit-card-image img {
+        width: 100px; /* Restaurar tamaño original de la imagen */
+    }
+}
 
 
 
