@@ -7,12 +7,12 @@
 
 .navbar-brand {
     font-size: 1.5rem; 
-    color: #333;
+    color: #ffffff;
     font-weight: bold; 
 }
 
 .navbar-toggler {
-    height: 55px;
+    height: 45px;
 }
 
 .navbar-toggler-icon{
@@ -24,16 +24,15 @@
 }
 
 .nav-link {
-    color: #333;
+    color: #ffffff;
     padding: 0.5rem 1rem;
 }
 
 .nav-link.active {
-    color: #000000; 
-    border-bottom: 3px solid #000000; 
+    color: #ffffff; 
+    border-bottom: 3px solid #ffffff; 
 }
 
 @media (max-width: 992px) {
     
 }
-

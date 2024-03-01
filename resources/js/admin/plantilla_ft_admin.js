@@ -1,7 +1,7 @@
 const FOOTER = document.querySelector('footer');
 
 FOOTER.innerHTML = `
-<div class="pie-pagina">
+<div class="pie-pagina fixed-bottom">
 <div class="grupo-1">
     <div class="box">
         <figure>

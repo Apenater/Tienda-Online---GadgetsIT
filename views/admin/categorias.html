@@ -21,57 +21,100 @@
 
     <header> </header>
 
-
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card-header">
-            <span>Categoria</span>
-            <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
-            </button>
-        </div>
-
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nueva Categoría</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-6 d-flex align-items-center justify-content-center">
+                            <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
+                                style="display: none; height: 26rem;">
+                            <i id="addImageIcon" class="fa fa-upload fa-5x"
+                                style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
+                            <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
+                        </div>
+                        <div class="col-md-6 align-items-center justify-content-center">
+                            <form>
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="category-name" placeholder="Nombre">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="category-description"
+                                        placeholder="Descripción"></textarea>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    <div class="modal-body">
-                        <form>
-                            <div class="mb-3">
-                                <label for="category-name" class="col-form-label">Nombre de la categoría:</label>
-                                <input type="text" class="form-control" id="category-name">
-                            </div>
-                            <div class="mb-3">
-                                <label for="category-description" class="col-form-label">Descripción de la
-                                    categoría:</label>
-                                <textarea class="form-control" id="category-description"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="inputGroupFile01" class="form-label">Selecciona una imagen para la
-                                    categoría:</label>
-                                <input type="file" class="form-control" id="inputGroupFile01">
-                            </div>
-                        </form>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success ">Agregar</button>
-                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-success">Agregar</button>
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="gadgetit-card-header">
+        <span class="text-products">Categorias</span>
+        <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
+        </button>
+    </div>
 
+    <div class="gadgetit-container">
+        <div class="gadgetit-card">
+            <div class="gadgetit-card-image">
+                <img src="../../resources/img/iphone 12.svg" alt="Speakers">
+            </div>
+            <div class="gadgetit-card-content">
+                <div class="gadgetit-card-title">Telefonos</div>
+                <div class="gadgetit-card-description">Los ultimos del mercado!!!</div>
+            </div>
+            <div class="gadgetit-card-actions">
+                <button class="gadgetit-btn gadgetit-btn-verde">
+                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
+                    Actualizar
+                </button>
+                <button class="gadgetit-btn gadgetit-btn-rojo">
+                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="gadgetit-container">
+        <div class="gadgetit-card">
+            <div class="gadgetit-card-image">
+                <img src="../../resources/img/speaker.svg" alt="Speakers">
+            </div>
+            <div class="gadgetit-card-content">
+                <div class="gadgetit-card-title">Speakers</div>
+                <div class="gadgetit-card-description">Los mejores speakers para tus fiestas</div>
+            </div>
+            <div class="gadgetit-card-actions">
+                <button class="gadgetit-btn gadgetit-btn-verde">
+                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
+                    Actualizar
+                </button>
+                <button class="gadgetit-btn gadgetit-btn-rojo">
+                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
                 <img src="../../resources/img/ps.svg" alt="Speakers">
             </div>
             <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
+                <div class="gadgetit-card-title">Consolas </div>
+                <div class="gadgetit-card-description">La diversion en tu casa</div>
             </div>
             <div class="gadgetit-card-actions">
                 <button class="gadgetit-btn gadgetit-btn-verde">
@@ -88,53 +131,11 @@
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/a.svg" alt="Speakers">
+                <img src="../../resources/img/airpods-Pro-2.svg" alt="Speakers">
             </div>
             <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/ps.svg" alt="Speakers">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/ipo.svg" alt="Speakers">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
+                <div class="gadgetit-card-title">Audifonos</div>
+                <div class="gadgetit-card-description">Lo ultimo en audio </div>
             </div>
             <div class="gadgetit-card-actions">
                 <button class="gadgetit-btn gadgetit-btn-verde">
@@ -151,25 +152,15 @@
 
     <footer> </footer>
 
+    <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
 
+    <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
 
-
-
-
-
-
-
-
-
-    <script src="../../resources/js/plantilla_nav_admin.js"></script>
-
-    <script src="../../resources/js/plantilla_ft_admin.js"></script>
+    <script src="../../resources/js/admin/add_img.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
-
-
 
 </body>
 

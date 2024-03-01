@@ -1,5 +1,5 @@
 span {
-    color: #666;
+    color: #000000;
     font-size: 30px;
     margin-top: 50px;
 }
@@ -215,6 +215,4 @@ span {
         width: 100px; /* Restaurar tamaño original de la imagen */
     }
 }
-
-
 
