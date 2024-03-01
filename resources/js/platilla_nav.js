@@ -2,6 +2,9 @@ const HEADER = document.querySelector('header');
 
 HEADER.innerHTML = `
 
+
+<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
+
 <div class="uno ">
         <div class="dos-track">
             <div class="tres"><p>50% en cel</p></div>
@@ -18,9 +21,6 @@ HEADER.innerHTML = `
             <div class="tres"><p>Texto 6</p></div>
         </div>
 </div>
-<nav class="navbar is-fixed-top" role="navigation" aria-label="main navigation">
-
-
     <div class="navbar-brand">
 
         <a class="navbar-item" href="../../views/public/categorias.html">
@@ -38,7 +38,7 @@ HEADER.innerHTML = `
         <div class="navbar-end">
             <a class="navbar-item">Home</a>
             <div class="navbar-item has-dropdown is-hoverable">
-                <a class="navbar-link">Categorias</a>
+                <a class="navbar-link">Productos</a>
                 <div class="navbar-dropdown">
                     <a class="navbar-item">Marcas</a>
                 </div>

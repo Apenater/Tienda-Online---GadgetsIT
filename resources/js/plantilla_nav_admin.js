@@ -13,7 +13,7 @@ HEADER.innerHTML = `
                         href="../../views/admin/categorias.html">Categoria</a>
                 </li>
                 <li class="nav-item"> <a class="nav-link" href="../../views/admin/productos.html">Productos</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">Marcas</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="../../views/admin/marca.html">Marcas</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="../../views/admin/promociones.html">Promociones</a>
                 </li>
                 <li class="nav-item"> <a class="nav-link" href="#">Usuarios</a> </li>

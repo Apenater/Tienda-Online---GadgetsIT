@@ -7,7 +7,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  /* Cambiado de wrap-reverse a wrap */
+
 }
 
 .negro {
@@ -132,7 +132,7 @@ body {
 
 /**********************************************************************************************************  
 **********************************************************************************************************
-************************************* S E G U N D A     T A R J E T A ****************************************************
+*************************************                              ****************************************************
 ***********************************************************************************************************
 ************************************************************************************************************/
 
@@ -142,13 +142,13 @@ p {
   color: aliceblue;
 }
 .uno {
-  background-color: black;
+  background-color: #080808;
   width: 100%;
   height: auto;
   margin: 0;
   overflow: hidden;
   position: absolute; /* Ajuste para sobreponerse */
-  top: 0; /* Altura aproximada del navbar */
+  top: 55px; /* Altura aproximada del navbar */
   z-index: 0; /* Asegurar que el slider esté debajo del contenido del navbar */
 }
 
