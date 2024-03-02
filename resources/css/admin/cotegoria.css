@@ -46,9 +46,9 @@ span {
 }
 
 .gadgetit-card-image img {
-  width: 100px;
+  width: 100%;
   /* Ancho fijo para todas las imágenes */
-  height: 100px;
+  height: 150px;
   object-fit: cover;
   /* Asegura que la imagen cubra el espacio sin perder su proporción */
   border-radius: 10px;
