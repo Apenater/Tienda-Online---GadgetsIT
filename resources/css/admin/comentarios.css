@@ -26,7 +26,7 @@ span {
   justify-content: space-between;
   align-items: center;
   margin: 0 1.5%;
-  padding-top: 30px;
+  padding-top: 60px;
 }
 
 .gadgetit-card {
@@ -82,9 +82,7 @@ span {
   color: #414141;
   margin-top: 10px;
   margin: 0;
-  /* Cambiar el margen a 0 */
   padding: 0 20px;
-  /* Agregar un relleno de 0 en la parte superior e inferior y 20px en los lados */
 }
 
 .gadgetit-btn-rojo {
