@@ -1,5 +1,5 @@
 .pie-pagina {
-    
+    margin-top: 10px;
     position: absolute; /* Cambia a 'fixed' si quieres que el footer sea siempre visible */
     left: 0;
     bottom: 0;

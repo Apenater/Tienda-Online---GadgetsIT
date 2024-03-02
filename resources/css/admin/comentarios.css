@@ -9,12 +9,12 @@ span {
   background: #ffffff;
   margin: 0;
   padding: 20px 20px 10px 20px;
-  /* Consolidated padding shorthand */
 }
 
 .text-products {
   margin: 20px 0px;
   color: black;
+
 }
 
 .gadgetit-card-header {
@@ -26,7 +26,7 @@ span {
   justify-content: space-between;
   align-items: center;
   margin: 0 1.5%;
-  padding-top: 35px;
+  padding-top: 30px;
 }
 
 .gadgetit-card {
@@ -39,23 +39,6 @@ span {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.gadgetit-card-image img {
-  width: 100%;
-  /* Changed to 100% for responsiveness */
-  height: auto;
-  border-radius: 10px;
-}
-
-.gadgetit-card-image img {
-  width: 100px;
-  /* Ancho fijo para todas las imágenes */
-  height: 100px;
-  object-fit: cover;
-  /* Asegura que la imagen cubra el espacio sin perder su proporción */
-  border-radius: 10px;
-  /* Mantiene el borde redondeado si lo deseas */
-}
-
 
 .gadgetit-card-content,
 .gadgetit-card-actions {
@@ -65,22 +48,17 @@ span {
   text-align: center;
 }
 
-.gadgetit-card-title,
-.gadgetit-card-description {
-  color: #414141;
-  margin-top: 10px;
-}
-
 .gadgetit-card-title {
+  color: #414141;
+  margin-top: 0; /* Cambiar el margen superior a 0 */
   font-size: 28px;
   font-weight: bold;
+  
+  margin-bottom: 0; 
+  margin-left: -920px;
 }
 
-.gadgetit-card-description {
-  font-size: 16px;
-  color: #666;
-  /* Reused existing color variable */
-}
+
 
 .gadgetit-btn {
   display: flex;
@@ -94,32 +72,30 @@ span {
   font-size: 18px;
   cursor: pointer;
   margin: 10px 10px;
-  background-color: #02D693;
+
 }
 
-.gadgetit-btn:hover {
-  background-color: #00ac75;
+
+.gadgetit-card-description {
+  font-size: 16px;
+  text-align: left;
+  color: #414141;
+  margin-top: 10px;
+  margin: 0;
+  /* Cambiar el margen a 0 */
+  padding: 0 20px;
+  /* Agregar un relleno de 0 en la parte superior e inferior y 20px en los lados */
 }
 
 .gadgetit-btn-rojo {
-  background-color: #ff2e2e;
+  background-color: #da3e00;
 }
 
 .gadgetit-btn-rojo:hover {
-  background-color: #e10000;
+  background-color: #ff4800;
 }
 
-.gadgetit-btn-agregar {
-  height: 20px;
-  border-radius: 16px;
-  padding: 0 40px;
-  padding-top: 200px;
-  background-color: #00b179;
-}
 
-.gadgetit-btn-agregar:hover {
-  background-color: #009966;
-}
 
 .gadgetit-btn-icon,
 .gadgetit-btn-iconn {
@@ -141,9 +117,36 @@ span {
 @media only screen and (max-width: 800px) {
   .gadgetit-card {
     flex-direction: column;
+  }
+
+  .gadgetit-card-image img {
+    margin: 0 auto;
+  }
+
+  .gadgetit-card-content {
+    margin-top: 20px;
+    text-align: center;
+  }
+
+  .gadgetit-card-title {
+    text-align: center;
+    margin-left: 0;
+    /* Agregar esta línea */
+  }
+}
+
+
+@media only screen and (max-width: 800px) {
+  .gadgetit-card {
+    flex-direction: column;
     align-items: center;
     margin-bottom: 50px;
-    /* Mantener el margen inferior en pantallas pequeñas */
+  }
+
+  .text-products {
+    margin: 20px 0px;
+    color: black;
+
   }
 
   .gadgetit-card-image img {
@@ -158,6 +161,11 @@ span {
 @media only screen and (max-width: 400px) {
   .gadgetit-card-header {
     padding-top: 60px;
+  }
+
+  .text-products {
+    margin-top: 60px;
+
   }
 
   .gadgetit-container {

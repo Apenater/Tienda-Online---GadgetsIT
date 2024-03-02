@@ -6,7 +6,6 @@ body, html {
     overflow: hidden;
 }
 
-/* Estilos para el branding a la izquierda */
 .login-branding {
     position: absolute;
     left: 5%;
