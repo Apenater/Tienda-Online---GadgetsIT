@@ -3,7 +3,7 @@ const HEADER = document.querySelector('header');
 
 HEADER.innerHTML = `
 
-        <nav class="navbar navbar-expand-lg bg-black justify-content-end fixed-top" >
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark justify-content-end fixed-top" >
             <div class="container">
                 <a class="navbar-brand" href="#" style="color: white;">GADGETSIT</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
