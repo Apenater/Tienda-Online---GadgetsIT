@@ -12,13 +12,14 @@ HEADER.innerHTML = `
                 </button>
                 <div class="collapse navbar-collapse justify-content-end " id="navbarNavDropdown">
                     <ul class="navbar-nav pr-3">
+                    <li class="nav-item"> <a class="nav-link" href="../../views/admin/Estadisticas.html" style="color: white;">Estadisticas</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/productos.html" style="color: white;">Productos</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/categorias.html" style="color: white;">Categoria</a>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/marca.html" style="color: white;">Marcas</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/promociones.html" style="color: white;">Promociones</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/usuarios.html" style="color: white;">Usuarios</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/comentarios.html" style="color: white;">Comentarios</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="../../views/admin/Estadisticas.html" style="color: white;">Estadisticas</a> </li>
+                        
                     </ul>
                 </div>
             </div>
