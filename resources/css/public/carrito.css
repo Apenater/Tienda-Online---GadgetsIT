@@ -1,0 +1,80 @@
+main {
+    padding-top: 5rem;
+}
+
+.contenedor {
+    width: 95%;
+    max-width: 120rem;
+    margin: 0 auto;
+}
+
+.header {
+    padding: 1rem 0 3rem;
+    background-color: #FAFAFA;
+}
+
+.header.inicio {
+    background-position: 50%;
+    background-size: cover;
+}
+
+.navegacion a,
+button {
+    text-decoration: none;
+    font-size: 1rem;
+    color: black;
+    font-family: 'Raleway', sans-serif;
+    display: block;
+    text-align: center;
+}
+
+.contenido-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.barra {
+    display: flex;
+    flex-direction: column;
+    padding-top: 1rem;
+}
+
+/*Media Querys para la barra de navegacion*/
+@media (min-width:768px) {
+    .barra {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end
+    }
+}
+
+@media (min-width:768px) {
+    .navegacion {
+        display: flex;
+        align-items: center;
+        opacity: 1;
+        visibility: visible
+    }
+}
+
+@media (min-width:768px) {
+    .navegacion a {
+        margin-right: 2rem;
+        font-size: 1rem;
+    }
+
+    .navegacion a:last-of-type {
+        margin-right: 0
+    }
+}
+
+.logo a {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: #463E55;
+    font-weight: bold;
+
+}
+
+/*Fin de la navegacion*/
