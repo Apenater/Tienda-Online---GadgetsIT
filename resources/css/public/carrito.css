@@ -385,12 +385,12 @@ button {
   background-color: #ddd;
 }
 
-.boton.agregar-carrito {
+.boton.Finalizar-pedido {
   background-color: #000;
   color: #fff;
 }
 
-.boton.agregar-carrito .icono {
+.boton.Finalizar-pedido .icono {
   margin-left: 15px;
   width: 1rem;
   height: 1rem;
@@ -398,7 +398,7 @@ button {
   background-repeat: no-repeat;
 }
 
-.boton.agregar-carrito .texto {
+.boton.Finalizar-pedido .texto {
   margin: 0 auto;
 }
 
