@@ -79,7 +79,12 @@ button {
 
 .producto-descripcion {
     margin: 0 auto;
+    max-width: 90%;
+    /* Ajusta el ancho máximo para ser más flexible */
+    height: auto;
+    /* Hace que la altura se ajuste al contenido */
 }
+
 
 .card {
     background-color: #F0F0F0;
@@ -101,30 +106,30 @@ button {
     cursor: pointer;
     transition: all 0.2s ease-in-out;
     border-radius: 20px;
-  }
-  
-  .boton:hover {
+}
+
+.boton:hover {
     background-color: #ddd;
-  }
-  
-  .boton.agregar-carrito {
+}
+
+.boton.agregar-carrito {
     background-color: #000;
     color: #fff;
-  }
-  
-  .boton.agregar-carrito .icono {
+}
+
+.boton.agregar-carrito .icono {
     margin-left: 15px;
     width: 1rem;
     height: 1rem;
     background-size: contain;
     background-repeat: no-repeat;
-  }
-  
-  .boton.agregar-carrito .texto {
-    margin: 0 auto;
-  }
+}
 
-/*Parte de reseñas*/  
+.boton.agregar-carrito .texto {
+    margin: 0 auto;
+}
+
+/*Parte de reseñas*/
 .lista li {
     margin-top: 5px;
     font-weight: 500;
@@ -133,17 +138,83 @@ button {
 
 .Opiniones {
     margin-top: 5rem;
-    margin-left: 10rem; 
+    margin-left: 10rem;
     margin-right: 10rem;
 }
 
 .titulo-comentario {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: flex-start;
+    gap: 2rem;
 }
 
 .comentar {
-   margin-top: 4rem;
-   padding-bottom: 2rem;
+    margin-top: 4rem;
+    padding-bottom: 2rem;
+}
+
+/* Para pantallas pequeñas, ajusta el padding y la disposición de elementos */
+@media (max-width: 767px) {
+    .contenedor {
+        width: 90%;
+    }
+
+    .header,
+    .producto-descripcion,
+    .Opiniones {
+        padding: 1rem;
+    }
+
+    .contenido-header,
+    .barra,
+    .navegacion,
+    .producto-descripcion,
+    .card,
+    .Opiniones {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navegacion a,
+    .boton {
+        font-size: 0.9rem;
+        /* Reduce el tamaño del texto para mejor ajuste */
+        padding: 8px 28px;
+        /* Ajusta el padding para que sea más pequeño */
+    }
+
+    .Opiniones {
+        margin-left: 2rem;
+        margin-right: 2rem;
+    }
+
+    .articulo {
+        padding-top: 30rem;
+    }
+
+    .card {
+        margin-top: 15rem;
+    }
+}
+
+/* Para tablets y dispositivos medianos */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* Ajusta según necesidad, similar a los ajustes para pantallas pequeñas */
+}
+
+/* Ajuste global para botones, asegurando que sean más grandes en dispositivos moviles */
+@media (max-width: 767px) {
+
+    button,
+    .boton {
+        padding: 12px 38px;
+        font-size: 1rem;
+    }
+}
+
+.like-button {
+    border-style: none;
+    background-color: #FFF;
 }
