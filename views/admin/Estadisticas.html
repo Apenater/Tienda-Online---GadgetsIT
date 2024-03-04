@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estadisticas</title>
+
+    <link rel="stylesheet" href="../../resources/css/admin/footer.css">
+
+    <link rel="stylesheet" href="../../resources/css/admin/header.css">
+
+    <link rel="stylesheet" href="../../resources/css/admin/estadisticas.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+
+<body>
+    
+    <header> </header>
+
+    <div class="estadistics">
+        
+    <div class="container3 mt-5">
+        <div class="row text-white">
+            <div class="col-md-4 mb-4">
+                <div class="stat-card bg-primary p-4">
+                    <h4>Promedio Visitantes por Dia</h4>
+                    <p class="stat-number">500</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card bg-success p-4">
+                    <h4>Ventas Totales</h4>
+                    <p class="stat-number">$3567</p>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="stat-card bg-danger p-4">
+                    <h4>Promedio Ventas Diarias</h4>
+                    <p class="stat-number">$890</p>
+                </div>
+            </div>
+            <!-- Añade más módulos según necesites -->
+        </div>
+    </div>
+
+    <div class="container2 mt-5">
+        <div class="row">
+            <div class="col-12 mb-4">
+                <h4>Ventas Diarias</h4>
+                <canvas id="ventasDiarias"></canvas>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h4>Productos Más Vendidos</h4>
+                <canvas id="productosMasVendidos"></canvas>
+            </div>
+            <div class="col-md-6 mb-4">
+                <h4>Marcas Más Vendidas</h4>
+                <canvas id="marcasMasVendidas"></canvas>
+            </div>
+        </div>
+    </div>
+    </div>
+
+
+    <footer> </footer>
+
+    <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
+
+    <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../resources/js/admin/estadisticas.js"></script>
+
+
+</body>
+
+</html>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Categorias</title>
-    <link rel="stylesheet" href="../../resources/css/admin/cotegoria.css">
+    <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
 
@@ -20,82 +20,89 @@
 
     <header> </header>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6 d-flex align-items-center justify-content-center">
-                            <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                style="display: none; height: 26rem;">
-                            <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                            <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                        </div>
-                        <div class="col-md-6 align-items-center justify-content-center">
-                            <form>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" id="category-name" placeholder="Nombre">
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" id="category-description"
-                                        placeholder="Descripción"></textarea>
-                                </div>
-                            </form>
+    <div class="container mt-5">
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
+                                    style="display: none; height: 26rem;">
+                                <i id="addImageIcon" class="fa fa-upload fa-5x"
+                                    style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
+                                <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="col-md-6 align-items-center justify-content-center">
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="category-name" placeholder="Nombre">
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" id="category-description"
+                                            placeholder="Descripción"></textarea>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success">Agregar</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success">Agregar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-xl">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="row">
-                        <div class="col-md-6 d-flex align-items-center justify-content-center">
-                            <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                style="display: none; height: 26rem;">
-                            <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                            <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                        </div>
-                        <div class="col-md-6 align-items-center justify-content-center">
-                            <form>
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" id="category-name" placeholder="Nombre" value="Telefonos">
-                                </div>
-                                <div class="mb-3">
-                                    <textarea class="form-control" id="category-description"
-                                        placeholder="Descripción">Los ultimos del mercado!!!</textarea>
-                                </div>
-                            </form>
+    <div class="container mt-5">
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
+                                    style="display: none; height: 26rem;">
+                                <i id="addImageIcon" class="fa fa-upload fa-5x"
+                                    style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
+                                <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
+                            </div>
+                            <div class="col-md-6 align-items-center justify-content-center">
+                                <form>
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" id="category-name" placeholder="Nombre"
+                                            value="Telefonos">
+                                    </div>
+                                    <div class="mb-3">
+                                        <textarea class="form-control" id="category-description"
+                                            placeholder="Descripción">Los ultimos del mercado!!!</textarea>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-success">Agregar</button>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success">Actualziar</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+
 
     <div class="gadgetit-card-header">
         <span class="text-products">Categorias</span>
+        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
         <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
@@ -184,6 +191,22 @@
             </div>
         </div>
     </div>
+
+    <br>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 
 
     <footer> </footer>

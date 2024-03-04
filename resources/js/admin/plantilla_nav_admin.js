@@ -18,6 +18,7 @@ HEADER.innerHTML = `
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/promociones.html" style="color: white;">Promociones</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/usuarios.html" style="color: white;">Usuarios</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/comentarios.html" style="color: white;">Comentarios</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="../../views/admin/Estadisticas.html" style="color: white;">Estadisticas</a> </li>
                     </ul>
                 </div>
             </div>

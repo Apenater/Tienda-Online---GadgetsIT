@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Promociones</title>
-    <link rel="stylesheet" href="../../resources/css/admin/promociones.css">
+    <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -17,38 +17,28 @@
 
     <header> </header>
 
-
-    <div class="gadgetit-container">
-
-        <div class="gadgetit-card-header">
-            <span class="text-products">Promociones | activas</span>
-            <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
-            </button>
-        </div>
-        
+    <div class="container mt-5">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Descuento</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Crear Descuento</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <form>
                             <div class="mb-3">
-                                <label for="category-name" class="col-form-label">Nombre del descuento:</label>
-                                <input type="text" class="form-control" id="category-name">
+                                <input type="text" class="form-control" id="Discount-name"
+                                    placeholder="Nombre del Descuento">
                             </div>
                             <div class="mb-3">
-                                <label for="category-description" class="col-form-label">Descuento descripción:
-                                </label>
-                                <textarea class="form-control" id="category-description"></textarea>
+                                <textarea class="form-control" id="Discount-description"
+                                    placeholder="Descripción del Descuento"></textarea>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="number" class="form-control" placeholder="Descuento %">
+                                <input type="number" class="form-control" id="Discount"
+                                    placeholder="Pocentaje del Descuento%">
                             </div>
-                            <textarea class="form-control" id="category-description"></textarea>
                             <select class="form-select form-select-sm" aria-label="Small select example">
                                 <option selected>Elejir producto:</option>
                                 <option value="1">One</option>
@@ -64,18 +54,70 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="container mt-5">
+        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Actualizar Descuento</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="Discount-name"
+                                    placeholder="Nombre del Descuento" value="Dia de las Madres">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" id="Discount-description"
+                                    placeholder="Descripción del Descuento" aria-valuetext="#0% de Descuento para consentir a tu Mamita"></textarea>
+                            </div>
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" id="Discount"
+                                    placeholder="Pocentaje del Descuento%" value="30">
+                            </div>
+                            <select class="form-select form-select-sm" aria-label="Small select example">
+                                <option selected>Apple Wacht 6</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success ">Actualizar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="gadgetit-card-header">
+        <span class="text-products">Promociones | activas</span>
+        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
+        <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
+        </button>
+    </div>
+
+    <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/img.svg" alt="Speakers">
+                <img src="../../resources/img/img.svg" alt="Image">
+            </div>
+            <div class="gadgetit-card-principal">
+                <div class="gadgetit-card-title">Dia de las Madres ❤️</div>
+                <div class="gadgetit-card-description">30% de Descuento para consentir a tu Mamita</div>
             </div>
             <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
+                <div class="gadgetit-card-title">30%</div>
+                <div class="gadgetit-card-description">Descuento</div>
             </div>
             <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde">
+                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
                     Actualizar
                 </button>
@@ -89,14 +131,18 @@
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/Image.svg" alt="Speakers">
+                <img src="../../resources/img/Image.svg" alt="Image">
+            </div>
+            <div class="gadgetit-card-principal">
+                <div class="gadgetit-card-title">Liquidación</div>
+                <div class="gadgetit-card-description">60% de Descuento por Liquidación</div>
             </div>
             <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
+                <div class="gadgetit-card-title">60%</div>
+                <div class="gadgetit-card-description">Descuento</div>
             </div>
             <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde">
+                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
                     Actualizar
                 </button>
@@ -110,14 +156,18 @@
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/Image.svg" alt="Speakers">
+                <img src="../../resources/img/iphone 12.svg" alt="Image">
+            </div>
+            <div class="gadgetit-card-principal">
+                <div class="gadgetit-card-title">Vaciones de Verano ☀️</div>
+                <div class="gadgetit-card-description">Llevate el Iphone que tanto has deado con el 20% de Descuento</div>
             </div>
             <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
+                <div class="gadgetit-card-title">20%</div>
+                <div class="gadgetit-card-description">Descuento</div>
             </div>
             <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde">
+                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
                     Actualizar
                 </button>
@@ -131,14 +181,18 @@
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
-                <img src="../../resources/img/img.svg" alt="Speakers">
+                <img src="../../resources/img/airpods-Pro-2.svg" alt="Image">
+            </div>
+            <div class="gadgetit-card-principal">
+                <div class="gadgetit-card-title">Navidad 🎄</div>
+                <div class="gadgetit-card-description">Especial de Navidad, 50% de Descuento</div>
             </div>
             <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Amazon wireless speakers</div>
+                <div class="gadgetit-card-title">50%</div>
+                <div class="gadgetit-card-description">Descuento</div>
             </div>
             <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde">
+                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
                     <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
                     Actualizar
                 </button>
@@ -148,6 +202,22 @@
             </div>
         </div>
     </div>
+
+    <br>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <a class="page-link">Previous</a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+                <a class="page-link" href="#">Next</a>
+            </li>
+        </ul>
+    </nav>
 
 
     <footer> </footer>
