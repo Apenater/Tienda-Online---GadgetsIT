@@ -83,6 +83,7 @@ button {
 
 .card {
     background-color: #F0F0F0;
+    margin-top: 6rem;
 }
 
 .card-body h4 {
@@ -133,4 +134,16 @@ button {
 .Opiniones {
     margin-top: 5rem;
     margin-left: 10rem; 
+    margin-right: 10rem;
+}
+
+.titulo-comentario {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comentar {
+   margin-top: 4rem;
+   padding-bottom: 2rem;
 }
