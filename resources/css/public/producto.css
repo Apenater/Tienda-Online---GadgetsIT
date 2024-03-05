@@ -82,9 +82,7 @@ button {
 .producto-descripcion {
     margin: 0 auto;
     max-width: 90%;
-    /* Ajusta el ancho máximo para ser más flexible */
     height: auto;
-    /* Hace que la altura se ajuste al contenido */
 }
 
 
@@ -182,9 +180,7 @@ button {
     .navegacion a,
     .boton {
         font-size: 0.9rem;
-        /* Reduce el tamaño del texto para mejor ajuste */
         padding: 8px 28px;
-        /* Ajusta el padding para que sea más pequeño */
     }
 
     .Opiniones {
@@ -203,7 +199,6 @@ button {
 
 /* Para tablets y dispositivos medianos */
 @media (min-width: 768px) and (max-width: 1024px) {
-    /* Ajusta según necesidad, similar a los ajustes para pantallas pequeñas */
 }
 
 /* Ajuste global para botones, asegurando que sean más grandes en dispositivos moviles */
