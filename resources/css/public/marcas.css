@@ -1,10 +1,9 @@
 body {
-  background-color: #ff0000;
-
+  background-color: #080808 !important;
 }
 
 .contenedoor-tarjetas {
-  margin-top: 50px;
+  margin-top: 100px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -35,6 +34,7 @@ body {
 }
 
 .negro img {
+top: 200px !important;
   width: 50%;
   display: block;
   margin: -60px auto 0;
@@ -45,10 +45,17 @@ body {
 
 .negro-title {
   font-size: 35px;
-  /* Este valor se ajustará para pantallas más pequeñas */
   font-weight: bold;
   margin-bottom: 0.25em;
+  text-decoration: none;
+  text-decoration-color: #161616 !important;
+  text-decoration: underline;
+
+
+  text-decoration-style: solid;
 }
+
+
 
 .negro-subtitle {
   font-size: 20px;
@@ -56,7 +63,7 @@ body {
   position: relative;
   display: inline-block;
   text-decoration: underline;
-  /* Aplica un subrayado */
+
   text-decoration-color: #ffffff;
   text-decoration-style: solid;
 }
@@ -142,15 +149,17 @@ body {
 p {
   color: aliceblue;
 }
+
 .uno {
+  top: 81px;
   background-color: #080808;
   width: 100%;
   height: auto;
   margin: 0;
   overflow: hidden;
-  position: absolute; /* Ajuste para sobreponerse */
-  top: 55px; /* Altura aproximada del navbar */
-  z-index: 0; /* Asegurar que el slider esté debajo del contenido del navbar */
+  position: absolute;
+
+  z-index: 0;
 }
 
 .dos-track {
@@ -169,10 +178,11 @@ p {
 
 @keyframes scroll {
   from {
-      transform: translateX(0);
+    transform: translateX(0);
   }
+
   to {
-      transform: translateX(-50%);
+    transform: translateX(-50%);
   }
 }
 
