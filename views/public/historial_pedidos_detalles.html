@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Detalle Pedido</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +28,105 @@
     <link rel="stylesheet" href="../../resources/css/public/historial_pedidos_detalles.css">
 
 </head>
+
 <body>
-    
+    <header class="header fixed-top">
+        <div class="contenedor contenido-header">
+            <div class="barra">
+                <div class="logo">
+                    <a href="/">GADGETSIT</a>
+                </div>
+                <!--navegacion inicio-->
+                <nav class="navegacion">
+                    <a href="#">Home</a>
+                    <div class="dropdown"> <!--Boton dropdown-->
+                        <a class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false" href="categorias.html">
+                            Categorias
+                        </a>
+                        <ul class="dropdown-menu bg-light text-dark border-light" aria-labelledby="dropdownMenuButton">
+                            <li><a class="dropdown-item" href="productos.html">Productos</a></li>
+                            <li><a class="dropdown-item" href="#">Marcas</a></li>
+                        </ul>
+                    </div>
+                    <a href="#">Acerca de Nosotros</a>
+                    <a href="#">Iniciar Sesión</a>
+                    <a href="#">Pedidos</a>
+                    <a href="carrito.html"><img src="../../resources/img/carrito.svg" alt=""></a>
+                </nav> <!--Fin de la navegacion-->
+            </div>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <h3>Historial de pedidos | detalles</h3>
+
+        <div class="gadgetit-container">
+            <div class="gadgetit-card">
+                <div class="gadgetit-card-image">
+                    <img src="../../resources/img/iphone.svg" alt="img">
+                </div>
+                <div class="gadgetit-card-principal">
+                    <div class="gadgetit-card-title">Iphone 11</div>
+                    <div class="gadgetit-card-description">Pro Max</div>
+                </div>
+                <div class="gadgetit-card-content">
+                    <div class="gadgetit-card-title">Precio</div>
+                    <div class="gadgetit-card-description">$500</div>
+                </div>
+                <div class="gadgetit-card-content">
+                    <div class="gadgetit-card-title">Fecha del pedido</div>
+                    <div class="gadgetit-card-description">20/08/23</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gadgetit-container">
+            <div class="gadgetit-card">
+                <div class="gadgetit-card-image">
+                    <img src="../../resources/img/watch.svg" alt="img">
+                </div>
+                <div class="gadgetit-card-principal">
+                    <div class="gadgetit-card-title">Apple Watch</div>
+                    <div class="gadgetit-card-description">Series 5 SE</div>
+                </div>
+                <div class="gadgetit-card-content">
+                    <div class="gadgetit-card-title">Precio</div>
+                    <div class="gadgetit-card-description">$500</div>
+                </div>
+                <div class="gadgetit-card-content">
+                    <div class="gadgetit-card-title">Fecha del pedido</div>
+                    <div class="gadgetit-card-description">20/08/23</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="gadgetit-container">
+            <div class="gadgetit-card">
+                <div class="gadgetit-card-image">
+                    <img src="../../resources/img/Samsung.svg" alt="img">
+                </div>
+                <div class="gadgetit-card-principal">
+                    <div class="gadgetit-card-title">Samsung S20</div>
+                    <div class="gadgetit-card-description">Plus</div>
+                </div>
+                <div class="gadgetit-card-content">
+                    <div class="gadgetit-card-title">Precio</div>
+                    <div class="gadgetit-card-description">$500</div>
+                </div>
+                <div class="gadgetit-card-content">
+                    <div class="gadgetit-card-title">Fecha del pedido</div>
+                    <div class="gadgetit-card-description">20/08/23</div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer></footer>
 </body>
-</html>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+<script src="../../resources/js/public/plantilla_ft_public.js"></script>
+</html> 
