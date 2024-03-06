@@ -143,10 +143,20 @@ button {
 }
 
 .titulo-comentario {
+    color: #000;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 2rem;
+}
+
+
+.comentario-contenido {
+    color: #000;
+}
+
+.card-text {
+    color: #000;
 }
 
 .comentar {
@@ -198,8 +208,7 @@ button {
 }
 
 /* Para tablets y dispositivos medianos */
-@media (min-width: 768px) and (max-width: 1024px) {
-}
+@media (min-width: 768px) and (max-width: 1024px) {}
 
 /* Ajuste global para botones, asegurando que sean más grandes en dispositivos moviles */
 @media (max-width: 767px) {
@@ -214,4 +223,52 @@ button {
 .like-button {
     border-style: none;
     background-color: #FFF;
+}
+
+
+
+
+p {
+    color: aliceblue;
+}
+
+.uno {
+    top: 81px;
+    background-color: #080808;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+
+    z-index: 0;
+}
+
+.dos-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    width: calc(200px * 14);
+}
+
+.tres {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* Asegurando que el navbar se muestre por encima de todo */
+.navbar {
+    z-index: 1;
 }

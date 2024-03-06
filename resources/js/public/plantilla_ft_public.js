@@ -20,6 +20,5 @@ FOOTER.innerHTML = `
       <a href="" class="fa fa-whatsapp" target="_blank"></a>
     </div>
   </div>
-
 `;
 

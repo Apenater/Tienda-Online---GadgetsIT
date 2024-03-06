@@ -130,3 +130,51 @@ button {
 }
 
 /**/
+
+
+
+
+p {
+    color: aliceblue;
+  }
+  
+  .uno {
+    top: 81px;
+    background-color: #080808;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    overflow: hidden;
+    position: absolute;
+  
+    z-index: 0;
+  }
+  
+  .dos-track {
+    display: flex;
+    animation: scroll 40s linear infinite;
+    width: calc(200px * 14);
+  }
+  
+  .tres {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  @keyframes scroll {
+    from {
+      transform: translateX(0);
+    }
+  
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  
+  /* Asegurando que el navbar se muestre por encima de todo */
+  .navbar {
+    z-index: 1;
+  }
