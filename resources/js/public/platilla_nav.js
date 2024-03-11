@@ -5,16 +5,16 @@ HEADER.innerHTML = `
 <div class="contenedor contenido-header">
 <div class="barra">
     <div class="logo">
-        <a href="">GADGETSIT</a>
+        <a href="index.html">GADGETSIT</a>
     </div>
     <!--navegacion inicio-->
     <nav class="navegacion">
-        <a href="categorias.html">Home</a>
-        <a href="marcas.html">Marcas</a>
-        <a href="#">Pedidos</a>
+        <a href="../../../views/public/index.htmll">Home</a>
+        <a href="../../../views/public/marcas.html">Marcas</a>
+        <a href="../../../views/public/historial_pedidos.html">Pedidos</a>
         <a href="#">Acerca de Nosotros</a>
 
-        <a class="data-bs-toggle="modal" data-bs-target="#exampleModal"">Iniciar Sesión</a>
+        <a class="data-bs-toggle="modal" data-bs-target="#exampleModal">Iniciar Sesión</a>
 
     </nav> 
 </div>
