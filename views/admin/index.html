@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -19,9 +19,9 @@
 
     </div>
     <div class="login-container">
-        <h1>Holaaa admin!</h1>
-        <p>Welcome Back</p>
-        <form action="/login" method="post">
+        <h1>Hola admin!</h1>
+        <p>Bienvenido</p>
+        <form id="login-form" action="/login" method="post">
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder="Email Address" required>
                 <span class="input-icon">&#9993;</span>
@@ -30,10 +30,13 @@
                 <input type="password" id="password" name="password" placeholder="Password" required>
                 <span class="input-icon">&#128274;</span>
             </div>
-            <button type="submit" class="login-btn">Login</button>
+            <button type="submit" class="login-btn">LogIn</button>
+            <button type="button" id="store-btn" class="footer-btn">TIENDA</button>
         </form>
-        <button class="footer-btn">GADGETSIT</button>
     </div>
+
+    <script src="../../resources/js/admin/login.js"></script>
+
 </body>
 
 </html>
