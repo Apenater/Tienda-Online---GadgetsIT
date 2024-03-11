@@ -17,7 +17,7 @@ HEADER.innerHTML = `
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/categorias.html" style="color: white;">Categoria</a>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/marca.html" style="color: white;">Marcas</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/promociones.html" style="color: white;">Promociones</a> </li>
-                        <li class="nav-item"> <a class="nav-link" href="../../views/admin/usuarios.html" style="color: white;">Usuarios</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="../../views/admin/usuarios.html" style="color: white;">Clientes</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/usuarios_admin.html" style="color: white;">Administradores</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/comentarios.html" style="color: white;">Comentarios</a> </li>
                         

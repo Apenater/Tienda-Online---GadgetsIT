@@ -113,6 +113,7 @@ tres
   background-color: #e10000;
 }
 
+
 .gadgetit-btn-agregar {
   height: 20px;
   border-radius: 16px;
@@ -124,6 +125,8 @@ tres
 .gadgetit-btn-agregar:hover {
   background-color: #009966;
 }
+
+
 
 .gadgetit-btn-icon,
 .gadgetit-btn-iconn {
