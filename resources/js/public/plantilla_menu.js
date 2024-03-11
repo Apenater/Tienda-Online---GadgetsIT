@@ -22,14 +22,14 @@ HEADER.innerHTML = `
 <div class="contenedor contenido-header">
 <div class="barra">
     <div class="logo">
-        <a href="/">GADGETSIT</a>
+        <a href="index.html">GADGETSIT</a>
     </div>
     <!--navegacion inicio-->
     <nav class="navegacion">
-        <a href="categorias.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="marcas.html">Marcas</a>
         <a href="#">Pedidos</a>
-        <a href="#">Acerca de Nosotros</a>
+        <a href="nosotros.html">Acerca de Nosotros</a>
         <a href="#">Iniciar Sesión</a>
        
         <a href="carrito.html"><img src="../../resources/img/carrito.svg" alt=""></a>
