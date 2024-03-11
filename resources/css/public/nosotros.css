@@ -155,4 +155,30 @@ p {
 .fondos .fondo h1 {
     color: white; 
     width: 80%; 
+    padding: 1rem;
+}
+
+@media (max-width: 1024px) {
+    .fondos .fondo {
+        height: 400px; /* Altura ajustada para tablets y dispositivos menores a 1024px */
+    }
+}
+
+@media (max-width: 768px) {
+    .fondos .fondo {
+        height: 300px; /* Altura más pequeña para dispositivos móviles */
+    }
+    .fondos .fondo h1 {
+        font-size: smaller; 
+    }
+
+    .fondos {
+        padding-top: 9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .fondos .fondo {
+        height: 200px; /* Altura muy pequeña para dispositivos muy pequeños */
+    }
 }
