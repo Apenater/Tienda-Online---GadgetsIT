@@ -17,7 +17,7 @@ span {
 }
 
 .gadgetit-card-header {
-  color: #fff;
+  color: #740101;
   font-size: 18px;
   font-weight: bold;
   display: flex;
@@ -28,7 +28,7 @@ span {
 }
 
 .gadgetit-card {
-  background: #EAEAEA;
+  background: #f8f8f8 !important;
   border-radius: 10px;
   display: flex;
   justify-content: space-between;
