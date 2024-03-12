@@ -1,10 +1,12 @@
 main {
     padding-top: 10rem;
+    padding-bottom: 2rem;
 }
 
 /*clase para la barra de busqueda*/
 .buscador {
     max-width: 30rem;
+    padding-top: 8rem;
     margin: 0 auto;
     padding-bottom: 3rem;
 }
