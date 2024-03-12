@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Clientes</title>
+    <title>Pedidos</title>
 
     <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
@@ -20,52 +20,89 @@
 
     <div class="container mt-5">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-l">
+            <div class="modal-dialog modal-xl"> <!-- Cambio aquí para hacer el modal más grande -->
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Informción del clientes</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Ver pedido</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 align-items-center justify-content-center">
                                 <form>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-name" placeholder="Nombre"
-                                            value="Ari">
+                                    <div class="gadgetit-container">
+                                        <div class="gadgetit-card">
+                                            <div class="gadgetit-card-image">
+                                                <img src="../../resources/img/iphone.svg" alt="img">
+                                            </div>
+                                            <div class="gadgetit-card-principal">
+                                                <div class="gadgetit-card-title">Iphone 11</div>
+                                                <div class="gadgetit-card-description">Pro Max</div>
+                                            </div>
+                                            <div class="gadgetit-card-content">
+                                                <div class="gadgetit-card-title">Precio</div>
+                                                <div class="gadgetit-card-description">$500</div>
+                                            </div>
+                                            <div class="gadgetit-card-content">
+                                                <div class="gadgetit-card-title">Fecha del pedido</div>
+                                                <div class="gadgetit-card-description">20/08/23</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="User-Apellido"
-                                            placeholder="Apellido" value="Peñate">
+
+                                    <div class="gadgetit-container">
+                                        <div class="gadgetit-card">
+                                            <div class="gadgetit-card-image">
+                                                <img src="../../resources/img/watch.svg" alt="img">
+                                            </div>
+                                            <div class="gadgetit-card-principal">
+                                                <div class="gadgetit-card-title">Apple Watch</div>
+                                                <div class="gadgetit-card-description">Series 5 SE</div>
+                                            </div>
+                                            <div class="gadgetit-card-content">
+                                                <div class="gadgetit-card-title">Precio</div>
+                                                <div class="gadgetit-card-description">$500</div>
+                                            </div>
+                                            <div class="gadgetit-card-content">
+                                                <div class="gadgetit-card-title">Fecha del pedido</div>
+                                                <div class="gadgetit-card-description">20/08/23</div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-mail" placeholder="Correo"
-                                            value="edgar.aripenate@gmailcom">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-phone" placeholder="Telefono"
-                                            value="76476902">
-                                    </div>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-pass" placeholder="Contraseña"
-                                            value="********">
+                            
+                                    <div class="gadgetit-container">
+                                        <div class="gadgetit-card">
+                                            <div class="gadgetit-card-image">
+                                                <img src="../../resources/img/Samsung.svg" alt="img">
+                                            </div>
+                                            <div class="gadgetit-card-principal">
+                                                <div class="gadgetit-card-title">Samsung S20</div>
+                                                <div class="gadgetit-card-description">Plus</div>
+                                            </div>
+                                            <div class="gadgetit-card-content">
+                                                <div class="gadgetit-card-title">Precio</div>
+                                                <div class="gadgetit-card-description">$500</div>
+                                            </div>
+                                            <div class="gadgetit-card-content">
+                                                <div class="gadgetit-card-title">Fecha del pedido</div>
+                                                <div class="gadgetit-card-description">20/08/23</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </form>
-
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
+
+
     <div class="container">
         <div class="gadgetit-card-header">
-            <span class="text-products">Clientes</span>
+            <span class="text-products">Pedidos</span>
             <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
 
         </div>
@@ -83,10 +120,10 @@
             </div>
             <div class="gadgetit-card-actions">
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
+                    Ver pedido
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
             </div>
         </div>
@@ -102,10 +139,10 @@
             </div>
             <div class="gadgetit-card-actions">
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
+                    Ver pedido
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
             </div>
         </div>
@@ -121,10 +158,10 @@
             </div>
             <div class="gadgetit-card-actions">
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
+                    Ver pedido
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
             </div>
         </div>
@@ -140,10 +177,10 @@
             </div>
             <div class="gadgetit-card-actions">
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
+                    Ver pedido
                 </button>
                 <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                    <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
             </div>
         </div>
