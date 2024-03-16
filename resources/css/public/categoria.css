@@ -12,16 +12,16 @@ body {
 
 .negro {
   height: 450px;
-  margin: 20px;
   width: 600px;
+  margin: 20px auto;
   border-radius: 20px;
   overflow: hidden;
   background-image: url('../../img/fondo.svg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
   position: relative;
   font-size: 20px;
-
 }
 
 
@@ -50,10 +50,8 @@ body {
   text-decoration-color: #161616 !important;
   text-decoration: underline;
 
-
   text-decoration-style: solid;
 }
-
 
 
 .negro-subtitle {
@@ -62,77 +60,70 @@ body {
   position: relative;
   display: inline-block;
   text-decoration: underline;
-
   text-decoration-color: #ffffff;
   text-decoration-style: solid;
 }
 
 
 
-
-
-
 @media (max-width: 1500px) {
-
   .contenedoor-tarjetas {
     display: flex;
     justify-content: center;
-    /* Centra los elementos horizontalmente */
     flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan en la pantalla pequeña */
     width: 100%;
-    /* Asegura que el contenedor use todo el ancho disponible */
+    /*  que el contenedor use todo el ancho disponible */
   }
 }
 
 
 
 @media (max-width: 910px) {
-
   .contenedoor-tarjetas {
     display: flex;
     justify-content: center;
-    /* Centra los elementos horizontalmente */
     flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan en la pantalla pequeña */
     width: 100%;
-    /* Asegura que el contenedor use todo el ancho disponible */
   }
 }
 
 
-@media (max-width: 768px) {
 
+@media (max-width: 768px) {
   .contenedoor-tarjetas {
-    display: flex;
-    justify-content: center;
-    /* Centra los elementos horizontalmente */
-    flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan en la pantalla pequeña */
+
     width: 100%;
-    /* Asegura que el contenedor use todo el ancho disponible */
+    margin: 50px 0;
+
   }
 
-
   .negro {
+    margin-top: 50px !important;
     width: 90%;
-    /* Hace que la tarjeta ocupe el 90% del ancho de la pantalla en dispositivos más pequeños */
+    height: auto;
+    margin: 20px auto;
     font-size: 18px;
-    /* Ajusta ligeramente el tamaño de la fuente para pantallas más pequeñas */
+  }
+
+  .negro-content {
+    padding: 10px;
+    /* Reducir el padding del contenido */
   }
 
   .negro-title {
-    font-size: 30px;
-    /* Reduce el tamaño de la fuente del título para pantallas más pequeñas */
+    font-size: 24px;
+    /* Reducir el tamaño de fuente del título */
   }
 
   .negro-subtitle {
-    font-size: 18px;
-    /* Reduce el tamaño de la fuente del subtítulo para pantallas más pequeñas */
+    font-size: 16px;
+    margin-bottom: 1em;
   }
 
   .negro img {
-    margin-top: -50px;
-    /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
+    width: 50%;
+    /* Aumentar el  de la imagen */
+    margin-top: -30px;
+    top: 0;
   }
 }

@@ -1,10 +1,3 @@
-.contenedor {
-    width: 95%;
-    max-width: 120rem;
-    height: auto;
-    margin: 0 auto;
-    padding-top: 10px;
-}
 
 .header {
     padding: 1rem 0 3rem;
@@ -12,73 +5,6 @@
     height: 70px;
 }
 
-.test{
-    height: 100px;
-}
-
-.header.inicio {
-    background-position: 50%;
-    background-size: cover;
-}
-
-.navegacion a,
-button {
-    text-decoration: none;
-    font-size: 1rem;
-    color: black;
-    font-family: 'Raleway', sans-serif;
-    display: block;
-    text-align: center;
-}
-
-.contenido-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.barra {
-    display: flex;
-    flex-direction: column;
-    padding-top: 1rem;
-}
-
-/*Media Querys para la barra de navegacion*/
-@media (min-width:768px) {
-    .barra {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end
-    }
-}
-
-@media (min-width:768px) {
-    .navegacion {
-        display: flex;
-        align-items: center;
-        opacity: 1;
-        visibility: visible
-    }
-}
-
-@media (min-width:768px) {
-    .navegacion a {
-        margin-right: 2rem;
-        font-size: 1rem;
-    }
-
-    .navegacion a:last-of-type {
-        margin-right: 0
-    }
-}
-
-.logo a {
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: #463E55;
-    font-weight: bold;
-
-}
 
 p {
     color: aliceblue;
@@ -87,20 +13,21 @@ p {
 .uno {
     top: 0px;
     background-color: #080808;
-    width: 100%;
-    height: 25px;
     margin: 0;
     overflow: hidden;
     position: absolute;
+    z-index: 2;
 
-    z-index: 0;
 }
 
 .dos-track {
+ 
     display: flex;
+    align-items: center !important; /* Agregado para centrar verticalmente */
     animation: scroll 40s linear infinite;
     width: calc(200px * 14);
 }
+
 
 .tres {
     width: 200px;
@@ -108,7 +35,14 @@ p {
     align-items: center;
     justify-content: center;
     text-align: center;
+    height: 48px ; /* Ajusta la altura según tus necesidades */
+    line-height: 80px !important; /* Igual a la altura para centrar verticalmente */
+  }
+
+  .navbar {
+    margin-top: 28px !important; /* Puedes ajustar el valor según tus necesidades */
 }
+
 
 @keyframes scroll {
     from {

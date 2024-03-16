@@ -1,4 +1,5 @@
 .login-container h2 {
+    font-size: 25px;
     color: #555;
     margin-bottom: 30px;
 }
@@ -12,9 +13,9 @@
 }
 
 .input-group input {
-    width: 87%;
-    padding: 15px;
-    padding-left: 35px;
+    width: 80%;
+    padding: 15px 10px;
+    padding-left: 25px;
     border: 1px solid #ccc;
     border-radius: 20px;
     font-size: 14px;
@@ -57,26 +58,65 @@
     text-decoration: none;
 }
 
-.img-fluid {
-    max-width: 792px;
-    height: 732px;
+img {
+    max-width: 500px !important;
+    height: auto;
+    padding: 2px !important;
+}
+
+.col-md-6 img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
 }
 
 .modal-xl-custom {
-    max-width: 80% !important;
-   
+    max-width: 70% !important;
 }
 
+.modal-dialog {
+    margin: 0 auto !important; 
+}
 
-
-@media (max-width: 767px) {
-
+@media (max-width: 800px) {
     .login-container,
     .img-fluid {
         width: 100%;
         margin-top: 20px;
     }
 
+    .login-btn {
+        width: 55%;
+    }
 
-    .login-btn {}
+    .col-md-6 img {
+        display: none;
+    }
+
+    .modal-xl-custom {
+        max-width: 70% !important;
+    }
+}
+
+@media (max-width: 500px) {
+    .modal-dialog {
+        max-width: 90%;
+    }
+
+    .login-btn {
+        width: 100%;
+    }
+
+    .input-group input {
+        width: 100%;
+        margin-left: 0;
+    }
+
+    .login-container h2 {
+        font-size: 21px;
+       
+    }
+    
 }

@@ -3,7 +3,6 @@ body {
 }
 
 .contenedoor-tarjetas {
-  margin-top: 100px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -11,18 +10,19 @@ body {
 }
 
 .negro {
-  height: 450px;
-  margin: 20px;
-  width: 600px;
+  height: 450px; /* Mantener la altura fija */
+  width: 600px; /* Mantener el ancho fijo */
+  margin:0 auto !important; /* Ajustar los márgenes para centrar */
   border-radius: 20px;
   overflow: hidden;
   background-image: url('../../img/fondo.svg');
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: center; /* Centrar la imagen de fondo horizontalmente */
   position: relative;
-  font-size: 20px;
-
 }
+
+
 
 
 .negro-content {
@@ -34,13 +34,13 @@ body {
 }
 
 .negro img {
-top: 200px !important;
+  top: 200px !important;
   width: 50%;
   display: block;
   margin: -60px auto 0;
   position: relative;
   z-index: 1;
-  top: 22px;
+
 }
 
 .negro-title {
@@ -50,12 +50,8 @@ top: 200px !important;
   text-decoration: none;
   text-decoration-color: #161616 !important;
   text-decoration: underline;
-
-
   text-decoration-style: solid;
 }
-
-
 
 .negro-subtitle {
   font-size: 20px;
@@ -63,77 +59,30 @@ top: 200px !important;
   position: relative;
   display: inline-block;
   text-decoration: underline;
-
   text-decoration-color: #ffffff;
   text-decoration-style: solid;
 }
 
-
-
-
-
-
-@media (max-width: 1500px) {
-
-  .contenedoor-tarjetas {
-    display: flex;
-    justify-content: center;
-    /* Centra los elementos horizontalmente */
-    flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan en la pantalla pequeña */
-    width: 100%;
-    /* Asegura que el contenedor use todo el ancho disponible */
-  }
-}
-
-
-
-@media (max-width: 910px) {
-
-  .contenedoor-tarjetas {
-    display: flex;
-    justify-content: center;
-    /* Centra los elementos horizontalmente */
-    flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan en la pantalla pequeña */
-    width: 100%;
-    /* Asegura que el contenedor use todo el ancho disponible */
-  }
-}
-
-
 @media (max-width: 768px) {
-
   .contenedoor-tarjetas {
+
+    width: 100%;
     display: flex;
     justify-content: center;
-    /* Centra los elementos horizontalmente */
+    align-items: center; /* Centrar verticalmente */
     flex-wrap: wrap;
-    /* Permite que los elementos se envuelvan en la pantalla pequeña */
-    width: 100%;
-    /* Asegura que el contenedor use todo el ancho disponible */
   }
-
 
   .negro {
     width: 90%;
-    /* Hace que la tarjeta ocupe el 90% del ancho de la pantalla en dispositivos más pequeños */
     font-size: 18px;
-    /* Ajusta ligeramente el tamaño de la fuente para pantallas más pequeñas */
-  }
-
-  .negro-title {
-    font-size: 30px;
-    /* Reduce el tamaño de la fuente del título para pantallas más pequeñas */
-  }
-
-  .negro-subtitle {
-    font-size: 18px;
-    /* Reduce el tamaño de la fuente del subtítulo para pantallas más pequeñas */
+    margin: 20px 5%; /* Ajustamos el margen izquierdo y derecho */
   }
 
   .negro img {
     margin-top: -50px;
-    /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
+    
   }
+
 }
+
