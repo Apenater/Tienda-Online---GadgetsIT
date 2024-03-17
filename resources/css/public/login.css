@@ -33,6 +33,7 @@
 }
 
 .login-btn {
+    
     width: 400px;
     height: 60px;
     padding: 10px;
@@ -80,43 +81,24 @@ img {
     margin: 0 auto !important; 
 }
 
-@media (max-width: 800px) {
-    .login-container,
-    .img-fluid {
-        width: 100%;
-        margin-top: 20px;
+@media (max-width: 767px) {
+    .login-branding {
+        position: absolute;
+        left: 50%;
+        top: 5%; /* Espacio suficiente para evitar superposición y mantener armonía */
+        transform: translate(-50%, 0); /* Centrado horizontal del branding */
+
     }
 
-    .login-btn {
-        width: 55%;
+    .login-container {
+        position: absolute;
+        left: 50%;
+        top: 25%; /* Espacio armonioso entre el branding y el contenedor */
+        transform: translate(-50%, 0); /* Centrado horizontal del contenedor */
+        width: 80%; /* Ancho adecuado para la mayoría de los dispositivos móviles */
+        padding: 20px; /* Padding ajustado para dispositivos móviles */
     }
 
-    .col-md-6 img {
-        display: none;
-    }
 
-    .modal-xl-custom {
-        max-width: 70% !important;
-    }
-}
-
-@media (max-width: 500px) {
-    .modal-dialog {
-        max-width: 90%;
-    }
-
-    .login-btn {
-        width: 100%;
-    }
-
-    .input-group input {
-        width: 100%;
-        margin-left: 0;
-    }
-
-    .login-container h2 {
-        font-size: 21px;
-       
-    }
     
 }

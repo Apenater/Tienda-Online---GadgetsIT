@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta </title>
+
+    <link rel="stylesheet" href="../../resources/css/public/loginn.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-branding">
+            <h1 class="login-logo">GADGETSIT</h1>
+
+        </div>
+
+    </div>
+    <div class="login-container">
+        <h1>Codigo de verificacion</h1>
+
+        <form id="login-form" action="/login" method="post">
+            <div class="input-group">
+                <input type="codigo" id="codigo" name="codigo" placeholder="codigo" required>
+
+            </div>
+
+            <button type="submit" class="login-btn"
+                onclick="window.location.href='nueva_contra.html'">Siguiente</button>
+        </form>
+    </div>
+    <script src="../../resources/js/admin/login.js"></script>
+
+</body>
+
+</html>
