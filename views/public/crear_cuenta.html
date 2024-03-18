@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear cuenta  </title>
+
+    <link rel="stylesheet" href="../../resources/css/public/loginn.css">
+</head>
+
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-branding">
+            <h1 class="login-logo">GADGETSIT</h1>
+
+        </div>
+
+    </div>
+    <div class="login-container">
+        <h1>Crear cuenta</h1>
+
+        <form id="login-form" action="/login" method="post">
+            <div class="input-group">
+                <input type="Nombre" id="Nombre" name="Nombre" placeholder="Nombre" required>
+                
+            </div>
+            <div class="input-group">
+                <input type="Apellido" id="Apellido" name="Apellido" placeholder="Apellido" required>
+                
+            </div>
+            <div class="input-group">
+                <input type="Correo" id="Correo" name="Correo" placeholder="Correo" required>
+                
+            </div>
+            <div class="input-group">
+                <input type="telefono" id="telefono" name="Correo" placeholder="telefono" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+            </div>
+            
+            
+        
+            <button type="submit" class="login-btn">Crear</button>
+           
+        </form>
+    </div>
+
+    <script src="../../resources/js/admin/login.js"></script>
+
+</body>
+
+</html>

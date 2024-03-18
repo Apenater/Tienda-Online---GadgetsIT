@@ -1,0 +1,104 @@
+.login-container h2 {
+    font-size: 25px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input-group input {
+    width: 80%;
+    padding: 15px 10px;
+    padding-left: 25px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+    margin-left: auto;
+}
+
+.password-link-container,
+.forgot-password-link {
+    display: flex;
+    justify-content: flex-end;
+    color: #858484;
+    text-decoration: none;
+    font-size: 14px;
+    padding-top: 15px;
+}
+
+.login-btn {
+    
+    width: 400px;
+    height: 60px;
+    padding: 10px;
+    border: none;
+    border-radius: 10px !important;
+    font-size: 19px;
+    color: #fff !important;
+    background-color: #463E55 !important;
+    cursor: pointer;
+    margin: 0 auto !important;
+    display: block !important;
+}
+
+.signup-link {
+    margin-top: 20px;
+    font-size: 14px;
+    color: #858484;
+    text-align: center;
+}
+
+.signup-link a {
+    color: #000000;
+    text-decoration: none;
+}
+
+img {
+    max-width: 500px !important;
+    height: auto;
+    padding: 2px !important;
+}
+
+.col-md-6 img {
+    max-width: 100% !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+.modal-xl-custom {
+    max-width: 70% !important;
+}
+
+.modal-dialog {
+    margin: 0 auto !important; 
+}
+
+@media (max-width: 767px) {
+    .login-branding {
+        position: absolute;
+        left: 50%;
+        top: 5%; /* Espacio suficiente para evitar superposición y mantener armonía */
+        transform: translate(-50%, 0); /* Centrado horizontal del branding */
+
+    }
+
+    .login-container {
+        position: absolute;
+        left: 50%;
+        top: 25%; /* Espacio armonioso entre el branding y el contenedor */
+        transform: translate(-50%, 0); /* Centrado horizontal del contenedor */
+        width: 80%; /* Ancho adecuado para la mayoría de los dispositivos móviles */
+        padding: 20px; /* Padding ajustado para dispositivos móviles */
+    }
+
+
+    
+}
