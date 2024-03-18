@@ -1,25 +1,28 @@
+/* Estilos para el main */
 main {
     padding-top: 1rem;
     padding-bottom: 2rem;
 }
 
+/* Estilos para la descripción del producto */
 .producto-descripcion {
     margin: 0 auto;
     max-width: 90%;
     height: auto;
 }
 
-
+/* Estilos para la tarjeta */
 .card {
     background-color: #F0F0F0;
     margin-top: 6rem;
 }
 
+/* Estilos para los títulos dentro de la tarjeta */
 .card-body h4 {
     color: #8E8E8E;
 }
 
-/*Boton agregar al carrito*/
+/* Estilos para el botón de agregar al carrito */
 .boton {
     display: inline-block;
     padding: 10px 35px;
@@ -53,19 +56,21 @@ main {
     margin: 0 auto;
 }
 
-/*Parte de reseñas*/
+/* Estilos para la lista de reseñas */
 .lista li {
     margin-top: 5px;
     font-weight: 500;
     color: #838383;
 }
 
+/* Estilos para la sección de opiniones */
 .Opiniones {
     margin-top: 5rem;
     margin-left: 10rem;
     margin-right: 10rem;
 }
 
+/* Estilos para el título de comentarios */
 .titulo-comentario {
     color: #000;
     display: flex;
@@ -74,32 +79,38 @@ main {
     gap: 2rem;
 }
 
-
+/* Estilos para el contenido del comentario */
 .comentario-contenido {
     color: #000;
 }
 
+/* Estilos para el texto de la tarjeta */
 .card-text {
     color: #000;
 }
 
+/* Estilos para la sección de comentarios */
 .comentar {
     margin-top: 4rem;
     padding-bottom: 2rem;
 }
 
-/* Para pantallas pequeñas, ajusta el padding y la disposición de elementos */
+/* Media queries */
+
+/* Ajuste para dispositivos pequeños */
 @media (max-width: 767px) {
     .contenedor {
         width: 90%;
     }
 
+    /* Ajuste del padding para varios elementos */
     .header,
     .producto-descripcion,
     .Opiniones {
         padding: 1rem;
     }
 
+    /* Ajuste de la disposición de elementos */
     .contenido-header,
     .barra,
     .navegacion,
@@ -111,17 +122,14 @@ main {
         text-align: center;
     }
 
+    /* Ajuste del tamaño de fuente y padding para enlaces y botones */
     .navegacion a,
     .boton {
         font-size: 0.9rem;
         padding: 8px 28px;
     }
 
-    .Opiniones {
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
-
+    /* Ajuste de la margin-top para el artículo y la tarjeta */
     .articulo {
         padding-top: 30rem;
     }
@@ -131,12 +139,11 @@ main {
     }
 }
 
-/* Para tablets y dispositivos medianos */
+/* Ajuste para tablets y dispositivos medianos */
 @media (min-width: 768px) and (max-width: 1024px) {}
 
-/* Ajuste global para botones, asegurando que sean más grandes en dispositivos moviles */
+/* Ajuste global para botones, asegurando que sean más grandes en dispositivos móviles */
 @media (max-width: 767px) {
-
     button,
     .boton {
         padding: 12px 38px;
@@ -144,9 +151,8 @@ main {
     }
 }
 
+/* Estilos para el botón de "me gusta" */
 .like-button {
     border-style: none;
     background-color: #FFF;
 }
-
-
