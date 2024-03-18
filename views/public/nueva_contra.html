@@ -4,35 +4,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nueva contraseña </title>
-
-    <link rel="stylesheet" href="../../resources/css/public/loginn.css">
+    <title>Cambiar Contraseña</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/css/public/login.css">
 </head>
 
 <body>
 
-    <div class="login-wrapper">
-        <div class="login-branding">
-            <h1 class="login-logo">GADGETSIT</h1>
-
-        </div>
-
-    </div>
-    <div class="login-container">
-        <h1>Nueva contraseña</h1>
-
-        <form id="login-form" action="/login" method="post">
-            <div class="input-group">
-                <input type="Contraseña" id="Correo" name="Contraseña" placeholder="Contraseña" required>
-                
+    <div class="container-fluid h-100">
+        <div class="row">
+            <!-- Image section -->
+            <div class="col-md-8 image-section">
+                <img src="../../resources/img/login_fondo.svg" alt="Background" />
             </div>
-            <button type="submit" class="login-btn">Siguiente</button>
-            
-        </form>
+
+            <!-- Form section -->
+            <div class="col-md-4 login-section">
+                <div class="login-container">
+                    <img class="logoimg" src="../../resources/img/GADGETSIT.svg" />
+                    <h5>Reestablece tu contraseña</h5>
+                    <p class="holat">Ingresa tu nueva contraseña</p>
+                    <form id="login-form" action="/login" method="post">
+
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                            <span class="input-icon">&#128274;</span>
+                        </div>
+
+                        <div class="input-group">
+                            <input type="password" id="password" name="password" placeholder=" Repetir Contraseña" required>
+                            <span class="input-icon">&#128274;</span>
+                        </div>
+
+
+                        <button type="submit" class="login-btn"  onclick="window.location.href='login.html'">Guardar Cambios</button>
+
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- Include Bootstrap Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="../../resources/js/admin/login.js"></script>
 </body>
 
 </html>

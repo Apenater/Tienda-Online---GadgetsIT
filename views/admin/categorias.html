@@ -2,37 +2,51 @@
 <html lang="es">
 
 <head>
+    <!-- Metadatos del documento: charset para la codificación de caracteres y viewport para la visualización responsiva -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Categorias</title>
+<<<<<<< HEAD
 
     <!-- Hojas de estilo  y scripts  -->
+=======
+    <!-- Enlaces a hojas de estilo CSS para estilizar la página -->
+>>>>>>> 31f4e0fe98dedd1a2dd22837f27d09ce4602aa7b
     <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
-
+    <!-- Fuente de iconos FontAwesome -->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
-
+    <!-- Bootstrap CSS para estilos y componentes prediseñados -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
-
 <body>
-
+    <!-- Cabecera de la página -->
     <header> </header>
 
+<<<<<<< HEAD
     <!-- Modal para agregar una nueva categoria -->
+=======
+    <!-- Contenedor principal para la sección de agregar nueva categoría -->
+>>>>>>> 31f4e0fe98dedd1a2dd22837f27d09ce4602aa7b
     <div class="container mt-5">
+        <!-- Modal para agregar nueva categoría -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
+                    <!-- Cabecera del modal -->
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
+                        <!-- Botón para cerrar el modal -->
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
+                    <!-- Cuerpo del modal -->
                     <div class="modal-body">
                         <div class="row">
+                            <!-- Sección para añadir imagen de la categoría -->
                             <div class="col-md-6 d-flex align-items-center justify-content-center">
                                 <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
                                     style="display: none; height: 26rem;">
@@ -40,6 +54,7 @@
                                     style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
                                 <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
                             </div>
+                            <!-- Formulario para ingresar nombre y descripción de la categoría -->
                             <div class="col-md-6 align-items-center justify-content-center">
                                 <form>
                                     <div class="mb-3">
@@ -53,6 +68,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Pie de página del modal con botones de acción -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="button" class="btn btn-success">Agregar</button>
@@ -62,7 +78,11 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Modal para editar una categoria -->
+=======
+    <!-- Contenedor para editar categoría, estructura similar al contenedor anterior con valores preestablecidos -->
+>>>>>>> 31f4e0fe98dedd1a2dd22837f27d09ce4602aa7b
     <div class="container mt-5">
         <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
@@ -103,15 +123,22 @@
         </div>
     </div>
 
+<<<<<<< HEAD
     <!-- Seccion de categorias -->
+=======
+    <!-- Sección principal que muestra las categorías actuales y botones para agregar nuevas categorías -->
+>>>>>>> 31f4e0fe98dedd1a2dd22837f27d09ce4602aa7b
     <div class="gadgetit-card-header">
         <span class="text-products">Categorias</span>
+        <!-- Barra de búsqueda para filtrar categorías -->
         <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
+        <!-- Botón para abrir modal de agregar categoría -->
         <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
     </div>
 
+    <!-- Tarjetas para cada categoría, con opciones para actualizar o eliminar -->
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
@@ -198,9 +225,10 @@
 
     <br>
 
-    <!-- navegacion de categorias -->
+    <!-- Navegación de paginación para las tarjetas de categorías -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
+            <!-- Botones de paginación -->
             <li class="page-item disabled">
                 <a class="page-link">Previous</a>
             </li>
@@ -213,10 +241,14 @@
         </ul>
     </nav>
 
-
+    <!-- Pie de página -->
     <footer> </footer>
 
+<<<<<<< HEAD
     <!-- Scripts de la pagina  -->
+=======
+    <!-- Scripts JS para funcionalidades adicionales y Bootstrap JS para componentes interactivos -->
+>>>>>>> 31f4e0fe98dedd1a2dd22837f27d09ce4602aa7b
     <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
     <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
     <script src="../../resources/js/admin/add_img.js"></script>
