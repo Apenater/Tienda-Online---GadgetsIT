@@ -1,9 +1,11 @@
+/* Establece el estilo base para el cuerpo del documento, incluyendo el color de fondo, la fuente y el color del texto. */
 body {
-    background-color: #f9f9f9;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #333;
+    background-color: #f9f9f9; /* Claro para una versión y oscuro para otra versión, indicando una variación de tema. */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Usa una fuente común para interfaces. */
+    color: #333; /* Color del texto para asegurar legibilidad. */
 }
 
+/* Define el estilo para un contenedor genérico, aplicando espaciado interno, color de fondo, sombra, bordes redondeados y margen superior. */
 .container2 {
     padding: 20px;
     background-color: #fff;
@@ -12,25 +14,24 @@ body {
     margin-top: 50px;
 }
 
-h2 {
-    color: #333;
-    text-align: center;
-    margin-bottom: 40px;
+/* Estilos para encabezados h2 y h4, ajustando color, alineación, margen y tamaño. */
+h2, h4 {
+    color: #333; /* Oscuro para h2. */
+    text-align: center; 
+    margin-bottom: 40px; 
+    font-size: 18px; 
+    color: #666; 
+    margin-bottom: 20px; 
 }
 
-h4 {
-    color: #666;
-    margin-bottom: 20px;
-    font-size: 18px;
-}
-
+/* Configuración de estilo para elementos canvas, con énfasis en la sombra y bordes redondeados para dar un aspecto elevado. */
 canvas {
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     border-radius: 8px;
 }
 
-/* Mejoras específicas para gráficos */
+/* Estilos para un contenedor de gráficos, centrando el elemento y definiendo su tamaño relativo a la vista del navegador. */
 .chart-container3 {
     position: relative;
     margin: auto;
@@ -38,11 +39,7 @@ canvas {
     width: 80vw;
 }
 
-
-body {
-    background-color: #343a40; /* Fondo oscuro */
-}
-
+/* Mejoras en interactividad para tarjetas estadísticas, incluyendo una transición suave en hover. */
 .stat-card {
     border-radius: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -50,20 +47,21 @@ body {
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-5px); /* Efecto de "levantarse" al pasar el mouse. */
 }
 
+/* Estilo para números destacados en tarjetas, aumentando tamaño y grosor. */
 .stat-number {
     font-size: 2em;
     font-weight: bold;
 }
 
+/* Ajuste adicional en h4 para normalizar el peso del texto. */
 h4 {
     font-weight: normal;
 }
 
-
-
+/* Estilos para un contenedor de estadísticas, con margen específico para situarlo adecuadamente en la página. */
 .estadistics{
     margin: 7% 50px;
 }

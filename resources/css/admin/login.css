@@ -1,3 +1,4 @@
+/* Estilos básicos para el cuerpo y html, estableciendo el tamaño, margen, tipografía y un fondo degradado. Se desactiva el desplazamiento. */
 body, html {
     height: 100%;
     margin: 0;
@@ -6,7 +7,7 @@ body, html {
     overflow: hidden;
 }
 
-/* Estilos para el branding a la izquierda */
+/* Estilos para el elemento de branding a la izquierda, con posición absoluta para ubicarlo específicamente y colores definidos. */
 .login-branding {
     position: absolute;
     left: 5%;
@@ -15,33 +16,38 @@ body, html {
     color: #ffffff;
 }
 
+/* Estilos para el logo dentro del elemento de branding, ajustando el tamaño de fuente y el peso. */
 .login-logo {
     font-size: 48px;
     font-weight: bold;
     margin: 0;
 }
 
+/* Estilos para la descripción dentro del elemento de branding, definiendo el tamaño de la fuente. */
 .login-description {
     font-size: 18px;
 }
 
-
+/* Estilos para el título (h1) dentro del contenedor de login, ajustando el tamaño de la fuente, color y margen inferior. */
 .login-container h1 {
     font-size: 32px;
     color: #000000;
     margin-bottom: 10px;
 }
 
+/* Estilos para párrafos dentro del contenedor de login, definiendo el color y el margen inferior. */
 .login-container p {
     color: #555;
     margin-bottom: 30px;
 }
 
+/* Estilos para los grupos de input, estableciendo posición relativa y margen inferior. */
 .input-group {
     position: relative;
     margin-bottom: 20px;
 }
 
+/* Estilos específicos para inputs dentro de los grupos de input, incluyendo dimensiones, padding, bordes, tamaño de fuente y color. */
 .input-group input {
     width: 87%;
     padding: 15px;
@@ -51,6 +57,7 @@ body, html {
     font-size: 14px;
 }
 
+/* Estilos para el icono dentro de los grupos de input, ajustando su posición y color. */
 .input-group .input-icon {
     position: absolute;
     left: 10px;
@@ -59,8 +66,8 @@ body, html {
     color: #ccc;
 }
 
-.login-btn, .footer-btn, .tienda-btn{
-    
+/* Estilos base para botones, definiendo dimensiones, bordes, tamaño de fuente, color, cursor y margen inferior. */
+.login-btn, .footer-btn, .tienda-btn {
     width: 100%;
     padding: 15px;
     border: none;
@@ -71,15 +78,18 @@ body, html {
     margin-bottom: 25px;
 }
 
+/* Estilo específico para el botón de login, definiendo su color de fondo. */
 .login-btn {
     background-color: #000000;
 }
 
+/* Estilos para botones de pie de página y tienda, ajustando el color de fondo y bordes. */
 .footer-btn {
     background-color: #555;
     border: none;
 }
 
+/* Estilo específico para el contenedor de login, incluyendo su posición, dimensiones, padding, fondo, bordes y alineación de texto. */
 .login-container {
     position: absolute;
     right: 15%;
@@ -92,27 +102,28 @@ body, html {
     text-align: center;
 }
 
-
-.tienda-btn{
+/* Estilo adicional para botones de tienda, definiendo el color de fondo. */
+.tienda-btn {
     background-color: #555;
 }
 
-
+/* Estilos adicionales para grupos de input, mejorando la disposición de sus elementos internos. */
 .input-group {
     display: flex;
-    justify-content: space-between; /* Esto distribuye los elementos horizontalmente */
+    justify-content: space-between;
     align-items: center;
     gap: 6px;
 }
 
-.signup-link{
+/* Estilos para enlaces de registro, ajustando su color. */
+.signup-link {
     color: #727272;
 }
 
-a{
-color: #1b1b1b;
+/* Estilos generales para enlaces, definiendo el color y eliminando el subrayado. */
+a {
+    color: #1b1b1b;
     text-decoration: none;
-    
 }
 
 

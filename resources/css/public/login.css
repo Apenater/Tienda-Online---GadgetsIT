@@ -1,29 +1,41 @@
-html,
-body {
-  height: 100%;
-}
-.row {
-  height: 100%;
-}
-.image-section {
-  height: 100%;
-}
-.image-section img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* This will ensure that the image covers the entire div and is not stretched out of proportion */
-}
-.login-section {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.form-signin {
-  width: 100%;
-  max-width: 330px;
-  padding: 15px;
+/* Establece la altura al 100% para html y body, y previene el desplazamiento horizontal */
+html, body {
+    height: 100%;
+    overflow-x: hidden; /* Previene el desplazamiento horizontal */
 }
 
+/* Establece la altura de .row al 100% */
+.row {
+    height: 100%;
+}
+
+/* Establece la altura de .image-section al 100% */
+.image-section {
+    height: 100%;
+}
+
+/* Asegura que las imágenes dentro de .image-section cubran completamente su contenedor */
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Centra el contenido de .login-section usando flexbox */
+.login-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Estilos específicos para el formulario de inicio de sesión */
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+}
+
+/* Estilos para el título y párrafo dentro de .login-container */
 .login-container h1 {
     font-size: 32px;
     color: #000000;
@@ -35,11 +47,13 @@ body {
     margin-bottom: 30px;
 }
 
+/* Estilos para .input-group, incluyendo el posicionamiento relativo */
 .input-group {
     position: relative;
     margin-bottom: 20px;
 }
 
+/* Estilos para los inputs dentro de .input-group */
 .input-group input {
     width: 100%;
     padding: 15px;
@@ -49,6 +63,7 @@ body {
     font-size: 14px;
 }
 
+/* Estilos para el icono dentro de .input-group */
 .input-group .input-icon {
     position: absolute;
     left: 10px;
@@ -57,6 +72,7 @@ body {
     color: #ccc;
 }
 
+/* Estilos comunes para los botones de inicio de sesión y pie de página */
 .login-btn, .footer-btn {
     width: 100%;
     padding: 15px;
@@ -68,34 +84,69 @@ body {
     margin-bottom: 20px;
 }
 
+/* Estilos específicos para el botón de inicio de sesión */
 .login-btn {
     background-color: #141414;
-    margin-top: 50px;
+    margin-top: 20px;
 }
 
+/* Estilos específicos para el botón del pie de página */
 .footer-btn {
     background-color: #555;
     border: none;
 }
 
+/* Estilos para .login-container, incluyendo posicionamiento absoluto y ajustes para móviles */
 .login-container {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 85%; /* Ajustar para mejor visualización en dispositivos móviles */
+    max-width: 400px; /* Mantener un límite máximo para pantallas grandes */
     padding: 20px;
     background: #ffffff;
     border-radius: 10px;
     text-align: center;
+    overflow-y: auto; /* Permitir desplazamiento vertical si el contenido es demasiado largo */
 }
 
-.logoimg{
+/* Estilos para .logoimg */
+.logoimg {
     width: 70%;
     margin-bottom: 30px;
 }
 
-h5{
-    padding-bottom: 40px;
+/* Estilos para .form-container, incluyendo display flex y justificación */
+.form-container {
+    display: flex;
+    justify-content: space-between;
 }
 
+/* Estilos para .input-group cuando está dentro de .form-container */
+.input-group {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+}
+
+/* Media query para ajustes en pantallas hasta 800px */
+@media (max-width: 800px) {
+    .login-container {
+        top: 50%; /* Ajuste para centrar verticalmente */
+        transform: translate(-50%, -50%);
+    }
+    
+    /* Si es necesario, puedes ajustar la visibilidad de la imagen a ciertos tamaños de pantalla aquí */
+}
+
+/* Media query para ajustes en pantallas muy pequeñas (hasta 400px) */
+@media (max-width: 400px) {
+    .image-section {
+        display: none; /* Ocultar imagen en pantallas muy pequeñas */
+    }
+
+    .login-container, .form-signin, .input-group input {
+        width: 100%; /* Asegurar que los elementos ocupen el ancho disponible */
+    }
+}
