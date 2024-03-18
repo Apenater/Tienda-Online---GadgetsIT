@@ -4,38 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recupera contraseña </title>
-
-    <link rel="stylesheet" href="../../resources/css/public/loginn.css">
+    <title>Recuperar Contraseña</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../resources/css/public/login.css">
 </head>
 
 <body>
 
-    <div class="login-wrapper">
-        <div class="login-branding">
-            <h1 class="login-logo">GADGETSIT</h1>
-
-        </div>
-
-    </div>
-    <div class="login-container">
-        <h1>Recupera contraseña</h1>
-
-        <form id="login-form" action="/login" method="post">
-            <div class="input-group">
-                <input type="Correo" id="Correo" name="Correo" placeholder="Correo" required>
-                <span class="input-icon">&#9993;</span>
+    <div class="container-fluid h-100">
+        <div class="row">
+            <!-- Image section -->
+            <div class="col-md-8 image-section">
+                <img src="../../resources/img/login_fondo.svg" alt="Background" />
             </div>
-            <button type="submit" class="login-btn"
-                onclick="window.location.href='codigo_recuperacion.html'">Siguiente</button>
 
-
-
-        </form>
+            <!-- Form section -->
+            <div class="col-md-4 login-section">
+                <div class="login-container">
+                    <img class="logoimg" src="../../resources/img/GADGETSIT.svg" />
+                    <h5>Reestablece tu contraseña</h5>
+                    
+                    <form id="login-form" action="/login" method="post">
+                        <div class="input-group">
+                            <input type="email" id="email" name="email" placeholder="Correo electronico" required>
+                            <span class="input-icon">&#9993;</span>
+                        </div>
+                        <button type="submit" class="login-btn" onclick="window.location.href='codigo_recuperacion.html'">Eviar Codigo</button>
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
 
 
-    <script src="../../resources/js/admin/login.js"></script>
+    <!-- Include Bootstrap Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.11/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
