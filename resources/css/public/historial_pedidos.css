@@ -340,3 +340,8 @@ main {
         flex-direction: column;
     }
 }
+
+.contenedor
+{
+    padding-top: 20px;
+}

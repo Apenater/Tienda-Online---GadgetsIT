@@ -52,3 +52,12 @@ main {
 .card img {
     height: 10rem;
 }
+
+.contenedoor-tarjetas{
+    margin-top: 0;
+    margin: 1rem 0rem;
+  }
+
+.buscador{
+    padding-top: 10px ;
+}

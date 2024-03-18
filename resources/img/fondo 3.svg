@@ -5,7 +5,7 @@
 <path d="M385 270C385 312.526 351.421 347 310 347C268.579 347 235 312.526 235 270C235 227.474 268.579 193 310 193C351.421 193 385 227.474 385 270Z" fill="white" fill-opacity="0.9"/>
 </g>
 <g filter="url(#filter1_f_5_1100)">
-<path d="M594 251C594 327.215 481.176 389 342 389C202.824 389 90 327.215 90 251C90 174.785 202.824 113 342 113C481.176 113 594 174.785 594 251Z" fill="white" fill-opacity="0.9"/>
+<path d="M547 241.5C547 290.377 455.218 330 342 330C228.782 330 137 290.377 137 241.5C137 192.623 228.782 153 342 153C455.218 153 547 192.623 547 241.5Z" fill="white" fill-opacity="0.9"/>
 </g>
 </g>
 <defs>
@@ -14,7 +14,7 @@
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_5_1100"/>
 </filter>
-<filter id="filter1_f_5_1100" x="-210" y="-187" width="1104" height="876" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<filter id="filter1_f_5_1100" x="-163" y="-147" width="1010" height="777" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
 <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
 <feGaussianBlur stdDeviation="150" result="effect1_foregroundBlur_5_1100"/>

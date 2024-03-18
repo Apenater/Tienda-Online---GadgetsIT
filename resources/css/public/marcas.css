@@ -1,32 +1,42 @@
 body {
-  background-color: #ffffff !important;
+  background-color: #0C0C0C !important;
 }
 
 .contenedoor-tarjetas {
+  margin-top: 100px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   gap: 1rem;
-  padding-bottom: 2rem;
-  padding-top: 5.5rem;
-
 }
 
 .negro {
-  height: 450px; /* Mantener la altura fija */
-  width: 600px; /* Mantener el ancho fijo */
-  margin:0 auto !important; /* Ajustar los márgenes para centrar */
+  height: 450px;
+  width: 600px;
+  margin: 5px auto;
   border-radius: 20px;
   overflow: hidden;
-  background-image: url('../../img/fondo.svg');
+  background-image: url('../../img/fondo 3.svg');
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center; /* Centrar la imagen de fondo horizontalmente */
+  background-position: center;
   position: relative;
+  font-size: 20px;
 }
 
-
-
+.blanco {
+  height: 450px;
+  width: 600px;
+  margin: 5px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url('../../img/fondo 2.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  font-size: 20px;
+}
 
 .negro-content {
   color: #ffffff;
@@ -37,13 +47,21 @@ body {
 }
 
 .negro img {
-  top: 200px !important;
   width: 50%;
   display: block;
   margin: -60px auto 0;
   position: relative;
   z-index: 1;
+  top: 180px;
+}
 
+.blanco img {
+  width: 50%;
+  display: block;
+  margin: -60px auto 0;
+  position: relative;
+  z-index: 1;
+  top: 22px;
 }
 
 .negro-title {
@@ -51,13 +69,15 @@ body {
   font-weight: bold;
   margin-bottom: 0.25em;
   text-decoration: none;
-  text-decoration-color: #161616 !important;
-  text-decoration: underline;
+  text-decoration: none;
+  margin-bottom: 40px;
+  margin-top: 20px;
   text-decoration-style: solid;
 }
 
+
 .negro-subtitle {
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 2em;
   position: relative;
   display: inline-block;
@@ -66,26 +86,85 @@ body {
   text-decoration-style: solid;
 }
 
+
+
+@media (max-width: 3800px) {
+  .contenedoor-tarjetas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    /*  que el contenedor use todo el ancho disponible */
+  }
+}
+
+
+
+@media (max-width: 910px) {
+  .contenedoor-tarjetas {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+}
+
+
+
 @media (max-width: 768px) {
   .contenedoor-tarjetas {
 
     width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center; /* Centrar verticalmente */
-    flex-wrap: wrap;
+    margin: 50px 0;
+    padding-top: 0rem;
   }
 
-  .negro {
-    width: 90%;
-    font-size: 18px;
-    margin: 20px 5%; /* Ajustamos el margen izquierdo y derecho */
-  }
 
-  .negro img {
-    margin-top: -50px;
-    
-  }
+  .negro,
+  .blanco {
+    .negro {
+      margin-top: 50px !important;
+      width: 90%;
+      height: auto;
+      margin: 20px auto;
+      font-size: 18px;
+    }
 
+    .negro-content {
+      padding: 10px;
+      /* Reducir el padding del contenido */
+    }
+
+    .negro-title {
+      font-size: 24px;
+      /* Reducir el tamaño de fuente del título */
+    }
+
+    .negro-subtitle {
+      font-size: 16px;
+      margin-bottom: 1em;
+    }
+
+    .negro img {
+      width: 50%;
+      /* Aumentar el  de la imagen */
+      margin-top: -30px;
+      top: 0;
+    }
+
+    .blanco img {
+      margin-top: -50px;
+      /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
+    }
+
+  }
 }
 
+a{
+  text-decoration: none;
+}
+
+.contenedoor-tarjetas{
+  margin-top: 0;
+  margin: 1rem 0rem;
+}

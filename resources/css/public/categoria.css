@@ -7,13 +7,13 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 1rem;
 }
 
 .negro {
   height: 450px;
   width: 600px;
-  margin: 20px auto;
+  margin: 5px auto;
   border-radius: 20px;
   overflow: hidden;
   background-image: url('../../img/fondo.svg');
@@ -27,7 +27,7 @@ body {
 .blanco {
   height: 450px;
   width: 600px;
-  margin: 20px auto;
+  margin: 5px auto;
   border-radius: 20px;
   overflow: hidden;
   background-image: url('../../img/fondo 2.svg');
@@ -69,14 +69,15 @@ body {
   font-weight: bold;
   margin-bottom: 0.25em;
   text-decoration: none;
-  text-decoration: underline;
-
+  text-decoration: none;
+  margin-bottom: 40px;
+  margin-top: 20px;
   text-decoration-style: solid;
 }
 
 
 .negro-subtitle {
-  font-size: 20px;
+  font-size: 15px;
   margin-bottom: 2em;
   position: relative;
   display: inline-block;
@@ -87,7 +88,7 @@ body {
 
 
 
-@media (max-width: 1500px) {
+@media (max-width: 3800px) {
   .contenedoor-tarjetas {
     display: flex;
     justify-content: center;
@@ -115,7 +116,7 @@ body {
 
     width: 100%;
     margin: 50px 0;
-    padding-top: 5rem;
+    padding-top: 0rem;
   }
 
 
@@ -156,8 +157,14 @@ body {
       /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
     }
 
-    main {
-      margin-top: 5rem;
-    }
   }
+}
+
+a{
+  text-decoration: none;
+}
+
+.contenedoor-tarjetas{
+  margin-top: 0;
+  margin: 1rem 0rem;
 }
