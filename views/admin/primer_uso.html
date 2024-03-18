@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro Admin</title>
 
-<link rel="stylesheet" href="../../resources/css/admin/primer_uso.css">
+    <!-- Hojas de estilo de la pagina -->
+    <link rel="stylesheet" href="../../resources/css/admin/primer_uso.css">
 </head>
 
 <body>
@@ -21,10 +22,12 @@
     <div class="login-container">
         <h1>Holaaa admin!</h1>
         <p>Registrate</p>
+
+        <!-- Formulario de primer uso -->
         <form action="/login" method="post" id="firts-use-form">
             <div class="input-group">
                 <input type="name" id="name" name="name" placeholder="Nombre" required>
-                <span class="input-icon">&#128100;</span> 
+                <span class="input-icon">&#128100;</span>
             </div>
             <div class="input-group">
                 <input type="username" id="username" name="username" placeholder="Username" required>
@@ -40,12 +43,13 @@
             </div>
             <div class="input-group">
                 <input type="number" id="phone" name="phone" placeholder="Telefono" required>
-                <span class="input-icon">&#128222;</span> 
+                <span class="input-icon">&#128222;</span>
             </div>
             <button type="submit" class="login-btn">Registrarse</button>
         </form>
     </div>
 
+    <!-- scripts de la pagina -->
     <script src="../../resources/js/admin/login.js"></script>
 </body>
 
