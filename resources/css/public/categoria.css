@@ -7,16 +7,30 @@ body {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
-
+  gap: 2rem;
 }
 
-.negro, .blanco {
+.negro {
   height: 450px;
   width: 600px;
   margin: 20px auto;
   border-radius: 20px;
   overflow: hidden;
   background-image: url('../../img/fondo.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+  font-size: 20px;
+}
+
+.blanco {
+  height: 450px;
+  width: 600px;
+  margin: 20px auto;
+  border-radius: 20px;
+  overflow: hidden;
+  background-image: url('../../img/fondo 2.svg');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -41,7 +55,7 @@ body {
   top: 22px;
 }
 
-.blanco img {   
+.blanco img {
   width: 50%;
   display: block;
   margin: -60px auto 0;
@@ -55,7 +69,6 @@ body {
   font-weight: bold;
   margin-bottom: 0.25em;
   text-decoration: none;
-  text-decoration-color: #161616 !important;
   text-decoration: underline;
 
   text-decoration-style: solid;
@@ -102,51 +115,49 @@ body {
 
     width: 100%;
     margin: 50px 0;
-
+    padding-top: 5rem;
   }
 
-<<<<<<< HEAD
 
-  .negro, .blanco {
-=======
-  .negro {
-    margin-top: 50px !important;
->>>>>>> d907e859f0aeb44e83dfdb4bfc1b01e5bafe78e7
-    width: 90%;
-    height: auto;
-    margin: 20px auto;
-    font-size: 18px;
-  }
+  .negro,
+  .blanco {
+    .negro {
+      margin-top: 50px !important;
+      width: 90%;
+      height: auto;
+      margin: 20px auto;
+      font-size: 18px;
+    }
 
-  .negro-content {
-    padding: 10px;
-    /* Reducir el padding del contenido */
-  }
+    .negro-content {
+      padding: 10px;
+      /* Reducir el padding del contenido */
+    }
 
-  .negro-title {
-    font-size: 24px;
-    /* Reducir el tamaño de fuente del título */
-  }
+    .negro-title {
+      font-size: 24px;
+      /* Reducir el tamaño de fuente del título */
+    }
 
-  .negro-subtitle {
-    font-size: 16px;
-    margin-bottom: 1em;
-  }
+    .negro-subtitle {
+      font-size: 16px;
+      margin-bottom: 1em;
+    }
 
-  .negro img {
-    width: 50%;
-    /* Aumentar el  de la imagen */
-    margin-top: -30px;
-    top: 0;
-  }
+    .negro img {
+      width: 50%;
+      /* Aumentar el  de la imagen */
+      margin-top: -30px;
+      top: 0;
+    }
 
-  .blanco img {
-    margin-top: -50px;
-    /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
-  }
+    .blanco img {
+      margin-top: -50px;
+      /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
+    }
 
-  main {
-    padding-top: 8rem;
+    main {
+      margin-top: 5rem;
+    }
   }
 }
-

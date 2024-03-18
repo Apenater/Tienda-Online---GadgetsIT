@@ -59,7 +59,7 @@ HEADER.innerHTML = `
                         <a class="nav-link" href="marcas.html">Marcas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Pedidos</a>
+                        <a class="nav-link" href="historial_pedidos.html">Pedidos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="nosotros.html">Acerca de Nosotros</a>
