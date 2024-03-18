@@ -2,12 +2,18 @@ body, html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
-    background: rgb(212, 212, 212);
+    background: linear-gradient(to right, #202020 0%, #e0e0e0 60%, #ffffff 100%);
     overflow: hidden;
 }
 
 /* Estilos para el branding a la izquierda */
-
+.login-branding {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ffffff;
+}
 
 .login-logo {
     font-size: 48px;
@@ -53,7 +59,8 @@ body, html {
     color: #ccc;
 }
 
-.login-btn, .footer-btn {
+.login-btn, .footer-btn, .tienda-btn{
+    
     width: 100%;
     padding: 15px;
     border: none;
@@ -61,11 +68,11 @@ body, html {
     font-size: 16px;
     color: #fff;
     cursor: pointer;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .login-btn {
-    background-color: #141414;
+    background-color: #000000;
 }
 
 .footer-btn {
@@ -75,9 +82,9 @@ body, html {
 
 .login-container {
     position: absolute;
+    right: 15%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateY(-50%);
     width: 400px;
     padding: 40px;
     background: #ffffff;
@@ -86,19 +93,53 @@ body, html {
 }
 
 
-/* Estilos adicionales para inputs, botones, etc. se mantienen intactos */
+.tienda-btn{
+    background-color: #555;
+}
 
-/* Media query para adaptar el diseño en dispositivos móviles */
+
+.input-group {
+    display: flex;
+    justify-content: space-between; /* Esto distribuye los elementos horizontalmente */
+    align-items: center;
+    gap: 6px;
+}
+
+.signup-link{
+    color: #727272;
+}
+
+a{
+color: #1b1b1b;
+    text-decoration: none;
+    
+}
+
+
 @media (max-width: 767px) {
+    .login-branding {
+        position: absolute;
+        left: 50%;
+        top: 5%; /* Espacio suficiente para evitar superposición y mantener armonía */
+        transform: translate(-50%, 0); /* Centrado horizontal del branding */
 
-    .login-container{
-        width: 50%;
-        
     }
+
+    body, html {
+       
+        background: linear-gradient(to right, #000000 0%, #a8a8a8 50%, #e6e6e6 100%);
+       
+    }
+
     .login-container {
         position: absolute;
-        /* Espacio armonioso entre el branding y el contenedor */
-        transform: translate(-50%, -50%); /* Centrado horizontal del contenedor */
+        left: 50%;
+        top: 25%; /* Espacio armonioso entre el branding y el contenedor */
+        transform: translate(-50%, 0); /* Centrado horizontal del contenedor */
+        width: 80%; /* Ancho adecuado para la mayoría de los dispositivos móviles */
+        padding: 20px; /* Padding ajustado para dispositivos móviles */
     }
+
+
     
 }
