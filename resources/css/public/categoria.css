@@ -1,5 +1,5 @@
 body {
-  background-color: #080808 !important;
+  background-color: #ffffff !important;
 }
 
 .contenedoor-tarjetas {
@@ -10,7 +10,7 @@ body {
 
 }
 
-.negro {
+.negro, .blanco {
   height: 450px;
   margin: 20px;
   width: 600px;
@@ -24,7 +24,6 @@ body {
 
 }
 
-
 .negro-content {
   color: #ffffff;
   text-align: center;
@@ -34,6 +33,15 @@ body {
 }
 
 .negro img {
+  width: 50%;
+  display: block;
+  margin: -60px auto 0;
+  position: relative;
+  z-index: 1;
+  top: 22px;
+}
+
+.blanco img {   
   width: 50%;
   display: block;
   margin: -60px auto 0;
@@ -114,7 +122,7 @@ body {
   }
 
 
-  .negro {
+  .negro, .blanco {
     width: 90%;
     /* Hace que la tarjeta ocupe el 90% del ancho de la pantalla en dispositivos más pequeños */
     font-size: 18px;
@@ -135,4 +143,14 @@ body {
     margin-top: -50px;
     /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
   }
+
+  .blanco img {
+    margin-top: -50px;
+    /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
+  }
+
+  main {
+    padding-top: 8rem;
+  }
 }
+

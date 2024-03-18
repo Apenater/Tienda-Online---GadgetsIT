@@ -41,6 +41,7 @@ button {
     display: flex;
     flex-direction: column;
     padding-top: 1rem;
+    background-color: #FAFAFA;
 }
 
 /*Media Querys para la barra de navegacion*/
