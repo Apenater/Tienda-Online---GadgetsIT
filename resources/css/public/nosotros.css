@@ -1,14 +1,14 @@
+/* Estilos para el main */
 main {
     padding-bottom: 2rem;
     background-color: #080808;
 }
 
-
-/*Main*/
+/* Estilos para los fondos */
 .fondos .fondo {
     position: relative; 
     width: 100%; 
-    height: 600px; 
+    height: 600px; /* Altura por defecto */
     background-size: cover; 
     background-position: center; 
     display: flex; 
@@ -17,31 +17,36 @@ main {
     text-align: center; 
 }
 
+/* Estilos para el texto dentro del fondo */
 .fondos .fondo h1 {
     color: white; 
     width: 80%; 
     padding: 1rem;
 }
 
+/* Media query para tablets */
 @media (max-width: 1024px) {
     .fondos .fondo {
-        height: 400px; /* Altura ajustada para tablets y dispositivos menores a 1024px */
+        height: 400px; 
     }
 }
 
+/* Media query para dispositivos móviles */
 @media (max-width: 768px) {
     .fondos .fondo {
-        height: 300px; /* Altura más pequeña para dispositivos móviles */
+        height: 300px; 
     }
     .fondos .fondo h1 {
         font-size: smaller; 
     }
 
+    /* Ajuste del padding superior para dispositivos móviles */
     .fondos {
         padding-top: 1.5rem;
     }
 }
 
+/* Media query para dispositivos muy pequeños */
 @media (max-width: 480px) {
     .fondos .fondo {
         height: 200px; /* Altura muy pequeña para dispositivos muy pequeños */

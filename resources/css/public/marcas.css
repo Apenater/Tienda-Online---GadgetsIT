@@ -1,7 +1,9 @@
+/* Estilos para el fondo del body */
 body {
   background-color: #0C0C0C !important;
 }
 
+/* Estilos para el contenedor de tarjetas */
 .contenedoor-tarjetas {
   margin-top: 100px;
   display: flex;
@@ -10,6 +12,7 @@ body {
   gap: 1rem;
 }
 
+/* Estilos para la tarjeta negra */
 .negro {
   height: 450px;
   width: 600px;
@@ -24,6 +27,7 @@ body {
   font-size: 20px;
 }
 
+/* Estilos para la tarjeta blanca */
 .blanco {
   height: 450px;
   width: 600px;
@@ -38,6 +42,7 @@ body {
   font-size: 20px;
 }
 
+/* Estilos para el contenido de la tarjeta negra */
 .negro-content {
   color: #ffffff;
   text-align: center;
@@ -46,6 +51,7 @@ body {
   z-index: 2;
 }
 
+/* Estilos para la imagen dentro de la tarjeta negra */
 .negro img {
   width: 50%;
   display: block;
@@ -55,6 +61,7 @@ body {
   top: 180px;
 }
 
+/* Estilos para la imagen dentro de la tarjeta blanca */
 .blanco img {
   width: 50%;
   display: block;
@@ -64,18 +71,17 @@ body {
   top: 22px;
 }
 
+/* Estilos para el título dentro de la tarjeta negra */
 .negro-title {
   font-size: 35px;
   font-weight: bold;
   margin-bottom: 0.25em;
   text-decoration: none;
-  text-decoration: none;
   margin-bottom: 40px;
   margin-top: 20px;
-  text-decoration-style: solid;
 }
 
-
+/* Estilos para el subtítulo dentro de la tarjeta negra */
 .negro-subtitle {
   font-size: 15px;
   margin-bottom: 2em;
@@ -83,23 +89,19 @@ body {
   display: inline-block;
   text-decoration: underline;
   text-decoration-color: #ffffff;
-  text-decoration-style: solid;
 }
 
-
-
+/* Media queries para pantallas muy grandes */
 @media (max-width: 3800px) {
   .contenedoor-tarjetas {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     width: 100%;
-    /*  que el contenedor use todo el ancho disponible */
   }
 }
 
-
-
+/* Media queries para pantallas medianas */
 @media (max-width: 910px) {
   .contenedoor-tarjetas {
     display: flex;
@@ -109,62 +111,54 @@ body {
   }
 }
 
-
-
+/* Media queries para pantallas pequeñas */
 @media (max-width: 768px) {
   .contenedoor-tarjetas {
-
     width: 100%;
     margin: 50px 0;
     padding-top: 0rem;
   }
 
+  /* Estilos ajustados para las tarjetas en pantallas pequeñas */
+  .negro {
+    margin-top: 50px !important;
+    width: 90%;
+    height: auto;
+    margin: 20px auto;
+    font-size: 18px;
+  }
 
-  .negro,
-  .blanco {
-    .negro {
-      margin-top: 50px !important;
-      width: 90%;
-      height: auto;
-      margin: 20px auto;
-      font-size: 18px;
-    }
+  .negro-content {
+    padding: 10px;
+  }
 
-    .negro-content {
-      padding: 10px;
-      /* Reducir el padding del contenido */
-    }
+  .negro-title {
+    font-size: 24px;
+  }
 
-    .negro-title {
-      font-size: 24px;
-      /* Reducir el tamaño de fuente del título */
-    }
+  .negro-subtitle {
+    font-size: 16px;
+    margin-bottom: 1em;
+  }
 
-    .negro-subtitle {
-      font-size: 16px;
-      margin-bottom: 1em;
-    }
+  .negro img {
+    width: 50%;
+    margin-top: -30px;
+    top: 0;
+  }
 
-    .negro img {
-      width: 50%;
-      /* Aumentar el  de la imagen */
-      margin-top: -30px;
-      top: 0;
-    }
-
-    .blanco img {
-      margin-top: -50px;
-      /* Ajusta la posición de la imagen para que no se corte demasiado en pantallas más pequeñas */
-    }
-
+  .blanco img {
+    margin-top: -50px;
   }
 }
 
-a{
+/* Estilos para los enlaces */
+a {
   text-decoration: none;
 }
 
-.contenedoor-tarjetas{
+/* Estilos adicionales para el contenedor de tarjetas */
+.contenedoor-tarjetas {
   margin-top: 0;
   margin: 1rem 0rem;
 }

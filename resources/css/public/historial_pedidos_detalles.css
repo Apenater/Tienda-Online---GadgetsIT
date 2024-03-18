@@ -1,9 +1,10 @@
+/* Estilos para el contenido principal */
 main {
     padding-top: 8rem;
     padding-bottom: 2rem;
 }
 
-
+/* Contenedor de los productos */
 .gadgetit-container {
     font-family: Arial, sans-serif;
     background: #ffffff;
@@ -11,11 +12,13 @@ main {
     padding: 20px 20px 10px 20px;
 }
 
+/* Estilos para el texto de los productos */
 .text-products {
     margin: 20px 0px;
     color: black;
 }
 
+/* Encabezado de la tarjeta de producto */
 .gadgetit-card-header {
     color: #fff;
     font-size: 18px;
@@ -27,6 +30,7 @@ main {
     padding-top: 10px;
 }
 
+/* Estilos para la tarjeta de producto */
 .gadgetit-card {
     background: #EAEAEA;
     border-radius: 10px;
@@ -37,10 +41,12 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Imagen de la tarjeta de producto */
 .gadgetit-card-image {
     width: 10%;
 }
 
+/* Imagen dentro de la tarjeta de producto */
 .gadgetit-card-image img {
     width: 100%;
     height: 150px;
@@ -48,12 +54,14 @@ main {
     object-fit: cover;
 }
 
+/* Contenido principal de la tarjeta de producto */
 .gadgetit-card-principal {
     text-align: left;
     margin-left: 30px;
     width: 25%;
 }
 
+/* Contenido de la tarjeta de producto */
 .gadgetit-card-content {
     text-align: center;
     margin-left: 0px;
@@ -63,6 +71,7 @@ main {
     justify-content: space-around;
 }
 
+/* Acciones de la tarjeta de producto */
 .gadgetit-card-actions {
     display: flex;
     flex-direction: row;
@@ -70,22 +79,26 @@ main {
     text-align: center;
 }
 
+/* Título y descripción de la tarjeta de producto */
 .gadgetit-card-title,
 .gadgetit-card-description {
     color: #414141;
     margin-top: 0px;
 }
 
+/* Título de la tarjeta de producto */
 .gadgetit-card-title {
     font-size: 28px;
     font-weight: bold;
 }
 
+/* Descripción de la tarjeta de producto */
 .gadgetit-card-description {
     font-size: 16px;
     color: #666;
 }
 
+/* Botones de la tarjeta de producto */
 .gadgetit-btn {
     display: flex;
     align-items: center;
@@ -101,18 +114,22 @@ main {
     background-color: #02D693;
 }
 
+/* Efecto hover para los botones */
 .gadgetit-btn:hover {
     background-color: #00ac75;
 }
 
+/* Botón rojo */
 .gadgetit-btn-rojo {
     background-color: #ff2e2e;
 }
 
+/* Efecto hover para el botón rojo */
 .gadgetit-btn-rojo:hover {
     background-color: #e10000;
 }
 
+/* Botón de agregar */
 .gadgetit-btn-agregar {
     height: 20px;
     border-radius: 16px;
@@ -121,10 +138,12 @@ main {
     background-color: #00b179;
 }
 
+/* Efecto hover para el botón de agregar */
 .gadgetit-btn-agregar:hover {
     background-color: #009966;
 }
 
+/* Iconos de los botones */
 .gadgetit-btn-icon,
 .gadgetit-btn-iconn {
     height: 20px;
@@ -133,7 +152,7 @@ main {
     vertical-align: middle;
 }
 
-/* Estilos Base */
+/* Estilos base para el contenedor */
 .gadgetit-container {
     font-family: Arial, sans-serif;
     background: #ffffff;
@@ -142,6 +161,7 @@ main {
     max-width: 1200px;
 }
 
+/* Encabezado de la tarjeta de producto */
 .gadgetit-card-header {
     color: #fff;
     font-size: 18px;
@@ -153,6 +173,7 @@ main {
     margin: 0 1.5%;
 }
 
+/* Estilos para la tarjeta de producto */
 .gadgetit-card {
     background: #EAEAEA;
     border-radius: 10px;
@@ -163,16 +184,19 @@ main {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Imagen de la tarjeta de producto */
 .gadgetit-card-image {
     width: 150px;
 }
 
+/* Imagen dentro de la tarjeta de producto */
 .gadgetit-card-image img {
     width: 100%;
     height: 150px;
     border-radius: 10px;
 }
 
+/* Contenido principal de la tarjeta de producto */
 .gadgetit-card-principal,
 .gadgetit-card-content {
     display: flex;
@@ -181,11 +205,13 @@ main {
     margin-left: 20px;
 }
 
+/* Título y descripción de la tarjeta de producto */
 .gadgetit-card-title,
 .gadgetit-card-description {
     margin: 5px 0;
 }
 
+/* Botones de la tarjeta de producto */
 .gadgetit-btn {
     display: inline-flex;
     align-items: center;
@@ -199,16 +225,16 @@ main {
     margin: 5px;
 }
 
+/* Iconos de los botones */
 .gadgetit-btn-icon,
 .gadgetit-btn-iconn {
     margin-right: 5px;
 }
 
-
+/* Media Queries para pantallas pequeñas */
 @media only screen and (max-width: 600px) {
     body {
         font-size: 14px;
-        /* Ajustar el tamaño base de la fuente */
     }
 
     .gadgetit-card-header {
@@ -225,7 +251,6 @@ main {
 
     .gadgetit-card-image img {
         width: 90%;
-        /* Ajustar el ancho de la imagen */
         text-align: center;
         align-items: center;
     }
@@ -234,7 +259,6 @@ main {
     .gadgetit-card-content,
     .gadgetit-card-actions {
         width: 100%;
-        /* Utilizar el ancho completo */
         margin-top: 10px;
         text-align: center;
     }
@@ -242,20 +266,18 @@ main {
     .gadgetit-btn {
         width: auto;
         margin: 10px 2px;
-        /* Ajustar el espaciado */
     }
 
     .gadgetit-card-title,
     .gadgetit-card-description {
         margin-top: 5px;
-        /* Ajustar el margen superior */
     }
 }
 
+/* Media Queries para tabletas */
 @media only screen and (min-width: 601px) and (max-width: 1024px) {
     body {
         font-size: 16px;
-        /* Ajustar el tamaño base de la fuente */
     }
 
     .gadgetit-card-header {
@@ -266,36 +288,30 @@ main {
 
     #SearchBar {
         width: 50%;
-        /* Ajustar el ancho para tabletas */
     }
 
     .gadgetit-card {
         flex-direction: row;
         padding: 15px;
         align-items: center;
-        /* Asegurar alineación vertical */
     }
 
     .gadgetit-card-image img {
         width: 100px;
-        /* Tamaño fijo para las imágenes */
     }
 
     .gadgetit-card-image {
         width: 100px;
-        /* Tamaño fijo para las imágenes */
     }
 
     .gadgetit-card-principal,
     .gadgetit-card-content {
         margin-left: 20px;
         width: auto;
-        /* Ajustar el ancho automáticamente */
     }
 
     .gadgetit-card-actions {
         justify-content: space-between;
-        /* Espaciado entre botones */
         flex-direction: column;
     }
 }

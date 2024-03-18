@@ -1,9 +1,10 @@
+/* Estilos para el main */
 main {
     padding-top: 1rem;
     padding-bottom: 2rem;
 }
 
-/*clase para la barra de busqueda*/
+/* Clase para la barra de búsqueda */
 .buscador {
     max-width: 30rem;
     padding-top: 5rem;
@@ -11,7 +12,7 @@ main {
     padding-bottom: 3rem;
 }
 
-/*Clases para las cards*/
+/* Estilos para las tarjetas */
 .card-body {
     position: relative;
     display: flex;
@@ -19,6 +20,7 @@ main {
     justify-content: space-between;
 }
 
+/* Estilos para los iconos de características */
 .iconos-caracteristicas {
     position: absolute;
     bottom: 10px;
@@ -45,19 +47,23 @@ main {
     margin-bottom: 0;
 }
 
+/* Estilos para la descripción y el precio */
 .descripcion-precio {
     flex-grow: 1;
 }
 
+/* Estilos para las imágenes de las tarjetas */
 .card img {
     height: 10rem;
 }
 
+/* Ajuste para la clase contenedoor-tarjetas */
 .contenedoor-tarjetas{
     margin-top: 0;
     margin: 1rem 0rem;
-  }
+}
 
+/* Ajuste adicional para la clase buscador */
 .buscador{
-    padding-top: 10px ;
+    padding-top: 10px;
 }

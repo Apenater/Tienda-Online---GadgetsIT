@@ -1,19 +1,22 @@
-
+/* Estilos para el encabezado */
 .header {
     padding: 0rem 0 0rem;
     background-color: #FAFAFA;
     height: 0px;
 }
 
-.test{
+/* Clase de prueba con altura de 0px */
+.test {
     height: 00px;
 }
 
+/* Estilos para el encabezado en la página de inicio */
 .header.inicio {
     background-position: 50%;
     background-size: cover;
 }
 
+/* Estilos para los enlaces de navegación y botones */
 .navegacion a,
 button {
     text-decoration: none;
@@ -24,12 +27,14 @@ button {
     text-align: center;
 }
 
+/* Contenedor del encabezado con disposición flexible */
 .contenido-header {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
+/* Barra de separación */
 .barra {
     display: flex;
     flex-direction: column;
@@ -38,12 +43,12 @@ button {
     height: 10px;
 }
 
-/*Media Querys para la barra de navegacion*/
+/* Media Queries para la barra de navegación */
 @media (min-width:768px) {
     .barra {
         flex-direction: row;
         justify-content: space-between;
-        align-items: flex-end
+        align-items: flex-end;
     }
 }
 
@@ -52,7 +57,7 @@ button {
         display: flex;
         align-items: center;
         opacity: 1;
-        visibility: visible
+        visibility: visible;
     }
 }
 
@@ -63,22 +68,19 @@ button {
     }
 
     .navegacion a:last-of-type {
-        margin-right: 0
+        margin-right: 0;
     }
 }
 
+/* Estilos para el logotipo */
 .logo a {
     font-size: 1.5rem;
     text-decoration: none;
     color: #463E55;
     font-weight: bold;
-
 }
 
-p {
-    color: aliceblue;
-}
-
+/* Estilos específicos para el fondo */
 .uno {
     top: 0px;
     background-color: #080808;
@@ -87,28 +89,28 @@ p {
     position: absolute;
     z-index: 2;
     height: 30px;
-
 }
 
+/* Estilos para la animación de desplazamiento */
 .dos-track {
- 
     display: flex;
     align-items: center !important; /* Agregado para centrar verticalmente */
     animation: scroll 40s linear infinite;
     width: calc(200px * 14);
 }
 
-
+/* Estilos para el contenido centrado */
 .tres {
     width: 200px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    height: 48px ; /* Ajusta la altura según tus necesidades */
-    line-height: 80px !important; /* Igual a la altura para centrar verticalmente */
-  }
+    height: 48px; 
+    line-height: 80px !important; 
+}
 
+/* Definición de la animación de desplazamiento */
 @keyframes scroll {
     from {
         transform: translateX(0);
@@ -119,6 +121,7 @@ p {
     }
 }
 
+/* Asegurando que la barra de navegación se muestre por encima de todo */
 .navbar {
     z-index: 1;
 }

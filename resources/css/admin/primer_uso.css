@@ -1,4 +1,6 @@
-body, html {
+/* Establece la altura completa del body y html y elimina los márgenes */
+body,
+html {
     height: 100%;
     margin: 0;
     font-family: 'Arial', sans-serif;
@@ -6,6 +8,7 @@ body, html {
     overflow: hidden;
 }
 
+/* Estilos para el branding */
 .login-branding {
     position: absolute;
     left: 5%;
@@ -14,68 +17,16 @@ body, html {
     color: #ffffff;
 }
 
+/* Estilos para el logotipo */
 .login-logo {
     font-size: 48px;
     font-weight: bold;
     margin: 0;
 }
 
+/* Estilos para la descripción */
 .login-description {
     font-size: 18px;
-}
-
-
-.login-container h1 {
-    font-size: 32px;
-    color: #000000;
-    margin-bottom: 10px;
-}
-
-.login-container p {
-    color: #555;
-    margin-bottom: 30px;
-}
-
-.input-group {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.input-group input {
-    width: 87%;
-    padding: 15px;
-    padding-left: 35px;
-    border: 1px solid #ccc;
-    border-radius: 20px;
-    font-size: 14px;
-}
-
-.input-group .input-icon {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #ccc;
-}
-
-.login-btn, .footer-btn {
-    width: 100%;
-    padding: 15px;
-    border: none;
-    border-radius: 20px;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-    margin-bottom: 20px;
-}
-
-.login-btn {
-    background-color: #000000;
-}
-
-.footer-btn {
-    background-color: #555;
-    border: none;
 }
 
 /* Estilos para el contenedor del formulario de inicio de sesión */
@@ -89,33 +40,103 @@ body, html {
     background: #ffffff;
     border-radius: 10px;
     text-align: center;
+
 }
 
-/* Estilos adicionales para inputs, botones, etc. se mantienen intactos */
+/* Estilos para el título del formulario */
+.login-container h1 {
+    font-size: 32px;
+    color: #000000;
+
+    margin-bottom: 10px;
+}
+
+/* Estilos para los párrafos del formulario */
+.login-container p {
+    color: #555;
+
+    margin-bottom: 30px;
+}
+
+/* Estilos para el grupo de entrada */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+/* Estilos para las entradas de texto */
+.input-group input {
+    width: 87%;
+    padding: 15px;
+    padding-left: 35px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+/* Estilos para los iconos de entrada */
+.input-group .input-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ccc;
+
+}
+
+/* Estilos para los botones de inicio de sesión y pie de página */
+.login-btn,
+.footer-btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+
+}
+
+/* Estilos específicos para el botón de inicio de sesión */
+.login-btn {
+    background-color: #000000;
+
+}
+
+/* Estilos específicos para el botón de pie de página */
+.footer-btn {
+    background-color: #555;
+
+    border: none;
+
+}
 
 /* Media query para adaptar el diseño en dispositivos móviles */
 @media (max-width: 767px) {
     .login-branding {
         position: absolute;
         left: 50%;
-        top: 5%; /* Espacio suficiente para evitar superposición y mantener armonía */
-        transform: translate(-50%, 0); /* Centrado horizontal del branding */
+        top: 5%;
+        transform: translate(-50%, 0);
 
     }
 
-    body, html {
-       
-       
+    body,
+    html {
         background: linear-gradient(to right, #000000 0%, #a8a8a8 50%, #e6e6e6 100%);
-       
     }
 
+
+
+    /* Estilos para el contenedor del formulario en dispositivos móviles */
     .login-container {
         position: absolute;
         left: 50%;
-        top: 25%; /* Espacio armonioso entre el branding y el contenedor */
-        transform: translate(-50%, 0); /* Centrado horizontal del contenedor */
-        width: 80%; /* Ancho adecuado para la mayoría de los dispositivos móviles */
-        padding: 20px; /* Padding ajustado para dispositivos móviles */
+        top: 25%;
+        transform: translate(-50%, 0);
+        width: 80%;
+        padding: 20px;
+
     }
 }

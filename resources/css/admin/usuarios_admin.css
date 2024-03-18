@@ -1,21 +1,25 @@
+/* Estilos para el elemento <span> */
 span {
   color: #000000;
   font-size: 30px;
   margin-top: 50px;
 }
 
+/* Estilos para el contenedor gadgetit-container */
 .gadgetit-container {
   font-family: Arial, sans-serif;
   background: #ffffff;
   margin: 0;
   padding: 20px 20px 10px 20px;
 }
-tres
+
+/* Estilos para el elemento con clase text-products */
 .text-products {
   margin: 20px 0px;
   color: black;
 }
 
+/* Estilos para el encabezado de las tarjetas */
 .gadgetit-card-header {
   color: #fff;
   font-size: 18px;
@@ -27,6 +31,7 @@ tres
   padding-top: 10px;
 }
 
+/* Estilos para las tarjetas */
 .gadgetit-card {
   background: #EAEAEA;
   border-radius: 10px;
@@ -37,10 +42,12 @@ tres
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para la imagen dentro de las tarjetas */
 .gadgetit-card-image {
   width: 10%;
 }
 
+/* Estilos para las imágenes dentro de las tarjetas */
 .gadgetit-card-image img {
   width: 100%;
   height: 150px;
@@ -48,12 +55,14 @@ tres
   object-fit: cover;
 }
 
+/* Estilos para el contenido principal de las tarjetas */
 .gadgetit-card-principal {
   text-align: left;
   margin-left: 30px;
   width: 25%;
 }
 
+/* Estilos para el contenido de las tarjetas */
 .gadgetit-card-content {
   text-align: center;
   margin-left: 0px;
@@ -63,6 +72,7 @@ tres
   justify-content: space-around;
 }
 
+/* Estilos para las acciones de las tarjetas */
 .gadgetit-card-actions {
   display: flex;
   flex-direction: row;
@@ -70,22 +80,26 @@ tres
   text-align: center;
 }
 
+/* Estilos para el título y la descripción de las tarjetas */
 .gadgetit-card-title,
 .gadgetit-card-description {
   color: #414141;
   margin-top: 0px;
 }
 
+/* Estilos para el título de las tarjetas */
 .gadgetit-card-title {
   font-size: 28px;
   font-weight: bold;
 }
 
+/* Estilos para la descripción de las tarjetas */
 .gadgetit-card-description {
   font-size: 16px;
   color: #666;
 }
 
+/* Estilos para los botones */
 .gadgetit-btn {
   display: flex;
   align-items: center;
@@ -101,19 +115,22 @@ tres
   background-color: #02D693;
 }
 
+/* Estilos para el botón al pasar el ratón por encima */
 .gadgetit-btn:hover {
   background-color: #00ac75;
 }
 
+/* Estilos para el botón rojo */
 .gadgetit-btn-rojo {
   background-color: #ff2e2e;
 }
 
+/* Estilos para el botón rojo al pasar el ratón por encima */
 .gadgetit-btn-rojo:hover {
   background-color: #e10000;
 }
 
-
+/* Estilos para el botón agregar */
 .gadgetit-btn-agregar {
   height: 20px;
   border-radius: 16px;
@@ -122,12 +139,12 @@ tres
   background-color: #00b179;
 }
 
+/* Estilos para el botón agregar al pasar el ratón por encima */
 .gadgetit-btn-agregar:hover {
   background-color: #009966;
 }
 
-
-
+/* Estilos para los iconos de los botones */
 .gadgetit-btn-icon,
 .gadgetit-btn-iconn {
   height: 20px;
@@ -145,6 +162,7 @@ tres
   max-width: 1200px;
 }
 
+/* Estilos para el encabezado de las tarjetas con media query */
 .gadgetit-card-header {
   color: #fff;
   font-size: 18px;
@@ -156,6 +174,7 @@ tres
   margin: 0 1.5%;
 }
 
+/* Estilos para las tarjetas con media query */
 .gadgetit-card {
   background: #EAEAEA;
   border-radius: 10px;
@@ -166,16 +185,19 @@ tres
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos para la imagen dentro de las tarjetas con media query */
 .gadgetit-card-image {
   width: 150px;
 }
 
+/* Estilos para las imágenes dentro de las tarjetas con media query */
 .gadgetit-card-image img {
   width: 100%;
   height: 150px;
   border-radius: 10px;
 }
 
+/* Estilos para el contenido principal y el contenido de las tarjetas con media query */
 .gadgetit-card-principal,
 .gadgetit-card-content {
   display: flex;
@@ -184,11 +206,13 @@ tres
   margin-left: 20px;
 }
 
+/* Estilos para el título y la descripción de las tarjetas con media query */
 .gadgetit-card-title,
 .gadgetit-card-description {
   margin: 5px 0;
 }
 
+/* Estilos para los botones con media query */
 .gadgetit-btn {
   display: inline-flex;
   align-items: center;
@@ -202,137 +226,20 @@ tres
   margin: 5px;
 }
 
+/* Estilos para los iconos de los botones con media query */
 .gadgetit-btn-icon,
 .gadgetit-btn-iconn {
   margin-right: 5px;
 }
 
-
-@media only screen and (max-width: 600px) {
-  body {
-    font-size: 14px;
-    /* Ajustar el tamaño base de la fuente */
-  }
-
-  .gadgetit-card-header {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: 10px;
-  }
-
-  #SearchBar {
-    width: 100%;
-    margin: 10px 0;
-    /* Espacio adicional arriba y abajo */
-  }
-
-  .gadgetit-card {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .gadgetit-card-image img {
-    width: 90%;
-    /* Ajustar el ancho de la imagen */
-    text-align: center;
-    align-items: center;
-  }
-
-  .gadgetit-card-principal,
-  .gadgetit-card-content,
-  .gadgetit-card-actions {
-    width: 100%;
-    /* Utilizar el ancho completo */
-    margin-top: 10px;
-    text-align: center;
-  }
-
-  .gadgetit-btn {
-    width: auto;
-    margin: 10px 2px;
-    /* Ajustar el espaciado */
-  }
-
-  .gadgetit-card-title,
-  .gadgetit-card-description {
-    margin-top: 5px;
-    /* Ajustar el margen superior */
-  }
-}
-
-@media only screen and (min-width: 601px) and (max-width: 1024px) {
-  body {
-    font-size: 16px;
-    /* Ajustar el tamaño base de la fuente */
-  }
-
-  .gadgetit-card-header {
-    flex-direction: row;
-    justify-content: space-between;
-    padding: 0 15px;
-  }
-
-  #SearchBar {
-    width: 50%;
-    /* Ajustar el ancho para tabletas */
-  }
-
-  .gadgetit-card {
-    flex-direction: row;
-    padding: 15px;
-    align-items: center;
-    /* Asegurar alineación vertical */
-  }
-
-  .gadgetit-card-image img {
-    width: 100px;
-    /* Tamaño fijo para las imágenes */
-  }
-
-  .gadgetit-card-image {
-    width: 100px;
-    /* Tamaño fijo para las imágenes */
-  }
-
-  .gadgetit-card-principal,
-  .gadgetit-card-content {
-    margin-left: 20px;
-    width: auto;
-    /* Ajustar el ancho automáticamente */
-  }
-
-  .gadgetit-card-actions {
-    justify-content: space-between;
-    /* Espaciado entre botones */
-    flex-direction: column;
-  }
-}
-
-
-
-p {
-  color: aliceblue;
-}
-
-.uno {
-  top: 81px;
-  background-color: #080808;
-  width: 100%;
-  height: auto;
-  margin: 0;
-  overflow: hidden;
-  position: absolute;
-
-  z-index: 0;
-}
-
+/* Animación de scroll */
 .dos-track {
   display: flex;
   animation: scroll 40s linear infinite;
   width: calc(200px * 14);
 }
 
+/* Estilos para cada elemento del scroll */
 .tres {
   width: 200px;
   display: flex;
@@ -341,24 +248,88 @@ p {
   text-align: center;
 }
 
+/* Definición de la animación de scroll */
 @keyframes scroll {
   from {
     transform: translateX(0);
   }
-
   to {
     transform: translateX(-50%);
   }
 }
 
-/* Asegurando que el navbar se muestre por encima de todo */
-.navbar {
-  z-index: 1;
+/* Estilos específicos para pantallas pequeñas */
+@media only screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+  .gadgetit-card-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+  }
+  #SearchBar {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .gadgetit-card {
+    flex-direction: column;
+    align-items: center;
+  }
+  .gadgetit-card-image img {
+    width: 90%;
+    text-align: center;
+    align-items: center;
+  }
+  .gadgetit-card-principal,
+  .gadgetit-card-content,
+  .gadgetit-card-actions {
+    width: 100%;
+    margin-top: 10px;
+    text-align: center;
+  }
+  .gadgetit-btn {
+    width: auto;
+    margin: 10px 2px;
+  }
+  .gadgetit-card-title,
+  .gadgetit-card-description {
+    margin-top: 5px;
+  }
 }
 
-@media only screen and (max-width: 800px) {
-  .uno {
-    top: 229px;
-
+/* Estilos específicos para pantallas medianas */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  body {
+    font-size: 16px;
+  }
+  .gadgetit-card-header {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+  #SearchBar {
+    width: 50%;
+  }
+  .gadgetit-card {
+    flex-direction: row;
+    padding: 15px;
+    align-items: center;
+  }
+  .gadgetit-card-image img {
+    width: 100px;
+  }
+  .gadgetit-card-image {
+    width: 100px;
+  }
+  .gadgetit-card-principal,
+  .gadgetit-card-content {
+    margin-left: 20px;
+    width: auto;
+  }
+  .gadgetit-card-actions {
+    justify-content: space-between;
+    flex-direction: column;
   }
 }
