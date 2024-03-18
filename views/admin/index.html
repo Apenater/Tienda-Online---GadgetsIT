@@ -2,56 +2,52 @@
 <html lang="es">
 
 <head>
+    <!-- Declaración del tipo de documento y especificación del lenguaje -->
     <meta charset="UTF-8">
+    <!-- Etiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Login admin</title>
-    <!-- Hojas de estilo -->
+    <!-- Enlace al archivo CSS para estilos específicos de la página de login -->
     <link rel="stylesheet" href="../../resources/css/admin/login.css">
 </head>
 
 <body>
 
-
-<<<<<<< HEAD
-    <!-- Formulario de inicio de sesion (login) -->
-=======
-
-
-    
+    <!-- Contenedor principal del formulario de login -->
     <div class="login-wrapper">
         <div class="login-branding">
+            <!-- Logo de la aplicación o marca -->
             <h1 class="login-logo">GADGETSIT</h1>
-
         </div>
-
     </div>
->>>>>>> 31f4e0fe98dedd1a2dd22837f27d09ce4602aa7b
+
     <div class="login-container">
+        <!-- Encabezado indicando que es el formulario de login para administradores -->
         <h1>Administrador</h1>
 
+        <!-- Formulario de login -->
         <form id="login-form" action="/login" method="post">
+            <!-- Campo para ingresar el correo electrónico -->
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <!-- Ícono para indicar que este campo es para el correo electrónico -->
                 <span class="input-icon">&#9993;</span>
             </div>
+            <!-- Campo para ingresar la contraseña -->
             <div class="input-group">
                 <input type="password" id="password" name="password" placeholder="Password" required>
+                <!-- Ícono para indicar que este campo es para la contraseña -->
                 <span class="input-icon">&#128274;</span>
             </div>
-           
-        
+            <!-- Botón para enviar el formulario -->
             <button type="submit" class="login-btn">Siguiente</button>
+            <!-- Botón adicional para acceder a la tienda, este botón parece ser un agregado opcional -->
             <button type="submit" class="tienda-btn">Tienda</button>
-           
         </form>
     </div>
 
-<<<<<<< HEAD
-    <!-- scripts de la pagina -->
-=======
-
-
->>>>>>> 31f4e0fe98dedd1a2dd22837f27d09ce4602aa7b
+    <!-- Inclusión del archivo JavaScript para la funcionalidad del formulario de login -->
     <script src="../../resources/js/admin/login.js"></script>
 
 </body>

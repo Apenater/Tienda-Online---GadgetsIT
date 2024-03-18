@@ -2,54 +2,70 @@
 <html lang="es">
 
 <head>
+    <!-- Declaración del tipo de documento y especificación del lenguaje -->
     <meta charset="UTF-8">
+    <!-- Etiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Registro Admin</title>
 
-    <!-- Hojas de estilo de la pagina -->
+    <!-- Hoja de estilo personalizada -->
     <link rel="stylesheet" href="../../resources/css/admin/primer_uso.css">
 </head>
 
 <body>
 
+    <!-- Contenedor principal del formulario de registro -->
     <div class="login-wrapper">
         <div class="login-branding">
+            <!-- Logo y descripción -->
             <h1 class="login-logo">GADGETSIT</h1>
             <p class="login-description">Registrate admin</p>
         </div>
-
     </div>
     <div class="login-container">
+        <!-- Título y saludo -->
         <h1>Holaaa admin!</h1>
         <p>Registrate</p>
 
         <!-- Formulario de primer uso -->
         <form action="/login" method="post" id="firts-use-form">
+            <!-- Campo para ingresar el nombre -->
             <div class="input-group">
                 <input type="name" id="name" name="name" placeholder="Nombre" required>
+                <!-- Icono asociado al campo -->
                 <span class="input-icon">&#128100;</span>
             </div>
+            <!-- Campo para ingresar el nombre de usuario -->
             <div class="input-group">
                 <input type="username" id="username" name="username" placeholder="Username" required>
+                <!-- Icono asociado al campo -->
                 <span class="input-icon">&#64;</span>
             </div>
+            <!-- Campo para ingresar el correo electrónico -->
             <div class="input-group">
                 <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <!-- Icono asociado al campo -->
                 <span class="input-icon">&#9993;</span>
             </div>
+            <!-- Campo para ingresar la contraseña -->
             <div class="input-group">
                 <input type="password" id="password" name="password" placeholder="Password" required>
+                <!-- Icono asociado al campo -->
                 <span class="input-icon">&#128274;</span>
             </div>
+            <!-- Campo para ingresar el número de teléfono -->
             <div class="input-group">
                 <input type="number" id="phone" name="phone" placeholder="Telefono" required>
+                <!-- Icono asociado al campo -->
                 <span class="input-icon">&#128222;</span>
             </div>
+            <!-- Botón para enviar el formulario -->
             <button type="submit" class="login-btn">Registrarse</button>
         </form>
     </div>
 
-    <!-- scripts de la pagina -->
+    <!-- Scripts de la página -->
     <script src="../../resources/js/admin/login.js"></script>
 </body>
 

@@ -2,35 +2,43 @@
 <html lang="es">
 
 <head>
+    <!-- Metaetiqueta para el juego de caracteres -->
     <meta charset="UTF-8">
+    <!-- Metaetiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Clientes</title>
 
-    <!-- Hojas de estilo css -->
+    <!-- Hojas de estilo CSS -->
     <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
 
+    <!-- Encabezado de la página -->
     <header></header>
 
-    <!-- Modal para actualizar la infor,acion de los usuarios -->
+    <!-- Modal para actualizar información de los usuarios -->
     <div class="container mt-5">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-l">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Informción del clientes</h5>
+                        <!-- Título del modal -->
+                        <h5 class="modal-title" id="exampleModalLabel">Información del cliente</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div class="row">
                             <div class="col-md-12 align-items-center justify-content-center">
+                                <!-- Formulario para actualizar información del cliente -->
                                 <form>
+                                    <!-- Campos de entrada para nombre, apellido, correo, teléfono y contraseña -->
                                     <div class="mb-3">
                                         <input type="text" class="form-control" id="user-name" placeholder="Nombre"
                                             value="Ari">
@@ -44,7 +52,7 @@
                                             value="edgar.aripenate@gmailcom">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-phone" placeholder="Telefono"
+                                        <input type="text" class="form-control" id="user-phone" placeholder="Teléfono"
                                             value="76476902">
                                     </div>
                                     <div class="mb-3">
@@ -56,6 +64,7 @@
                             </div>
                         </div>
                     </div>
+                    <!-- Botones de cierre y actualización del formulario -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="button" class="btn btn-success">Actualizar</button>
@@ -65,9 +74,10 @@
         </div>
     </div>
 
-    <!-- Seccion de los usuarios -->
+    <!-- Sección de los usuarios -->
     <div class="container">
         <div class="gadgetit-card-header">
+            <!-- Título y buscador principal de la sección -->
             <span class="text-products">Clientes</span>
             <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
 
@@ -75,7 +85,7 @@
 
     </div>
 
-
+    <!-- Contenedores de usuarios -->
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
@@ -154,7 +164,7 @@
 
     <br>
 
-    <!-- navegacion de los usuarios -->
+    <!-- Navegación de la sección de usuarios -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -170,14 +180,16 @@
     </nav>
 
 
+    <!-- Pie de página -->
     <footer> </footer>
 
-    <!-- scripts de la pagina  -->
+    <!-- Scripts de la página -->
     <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
     <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    </script>
 
 </body>
 

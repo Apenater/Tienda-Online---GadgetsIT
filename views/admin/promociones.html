@@ -2,21 +2,25 @@
 <html lang="es">
 
 <head>
+    <!-- Metaetiqueta para el juego de caracteres -->
     <meta charset="UTF-8">
+    <!-- Metaetiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Promociones</title>
 
     <!-- Hojas de estilo -->
     <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
-
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
 
+    <!-- Encabezado de la página -->
     <header> </header>
 
     <!-- Modal para crear ofertas -->
@@ -25,31 +29,38 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <!-- Título del modal -->
                         <h5 class="modal-title" id="exampleModalLabel">Crear Descuento</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <!-- Formulario para crear descuento -->
                         <form>
+                            <!-- Campo de entrada para el nombre del descuento -->
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="Discount-name"
                                     placeholder="Nombre del Descuento">
                             </div>
+                            <!-- Campo de entrada para la descripción del descuento -->
                             <div class="mb-3">
                                 <textarea class="form-control" id="Discount-description"
                                     placeholder="Descripción del Descuento"></textarea>
                             </div>
+                            <!-- Campo de entrada para el porcentaje del descuento -->
                             <div class="input-group mb-3">
                                 <input type="number" class="form-control" id="Discount"
-                                    placeholder="Pocentaje del Descuento%">
+                                    placeholder="Porcentaje del Descuento%">
                             </div>
+                            <!-- Selector de producto -->
                             <select class="form-select form-select-sm" aria-label="Small select example">
-                                <option selected>Elejir producto:</option>
+                                <option selected>Elegir producto:</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
                         </form>
                     </div>
+                    <!-- Botones de cierre y envío del formulario -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="button" class="btn btn-success ">Agregar</button>
@@ -65,31 +76,38 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <!-- Título del modal -->
                         <h5 class="modal-title" id="exampleModalLabel">Actualizar Descuento</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <!-- Formulario para actualizar descuento -->
                         <form>
+                            <!-- Campo de entrada para el nombre del descuento (con valor predefinido) -->
                             <div class="mb-3">
                                 <input type="text" class="form-control" id="Discount-name"
                                     placeholder="Nombre del Descuento" value="Dia de las Madres">
                             </div>
+                            <!-- Campo de entrada para la descripción del descuento (con valor predefinido) -->
                             <div class="mb-3">
                                 <textarea class="form-control" id="Discount-description"
                                     placeholder="Descripción del Descuento" aria-valuetext="#0% de Descuento para consentir a tu Mamita"></textarea>
                             </div>
+                            <!-- Campo de entrada para el porcentaje del descuento (con valor predefinido) -->
                             <div class="input-group mb-3">
                                 <input type="number" class="form-control" id="Discount"
-                                    placeholder="Pocentaje del Descuento%" value="30">
+                                    placeholder="Porcentaje del Descuento%" value="30">
                             </div>
+                            <!-- Selector de producto -->
                             <select class="form-select form-select-sm" aria-label="Small select example">
-                                <option selected>Apple Wacht 6</option>
+                                <option selected>Apple Watch 6</option>
                                 <option value="1">One</option>
                                 <option value="2">Two</option>
                                 <option value="3">Three</option>
                             </select>
                         </form>
                     </div>
+                    <!-- Botones de cierre y actualización del formulario -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                         <button type="button" class="btn btn-success ">Actualizar</button>
@@ -99,10 +117,12 @@
         </div>
     </div>
 
-    <!-- Seccion de promociones -->
+    <!-- Sección de promociones -->
     <div class="gadgetit-card-header">
+        <!-- Título y buscador principal de la sección -->
         <span class="text-products">Promociones | activas</span>
         <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
+        <!-- Botón para agregar una nueva promoción -->
         <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
@@ -210,12 +230,13 @@
 
     <br>
 
-    <!-- Navegacion de ofertas -->
+    <!-- Navegación de páginas de promociones -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
                 <a class="page-link">Previous</a>
             </li>
+            <!-- Páginas numeradas -->
             <li class="page-item"><a class="page-link" href="#">1</a></li>
             <li class="page-item"><a class="page-link" href="#">2</a></li>
             <li class="page-item"><a class="page-link" href="#">3</a></li>
@@ -225,18 +246,16 @@
         </ul>
     </nav>
 
-
+    <!-- Pie de página -->
     <footer> </footer>
 
-
-
-    <!-- scripts de la pagina -->
+    <!-- Scripts de la página -->
     <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
     <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
+    <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
-
+    </script>
 
 </body>
 

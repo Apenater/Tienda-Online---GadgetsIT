@@ -2,8 +2,11 @@
 <html lang="es">
 
 <head>
+    <!-- Declaración del tipo de documento y especificación del lenguaje -->
     <meta charset="UTF-8">
+    <!-- Etiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título de la página -->
     <title>Pedidos</title>
 
     <!-- Hojas de estilo -->
@@ -11,27 +14,34 @@
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
 
+    <!-- Estilos de Bootstrap desde CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
 
+    <!-- Encabezado -->
     <header></header>
 
-    <!-- Contenedor de los pedidos -->
+    <!-- Contenedor principal de los pedidos -->
     <div class="container mt-5">
+        <!-- Modal para ver detalles del pedido -->
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl"> <!-- Cambio aquí para hacer el modal más grande -->
+            <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
+                        <!-- Título del modal -->
                         <h5 class="modal-title" id="exampleModalLabel">Ver pedido</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <!-- Formulario dentro del modal -->
                         <div class="row">
                             <div class="col-md-12 align-items-center justify-content-center">
                                 <form>
+                                    <!-- Detalles del pedido -->
+                                    <!-- Primer producto -->
                                     <div class="gadgetit-container">
                                         <div class="gadgetit-card">
                                             <div class="gadgetit-card-image">
@@ -51,7 +61,7 @@
                                             </div>
                                         </div>
                                     </div>
-
+                                    <!-- Segundo producto -->
                                     <div class="gadgetit-container">
                                         <div class="gadgetit-card">
                                             <div class="gadgetit-card-image">
@@ -71,7 +81,7 @@
                                             </div>
                                         </div>
                                     </div>
-                            
+                                    <!-- Tercer producto -->
                                     <div class="gadgetit-container">
                                         <div class="gadgetit-card">
                                             <div class="gadgetit-card-image">
@@ -99,38 +109,40 @@
             </div>
         </div>
     </div>
-    
 
-
+    <!-- Contenedor de búsqueda de pedidos -->
     <div class="container">
         <div class="gadgetit-card-header">
+            <!-- Encabezado indicando la sección -->
             <span class="text-products">Pedidos</span>
+            <!-- Barra de búsqueda -->
             <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
-
         </div>
-
     </div>
 
-    <!-- Contenedores de los pedidos realizados-->
+    <!-- Contenedores de los pedidos realizados -->
+    <!-- Primer pedido -->
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
                 <img src="../../resources/img/profile.svg" alt="profile">
             </div>
             <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Ari Peñate </div>
+                <div class="gadgetit-card-title">Ari Peñate</div>
             </div>
             <div class="gadgetit-card-actions">
+                <!-- Botón para ver detalles del pedido -->
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Ver pedido
                 </button>
+                <!-- Botón para rechazar el pedido -->
                 <button class="gadgetit-btn gadgetit-btn-rojo">
                     <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
             </div>
         </div>
     </div>
-
+    <!-- Segundo pedido -->
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
@@ -140,16 +152,18 @@
                 <div class="gadgetit-card-title">Andres Rosales</div>
             </div>
             <div class="gadgetit-card-actions">
+                <!-- Botón para ver detalles del pedido -->
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Ver pedido
                 </button>
+                <!-- Botón para rechazar el pedido -->
                 <button class="gadgetit-btn gadgetit-btn-rojo">
                     <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
             </div>
         </div>
     </div>
-
+    <!-- Tercer pedido -->
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
@@ -159,16 +173,18 @@
                 <div class="gadgetit-card-title">Kevin Rolin</div>
             </div>
             <div class="gadgetit-card-actions">
+                <!-- Botón para ver detalles del pedido -->
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Ver pedido
                 </button>
+                <!-- Botón para rechazar el pedido -->
                 <button class="gadgetit-btn gadgetit-btn-rojo">
                     <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
             </div>
         </div>
     </div>
-
+    <!-- Cuarto pedido -->
     <div class="gadgetit-container">
         <div class="gadgetit-card">
             <div class="gadgetit-card-image">
@@ -178,9 +194,11 @@
                 <div class="gadgetit-card-title">S_pendor</div>
             </div>
             <div class="gadgetit-card-actions">
+                <!-- Botón para ver detalles del pedido -->
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Ver pedido
                 </button>
+                <!-- Botón para rechazar el pedido -->
                 <button class="gadgetit-btn gadgetit-btn-rojo">
                     <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
                 </button>
@@ -190,7 +208,7 @@
 
     <br>
 
-    <!-- Navegacion de los pedidos -->
+    <!-- Navegación de los pedidos -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
             <li class="page-item disabled">
@@ -205,17 +223,16 @@
         </ul>
     </nav>
 
-
+    <!-- Pie de página -->
     <footer> </footer>
 
-    <!-- scripts de la pagina -->
+    <!-- Scripts de la página -->
     <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
-
     <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
-
+    <!-- Script de Bootstrap desde CDN -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    </script>
 
 </body>
 
