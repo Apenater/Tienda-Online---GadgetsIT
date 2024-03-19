@@ -6,10 +6,9 @@ main {
 
 /* Clase para la barra de búsqueda */
 .buscador {
-    max-width: 30rem;
-    padding-top: 5rem;
-    margin: 0 auto;
-    padding-bottom: 3rem;
+    max-width: 80%;
+    padding-top: 10rem;
+    padding-bottom: 1rem;
 }
 
 /* Estilos para las tarjetas */
@@ -66,4 +65,5 @@ main {
 /* Ajuste adicional para la clase buscador */
 .buscador{
     padding-top: 10px;
+    margin: 0% 10%;
 }
