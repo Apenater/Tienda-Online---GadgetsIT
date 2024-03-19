@@ -1,127 +1,64 @@
-/* Estilos para el encabezado */
-.header {
-    padding: 0rem 0 0rem;
-    background-color: #FAFAFA;
-    height: 0px;
+/* Estilos Generales */
+:root {
+    --color-primary: #0a0a0a;
+    --color-secondary: #888689;
+    --color-hover: #FFD700;
+    --navbar-height: 80px; /* Altura del navbar para animaciones y ajustes */
 }
 
-/* Clase de prueba con altura de 0px */
-.test {
-    height: 00px;
+body {
+    padding-top: var(--navbar-height); /* Evita que el contenido se oculte detrás del navbar fijo */
 }
 
-/* Estilos para el encabezado en la página de inicio */
-.header.inicio {
-    background-position: 50%;
-    background-size: cover;
-}
-
-/* Estilos para los enlaces de navegación y botones */
-.navegacion a,
-button {
-    text-decoration: none;
-    font-size: 1rem;
-    color: black;
-    font-family: 'Raleway', sans-serif;
-    display: block;
-    text-align: center;
-}
-
-/* Contenedor del encabezado con disposición flexible */
-.contenido-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-/* Barra de separación */
-.barra {
-    display: flex;
-    flex-direction: column;
-    padding-top: 0rem;
-    background-color: #322c2c !important;
-    height: 10px;
-}
-
-/* Media Queries para la barra de navegación */
-@media (min-width:768px) {
-    .barra {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: flex-end;
-    }
-}
-
-@media (min-width:768px) {
-    .navegacion {
-        display: flex;
-        align-items: center;
-        opacity: 1;
-        visibility: visible;
-    }
-}
-
-@media (min-width:768px) {
-    .navegacion a {
-        margin-right: 2rem;
-        font-size: 1rem;
-    }
-
-    .navegacion a:last-of-type {
-        margin-right: 0;
-    }
-}
-
-/* Estilos para el logotipo */
-.logo a {
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: #463E55;
-    font-weight: bold;
-}
-
-/* Estilos específicos para el fondo */
-.uno {
-    top: 0px;
-    background-color: #080808;
-    margin: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: 2;
-    height: 30px;
-}
-
-/* Estilos para la animación de desplazamiento */
-.dos-track {
-    display: flex;
-    align-items: center !important; /* Agregado para centrar verticalmente */
-    animation: scroll 40s linear infinite;
-    width: calc(200px * 14);
-}
-
-/* Estilos para el contenido centrado */
-.tres {
-    width: 200px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    height: 48px; 
-    line-height: 80px !important; 
-}
-
-/* Definición de la animación de desplazamiento */
-@keyframes scroll {
-    from {
-        transform: translateX(0);
-    }
-
-    to {
-        transform: translateX(-50%);
-    }
-}
-
-/* Asegurando que la barra de navegación se muestre por encima de todo */
+/* Mejora de la Navbar con Bootstrap */
 .navbar {
-    z-index: 1;
+    padding: .5rem 1rem;
+    transition: all 0.5s ease;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    border-bottom: 3px solid var(--color-secondary);
+}
+
+/* Efectos en el Logo y Enlaces */
+.navbar-brand {
+    transform: scale(1);
+    transition: transform 0.5s ease;
+    color: white !important;
+}
+
+.navbar-brand:hover, .navbar-brand:focus {
+    transform: scale(1.05);
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: white !important;
+    transition: color 0.3s ease-out, background-color 0.3s ease-out;
+    margin: 0 10px;
+    border-radius: 5px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: var(--color-hover) !important;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Transición Suave del Navbar al Desplazar */
+.navbar-scrolling {
+    background: rgba(0, 0, 0, 0.7) !important; /* Fondo más oscuro para mejorar la lectura */
+    padding: 0.25rem 1rem;
+}
+
+/* Animación del Toggler */
+.navbar-toggler {
+    border: none;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.75)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+/* Mejoras en los Medios de Comunicación */
+@media (max-width: 992px) {
+    .navbar {
+        padding: 0.5rem 1rem;
+    }
 }
