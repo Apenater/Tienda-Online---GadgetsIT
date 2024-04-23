@@ -27,20 +27,12 @@ body {
   font-size: 20px;
 }
 
-/* Estilos para la tarjeta blanca */
-.blanco {
-  height: 450px;
-  width: 600px;
-  margin: 5px auto;
-  border-radius: 20px;
-  overflow: hidden;
-  background-image: url('../../img/fondo 2.svg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  position: relative;
-  font-size: 20px;
+.negro:hover, .blanco:hover {
+  transform: scale(1.06); /* Cambio más sutil al hacer hover */
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2); /* Sombra más suave */
+  transition: transform 0.5s ease, box-shadow 0.5s ease; /* Transición más suave y lenta */
 }
+
 
 /* Estilos para el contenido de la tarjeta negra */
 .negro-content {
