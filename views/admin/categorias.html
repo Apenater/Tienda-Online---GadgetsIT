@@ -26,92 +26,101 @@
 
     <!-- Modal para agregar una nueva categoria -->
     <!-- Contenedor principal para la sección de agregar nueva categoría -->
-    <div class="container mt-5">
+    <div class="container mt-5 contenedor">
         <!-- Modal para agregar nueva categoría -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <!-- Cabecera del modal -->
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
-                        <!-- Botón para cerrar el modal -->
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <!-- Cuerpo del modal -->
-                    <div class="modal-body">
-                        <div class="row">
-                            <!-- Sección para añadir imagen de la categoría -->
-                            <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                    style="display: none; height: 26rem;">
-                                <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                    style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                            </div>
-                            <!-- Formulario para ingresar nombre y descripción de la categoría -->
-                            <div class="col-md-6 align-items-center justify-content-center">
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="category-name" placeholder="Nombre">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" id="category-description"
-                                            placeholder="Descripción"></textarea>
-                                    </div>
-                                </form>
+        <form id="saveForm">
+            <input type="number" class="d-none" id="id_Categoria" name="id_Categoria">
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <!-- Cabecera del modal -->
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Nueva Categoria</h5>
+                            <!-- Botón para cerrar el modal -->
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <!-- Cuerpo del modal -->
+                        <div class="modal-body">
+                            <div class="row">
+                                <!-- Sección para añadir imagen de la categoría -->
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
+                                        style="display: none; height: 26rem;">
+                                    <i id="addImageIcon" class="fa fa-upload fa-5x"
+                                        style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
+                                    <input type="file" name="foto" id="inputGroupFile01" accept="image/*" style="display: none;">
+                                </div>
+                                <!-- Formulario para ingresar nombre y descripción de la categoría -->
+                                <div class="col-md-6 align-items-center justify-content-center">
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" id="category-name" name="nombreC"
+                                                placeholder="Nombre">
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="category-description" name="Descripcion"
+                                                placeholder="Descripción"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Pie de página del modal con botones de acción -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Agregar</button>
+                        <!-- Pie de página del modal con botones de acción -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
+
 
     <!-- Modal para editar una categoria -->
     <!-- Contenedor para editar categoría, estructura similar al contenedor anterior con valores preestablecidos -->
     <div class="container mt-5">
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                    style="display: none; height: 26rem;">
-                                <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                    style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                            </div>
-                            <div class="col-md-6 align-items-center justify-content-center">
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="category-name" placeholder="Nombre"
-                                            value="Telefonos">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" id="category-description"
-                                            placeholder="Descripción">Los ultimos del mercado!!!</textarea>
-                                    </div>
-                                </form>
+        <form id="saveForm">
+            <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Editar Categoria</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
+                                        style="display: none; height: 26rem;">
+                                    <i id="addImageIcon" class="fa fa-upload fa-5x"
+                                        style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
+                                    <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
+                                </div>
+                                <div class="col-md-6 align-items-center justify-content-center">
+                                    <form>
+                                        <div class="mb-3">
+                                            <input type="text" class="form-control" id="category-name"
+                                                placeholder="Nombre" value="Telefonos">
+                                        </div>
+                                        <div class="mb-3">
+                                            <textarea class="form-control" id="category-description"
+                                                placeholder="Descripción"></textarea>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Actualziar</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-success"></button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </form>
     </div>
 
     <!-- Sección principal que muestra las categorías actuales y botones para agregar nuevas categorías -->
@@ -126,88 +135,9 @@
     </div>
 
     <!-- Tarjetas para cada categoría, con opciones para actualizar o eliminar -->
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/iphone 12.svg" alt="Speakers">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Telefonos</div>
-                <div class="gadgetit-card-description">Los ultimos del mercado!!!</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
 
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/speaker.svg" alt="Speakers">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Speakers</div>
-                <div class="gadgetit-card-description">Los mejores speakers para tus fiestas</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
+    <div id="tarjetas">
 
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/ps.svg" alt="logo">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Consolas</div>
-                <div class="gadgetit-card-description">La diversion en tu casa</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/airpods-Pro-2.svg" alt="Speakers">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Audifonos</div>
-                <div class="gadgetit-card-description">Lo ultimo en audio </div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
     </div>
 
     <br>
@@ -231,14 +161,19 @@
     <!-- Pie de página -->
     <footer> </footer>
 
+
     <!-- Scripts de la pagina  -->
     <!-- Scripts JS para funcionalidades adicionales y Bootstrap JS para componentes interactivos -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+    </script>
     <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
     <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
     <script src="../../resources/js/admin/add_img.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-        </script>
+    <script src="../../resources/js/sweetalert.min.js"></script>
+    <script src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/categorias.js"></script>
+
 
 </body>
 
