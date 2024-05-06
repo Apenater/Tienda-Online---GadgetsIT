@@ -78,7 +78,7 @@ class CategoriaData extends CategoriaHandler
     public function setFilename()
     {
         if ($data = $this->readFilename()) {
-            $this->filename = $data['imagen_categoria'];
+            $this->filename = $data['foto'];
             return true;
         } else {
             $this->data_error = 'Categoría inexistente';
