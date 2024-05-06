@@ -81,12 +81,12 @@ const fillTable = async (form = null) => {
                         <div class="gadgetit-card-description">${row.Descripcion}</div>
                     </div>
                     <div class="gadgetit-card-actions">
-                        <button type="button" class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2" onclick="openUpdate(${row.id_Categoria})">
+                        <button type="button" class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.id_Categoria})">
                             <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
                             Actualizar
-                        </button>
-                        <button type="button" class="gadgetit-btn gadgetit-btn-rojo">
-                            <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn" onclick="openDelete(${row.id_Categoria})"> Eliminar
+                        </button>   
+                        <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_Categoria})">
+                            <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
                         </button>
                     </div>
                 </div>
@@ -131,9 +131,9 @@ const openUpdate = async (id) => {
         SAVE_FORM.reset();
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_CATEGORIA.value = ROW.id_categoria;
-        NOMBRE_CATEGORIA.value = ROW.nombre_categoria;
-        DESCRIPCION_CATEGORIA.value = ROW.descripcion_categoria;
+        ID_CATEGORIA.value = ROW.id_Categoria;
+        NOMBRE_CATEGORIA.value = ROW.nombreC;
+        DESCRIPCION_CATEGORIA.value = ROW.Descripcion;
     } else {
         sweetAlert(2, DATA.error, false);
     }

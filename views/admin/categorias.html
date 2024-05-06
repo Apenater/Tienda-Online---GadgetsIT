@@ -53,7 +53,6 @@
                                 </div>
                                 <!-- Formulario para ingresar nombre y descripción de la categoría -->
                                 <div class="col-md-6 align-items-center justify-content-center">
-                                    <form>
                                         <div class="mb-3">
                                             <input type="text" class="form-control" id="category-name" name="nombreC"
                                                 placeholder="Nombre">
@@ -62,7 +61,6 @@
                                             <textarea class="form-control" id="category-description" name="Descripcion"
                                                 placeholder="Descripción"></textarea>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -82,6 +80,7 @@
     <!-- Contenedor para editar categoría, estructura similar al contenedor anterior con valores preestablecidos -->
     <div class="container mt-5">
         <form id="saveForm">
+            <input type="number" class="d-none" id="id_Categoria" name="id_Categoria">
             <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
                 <div class="modal-dialog modal-xl">
@@ -100,16 +99,14 @@
                                     <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
                                 </div>
                                 <div class="col-md-6 align-items-center justify-content-center">
-                                    <form>
                                         <div class="mb-3">
-                                            <input type="text" class="form-control" id="category-name"
-                                                placeholder="Nombre" value="Telefonos">
+                                            <input type="text" class="form-control" id="category-name" name="nombreC"
+                                                placeholder="Nombre" value="">
                                         </div>
                                         <div class="mb-3">
-                                            <textarea class="form-control" id="category-description"
+                                            <textarea class="form-control" id="category-description"  name="Descripcion"
                                                 placeholder="Descripción"></textarea>
                                         </div>
-                                    </form>
                                 </div>
                             </div>
                         </div>
