@@ -74,7 +74,7 @@ const fillTable = async (form = null) => {
                 <div class="gadgetit-container">
                 <div class="gadgetit-card">
                     <div class="gadgetit-card-image">
-                        <img src="${SERVER_URL}images/categorias/${row.foto}" alt="Speakers">
+                        <img src="${SERVER_URL}images/categorias/${row.foto}" alt="Image-ct">
                     </div>
                     <div class="gadgetit-card-content">
                         <div class="gadgetit-card-title">${row.nombreC}</div>
@@ -86,7 +86,7 @@ const fillTable = async (form = null) => {
                             Actualizar
                         </button>
                         <button type="button" class="gadgetit-btn gadgetit-btn-rojo">
-                            <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn" onclick="openUpdate(${row.id_Categoria})"> Eliminar
+                            <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn" onclick="openDelete(${row.id_Categoria})"> Eliminar
                         </button>
                     </div>
                 </div>
