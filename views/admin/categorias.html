@@ -2,7 +2,7 @@
 <html lang="es">
 
 <head>
-    <!-- Metadatos del documento: charset para la codificación de caracteres y viewport para la visualización responsiva -->
+    <!-- HOLASAAA   Metadatos del documento: charset para la codificación de caracteres y viewport para la visualización responsiva -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Título de la página -->
@@ -28,6 +28,7 @@
     <!-- Contenedor principal para la sección de agregar nueva categoría -->
     <div class="container mt-5 contenedor">
         <!-- Modal para agregar nueva categoría -->
+
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <input type="number" class="d-none" id="id_Categoria" name="id_Categoria">
             <div class="modal-dialog modal-xl">
@@ -39,7 +40,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <!-- Cuerpo del modal -->
-                    <form name="saveForm">
+                    <form id="saveForm">
+
                         <div class="modal-body">
                             <div class="row">
                                 <!-- Sección para añadir imagen de la categoría -->
@@ -64,15 +66,17 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- Pie de página del modal con botones de acción -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
                     </form>
-                    <!-- Pie de página del modal con botones de acción -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-success">Agregar</button>
-                    </div>
+
                 </div>
             </div>
         </div>
+
     </div>
 
 
@@ -168,8 +172,9 @@
     <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
     <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
     <script src="../../resources/js/admin/add_img.js"></script>
-    <script src="../../resources/js/sweetalert.min.js"></script>
-    <script src="../../controllers/utils/components.js"></script>
+
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
     <script type="text/javascript" src="../../controllers/admin/categorias.js"></script>
 
 
