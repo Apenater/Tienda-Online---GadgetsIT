@@ -45,26 +45,26 @@ class MarcaData extends MarcaHandler
     public function setImagen($file, $filename = null)
     {
         if (Validator::validateImageFile($file, 200)) {
-            $this->foto_marca = Validator::getFilename();
+            $this->imagen_marca = Validator::getFilename();
             return true;
         } elseif (Validator::getFileError()) {
             $this->data_error = Validator::getFileError();
             return false;
         } elseif ($filename) {
-            $this->foto_marca = $filename;
+            $this->imagen_marca = $filename;
             return true;
         } else {
-            $this->foto_marca = 'default.png';
+            $this->imagen_marca = 'default.png';
             return true;
         }
     }
     public function setFilename()
     {
         if ($data = $this->readFilename()) {
-            $this->filename = $data['foto'];
+            $this->filename = $data['imagen_marca'];
             return true;
         } else {
-            $this->data_error = 'Categoría inexistente';
+            $this->data_error = 'Marca inexistente';
             return false;
         }
     }

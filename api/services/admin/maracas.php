@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('../../models/data/marcas_data.php');
+require_once('../../models/data/marca_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -28,14 +28,14 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$marca->setNombre($_POST['nombre_marca']) or
-                    !$marca->setImagen($_FILES['foto_marca'])
+                    !$marca->setImagen($_FILES['imagen_marca'])
                 ) {
                     $result['error'] = $marca->getDataError();
                 } elseif ($marca->createRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Marca creada correctamente';
                     // Se asigna el estado del archivo después de insertar.
-                    $result['fileStatus'] = Validator::saveFile($_FILES['foto_marca'], $marca::RUTA_IMAGEN);
+                    $result['fileStatus'] = Validator::saveFile($_FILES['imagen_marca'], $marca::RUTA_IMAGEN);
                 } else {
                     $result['error'] = 'Ocurrió un problema al crear la marca';
                 }
@@ -63,14 +63,14 @@ if (isset($_GET['action'])) {
                     !$marca->setId($_POST['id_marca']) or
                     !$marca->setFilename() or
                     !$marca->setNombre($_POST['nombre_marca']) or
-                    !$marca->setImagen($_FILES['foto_marca'], $marca->getFilename())
+                    !$marca->setImagen($_FILES['imagen_marca'], $marca->getFilename())
                 ) {
                     $result['error'] = $marca->getDataError();
                 } elseif ($marca->updateRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Marca modificada correctamente';
                     // Se asigna el estado del archivo después de actualizar.
-                    $result['fileStatus'] = Validator::changeFile($_FILES['foto_marca'], $marca::RUTA_IMAGEN, $marca->getFilename());
+                    $result['fileStatus'] = Validator::changeFile($_FILES['imagen_marca'], $marca::RUTA_IMAGEN, $marca->getFilename());
                 } else {
                     $result['error'] = 'Ocurrió un problema al modificar la marca';
                 }

@@ -11,7 +11,7 @@ class MarcaHandler
      */
     protected $id_marca = null;
     protected $nombre_marca = null;
-    protected $foto_marca = null;
+    protected $imagen_marca = null;
 
     // Constante para establecer la ruta de las imágenes.
     const RUTA_IMAGEN = '../../images/marcas/';
@@ -22,7 +22,7 @@ class MarcaHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_marca, nombre_marca, foto_marca
+        $sql = 'SELECT id_marca, nombre_marca, imagen_marca
                 FROM tb_marcas
                 WHERE nombre_marca LIKE ? 
                 ORDER BY nombre_marca';
@@ -32,15 +32,15 @@ class MarcaHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_marcas(nombre_marca, foto_marca)
+        $sql = 'INSERT INTO tb_marcas(nombre_marca, imagen_marca)
                 VALUES(?, ?)';
-        $params = array($this->nombre_marca, $this->foto_marca);
+        $params = array($this->nombre_marca, $this->imagen_marca);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_marca, nombre_marca, foto_marca
+        $sql = 'SELECT id_marca, nombre_marca, imagen_marca
                 FROM tb_marcas
                 ORDER BY nombre_marca';
         return Database::getRows($sql);
@@ -48,7 +48,7 @@ class MarcaHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id_marca, nombre_marca, foto_marca
+        $sql = 'SELECT id_marca, nombre_marca, imagen_marca
                 FROM tb_marcas
                 WHERE id_marca = ?';
         $params = array($this->id_marca);
@@ -57,7 +57,7 @@ class MarcaHandler
 
     public function readFilename()
     {
-        $sql = 'SELECT foto_marca
+        $sql = 'SELECT imagen_marca
                 FROM tb_marcas
                 WHERE id_marca = ?';
         $params = array($this->id_marca);
@@ -67,9 +67,9 @@ class MarcaHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_marcas
-                SET foto_marca = ?, nombre_marca = ?
+                SET imagen_marca = ?, nombre_marca = ?
                 WHERE id_marca = ?';
-        $params = array($this->foto_marca, $this->nombre_marca, $this->id_marca);
+        $params = array($this->imagen_marca, $this->nombre_marca, $this->id_marca);
         return Database::executeRow($sql, $params);
     }
 

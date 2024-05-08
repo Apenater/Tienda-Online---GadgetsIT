@@ -23,6 +23,8 @@
 
 
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <input type="number" class="d-none" id="id_marca" name="id_marca">
+
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -31,7 +33,6 @@
                     </div>
 
                     <form id="saveForm">
-                        <input type="number" class="d-none" id="id_Marcas" name="id_Marcas">
                         <div class="modal-body">
                             <div class="row">
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
@@ -39,11 +40,11 @@
                                         style="display: none; height: 26rem;">
                                     <i id="addImageIcon" class="fa fa-upload fa-5x"
                                         style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                    <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
+                                    <input type="file" name="imagen_marca" id="inputGroupFile01" accept="image/*" style="display: none;">
                                 </div>
                                 <div class="col-md-6 align-items-center justify-content-center">
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="brand-name"
+                                        <input type="text" class="form-control" id="nombre_marca" name="nombre_marca"
                                             placeholder="Nombre de la Marca">
                                     </div>
                                 </div>
@@ -51,7 +52,7 @@
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Agregar</button>
+                            <button type="submit" class="btn btn-success">Agregar</button>
                         </div>
                     </form>
 
@@ -114,25 +115,7 @@
     </div>
 
     <!-- Contenedores de las marcas -->
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/apple logo.svg" alt="Logo">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">APPLE</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
+
 
 
     <div id="tarjetas">
@@ -172,6 +155,11 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
 
+
+
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/marca.js"></script>
 </body>
 
 </html>
