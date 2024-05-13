@@ -21,4 +21,3 @@ define('PASSWORD', '');
 
 // // Cerrar la conexión
 // $conn->close();
-?>
