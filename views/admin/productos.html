@@ -28,18 +28,17 @@
 
     <!-- Formulario para añadir un nuevo producto -->
     <div class="container mt-5">
-        <form id="saveForm">
-            <input type="number" class="d-none" id="id_Producto" name="id_Producto">
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog modal-xl">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <!-- Título del formulario -->
-                            <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <!-- Título del formulario -->
+                        <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form id="saveForm">
                         <div class="modal-body">
+                            <input type="number" class="d-none" id="id_Producto" name="id_Producto">
                             <div class="row">
                                 <!-- Columna para la previsualización de la imagen del producto -->
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
@@ -50,23 +49,28 @@
                                     <i id="addImageIcon" class="fa fa-upload fa-5x"
                                         style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
                                     <!-- Input para cargar la imagen -->
-                                    <input type="file" name="foto" id="inputGroupFile01" accept="image/*" style="display: none;">
+                                    <input type="file" name="foto" id="inputGroupFile01" accept="image/*"
+                                        style="display: none;">
                                 </div>
                                 <!-- Columna para el formulario de datos del producto -->
                                 <div class="col-md-6 align-items-center justify-content-center">
 
                                     <!-- Campos de entrada para los datos del producto -->
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="nombreP" id="product-name" placeholder="Nombre">
+                                        <input type="text" class="form-control" name="nombreP" id="product-name"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="modelP" id="product-model" placeholder="Modelo">
+                                        <input type="text" class="form-control" name="modelP" id="product-model"
+                                            placeholder="Modelo">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="descriptionP" id="product-description" placeholder="Descripción">
+                                        <input type="text" class="form-control" name="descriptionP"
+                                            id="product-description" placeholder="Descripción">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="priceP" id="product-price" placeholder="Precio">
+                                        <input type="text" class="form-control" name="priceP" id="product-price"
+                                            placeholder="Precio">
                                     </div>
                                     <div class="mb-3">
                                         <textarea class="form-control" id="product-Especifies" name="especificationsP"
@@ -75,7 +79,8 @@
                                     <div class="row mb-3">
                                         <!-- Selector de categoría -->
                                         <div class="col-md-6">
-                                            <select class="form-select form-select-sm" aria-label="Small select example" name="categoriasP" id="products-categories"
+                                            <select class="form-select form-select-sm" aria-label="Small select example"
+                                                name="categoriasP" id="products-categories"
                                                 aria-placeholder="Categoria">
                                                 <option selected>Categoria</option>
                                                 <option value="2">Two</option>
@@ -84,8 +89,8 @@
                                         </div>
                                         <!-- Selector de marca -->
                                         <div class="col-md-6">
-                                            <select class="form-select form-select-sm" aria-label="Small select example" name="marcaP" id="products-marca"
-                                                aria-placeholder="Marca">
+                                            <select class="form-select form-select-sm" aria-label="Small select example"
+                                                name="marcaP" id="products-marca" aria-placeholder="Marca">
                                                 <option selected>Marca</option>
                                                 <option value="2">Apple</option>
                                                 <option value="3">JBL</option>
@@ -94,8 +99,8 @@
                                         <!-- Campo de entrada para la cantidad de productos -->
                                         <div class="col-md-6">
                                             <div class="input-group mb-3">
-                                                <input type="number" class="form-control" name="cantindadP" id="product-cantidad"
-                                                    placeholder="Cantidad de producto..." min="0">
+                                                <input type="number" class="form-control" name="cantindadP"
+                                                    id="product-cantidad" placeholder="Cantidad de producto..." min="0">
                                             </div>
                                         </div>
                                     </div>
@@ -105,19 +110,33 @@
                         <!-- Botones de cierre y envío del formulario -->
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Agregar</button>
+                            <button type="submit" class="btn btn-success">Agregar</button>
                         </div>
+                    </form>
 
-                    </div>
                 </div>
             </div>
-        </form>
+        </div>
     </div>
 
     <!-- Título y buscador principal de la página -->
     <div class="gadgetit-card-header">
         <span class="text-products">Productos</span>
-        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
+        <form class="col-sm-12 col-md-6" id="searchForm">
+            <div class="row">
+                <div class="col-6">
+                    <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button type="reset" class="btn btn-secondary" onclick="fillTable()">
+                        <i class="bi bi-x-square-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
         <!-- Botón para agregar un nuevo producto -->
         <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
@@ -160,6 +179,9 @@
     <script type="text/javascript" src="../../controllers/admin/productos.js"></script>
     <script src="../../resources/js/sweetalert.min.js"></script>
     <script src="../../controllers/utils/components.js"></script>
+
+    <!-- Fuente de iconos FontAwesome -->
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
 </body>
 

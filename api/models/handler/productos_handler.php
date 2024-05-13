@@ -4,7 +4,7 @@ require_once('../../helpers/database.php');
 /*
 *	Clase para manejar el comportamiento de los datos de la tabla PRODUCTO.
 */
-class ProductoHandler
+class ProductosHandler
 {
     /*
     *   Declaración de atributos para el manejo de datos.
@@ -16,9 +16,7 @@ class ProductoHandler
     protected $existencias = null;
     protected $imagen = null;
     protected $categoria = null;
-    protected $marca = null;
-    protected $modelo = null;
-    protected $especificaciones = null;
+    protected $estado = null;
 
     // Constante para establecer la ruta de las imágenes.
     const RUTA_IMAGEN = '../../images/productos/';
@@ -29,7 +27,7 @@ class ProductoHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion, precio, nombreC, Modelo, nombre_marca
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
                 FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 WHERE nombre_producto LIKE ? OR descripcion_producto LIKE ?
@@ -40,7 +38,7 @@ class ProductoHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO producto(nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, estado_producto, id_categoria, id_administrador)
+        $sql = 'INSERT INTO tb_productos(nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, estado_producto, id_categoria, id_administrador)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen, $this->estado, $this->categoria, $_SESSION['idAdministrador']);
         return Database::executeRow($sql, $params);
@@ -49,7 +47,7 @@ class ProductoHandler
     public function readAll()
     {
         $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
-                FROM producto
+                FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 ORDER BY nombre_producto';
         return Database::getRows($sql);
@@ -58,7 +56,7 @@ class ProductoHandler
     public function readOne()
     {
         $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, id_categoria, estado_producto
-                FROM producto
+                FROM tb_productos
                 WHERE id_producto = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -67,7 +65,7 @@ class ProductoHandler
     public function readFilename()
     {
         $sql = 'SELECT imagen_producto
-                FROM producto
+                FROM tb_productos
                 WHERE id_producto = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
@@ -75,7 +73,7 @@ class ProductoHandler
 
     public function updateRow()
     {
-        $sql = 'UPDATE producto
+        $sql = 'UPDATE tb_productos
                 SET imagen_producto = ?, nombre_producto = ?, descripcion_producto = ?, precio_producto = ?, estado_producto = ?, id_categoria = ?
                 WHERE id_producto = ?';
         $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->categoria, $this->id);
@@ -84,7 +82,7 @@ class ProductoHandler
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM producto
+        $sql = 'DELETE FROM tb_productos
                 WHERE id_producto = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
@@ -93,7 +91,7 @@ class ProductoHandler
     public function readProductosCategoria()
     {
         $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto
-                FROM producto
+                FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 WHERE id_categoria = ? AND estado_producto = true
                 ORDER BY nombre_producto';
@@ -107,7 +105,7 @@ class ProductoHandler
     public function cantidadProductosCategoria()
     {
         $sql = 'SELECT nombre_categoria, COUNT(id_producto) cantidad
-                FROM producto
+                FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';
         return Database::getRows($sql);
@@ -116,7 +114,7 @@ class ProductoHandler
     public function porcentajeProductosCategoria()
     {
         $sql = 'SELECT nombre_categoria, ROUND((COUNT(id_producto) * 100.0 / (SELECT COUNT(id_producto) FROM producto)), 2) porcentaje
-                FROM producto
+                FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 GROUP BY nombre_categoria ORDER BY porcentaje DESC';
         return Database::getRows($sql);
@@ -128,7 +126,7 @@ class ProductoHandler
     public function productosCategoria()
     {
         $sql = 'SELECT nombre_producto, precio_producto, estado_producto
-                FROM producto
+                FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 WHERE id_categoria = ?
                 ORDER BY nombre_producto';
