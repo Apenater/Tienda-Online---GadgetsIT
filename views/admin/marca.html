@@ -21,72 +21,41 @@
     <!-- Formulario para agregar una marca -->
     <div class="container mt-5">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Nueva Marca</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                    style="display: none; height: 26rem;">
-                                <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                    style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                            </div>
-                            <div class="col-md-6 align-items-center justify-content-center">
-                                <form>
+
+                    <form id="saveForm">
+                        <div class="modal-body">
+                            <input type="number" class="d-none" id="id_marca" name="id_marca">
+
+                            <div class="row">
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
+                                        style="display: none; height: 26rem;">
+                                    <i id="addImageIcon" class="fa fa-upload fa-5x"
+                                        style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
+                                    <input type="file" name="imagen_marca" id="inputGroupFile01" accept="image/*"
+                                        style="display: none;">
+                                </div>
+                                <div class="col-md-6 align-items-center justify-content-center">
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="brand-name"
+                                        <input type="text" class="form-control" id="nombre_marca" name="nombre_marca"
                                             placeholder="Nombre de la Marca">
                                     </div>
-                                </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Agregar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
+                    </form>
 
-    <!-- Formulario para editar la informacion de una marca -->
-    <div class="container mt-5">
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Marca</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                    style="display: none; height: 26rem;">
-                                <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                    style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                            </div>
-                            <div class="col-md-6 align-items-center justify-content-center">
-                                <form>
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="brand-name"
-                                            placeholder="Nombre de la Marca" value="Apple">
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Actualizar</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -102,85 +71,13 @@
     </div>
 
     <!-- Contenedores de las marcas -->
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/apple logo.svg" alt="Logo">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">APPLE</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
+
+
+
+    <div id="tarjetas">
+
     </div>
 
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/jbl logo.svg" alt="logo">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">JBL</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/huawei logo.svg" alt="logo">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">HUAWEI</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/hp logo.svg" alt="logo">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">HP</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
 
     <br>
 
@@ -214,6 +111,11 @@
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
 
+
+
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/marca.js"></script>
 </body>
 
 </html>
