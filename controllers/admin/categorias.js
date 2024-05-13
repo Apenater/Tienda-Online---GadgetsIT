@@ -1,7 +1,7 @@
     // Constante para completar la ruta de la API.
     const CATEGORIA_API = 'services/admin/categorias.php';
     // Constante para establecer el formulario de buscar.
-    const SEARCH_FORM = document.getElementById('SearchBar');
+    const SEARCH_FORM = document.getElementById('searchForm');
     // Constantes para establecer los elementos de la tabla.
     const TARJETAS = document.getElementById('tarjetas');
     // Constantes para establecer los elementos del componente Modal.
