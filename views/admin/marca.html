@@ -20,10 +20,7 @@
 
     <!-- Formulario para agregar una marca -->
     <div class="container mt-5">
-
-
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <input type="number" class="d-none" id="id_marca" name="id_marca">
 
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
@@ -34,13 +31,16 @@
 
                     <form id="saveForm">
                         <div class="modal-body">
+                            <input type="number" class="d-none" id="id_marca" name="id_marca">
+
                             <div class="row">
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
                                     <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
                                         style="display: none; height: 26rem;">
                                     <i id="addImageIcon" class="fa fa-upload fa-5x"
                                         style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                    <input type="file" name="imagen_marca" id="inputGroupFile01" accept="image/*" style="display: none;">
+                                    <input type="file" name="imagen_marca" id="inputGroupFile01" accept="image/*"
+                                        style="display: none;">
                                 </div>
                                 <div class="col-md-6 align-items-center justify-content-center">
                                     <div class="mb-3">
@@ -53,50 +53,6 @@
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                             <button type="submit" class="btn btn-success">Agregar</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Formulario para editar la informacion de una marca -->
-    <div class="container mt-5">
-
-
-
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Editar Marca</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <form id="saveForm">
-                        <input type="number" class="d-none" id="id_Marcas" name="id_Marcas">
-
-                        <div class="modal-body">
-                            <div class="row">
-                                <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                    <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                        style="display: none; height: 26rem;">
-                                    <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                        style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                    <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                                </div>
-                                <div class="col-md-6 align-items-center justify-content-center">
-                                    <div class="mb-3">
-                                        <input type="text" class="form-control" id="brand-name"
-                                            placeholder="Nombre de la Marca" value="Apple">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="button" class="btn btn-success">Actualizar</button>
                         </div>
                     </form>
 
