@@ -13,58 +13,50 @@ span {
   padding: 20px 20px 10px 20px;
 }
 
-/* Estilos para el contenedor de búsqueda */
 .contenedor-b {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
- max-width: 100%;
+  flex-direction: row; /* Cambiado de column a row */
+  justify-content: space-between; /* Alinea los elementos a los extremos */
+  align-items: center; /* Centra los elementos verticalmente */
+  width: 60%; /* Asegura que el formulario ocupe todo el ancho disponible */
+  padding: 10px; /* Espacio alrededor del formulario */
 }
 
-/* Ajustes para que la barra de búsqueda sea más larga */
 input[type="search"].form-control {
-  width: 100%;
+  flex-grow: 1; /* Permite que el input crezca y ocupe el espacio disponible */
+  margin-right: 10px; /* Espacio entre el input y los botones */
 }
 
-/* Estilos básicos para los botones dentro de un grupo de botones */
-.btn-group .search-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0.5rem 1rem;
+.botones {
+  display: flex; /* Mantiene los botones alineados horizontalmente */
+  gap: .5rem;
+}
+
+.search-btn {
+  padding: .6rem 1rem; /* Reduce el tamaño del padding para hacer el botón más pequeño */
+  font-size: 0.8rem; /* Reduce el tamaño de la fuente */
   border: none;
-  background-color: #007BFF;
+  background-color: #00ac75;
   color: white;
-  font-size: 1rem;
-  border-radius: 0.25rem;
-  transition: background-color 0.3s, color 0.3s;
   cursor: pointer;
-  text-decoration: none;
-}
-
-.btn-group .search-btn:hover, .btn-group .search-btn:focus {
-  background-color: #0056b3;
-  color: #FFF;
-}
-
-/* Efectos para botones individuales en el grupo */
-.search-btn[type="submit"] {
-  border-right: 1px solid #FFF; /* Añade una línea divisoria si se desea */
+  border-radius: 5px; /* Mantiene las esquinas redondeadas */
+  transition: background-color 0.3s, color 0.3s;
+  font-size: 15px;
 }
 
 .search-btn[type="reset"] {
-  background-color: #DC3545;
+  background-color: #ff2e2e;
+}
+
+.search-btn:hover, .search-btn:focus {
+  background-color: #009263;
+  color: #FFF;
 }
 
 .search-btn[type="reset"]:hover, .search-btn[type="reset"]:focus {
   background-color: #c82333;
 }
 
-/* Hacer que los botones sean responsivos */
-.search-btn {
-  flex-grow: 1; /* Los botones ocupan el espacio disponible equitativamente */
-}
 
 
 

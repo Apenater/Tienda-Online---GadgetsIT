@@ -83,23 +83,15 @@
     <div class="gadgetit-card-header">
         <span class="text-products">Categorias</span>
         <!-- Barra de búsqueda para filtrar categorías -->
-        <form class="col-sm-12 col-md-6 contenedor-b" id="searchForm">
-            <div class="row">
-                <div class="col-md-8">
-                    <input type="search" class="form-control" name="search" placeholder="Buscar" required>
-                </div>
-                <div class="col-md-4">
-                    <div class="btn-group w-100" role="group">
-                        <button type="submit" class="search-btn w-50">
-                            <i class="bi bi-search"></i> Buscar
-                        </button>
-                        <button type="reset" class="search-btn w-50" onclick="fillTable()">
-                            <i class="bi bi-x-square-fill"></i> X
-                        </button>
-                    </div>
-                </div>
+        <form class="contenedor-b" id="searchForm">
+            <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+            <div class="botones">
+                <button type="submit" class="search-btn">Buscar</button>
+                <button type="reset" class="search-btn" onclick="fillTable()">X</button>
             </div>
         </form>
+        
+        
         
         
         <!-- Botón para abrir modal de agregar categoría -->
