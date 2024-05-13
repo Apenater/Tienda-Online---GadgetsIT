@@ -13,6 +13,60 @@ span {
   padding: 20px 20px 10px 20px;
 }
 
+/* Estilos para el contenedor de búsqueda */
+.contenedor-b {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+ max-width: 100%;
+}
+
+/* Ajustes para que la barra de búsqueda sea más larga */
+input[type="search"].form-control {
+  width: 100%;
+}
+
+/* Estilos básicos para los botones dentro de un grupo de botones */
+.btn-group .search-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: #007BFF;
+  color: white;
+  font-size: 1rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn-group .search-btn:hover, .btn-group .search-btn:focus {
+  background-color: #0056b3;
+  color: #FFF;
+}
+
+/* Efectos para botones individuales en el grupo */
+.search-btn[type="submit"] {
+  border-right: 1px solid #FFF; /* Añade una línea divisoria si se desea */
+}
+
+.search-btn[type="reset"] {
+  background-color: #DC3545;
+}
+
+.search-btn[type="reset"]:hover, .search-btn[type="reset"]:focus {
+  background-color: #c82333;
+}
+
+/* Hacer que los botones sean responsivos */
+.search-btn {
+  flex-grow: 1; /* Los botones ocupan el espacio disponible equitativamente */
+}
+
+
 
 /* Estilos para el elemento con clase text-products */
 .text-products {
