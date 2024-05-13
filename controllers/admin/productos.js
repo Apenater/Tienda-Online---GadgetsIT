@@ -1,6 +1,7 @@
 // Constantes para completar las rutas de la API.
 const PRODUCTO_API = 'services/admin/productos.php';
 const CATEGORIA_API = 'services/admin/categorias.php';
+const MARCA_API = 'services/admin/marcas.php';
 
 const SEARCH_FORM = document.getElementById('searchForm');
 
@@ -44,36 +45,26 @@ SAVE_FORM.addEventListener('submit', async (event) => {
     const FORM = new FormData(SAVE_FORM);
  
     const DATA = await fetchData(PRODUCTO_API, action, FORM);
-    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
-        // Se cierra la caja de diálogo.
+
         SAVE_MODAL.hide();
-        // Se muestra un mensaje de éxito.
+
         sweetAlert(1, DATA.message, true);
-        // Se carga nuevamente la tabla para visualizar los cambios.
+
         fillTable();
     } else {
         sweetAlert(2, DATA.error, false);
     }
 });
 
-/*
-*   Función asíncrona para llenar la tabla con los registros disponibles.
-*   Parámetros: form (objeto opcional con los datos de búsqueda).
-*   Retorno: ninguno.
-*/
+
 const fillTable = async (form = null) => {
-    // Se inicializa el contenido de la tabla.
     TABLE_BODY.innerHTML = '';
-    // Se verifica la acción a realizar.
     (form) ? action = 'searchRows' : action = 'readAll';
-    // Petición para obtener los registros disponibles.
     const DATA = await fetchData(PRODUCTO_API, action, form);
-    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
-        // Se recorre el conjunto de registros (dataset) fila por fila a través del objeto row.
         DATA.dataset.forEach(row => {
-            // Se crean y concatenan las filas de la tabla con los datos de cada registro.
+
             TABLE_BODY.innerHTML += `
                 <div class="gadgetit-container">
                     <div class="gadgetit-card">
@@ -111,11 +102,7 @@ const fillTable = async (form = null) => {
     }
 }
 
-/*
-*   Función para preparar el formulario al momento de insertar un registro.
-*   Parámetros: ninguno.
-*   Retorno: ninguno.
-*/
+
 const openCreate = () => {
     // Se muestra la caja de diálogo con su título.
     SAVE_MODAL.show();
@@ -124,13 +111,10 @@ const openCreate = () => {
     SAVE_FORM.reset();
     EXISTENCIAS_PRODUCTO.disabled = false;
     fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto');
+    fillSelect(MARCA_API, 'readAll', 'marcaProducto');
 }
 
-/*
-*   Función asíncrona para preparar el formulario al momento de actualizar un registro.
-*   Parámetros: id (identificador del registro seleccionado).
-*   Retorno: ninguno.
-*/
+
 const openUpdate = async (id) => {
     // Se define un objeto con los datos del registro seleccionado.
     const FORM = new FormData();

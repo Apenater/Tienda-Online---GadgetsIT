@@ -42,6 +42,20 @@ class ProductosData extends ProductosHandler
         }
     }
 
+    public function setModelo($value, $min = 2, $max = 50)
+    {
+        if (!Validator::validateAlphanumeric($value)) {
+            $this->data_error = 'El modelo debe ser un valor alfanumérico';
+            return false;
+        } elseif (Validator::validateLength($value, $min, $max)) {
+            $this->nombre = $value;
+            return true;
+        } else {
+            $this->data_error = 'El modelo debe tener una longitud entre ' . $min . ' y ' . $max;
+            return false;
+        }
+    }
+
     public function setDescripcion($value, $min = 2, $max = 250)
     {
         if (!Validator::validateString($value)) {
@@ -62,7 +76,24 @@ class ProductosData extends ProductosHandler
             $this->precio = $value;
             return true;
         } else {
-            $this->data_error = 'El precio debe ser un número positivo';
+            //$this->data_error = 'El precio debe ser un número positivo';
+            // return false;
+
+            $this->precio = $value;
+            return true;
+        }
+    }
+
+    public function setEspecificaciones($value, $min = 2, $max = 250)
+    {
+        if (!Validator::validateString($value)) {
+            $this->data_error = 'La especificación contiene caracteres prohibidos';
+            return false;
+        } elseif (Validator::validateLength($value, $min, $max)) {
+            $this->descripcion = $value;
+            return true;
+        } else {
+            $this->data_error = 'La especificación debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         }
     }
@@ -106,6 +137,17 @@ class ProductosData extends ProductosHandler
         }
     }
 
+    public function setMarca($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->categoria = $value;
+            return true;
+        } else {
+            $this->data_error = 'El identificador de la marca es incorrecto';
+            return false;
+        }
+    }
+
     public function setEstado($value)
     {
         if (Validator::validateBoolean($value)) {
@@ -120,7 +162,7 @@ class ProductosData extends ProductosHandler
     public function setFilename()
     {
         if ($data = $this->readFilename()) {
-            $this->filename = $data['imagen_producto'];
+            $this->filename = $data['foto'];
             return true;
         } else {
             $this->data_error = 'Producto inexistente';

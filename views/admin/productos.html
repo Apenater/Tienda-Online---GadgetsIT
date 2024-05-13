@@ -38,7 +38,7 @@
                     </div>
                     <form id="saveForm">
                         <div class="modal-body">
-                            <input type="number" class="d-none" id="id_Producto" name="id_Producto">
+                            <input type="number" class="d-none" id="idProducto" name="idProducto">
                             <div class="row">
                                 <!-- Columna para la previsualización de la imagen del producto -->
                                 <div class="col-md-6 d-flex align-items-center justify-content-center">
@@ -57,51 +57,44 @@
 
                                     <!-- Campos de entrada para los datos del producto -->
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="nombreP" id="product-name"
+                                        <input type="text" class="form-control" name="nombreProducto" id="product-name"
                                             placeholder="Nombre">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="modelP" id="product-model"
+                                        <input type="text" class="form-control" name="modeloProducto" id="product-model"
                                             placeholder="Modelo">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="descriptionP"
+                                        <input type="text" class="form-control" name="descripcionProducto"
                                             id="product-description" placeholder="Descripción">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="priceP" id="product-price"
+                                        <input type="number" class="form-control" name="precioProducto" id="precioProducto"
                                             placeholder="Precio">
                                     </div>
                                     <div class="mb-3">
-                                        <textarea class="form-control" id="product-Especifies" name="especificationsP"
+                                        <textarea class="form-control" id="product-Especifies" name="especificacionesProducto"
                                             placeholder="Especificaciones"></textarea>
                                     </div>
                                     <div class="row mb-3">
                                         <!-- Selector de categoría -->
                                         <div class="col-md-6">
                                             <select class="form-select form-select-sm" aria-label="Small select example"
-                                                name="categoriasP" id="products-categories"
-                                                aria-placeholder="Categoria">
-                                                <option selected>Categoria</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            id="categoriaProducto" name="categoriaProducto" aria-placeholder="Categoria" required>
                                             </select>
                                         </div>
                                         <!-- Selector de marca -->
                                         <div class="col-md-6">
                                             <select class="form-select form-select-sm" aria-label="Small select example"
-                                                name="marcaP" id="products-marca" aria-placeholder="Marca">
-                                                <option selected>Marca</option>
-                                                <option value="2">Apple</option>
-                                                <option value="3">JBL</option>
+                                            id="marcaProducto" name="marcaProducto" aria-placeholder="Categoria" required>
                                             </select>
                                         </div>
                                         <!-- Campo de entrada para la cantidad de productos -->
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <input type="number" class="form-control" name="cantindadP"
-                                                    id="product-cantidad" placeholder="Cantidad de producto..." min="0">
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <input type="number" class="form-control" name="existenciasProducto"
+                                                id="existenciasProducto" placeholder="Cantidad de producto..." min="0">
                                         </div>
                                     </div>
                                 </div>
@@ -138,7 +131,7 @@
             </div>
         </form>
         <!-- Botón para agregar un nuevo producto -->
-        <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="gadgetit-btn gadgetit-btn-agragar" onclick="openCreate()">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
     </div>

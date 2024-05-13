@@ -12,10 +12,13 @@ class ProductosHandler
     protected $id = null;
     protected $nombre = null;
     protected $descripcion = null;
+    protected $modelo = null;
+    protected $especificaciones = null;
     protected $precio = null;
     protected $existencias = null;
     protected $imagen = null;
     protected $categoria = null;
+    protected $marca = null;
     protected $estado = null;
 
     // Constante para establecer la ruta de las imágenes.
@@ -27,26 +30,27 @@ class ProductosHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
+        $sql = 'SELECT idProducto , imagen_producto, nombreProducto, descripcionProducto, precioProducto, nombreC , estadoProducto, Modelo, nombre_marca, existencias_producto, especificaiones
                 FROM tb_productos
-                INNER JOIN categoria USING(id_categoria)
-                WHERE nombre_producto LIKE ? OR descripcion_producto LIKE ?
-                ORDER BY nombre_producto';
+                INNER JOIN tb_categorias USING(id_Categoria)
+                INNER JOIN tb_marcas USING(id_marca)
+                WHERE nombreProducto LIKE ? OR descripcionProducto LIKE ?
+                ORDER BY nombreProducto';
         $params = array($value, $value);
         return Database::getRows($sql, $params);
     }
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_productos(nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, estado_producto, id_categoria, id_administrador)
-                VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen, $this->estado, $this->categoria, $_SESSION['idAdministrador']);
+        $sql = 'INSERT INTO tb_productos(nombreProducto, descripcionProducto, precioProducto, existencias_producto, imagen_producto, id_categoria, Modelo, id_marca,  especificaiones)
+                VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen,  $this->categoria, $this->modelo, $this->marca, $this->especificaciones);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
+        $sql = 'SELECT idProducto , imagen_producto, nombreProducto, descripcionProducto, precioProducto, nombreC , estadoProducto, Modelo, nombre_marca, existencias_producto, especificaiones
                 FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 ORDER BY nombre_producto';

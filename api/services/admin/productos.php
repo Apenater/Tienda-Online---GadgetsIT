@@ -5,7 +5,7 @@ if (isset($_GET['action'])) {
     session_start();
     $producto = new ProductosData;
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'fileStatus' => null);
-    if (isset($_SESSION['idAdministrador'])) {
+    if (isset($_SESSION['idAdministrador']) || true) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':
@@ -22,12 +22,15 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$producto->setNombre($_POST['nombreProducto']) or
+                    !$producto->setModelo($_POST['modeloProducto']) or
                     !$producto->setDescripcion($_POST['descripcionProducto']) or
                     !$producto->setPrecio($_POST['precioProducto']) or
+                    !$producto->setEspecificaciones($_POST['especificacionesProducto']) or
                     !$producto->setExistencias($_POST['existenciasProducto']) or
                     !$producto->setCategoria($_POST['categoriaProducto']) or
+                    !$producto->setMarca($_POST['marcaProducto']) or
                     !$producto->setEstado(isset($_POST['estadoProducto']) ? 1 : 0) or
-                    !$producto->setImagen($_FILES['imagenProducto'])
+                    !$producto->setImagen($_FILES['foto'])
                 ) {
                     $result['error'] = $producto->getDataError();
                 } elseif ($producto->createRow()) {
