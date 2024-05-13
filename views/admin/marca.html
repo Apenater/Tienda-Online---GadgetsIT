@@ -25,7 +25,7 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Nueva Marca</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
 
@@ -64,8 +64,14 @@
     <!-- Titulo y buscador -->
     <div class="gadgetit-card-header">
         <span class="text-products">Marcas</span>
-        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
-        <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <form class="contenedor-b" id="searchForm">
+            <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+            <div class="botones">
+                <button type="submit" class="search-btn">Buscar</button>
+                <button type="reset" class="search-btn" onclick="fillTable()">X</button>
+            </div>
+        </form>
+        <button class="gadgetit-btn gadgetit-btn-agragar" onclick="openCreate()">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
     </div>

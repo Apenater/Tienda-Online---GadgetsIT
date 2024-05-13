@@ -81,7 +81,7 @@
                             <div class="gadgetit-card-description">${row.Descripcion}</div>
                         </div>
                         <div class="gadgetit-card-actions">
-                            <button type="button" class="gadgetit-btn gadgetit-btn-verde"  onclick="openUpdate(${row.id_Categoria})">
+                            <button type="button" class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.id_Categoria})">
                                 <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
                                 Actualizar
                             </button>   
