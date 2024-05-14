@@ -2,7 +2,7 @@
     // Constante para completar la ruta de la API.
     const CATEGORIA_API = 'services/admin/marcas.php';
     // Constante para establecer el formulario de buscar.
-    const SEARCH_FORM = document.getElementById('SearchBar');
+    const SEARCH_FORM = document.getElementById('searchForm');
     // Constantes para establecer los elementos de la tabla.
     const TARJETAS = document.getElementById('tarjetas');
     // Constantes para establecer los elementos del componente Modal.
@@ -107,7 +107,7 @@
     const openCreate = () => {
         // Se muestra la caja de diálogo con su título.
         SAVE_MODAL.show();
-        MODAL_TITLE.textContent = 'Crear categoría';
+        MODAL_TITLE.textContent = 'Crear marca';
         // Se prepara el formulario.
         SAVE_FORM.reset();
     }
@@ -127,7 +127,7 @@
         if (DATA.status) {
             // Se muestra la caja de diálogo con su título.
             SAVE_MODAL.show();
-            MODAL_TITLE.textContent = 'Actualizar categoría';
+            MODAL_TITLE.textContent = 'Actualizar marca';
             // Se prepara el formulario.
             SAVE_FORM.reset();
             // Se inicializan los campos con los datos.
@@ -146,7 +146,7 @@
     */
     const openDelete = async (id) => {
         // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-        const RESPONSE = await confirmAction('¿Desea eliminar la categoría de forma permanente?');
+        const RESPONSE = await confirmAction('¿Desea eliminar la marca de forma permanente?');
         // Se verifica la respuesta del mensaje.
         if (RESPONSE) {
             // Se define una constante tipo objeto con los datos del registro seleccionado.
