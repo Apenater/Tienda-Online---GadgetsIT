@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="es">
 
@@ -38,67 +36,77 @@
                         <h5 class="modal-title" id="exampleModalLabel">Nuevo Producto</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
-                        <div class="row">
-                            <!-- Columna para la previsualización de la imagen del producto -->
-                            <div class="col-md-6 d-flex align-items-center justify-content-center">
-                                <!-- Imagen previsualizada -->
-                                <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
-                                    style="display: none; height: 26rem;">
-                                <!-- Icono para agregar imagen -->
-                                <i id="addImageIcon" class="fa fa-upload fa-5x"
-                                    style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
-                                <!-- Input para cargar la imagen -->
-                                <input type="file" id="inputGroupFile01" accept="image/*" style="display: none;">
-                            </div>
-                            <!-- Columna para el formulario de datos del producto -->
-                            <div class="col-md-6 align-items-center justify-content-center">
-                                <form>
+                    <form id="saveForm">
+                        <div class="modal-body">
+                            <input type="number" class="d-none" id="idProducto" name="idProducto">
+                            <div class="row">
+                                <!-- Columna para la previsualización de la imagen del producto -->
+                                <div class="col-md-6 d-flex align-items-center justify-content-center">
+                                    <!-- Imagen previsualizada -->
+                                    <img id="imagePreview" src="#" alt="Imagen del producto" class="img-thumbnail"
+                                        style="display: none; height: 26rem;">
+                                    <!-- Icono para agregar imagen -->
+                                    <i id="addImageIcon" class="fa fa-upload fa-5x"
+                                        style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
+                                    <!-- Input para cargar la imagen -->
+                                    <input type="file" name="foto" id="inputGroupFile01" accept="image/*"
+                                        style="display: none;">
+                                </div>
+                                <!-- Columna para el formulario de datos del producto -->
+                                <div class="col-md-6 align-items-center justify-content-center">
+
                                     <!-- Campos de entrada para los datos del producto -->
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="category-name" placeholder="Nombre">
+                                        <input type="text" class="form-control" name="nombreProducto" id="nombreProducto"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="product-model" placeholder="Modelo">
+                                        <input type="text" class="form-control" name="modeloProducto" id="modeloProducto"
+                                            placeholder="Modelo">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="product-description"
-                                            placeholder="Descripción">
+                                        <input type="text" class="form-control" name="descripcionProducto"
+                                            id="descripcionProducto" placeholder="Descripción">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="product-price" placeholder="Precio">
+                                        <input type="number" class="form-control" name="precioProducto" id="precioProducto"
+                                            placeholder="Precio">
                                     </div>
                                     <div class="mb-3">
-                                        <textarea class="form-control" id="category-description"
+                                        <textarea class="form-control" id="especificacionesProducto" name="especificacionesProducto"
                                             placeholder="Especificaciones"></textarea>
                                     </div>
                                     <div class="row mb-3">
                                         <!-- Selector de categoría -->
                                         <div class="col-md-6">
                                             <select class="form-select form-select-sm" aria-label="Small select example"
-                                                aria-placeholder="Categoria">
-                                                <option selected>Categoria</option>
-                                                <option value="2">Two</option>
-                                                <option value="3">Three</option>
+                                            id="categoriaProducto" name="categoriaProducto" aria-placeholder="Categoria" required>
+                                            </select>
+                                        </div>
+                                        <!-- Selector de marca -->
+                                        <div class="col-md-6">
+                                            <select class="form-select form-select-sm" aria-label="Small select example"
+                                            id="marcaProducto" name="marcaProducto" aria-placeholder="Categoria" required>
                                             </select>
                                         </div>
                                         <!-- Campo de entrada para la cantidad de productos -->
-                                        <div class="col-md-6">
-                                            <div class="input-group mb-3">
-                                                <input type="number" class="form-control"
-                                                    placeholder="Cantidad de producto..." min="0">
-                                            </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <input type="number" class="form-control" name="existenciasProducto"
+                                                id="existenciasProducto" placeholder="Cantidad de producto..." min="0">
                                         </div>
                                     </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Botones de cierre y envío del formulario -->
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Agregar</button>
-                    </div>
+                        <!-- Botones de cierre y envío del formulario -->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-success">Agregar</button>
+                        </div>
                     </form>
+
                 </div>
             </div>
         </div>
@@ -107,133 +115,34 @@
     <!-- Título y buscador principal de la página -->
     <div class="gadgetit-card-header">
         <span class="text-products">Productos</span>
-        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
+        <form class="col-sm-12 col-md-6" id="searchForm">
+            <div class="row">
+                <div class="col-6">
+                    <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                </div>
+                <div class="col-6">
+                    <button type="submit" class="btn btn-success">
+                        <i class="bi bi-search"></i>
+                    </button>
+                    <button type="reset" class="btn btn-secondary" onclick="fillTable()">
+                        <i class="bi bi-x-square-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
         <!-- Botón para agregar un nuevo producto -->
-        <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="gadgetit-btn gadgetit-btn-agragar" onclick="openCreate()">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
     </div>
 
+    <!-- Tarjetas para cada producto, con opciones para actualizar o eliminar -->
 
-    <!-- Lista de los productos agregados -->
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/iphone.svg" alt="img">
-            </div>
-            <div class="gadgetit-card-principal">
-                <div class="gadgetit-card-title">Iphone 11</div>
-                <div class="gadgetit-card-description">El telefono mas vendido del mercado</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">$500</div>
-                <div class="gadgetit-card-description">Apple</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">10</div>
-                <div class="gadgetit-card-description">En Stock</div>
-            </div>
-
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/img.svg" alt="img">
-            </div>
-            <div class="gadgetit-card-principal">
-                <div class="gadgetit-card-title">Apple Watch Series 6</div>
-                <div class="gadgetit-card-description">Siente el poder en tu brazo</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">$800</div>
-                <div class="gadgetit-card-description">Apple</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">5</div>
-                <div class="gadgetit-card-description">En Stock</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/ipad-pro-12 1.svg" alt="img">
-            </div>
-            <div class="gadgetit-card-principal">
-                <div class="gadgetit-card-title">Ipad Pro 12.5</div>
-                <div class="gadgetit-card-description">Explota tu creatividad y nunca te arrepentirás de obtenerla</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">$1500</div>
-                <div class="gadgetit-card-description">Apple</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">8</div>
-                <div class="gadgetit-card-description">En Stock</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/airpods-Pro-2.svg" alt="img">
-            </div>
-            <div class="gadgetit-card-principal">
-                <div class="gadgetit-card-title">Airpods Pro 2</div>
-                <div class="gadgetit-card-description">Explota tu creatividad y nunca te arrepentirás de obtenerla</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">$200</div>
-                <div class="gadgetit-card-description">Apple</div>
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">7</div>
-                <div class="gadgetit-card-description">En Stock</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                    Actualizar
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
+    <div id="tarjetas"></div>
 
     <br>
+
+
     <!-- Navegación de los productos -->
     <nav aria-label="Page navigation example">
         <ul class="pagination justify-content-center">
@@ -259,7 +168,13 @@
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
+    <script type="text/javascript" src="../../controllers/admin/productos.js"></script>
+    <script src="../../resources/js/sweetalert.min.js"></script>
+    <script src="../../controllers/utils/components.js"></script>
+
+    <!-- Fuente de iconos FontAwesome -->
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
 
 </body>
 
