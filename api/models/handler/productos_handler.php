@@ -42,7 +42,7 @@ class ProductosHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_productos(nombreProducto, descripcionProducto, precioProducto, existencias_producto, imagen_producto, id_categoria, Modelo, id_marca,  especificaiones)
+        $sql = 'INSERT INTO tb_productos(nombreProducto, descripcionProducto, precioProducto, existencias_producto, imagen_producto, id_categoria, Modelo, id_marca, especificaiones)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen,  $this->categoria, $this->modelo, $this->marca, $this->especificaciones);
         return Database::executeRow($sql, $params);
@@ -52,16 +52,17 @@ class ProductosHandler
     {
         $sql = 'SELECT idProducto , imagen_producto, nombreProducto, descripcionProducto, precioProducto, nombreC , estadoProducto, Modelo, nombre_marca, existencias_producto, especificaiones
                 FROM tb_productos
-                INNER JOIN categoria USING(id_categoria)
-                ORDER BY nombre_producto';
+                INNER JOIN tb_categorias USING(id_categoria)
+                INNER JOIN tb_marcas USING(id_marca)
+                ORDER BY nombreProducto ';
         return Database::getRows($sql);
     }
 
     public function readOne()
     {
-        $sql = 'SELECT id_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, id_categoria, estado_producto
+        $sql = 'SELECT idProducto, imagen_producto, nombreProducto, descripcionProducto, precioProducto, id_categoria, estadoProducto, Modelo, id_marca, existencias_producto, especificaiones
                 FROM tb_productos
-                WHERE id_producto = ?';
+                WHERE idProducto = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -70,7 +71,7 @@ class ProductosHandler
     {
         $sql = 'SELECT imagen_producto
                 FROM tb_productos
-                WHERE id_producto = ?';
+                WHERE idProducto = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -78,23 +79,23 @@ class ProductosHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_productos
-                SET imagen_producto = ?, nombre_producto = ?, descripcion_producto = ?, precio_producto = ?, estado_producto = ?, id_categoria = ?
-                WHERE id_producto = ?';
-        $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->estado, $this->categoria, $this->id);
+                SET imagen_producto = ?, nombreProducto = ?, descripcionProducto = ?, precioProducto = ?, id_categoria = ?, Modelo = ?, id_marca = ?, especificaiones = ?
+                WHERE idProducto = ?';
+        $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->categoria, $this->modelo, $this->marca, $this->especificaciones, $this->id );
         return Database::executeRow($sql, $params);
     }
 
     public function deleteRow()
     {
         $sql = 'DELETE FROM tb_productos
-                WHERE id_producto = ?';
+                WHERE idProducto = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
 
     public function readProductosCategoria()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto
+        $sql = 'SELECT idProducto, imagen_producto, nombreProducto, descripcion_producto, precio_producto, existencias_producto
                 FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 WHERE id_categoria = ? AND estado_producto = true
@@ -108,7 +109,7 @@ class ProductosHandler
     */
     public function cantidadProductosCategoria()
     {
-        $sql = 'SELECT nombre_categoria, COUNT(id_producto) cantidad
+        $sql = 'SELECT nombre_categoria, COUNT(idProducto) cantidad
                 FROM tb_productos
                 INNER JOIN categoria USING(id_categoria)
                 GROUP BY nombre_categoria ORDER BY cantidad DESC LIMIT 5';

@@ -48,7 +48,7 @@ class ProductosData extends ProductosHandler
             $this->data_error = 'El modelo debe ser un valor alfanumérico';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->nombre = $value;
+            $this->modelo = $value;
             return true;
         } else {
             $this->data_error = 'El modelo debe tener una longitud entre ' . $min . ' y ' . $max;
@@ -90,7 +90,7 @@ class ProductosData extends ProductosHandler
             $this->data_error = 'La especificación contiene caracteres prohibidos';
             return false;
         } elseif (Validator::validateLength($value, $min, $max)) {
-            $this->descripcion = $value;
+            $this->especificaciones = $value;
             return true;
         } else {
             $this->data_error = 'La especificación debe tener una longitud entre ' . $min . ' y ' . $max;
@@ -140,7 +140,7 @@ class ProductosData extends ProductosHandler
     public function setMarca($value)
     {
         if (Validator::validateNaturalNumber($value)) {
-            $this->categoria = $value;
+            $this->marca = $value;
             return true;
         } else {
             $this->data_error = 'El identificador de la marca es incorrecto';
@@ -162,7 +162,7 @@ class ProductosData extends ProductosHandler
     public function setFilename()
     {
         if ($data = $this->readFilename()) {
-            $this->filename = $data['foto'];
+            $this->filename = $data['imagen_producto'];
             return true;
         } else {
             $this->data_error = 'Producto inexistente';

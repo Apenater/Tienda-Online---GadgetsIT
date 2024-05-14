@@ -14,43 +14,36 @@ const SAVE_FORM = document.getElementById('saveForm'),
     ID_PRODUCTO = document.getElementById('idProducto'),
     NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
     DESCRIPCION_PRODUCTO = document.getElementById('descripcionProducto'),
+    MODELO_PRODUCTO = document.getElementById('modeloProducto'),
+    ESPECIFICACIONES_PRODUCTO = document.getElementById('especificacionesProducto'),
     PRECIO_PRODUCTO = document.getElementById('precioProducto'),
     EXISTENCIAS_PRODUCTO = document.getElementById('existenciasProducto'),
     ESTADO_PRODUCTO = document.getElementById('estadoProducto');
 
 
 document.addEventListener('DOMContentLoaded', () => {
-
     fillTable();
 });
 
 
 
 SEARCH_FORM.addEventListener('submit', (event) => {
-
     event.preventDefault();
-
     const FORM = new FormData(SEARCH_FORM);
- 
     fillTable(FORM);
 });
 
 
 SAVE_FORM.addEventListener('submit', async (event) => {
-
     event.preventDefault();
-
     (ID_PRODUCTO.value) ? action = 'updateRow' : action = 'createRow';
-
     const FORM = new FormData(SAVE_FORM);
- 
     const DATA = await fetchData(PRODUCTO_API, action, FORM);
     if (DATA.status) {
-
+        //document.getElementById('inputGroupFile01').value = '';
         SAVE_MODAL.hide();
-
+        SAVE_FORM.reset();
         sweetAlert(1, DATA.message, true);
-
         fillTable();
     } else {
         sweetAlert(2, DATA.error, false);
@@ -69,19 +62,19 @@ const fillTable = async (form = null) => {
                 <div class="gadgetit-container">
                     <div class="gadgetit-card">
                         <div class="gadgetit-card-image">
-                            <img src="${SERVER_URL}images/categorias/${row.imagen_producto}" alt="img">
+                            <img src="${SERVER_URL}images/productos/${row.imagen_producto}" alt="img">
                         </div>
                         <div class="gadgetit-card-principal">
-                            <div class="gadgetit-card-title">${row.nombre_producto}</div>
+                            <div class="gadgetit-card-title">${row.nombreProducto}</div>
                             <div class="gadgetit-card-description">El telefono mas vendido del mercado</div>
                         </div>
                         <div class="gadgetit-card-content">
-                            <div class="gadgetit-card-title">${row.precio_producto}</div>
+                            <div class="gadgetit-card-title">$${row.precioProducto}</div>
                             <div class="gadgetit-card-description">${row.nombre_marca}</div>
                         </div>
                         <div class="gadgetit-card-content">
-                            <div class="gadgetit-card-title">10</div>
-                            <div class="gadgetit-card-description">${row.existencias_producto}</div>
+                            <div class="gadgetit-card-title">${row.existencias_producto}</div>
+                            <div class="gadgetit-card-description">En Stock</div>
                         </div>
 
                         <div class="gadgetit-card-actions">
@@ -128,41 +121,32 @@ const openUpdate = async (id) => {
         MODAL_TITLE.textContent = 'Actualizar producto';
         // Se prepara el formulario.
         SAVE_FORM.reset();
-        EXISTENCIAS_PRODUCTO.disabled = true;
+        //EXISTENCIAS_PRODUCTO.disabled = true;
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_PRODUCTO.value = ROW.id_producto;
-        NOMBRE_PRODUCTO.value = ROW.nombre_producto;
-        DESCRIPCION_PRODUCTO.value = ROW.descripcion_producto;
-        PRECIO_PRODUCTO.value = ROW.precio_producto;
+        ID_PRODUCTO.value = ROW.idProducto;
+        NOMBRE_PRODUCTO.value = ROW.nombreProducto;
+        MODELO_PRODUCTO.value = ROW.Modelo;
+        DESCRIPCION_PRODUCTO.value = ROW.descripcionProducto;
+        PRECIO_PRODUCTO.value = ROW.precioProducto;
         EXISTENCIAS_PRODUCTO.value = ROW.existencias_producto;
-        ESTADO_PRODUCTO.checked = ROW.estado_producto;
+        ESPECIFICACIONES_PRODUCTO.value = ROW.especificaiones
+        fillSelect(MARCA_API, 'readAll', 'marcaProducto', ROW.id_marca);
         fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_categoria);
+        document.getElementById('imagePreview').src = `${SERVER_URL}images/productos/${ROW.imagen_producto}`;
     } else {
         sweetAlert(2, DATA.error, false);
     }
 }
 
-/*
-*   Función asíncrona para eliminar un registro.
-*   Parámetros: id (identificador del registro seleccionado).
-*   Retorno: ninguno.
-*/
 const openDelete = async (id) => {
-    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
     const RESPONSE = await confirmAction('¿Desea eliminar el producto de forma permanente?');
-    // Se verifica la respuesta del mensaje.
     if (RESPONSE) {
-        // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
         FORM.append('idProducto', id);
-        // Petición para eliminar el registro seleccionado.
         const DATA = await fetchData(PRODUCTO_API, 'deleteRow', FORM);
-        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
-            // Se muestra un mensaje de éxito.
             await sweetAlert(1, DATA.message, true);
-            // Se carga nuevamente la tabla para visualizar los cambios.
             fillTable();
         } else {
             sweetAlert(2, DATA.error, false);

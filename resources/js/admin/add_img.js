@@ -2,6 +2,10 @@ document.getElementById('addImageIcon').addEventListener('click', function () {
     document.getElementById('inputGroupFile01').click(); // Simula un clic en el input de archivo
 });
 
+document.getElementById('imagePreview').addEventListener('click', function () {
+    document.getElementById('inputGroupFile01').click(); // Simula un clic en el input de archivo
+});
+
 document.getElementById('inputGroupFile01').addEventListener('change', function (event) {
     if (event.target.files && event.target.files[0]) {
         var reader = new FileReader();
@@ -15,3 +19,6 @@ document.getElementById('inputGroupFile01').addEventListener('change', function 
         reader.readAsDataURL(event.target.files[0]);
     }
 });
+
+
+

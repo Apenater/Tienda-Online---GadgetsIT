@@ -1,6 +1,6 @@
 
     // Constante para completar la ruta de la API.
-    const CATEGORIA_API = 'services/admin/maracas.php';
+    const CATEGORIA_API = 'services/admin/marcas.php';
     // Constante para establecer el formulario de buscar.
     const SEARCH_FORM = document.getElementById('SearchBar');
     // Constantes para establecer los elementos de la tabla.
@@ -75,7 +75,7 @@
                 <div class="gadgetit-container">
                 <div class="gadgetit-card">
                     <div class="gadgetit-card-image">
-                    <img src="${SERVER_URL}images/categorias/${row.imagen_marca}" alt="Image-ct">
+                    <img src="${SERVER_URL}images/marcas/${row.imagen_marca}" alt="Image-ct">
                     </div>
                     <div class="gadgetit-card-content">
                     <div class="gadgetit-card-title">${row.nombre_marca}</div>
