@@ -87,7 +87,7 @@ class AdministradorHandler
         $value = '%' . Validator::getSearchValue() . '%';
         $sql = 'SELECT id_admin, nombre, apellido, correo
                 FROM tb_administrador
-                WHERE apellido LIKE ? OR nombre LIKE ?
+                WHERE apellido LIKE ? OR nombre LIKE ? OR correo lIKE ?
                 ORDER BY apellido';
         $params = array($value, $value);
         return Database::getRows($sql, $params);
@@ -95,7 +95,7 @@ class AdministradorHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_administrador(nombre, apellido, correo, contrasenia_admin)
+        $sql = 'INSERT INTO tb_administrador(nombre, apellido, correo, telefono, contrasenia_admin)
                 VALUES(?, ?, ?, ?, ?)';
         $params = array($this->nombre, $this->apellido, $this->correo, $this->contrasenia_admin);
         return Database::executeRow($sql, $params);
@@ -103,7 +103,7 @@ class AdministradorHandler
 
     public function readAll()
     {
-        $sql = 'SELECT id_admin, nombre, apellido, correo
+        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono
                 FROM tb_administrador
                 ORDER BY apellido';
         return Database::getRows($sql);
@@ -111,7 +111,7 @@ class AdministradorHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id_admin, nombre, apellido, correo
+        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono
                 FROM tb_administrador
                 WHERE id_admin = ?';
         $params = array($this->id_admin);
@@ -121,9 +121,9 @@ class AdministradorHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_administrador
-                SET nombre = ?, apellido = ?
+                SET nombre = ?, apellido = ?,  correo = ?, telefono = ?
                 WHERE id_admin = ?';
-        $params = array($this->nombre, $this->apellido, $this->correo, $this->id_admin);
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->telefono, $this->id_admin);
         return Database::executeRow($sql, $params);
     }
 
