@@ -1,25 +1,29 @@
-/* Define el estilo para el pie de página, incluyendo su posicionamiento, color y anchura. */
 .pie-pagina {
     margin-top: 10px;
-    position: absolute; /* Sugerencia para cambiar a 'fixed' si se desea que el footer sea siempre visible. */
+    position: absolute;
     left: 0;
     bottom: 0;
-    width: 100%;
+    width: 100%; /* Ajuste para que el pie de página cubra todo el ancho */
     background-color: #000000;
-    position: relative; 
+    margin-top: 40px;
 }
 
-/* Establece el diseño y estilo del primer grupo de elementos dentro del pie de página, permitiendo una distribución centrada y uniforme. */
+
+/* Agrega position: relative; al cuerpo del documento */
+body {
+    position: relative;
+}
+
+/* Resto de estilos para el pie de página sin cambios */
 .pie-pagina .grupo-1 {
     width: 100%;
-    max-width: 1200px; 
-    margin: auto; 
+    max-width: 1200px;
+    margin: auto;
     display: flex;
-    justify-content: center; 
-    padding: 15px 0; 
+    justify-content: center;
+    padding: 15px 0;
 }
 
-/* Configura el diseño para las cajas dentro del grupo 1, organizándolas en columnas y centrando su contenido. */
 .pie-pagina .grupo-1 .box {
     display: flex;
     flex-direction: column;
@@ -27,30 +31,26 @@
     text-align: center;
 }
 
-/* Opcionalmente, ajusta el ancho de las figuras dentro de las cajas, aunque actualmente está configurado para ser automático. */
 .pie-pagina .grupo-1 .box figure {
     width: auto;
 }
 
-/* Define el estilo para el segundo grupo del pie de página, incluyendo su color de fondo, espaciado y color del texto. */
 .pie-pagina .grupo-2 {
-    background-color: #0a1a2a; 
+    background-color: #0a1a2a;
     padding: 10px 10px;
-    text-align: center; 
-    color: #fff; /
+    text-align: center;
+    color: #fff;
 }
 
-/* Ajustes de respuesta para pantallas con un ancho máximo de 800px, modificando el diseño del grupo 1 para adaptarse a pantallas más pequeñas. */
 @media screen and (max-width: 800px) {
     .pie-pagina .grupo-1 {
         width: 90%;
-        grid-template-columns: repeat(1, 1fr); 
-        grid-gap: 30px; 
-        padding: 15px 0px; 
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 15px 0px;
     }
 }
 
-/* Define una animación para la transición de entrada, haciendo que los elementos se vuelvan visibles suavemente al desplazarse hacia arriba. */
 @keyframes transitionIn {
     from {
         opacity: 0;
@@ -62,7 +62,6 @@
     }
 }
 
-/* Estilo para ocultar elementos aplicando una opacidad de cero. Importante para forzar la sobreescritura de estilos previos. */
 .fade-out {
     opacity: 0 !important;
 }
