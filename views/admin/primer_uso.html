@@ -29,34 +29,34 @@
         <p>Registrate</p>
 
         <!-- Formulario de primer uso -->
-        <form action="/login" method="post" id="firts-use-form">
+        <form action="/login" method="post" id="signup-Form">
             <!-- Campo para ingresar el nombre -->
             <div class="input-group">
-                <input type="name" id="name" name="name" placeholder="Nombre" required>
+                <input type="name" id="nombreAdministrador" name="nombreAdministrador" placeholder="Nombre" required>
                 <!-- Icono asociado al campo -->
                 <span class="input-icon">&#128100;</span>
             </div>
             <!-- Campo para ingresar el nombre de usuario -->
             <div class="input-group">
-                <input type="username" id="username" name="username" placeholder="Username" required>
+                <input type="name" id="apellidoAdministrador" name="apellidoAdministrador" placeholder="Apellido" required>
                 <!-- Icono asociado al campo -->
                 <span class="input-icon">&#64;</span>
             </div>
             <!-- Campo para ingresar el correo electrónico -->
             <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <input type="email" id="correoAdministrador" name="correoAdministrador" placeholder="Email Address" required>
                 <!-- Icono asociado al campo -->
                 <span class="input-icon">&#9993;</span>
             </div>
             <!-- Campo para ingresar la contraseña -->
             <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="claveAdministrador" name="claveAdministrador" placeholder="Password" required>
                 <!-- Icono asociado al campo -->
                 <span class="input-icon">&#128274;</span>
             </div>
             <!-- Campo para ingresar el número de teléfono -->
             <div class="input-group">
-                <input type="number" id="phone" name="phone" placeholder="Telefono" required>
+                <input type="text" id="telefono" name="telefono" placeholder="Telefono" required>
                 <!-- Icono asociado al campo -->
                 <span class="input-icon">&#128222;</span>
             </div>
@@ -66,7 +66,9 @@
     </div>
 
     <!-- Scripts de la página -->
-    <script src="../../resources/js/admin/login.js"></script>
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/primer_uso.js"></script>
 </body>
 
 </html>

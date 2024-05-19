@@ -15,7 +15,6 @@ class AdministradorHandler
     protected $correo = null;
     protected $telefono = null;
     protected $contrasenia_admin = null;
-    protected $fecha_registro = null;
 
     /*
      *  Métodos para gestionar la cuenta del administrador.
@@ -63,7 +62,7 @@ class AdministradorHandler
 
     public function readProfile()
     {
-        $sql = 'SELECT id_admin, nombre, apellido, correo
+        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono
                 FROM tb_administrador
                 WHERE id_admin = ?';
         $params = array($_SESSION['id_admin']);
@@ -73,9 +72,9 @@ class AdministradorHandler
     public function editProfile()
     {
         $sql = 'UPDATE tb_administrador
-                SET nombre = ?, apellido = ?, correo = ?
+                SET nombre = ?, apellido = ?, correo = ?, telefono = ?
                 WHERE id_admin = ?';
-        $params = array($this->nombre, $this->apellido, $this->correo, $_SESSION['id_admin']);
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->telefono, $_SESSION['id_admin']);
         return Database::executeRow($sql, $params);
     }
 
@@ -85,9 +84,9 @@ class AdministradorHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_admin, nombre, apellido, correo
+        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono,
                 FROM tb_administrador
-                WHERE apellido LIKE ? OR nombre LIKE ? OR correo lIKE ?
+                WHERE apellido LIKE ? OR nombre LIKE ? OR correo lIKE ? OR telefono LIKE ?
                 ORDER BY apellido';
         $params = array($value, $value);
         return Database::getRows($sql, $params);
@@ -97,7 +96,7 @@ class AdministradorHandler
     {
         $sql = 'INSERT INTO tb_administrador(nombre, apellido, correo, telefono, contrasenia_admin)
                 VALUES(?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->apellido, $this->correo, $this->contrasenia_admin);
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->telefono, $this->contrasenia_admin);
         return Database::executeRow($sql, $params);
     }
 

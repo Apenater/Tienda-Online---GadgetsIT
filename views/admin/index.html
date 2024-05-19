@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <!-- Etiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página -->
+    <!-- Título de la página -->z
     <title>Login admin</title>
     <!-- Enlace al archivo CSS para estilos específicos de la página de login -->
     <link rel="stylesheet" href="../../resources/css/admin/login.css">
@@ -30,26 +30,27 @@
         <form id="login-form" action="/login" method="post">
             <!-- Campo para ingresar el correo electrónico -->
             <div class="input-group">
-                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                <input type="email" id="email" name="alias" placeholder="Email Address" required>
                 <!-- Ícono para indicar que este campo es para el correo electrónico -->
                 <span class="input-icon">&#9993;</span>
             </div>
             <!-- Campo para ingresar la contraseña -->
             <div class="input-group">
-                <input type="password" id="password" name="password" placeholder="Password" required>
+                <input type="password" id="password" name="clave" placeholder="Password" required>
                 <!-- Ícono para indicar que este campo es para la contraseña -->
                 <span class="input-icon">&#128274;</span>
             </div>
             <!-- Botón para enviar el formulario -->
             <button type="submit" class="login-btn">Siguiente</button>
             <!-- Botón adicional para acceder a la tienda, este botón parece ser un agregado opcional -->
-            <button type="submit" class="tienda-btn">Tienda</button>
+            <button type="button" class="tienda-btn">Tienda</button>
         </form>
     </div>
 
     <!-- Inclusión del archivo JavaScript para la funcionalidad del formulario de login -->
-    <script src="../../resources/js/admin/login.js"></script>
-
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/index.js"></script>
 </body>
 
 </html>
