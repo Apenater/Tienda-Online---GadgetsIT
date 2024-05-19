@@ -7,11 +7,12 @@
     <!-- Metaetiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Título de la página -->
-    <title>Administradores</title>
+    <title>Perfil</title>
 
     <!-- Hojas de estilo CSS -->
-    <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
+    <link rel="stylesheet" href="../../resources/css/admin/perfil.css">
+
     <!-- Biblioteca de iconos Font Awesome -->
     <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
     <!-- Bootstrap CSS -->
@@ -24,14 +25,14 @@
     <!-- Encabezado de la página -->
     <header> </header>
 
-    <!-- Modal para actualizar información de los administradores -->
+
     <div class="container mt-5">
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-l">
                 <div class="modal-content">
                     <div class="modal-header">
                         <!-- Título del modal -->
-                        <h5 class="modal-title" id="exampleModalLabel">Información del administrador</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Actualizar perfil</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -67,112 +68,46 @@
                     </div>
                     <!-- Botones de cierre y actualización del formulario -->
                     <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Actualizar</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                        
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Sección de los administradores -->
-    <div class="gadgetit-card-header">
-        <!-- Título y buscador principal de la sección -->
-        <span class="text-products">Administradores</span>
-        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
-        <!-- Botón para agregar un nuevo administrador -->
-        <button class="gadgetit-btn gadgetit-btn-agregar" onclick="location.href='primer_uso.html'">
-            <img src="../../resources/img/agregar.svg" alt="Agregar" class="gadgetit-btn-icon"> Agregar
+
+
+
+
+    <div class="profile-container">
+        <div class="profile-header">
+            <div class="profile-picture">
+                <img src="../../resources/img/perfi.png" alt="Foto de perfil">
+            </div>
+            <h2>Bienvenido✨</h2>
+            <p class="name">Andres </p>
+            <p class="last name"> Flores Alfaro</p>
+
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <i class="fas fa-phone"></i>
+                <span>7896-6512</span>
+            </div>
+            <div class="stat">
+                <i class="fas fa-envelope"></i>
+                <span>andres_000@gmail.com</span>
+            </div>
+        </div>
+        
+        <button type="button" class="actualizar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
+            Actualizar
         </button>
     </div>
-
-    <!-- Contenedores de administradores -->
-    
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Ari Peñate </div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Andres Rosales</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-               
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Kevin Rolin</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/Profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">S_pendor</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                
-            </div>
-        </div>
-    </div>
-
-    <br>
-
-    <!-- Navegación de la sección de administradores -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
 
     <!-- Pie de página -->
     <footer> </footer>
@@ -184,7 +119,7 @@
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
 
 </body>
 

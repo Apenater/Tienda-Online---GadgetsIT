@@ -21,6 +21,7 @@ HEADER.innerHTML = `
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/usuarios_admin.html" style="color: white;">Administradores</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/comentarios.html" style="color: white;">Comentarios</a> </li>
                         <li class="nav-item"> <a class="nav-link" href="../../views/admin/pedidoss.html" style="color: white;">Pedidos</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="../../views/admin/perfil.html" style="color: white;">Perfil</a> </li>
 
                     </ul>
                 </div>
