@@ -10,6 +10,7 @@
     <title>Productos</title>
 
     <!-- Hojas de estilo -->
+    <link type="image/png" rel="icon" href="../../resources/img/icon.png">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
     <link rel="stylesheet" href="../../resources/css/admin/Style.css">
     <link rel="stylesheet" href="../../resources/css/admin/header.css">
@@ -115,19 +116,12 @@
     <!-- Título y buscador principal de la página -->
     <div class="gadgetit-card-header">
         <span class="text-products">Productos</span>
-        <form class="col-sm-12 col-md-6" id="searchForm">
-            <div class="row">
-                <div class="col-6">
-                    <input type="search" class="form-control" name="search" placeholder="Buscar" required>
-                </div>
-                <div class="col-6">
-                    <button type="submit" class="btn btn-success">
-                        <i class="bi bi-search"></i>
-                    </button>
-                    <button type="reset" class="btn btn-secondary" onclick="fillTable()">
-                        <i class="bi bi-x-square-fill"></i>
-                    </button>
-                </div>
+        <!-- Barra de búsqueda para filtrar categorías -->
+        <form class="contenedor-b" id="searchForm">
+            <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+            <div class="botones">
+                <button type="submit" class="search-btn">Buscar</button>
+                <button type="reset" class="search-btn" onclick="fillTable()">X</button>
             </div>
         </form>
         <!-- Botón para agregar un nuevo producto -->

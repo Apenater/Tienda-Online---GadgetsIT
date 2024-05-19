@@ -66,7 +66,7 @@ const fillTable = async (form = null) => {
                         </div>
                         <div class="gadgetit-card-principal">
                             <div class="gadgetit-card-title">${row.nombreProducto}</div>
-                            <div class="gadgetit-card-description">El telefono mas vendido del mercado</div>
+                            <div class="gadgetit-card-description">${row.descripcionProducto}</div>
                         </div>
                         <div class="gadgetit-card-content">
                             <div class="gadgetit-card-title">$${row.precioProducto}</div>
@@ -103,8 +103,8 @@ const openCreate = () => {
     // Se prepara el formulario.
     SAVE_FORM.reset();
     EXISTENCIAS_PRODUCTO.disabled = false;
-    fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto');
-    fillSelect(MARCA_API, 'readAll', 'marcaProducto');
+    fillSelectCategoria(CATEGORIA_API, 'readAll', 'categoriaProducto');
+    fillSelectMarca(MARCA_API, 'readAll', 'marcaProducto');
 }
 
 
