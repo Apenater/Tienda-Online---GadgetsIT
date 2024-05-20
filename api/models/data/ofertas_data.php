@@ -56,13 +56,24 @@ class OfertaData extends OfertaHandler
         }
     }
 
+    public function setProducto($value)
+    {
+        if (Validator::validateNaturalNumber($value)) {
+            $this->producto = $value;
+            return true;
+        } else {
+            $this->data_error = 'El identificador de el produto es incorrecto';
+            return false;
+        }
+    }
+
     public function setDescuento($value)
     {
-        if (Validator::validateFloat($value)) {
+        if (Validator::validateNaturalNumberDiscount($value)) {
             $this->descuento = $value;
             return true;
         } else {
-            $this->data_error = 'El descuento debe ser un número decimal';
+            $this->data_error = 'El descuento debe ser un número del 1 al 100';
             return false;
         }
     }

@@ -25,45 +25,36 @@
 
     <!-- Modal para crear ofertas -->
     <div class="container mt-5">
-
         <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <input type="number" class="d-none" id="id_marca" name="id_oferta">
-
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <!-- Título del modal -->
-                        <h5 class="modal-title" id="exampleModalLabel">Crear Descuento</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">Crear Promoción</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
                     <form id="saveForm">
-
-
+                        <input type="number" class="d-none" id="id_ofertas" name="id_ofertas">
                         <div class="modal-body">
-                            <!-- Formulario para crear descuento -->
-                            <form>
-                                <!-- Campo de entrada para el nombre del descuento -->
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" id="Discount-name"
-                                        placeholder="Nombre del Descuento">
-                                </div>
-                                <!-- Campo de entrada para la descripción del descuento -->
-                                <div class="mb-3">
-                                    <textarea class="form-control" id="Discount-description"
-                                        placeholder="Descripción del Descuento"></textarea>
-                                </div>
-                                <!-- Campo de entrada para el porcentaje del descuento -->
-                                <div class="input-group mb-3">
-                                    <input type="number" class="form-control" id="Discount"
-                                        placeholder="Porcentaje del Descuento%">
-                                </div>
-                                <!-- Selector de producto -->
-                                <select class="form-select form-select-sm" aria-label="Small select example"
-                                    id="producto" name="producto">
-
-                                </select>
-                            </form>
+                            <!-- Campo de entrada para el nombre del descuento -->
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="tituloDescuento" name="tituloDescuento"
+                                    placeholder="Nombre del Descuento">
+                            </div>
+                            <!-- Campo de entrada para la descripción del descuento -->
+                            <div class="mb-3">
+                                <textarea class="form-control" id="descripcionDescuento" name="descripcionDescuento"
+                                    placeholder="Descripción del Descuento"></textarea>
+                            </div>
+                            <!-- Campo de entrada para el porcentaje del descuento -->
+                            <div class="input-group mb-3">
+                                <input type="number" class="form-control" id="decuentoDescuento" name="decuentoDescuento"
+                                    placeholder="Porcentaje del Descuento%">
+                            </div>
+                            <!-- Selector de producto -->
+                            <select class="form-select form-select-sm" aria-label="Small select example" id="productoDescuento"
+                                name="productoDescuento">
+                            </select>
                         </div>
                         <!-- Botones de cierre y envío del formulario -->
                         <div class="modal-footer">
@@ -76,100 +67,30 @@
         </div>
     </div>
 
-    <!-- Modal para actualizar ofertas -->
-    <div class="container mt-5">
-
-
-        <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <!-- Título del modal -->
-                        <h5 class="modal-title" id="exampleModalLabel">Actualizar Descuento</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-
-
-                    <form id="saveForm">
-                        <input type="number" class="d-none" id="id_marca" name="id_oferta">
-
-                        <div class="modal-body">
-                            <!-- Formulario para actualizar descuento -->
-                            <form>
-                                <!-- Campo de entrada para el nombre del descuento (con valor predefinido) -->
-                                <div class="mb-3">
-                                    <input type="text" class="form-control" id="Discount-name"
-                                        placeholder="Nombre del Descuento" value="Dia de las Madres">
-                                </div>
-                                <!-- Campo de entrada para la descripción del descuento (con valor predefinido) -->
-                                <div class="mb-3">
-                                    <textarea class="form-control" id="Discount-description"
-                                        placeholder="Descripción del Descuento"
-                                        aria-valuetext="#0% de Descuento para consentir a tu Mamita"></textarea>
-                                </div>
-                                <!-- Campo de entrada para el porcentaje del descuento (con valor predefinido) -->
-                                <div class="input-group mb-3">
-                                    <input type="number" class="form-control" id="Discount"
-                                        placeholder="Porcentaje del Descuento%" value="30">
-                                </div>
-                                <!-- Selector de producto -->
-                                <select class="form-select form-select-sm" aria-label="Small select example"
-                                    id="producto" name="producto">
-
-
-                                </select>
-                            </form>
-                        </div>
-                        <!-- Botones de cierre y actualización del formulario -->
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                            <button type="submit" class="btn btn-success">Agregar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Sección de promociones -->
+    <!-- Sección principal que muestra las promociones actuales y botones para agregar nuevas promociones -->
     <div class="gadgetit-card-header">
-        <!-- Título y buscador principal de la sección -->
-        <span class="text-products">Promociones | activas</span>
-        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
-        <!-- Botón para agregar una nueva promoción -->
-        <button class="gadgetit-btn gadgetit-btn-agragar" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <span class="text-products">Promociones</span>
+        <!-- Barra de búsqueda para filtrar promociones -->
+        <form class="contenedor-b" id="searchForm">
+            <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+            <div class="botones">
+                <button type="submit" class="search-btn">Buscar</button>
+                <button type="reset" class="search-btn" onclick="fillTable()">X</button>
+            </div>
+        </form>
+
+        <!-- Botón para abrir modal de agregar promociones -->
+        <button class="gadgetit-btn gadgetit-btn-agragar" onclick="openCreate()">
             <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
+
     </div>
-
-    
-
 
     <div id="tarjetas">
 
     </div>
 
-
-
-
     <br>
-
-    <!-- Navegación de páginas de promociones -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <!-- Páginas numeradas -->
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
 
     <!-- Pie de página -->
     <footer> </footer>
@@ -181,13 +102,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
         </script>
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/ofertas.js"></script>
 
-
-
-
-<script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
-<script type="text/javascript" src="../../controllers/utils/components.js"></script>
-<script type="text/javascript" src="../../controllers/admin/ofertas.js"></script>
 </body>
 
 </html>
