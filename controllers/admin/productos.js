@@ -97,6 +97,7 @@ const fillTable = async (form = null) => {
 
 
 const openCreate = () => {
+    change();
     // Se muestra la caja de diálogo con su título.
     SAVE_MODAL.show();
     MODAL_TITLE.textContent = 'Crear producto';
@@ -109,6 +110,7 @@ const openCreate = () => {
 
 
 const openUpdate = async (id) => {
+    change();
     // Se define un objeto con los datos del registro seleccionado.
     const FORM = new FormData();
     FORM.append('idProducto', id);
@@ -130,9 +132,10 @@ const openUpdate = async (id) => {
         DESCRIPCION_PRODUCTO.value = ROW.descripcionProducto;
         PRECIO_PRODUCTO.value = ROW.precioProducto;
         EXISTENCIAS_PRODUCTO.value = ROW.existencias_producto;
-        ESPECIFICACIONES_PRODUCTO.value = ROW.especificaiones
-        fillSelect(MARCA_API, 'readAll', 'marcaProducto', ROW.id_marca);
-        fillSelect(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_categoria);
+        ESPECIFICACIONES_PRODUCTO.value = ROW.especificacionesProducto;
+        fillSelectMarca(MARCA_API, 'readAll', 'marcaProducto', ROW.id_marca);
+        fillSelectCategoria(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_categoria );
+        set();
         document.getElementById('imagePreview').src = `${SERVER_URL}images/productos/${ROW.imagen_producto}`;
     } else {
         sweetAlert(2, DATA.error, false);

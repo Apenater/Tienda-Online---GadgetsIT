@@ -42,7 +42,7 @@ class ProductosHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_productos(nombreProducto, descripcionProducto, precioProducto, existencias_producto, imagen_producto, id_categoria, Modelo, id_marca, especificaiones)
+        $sql = 'INSERT INTO tb_productos(nombreProducto, descripcionProducto, precioProducto, existencias_producto, imagen_producto, id_categoria, Modelo, id_marca, especificacionesProducto)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen,  $this->categoria, $this->modelo, $this->marca, $this->especificaciones);
         return Database::executeRow($sql, $params);
@@ -50,7 +50,7 @@ class ProductosHandler
 
     public function readAll()
     {
-        $sql = 'SELECT idProducto , imagen_producto, nombreProducto, descripcionProducto, precioProducto, nombreC , estadoProducto, Modelo, nombre_marca, existencias_producto, especificaiones
+        $sql = 'SELECT idProducto , imagen_producto, nombreProducto, descripcionProducto, precioProducto, nombreC , estadoProducto, Modelo, nombre_marca, existencias_producto, especificacionesProducto
                 FROM tb_productos
                 INNER JOIN tb_categorias USING(id_categoria)
                 INNER JOIN tb_marcas USING(id_marca)
@@ -60,7 +60,7 @@ class ProductosHandler
 
     public function readOne()
     {
-        $sql = 'SELECT idProducto, imagen_producto, nombreProducto, descripcionProducto, precioProducto, id_categoria, estadoProducto, Modelo, id_marca, existencias_producto, especificaiones
+        $sql = 'SELECT idProducto, imagen_producto, nombreProducto, descripcionProducto, precioProducto, id_categoria, estadoProducto, Modelo, id_marca, existencias_producto, especificacionesProducto
                 FROM tb_productos
                 WHERE idProducto = ?';
         $params = array($this->id);
@@ -79,7 +79,7 @@ class ProductosHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_productos
-                SET imagen_producto = ?, nombreProducto = ?, descripcionProducto = ?, precioProducto = ?, id_categoria = ?, Modelo = ?, id_marca = ?, especificaiones = ?
+                SET imagen_producto = ?, nombreProducto = ?, descripcionProducto = ?, precioProducto = ?, id_categoria = ?, Modelo = ?, id_marca = ?, especificacionesProducto = ?
                 WHERE idProducto = ?';
         $params = array($this->imagen, $this->nombre, $this->descripcion, $this->precio, $this->categoria, $this->modelo, $this->marca, $this->especificaciones, $this->id );
         return Database::executeRow($sql, $params);

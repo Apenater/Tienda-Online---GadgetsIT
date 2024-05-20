@@ -105,6 +105,7 @@
     *   Retorno: ninguno.
     */
     const openCreate = () => {
+        change();
         // Se muestra la caja de diálogo con su título.
         SAVE_MODAL.show();
         MODAL_TITLE.textContent = 'Crear marca';
@@ -118,6 +119,7 @@
     *   Retorno: ninguno.
     */
     const openUpdate = async (id) => {
+        change();
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
         FORM.append('id_marca', id);
@@ -134,6 +136,8 @@
             const ROW = DATA.dataset;
             id_marca.value = ROW.id_marca;
             NOMBRE_MARCAS.value = ROW.nombre_marca;
+            set();
+            document.getElementById('imagePreview').src = `${SERVER_URL}images/marcas/${ROW.imagen_marca}`;
         } else {
             sweetAlert(2, DATA.error, false);
         }
