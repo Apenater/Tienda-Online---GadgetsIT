@@ -30,7 +30,7 @@ class ProductosHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT idProducto , imagen_producto, nombreProducto, descripcionProducto, precioProducto, nombreC , estadoProducto, Modelo, nombre_marca, existencias_producto, especificaiones
+        $sql = 'SELECT idProducto , imagen_producto, nombreProducto, descripcionProducto, precioProducto, nombreC , estadoProducto, Modelo, nombre_marca, existencias_producto, especificacionesProducto
                 FROM tb_productos
                 INNER JOIN tb_categorias USING(id_Categoria)
                 INNER JOIN tb_marcas USING(id_marca)

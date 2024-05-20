@@ -2,6 +2,7 @@ const USER_API = 'services/admin/administrador.php';
 // Constante para establecer el formulario de registro del primer usuario.
 const SIGNUP_FORM = document.getElementById('signup-Form');
 
+
 // Método del evento para cuando se envía el formulario de registro del primer usuario.
 SIGNUP_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
