@@ -11,7 +11,7 @@ if (isset($_GET['action'])) {
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
     // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
-    if (isset($_SESSION['idAdministrador'])) {
+    if (isset($_SESSION['id_admin'])) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
@@ -32,10 +32,10 @@ if (isset($_GET['action'])) {
                     !$administrador->setApellido($_POST['apellidoAdministrador']) or
                     !$administrador->setCorreo($_POST['correoAdministrador']) or
                     !$administrador->setTelefono($_POST['telefono']) or
-                    !$administrador->setClave($_POST['claveAdministrador'])
+                    !$administrador->setClave($_POST['contrasenia_admin'])
                 ) {
                     $result['error'] = $administrador->getDataError();
-                } elseif ($_POST['claveAdministrador'] != $_POST['confirmarClave']) {
+                } elseif ($_POST['contrasenia_admin'] != $_POST['confirmarClave']) {
                     $result['error'] = 'Contraseñas diferentes';
                 } elseif ($administrador->createRow()) {
                     $result['status'] = 1;
@@ -53,7 +53,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOne':
-                if (!$administrador->setId($_POST['idAdministrador'])) {
+                if (!$administrador->setId($_POST['id_admin'])) {
                     $result['error'] = 'Administrador incorrecto';
                 } elseif ($result['dataset'] = $administrador->readOne()) {
                     $result['status'] = 1;
@@ -64,10 +64,11 @@ if (isset($_GET['action'])) {
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$administrador->setId($_POST['idAdministrador']) or
+                    !$administrador->setId($_POST['id_admin']) or
                     !$administrador->setNombre($_POST['nombreAdministrador']) or
                     !$administrador->setApellido($_POST['apellidoAdministrador']) or
-                    !$administrador->setCorreo($_POST['correoAdministrador'])
+                    !$administrador->setCorreo($_POST['correoAdministrador']) or
+                    !$administrador->setTelefono($_POST['telefono'])
                 ) {
                     $result['error'] = $administrador->getDataError();
                 } elseif ($administrador->updateRow()) {
@@ -78,9 +79,9 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'deleteRow':
-                if ($_POST['idAdministrador'] == $_SESSION['idAdministrador']) {
+                if ($_POST['id_admin'] == $_SESSION['id_admin']) {
                     $result['error'] = 'No se puede eliminar a sí mismo';
-                } elseif (!$administrador->setId($_POST['idAdministrador'])) {
+                } elseif (!$administrador->setId($_POST['id_admin'])) {
                     $result['error'] = $administrador->getDataError();
                 } elseif ($administrador->deleteRow()) {
                     $result['status'] = 1;
@@ -90,11 +91,11 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'getUser':
-                if (isset($_SESSION['telefono'])) {
+                if (isset($_SESSION['correo'])) {
                     $result['status'] = 1;
-                    $result['username'] = $_SESSION['telefono'];
+                    $result['username'] = $_SESSION['correo'];
                 } else {
-                    $result['error'] = 'Alias de administrador indefinido';
+                    $result['error'] = 'correo de administrador indefinido';
                 }
                 break;
             case 'logOut':
@@ -124,7 +125,7 @@ if (isset($_GET['action'])) {
                 } elseif ($administrador->editProfile()) {
                     $result['status'] = 1;
                     $result['message'] = 'Perfil modificado correctamente';
-                    $_SESSION['telefono'] = $_POST['telefono'];
+                    $_SESSION['correo'] = $_POST['correo'];
                 } else {
                     $result['error'] = 'Ocurrió un problema al modificar el perfil';
                 }
@@ -165,10 +166,10 @@ if (isset($_GET['action'])) {
                     !$administrador->setApellido($_POST['apellidoAdministrador']) or
                     !$administrador->setCorreo($_POST['correoAdministrador']) or
                     !$administrador->setTelefono($_POST['telefono']) or
-                    !$administrador->setClave($_POST['claveAdministrador'])
+                    !$administrador->setClave($_POST['contrasenia_admin'])
                 ) {
                     $result['error'] = $administrador->getDataError();
-                } elseif ($_POST['claveAdministrador'] != $_POST['confirmarClave']) {
+                } elseif ($_POST['contrasenia_admin'] != $_POST['confirmarClave']) {
                     $result['error'] = 'Contraseñas diferentes';
                 } elseif ($administrador->createRow()) {
                     $result['status'] = 1;
