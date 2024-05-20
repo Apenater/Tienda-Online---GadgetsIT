@@ -4,8 +4,6 @@ const LOGIN_FORM = document.getElementById('login-form');
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
-     // Llamada a la función para mostrar el encabezado y pie del documento.
-     loadTemplate();
      // Petición para consultar los usuarios registrados.
      const DATA = await fetchData(USER_API, 'readUsers');
      // Se comprueba si existe una sesión, de lo contrario se sigue con el flujo normal.
@@ -18,11 +16,9 @@ document.addEventListener('DOMContentLoaded', async () => {
          // Se muestra el formulario para iniciar sesión.
          LOGIN_FORM.classList.remove('d-none');
          sweetAlert(4, DATA.message, true);
-     } else {
-         // Se establece el título del contenido principal.
-         MAIN_TITLE.textContent = 'Registrar primer usuario';
+     } else {;
          // Se muestra el formulario para registrar el primer usuario.
-         SIGNUP_FORM.classList.remove('d-none');
+         location.href = 'primer_uso.html';
          sweetAlert(4, DATA.error, true);
      }
  });

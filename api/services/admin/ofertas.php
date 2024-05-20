@@ -27,9 +27,10 @@ if (isset($_GET['action'])) {
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$oferta->setTitulo($_POST['titulo']) or
-                    !$oferta->setDescripcion($_POST['descripcion']) or
-                    !$oferta->setDescuento($_POST['descuento'])
+                    !$oferta->setTitulo($_POST['tituloDescuento']) or
+                    !$oferta->setDescripcion($_POST['descripcionDescuento']) or
+                    !$oferta->setDescuento($_POST['decuentoDescuento']) or
+                    !$oferta->setProducto($_POST['productoDescuento'])
                 ) {
                     $result['error'] = $oferta->getDataError();
                 } elseif ($oferta->createRow()) {
@@ -48,7 +49,7 @@ if (isset($_GET['action'])) {
                 }
                 break;
             case 'readOne':
-                if (!$oferta->setId($_POST['id_oferta'])) {
+                if (!$oferta->setId($_POST['id_ofertas'])) {
                     $result['error'] = $oferta->getDataError();
                 } elseif ($result['dataset'] = $oferta->readOne()) {
                     $result['status'] = 1;
@@ -59,10 +60,11 @@ if (isset($_GET['action'])) {
             case 'updateRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$oferta->setId($_POST['id_oferta']) or
-                    !$oferta->setTitulo($_POST['titulo']) or
-                    !$oferta->setDescripcion($_POST['descripcion']) or
-                    !$oferta->setDescuento($_POST['descuento'])
+                    !$oferta->setId($_POST['id_ofertas']) or
+                    !$oferta->setTitulo($_POST['tituloDescuento']) or
+                    !$oferta->setDescripcion($_POST['descripcionDescuento']) or
+                    !$oferta->setDescuento($_POST['decuentoDescuento']) or
+                    !$oferta->setProducto($_POST['productoDescuento'])
                 ) {
                     $result['error'] = $oferta->getDataError();
                 } elseif ($oferta->updateRow()) {

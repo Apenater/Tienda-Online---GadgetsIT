@@ -1,6 +1,6 @@
+
 // Constante para completar la ruta de la API.
-const OFERTA_API = 'services/admin/ofertas.php';
-const PRODUCTO_API = 'services/admin/productos.php';
+const ADMINISTRADOR_API = 'services/admin/administrador.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
@@ -10,11 +10,12 @@ const SAVE_MODAL = new bootstrap.Modal('#exampleModal'),
     MODAL_TITLE = document.getElementById('exampleModalLabel');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-    ID_OFERTA = document.getElementById('id_ofertas'),
-    TITULO = document.getElementById('tituloDescuento'),
-    DESCRIPCION = document.getElementById('descripcionDescuento'),
-    DESCUENTO = document.getElementById('decuentoDescuento');
-    PRODUCTO = document.getElementById('productoDescuento');
+ID_ADMIN = document.getElementById('id_admin'),
+    NOMBRE_ADMIN = document.getElementById('nombre'),
+    APELLIDO_ADMIN = document.getElementById('apellido'),
+    TELEFONO_ADMIN  = document.getElementById('telefono'),
+    CONTRASENIA_ADMIN = document.getElementById('contrasenia');
+
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -37,11 +38,11 @@ SAVE_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se verifica la acción a realizar.
-    (id_ofertas.value) ? action = 'updateRow' : action = 'createRow';
+    (id_marca.value) ? action = 'updateRow' : action = 'createRow';
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SAVE_FORM);
     // Petición para guardar los datos del formulario.
-    const DATA = await fetchData(OFERTA_API, action, FORM);
+    const DATA = await fetchData(CATEGORIA_API, action, FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se cierra la caja de diálogo.
@@ -66,7 +67,7 @@ const fillTable = async (form = null) => {
     // Se verifica la acción a realizar.
     (form) ? action = 'searchRows' : action = 'readAll';
     // Petición para obtener los registros disponibles.
-    const DATA = await fetchData(OFERTA_API, action, form);
+    const DATA = await fetchData(ADMINISTRADOR_API, action, form);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se recorre el conjunto de registros fila por fila.
@@ -75,26 +76,25 @@ const fillTable = async (form = null) => {
             TARJETAS.innerHTML += `
 
             <div class="gadgetit-container">
-            <div class="gadgetit-card">
-                <div class="gadgetit-card-principal">
-                    <div class="gadgetit-card-title">${row.titulo}</div>
-                    <div class="gadgetit-card-description">${row.nombreProducto}</div>
-                </div>
-                <div class="gadgetit-card-content">
-                    <div class="gadgetit-card-title">${row.descuento}%</div>
-                    <div class="gadgetit-card-description">Descuento</div>
-                </div>
-                <div class="gadgetit-card-actions">
-                <button type="button" class="gadgetit-btn gadgetit-btn-verde"  onclick="openUpdate(${row.id_ofertas})">
-                <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                Actualizar
-                    </button>
-                        <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_ofertas})">
-                        <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                    </button>
-                </div>
+        <div class="gadgetit-card">
+            <div class="gadgetit-card-image">
+                <img src="../../resources/img/profile.svg" alt="profile">
             </div>
+            <div class="gadgetit-card-content">
+                <div class="gadgetit-card-title">${row.nombre}</div>
+            </div>
+            <div class="gadgetit-card-actions">
+                    <button type="button" class="gadgetit-btn gadgetit-btn-verde"  onclick="openUpdate(${row.id_admin})">
+                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
+                            Actualizar
+                        </button>
+                        <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_admin})">
+                        <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                        </button>
+                    </div>
         </div>
+    </div>
+
                 `;
         });
     } else {
@@ -108,12 +108,7 @@ const fillTable = async (form = null) => {
 *   Retorno: ninguno.
 */
 const openCreate = () => {
-    // Se muestra la caja de diálogo con su título.
-    SAVE_MODAL.show();
-    MODAL_TITLE.textContent = 'Crear categoría';
-    fillSelectProductos(PRODUCTO_API, 'readAll', 'productoDescuento');
-    // Se prepara el formulario.
-    SAVE_FORM.reset();
+    location.href = 'primer_uso.html';
 }
 
 /*
@@ -124,23 +119,22 @@ const openCreate = () => {
 const openUpdate = async (id) => {
     // Se define una constante tipo objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('id_ofertas', id);
+    FORM.append('id_marca', id);
     // Petición para obtener los datos del registro solicitado.
-    const DATA = await fetchData(OFERTA_API, 'readOne', FORM);
+    const DATA = await fetchData(CATEGORIA_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se muestra la caja de diálogo con su título.
         SAVE_MODAL.show();
-        MODAL_TITLE.textContent = 'Actualizar categoría';
+        MODAL_TITLE.textContent = 'Actualizar marca';
         // Se prepara el formulario.
         SAVE_FORM.reset();
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        id_ofertas.value = ROW.id_ofertas;
-        TITULO.value = ROW.titulo;
-        DESCRIPCION.value = ROW.descripcion;
-        DESCUENTO.value = ROW.descuento;
-        fillSelectProductos(PRODUCTO_API, 'readAll', 'productoDescuento', ROW.idProducto);
+        id_marca.value = ROW.id_marca;
+        NOMBRE_MARCAS.value = ROW.nombre_marca;
+        set();
+        document.getElementById('imagePreview').src = `${SERVER_URL}images/marcas/${ROW.imagen_marca}`;
     } else {
         sweetAlert(2, DATA.error, false);
     }
@@ -153,14 +147,14 @@ const openUpdate = async (id) => {
 */
 const openDelete = async (id) => {
     // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Desea eliminar la categoría de forma permanente?');
+    const RESPONSE = await confirmAction('¿Desea eliminar la marca de forma permanente?');
     // Se verifica la respuesta del mensaje.
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
-        FORM.append('id_oferta', id);
+        FORM.append('id_marca', id);
         // Petición para eliminar el registro seleccionado.
-        const DATA = await fetchData(OFERTA_API, 'deleteRow', FORM);
+        const DATA = await fetchData(CATEGORIA_API, 'deleteRow', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
             // Se muestra un mensaje de éxito.
@@ -182,7 +176,7 @@ const openReport = (id) => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
     const PATH = new URL(`${SERVER_URL}reports/admin/productos_categoria.php`);
     // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
-    PATH.searchParams.append('id_oferta', id);
+    PATH.searchParams.append('id_marca', id);
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }

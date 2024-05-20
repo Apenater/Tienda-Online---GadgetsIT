@@ -20,7 +20,6 @@
 </head>
 
 <body>
-
     <!-- Encabezado de la página -->
     <header> </header>
 
@@ -38,141 +37,66 @@
                         <div class="row">
                             <div class="col-md-12 align-items-center justify-content-center">
                                 <!-- Formulario para actualizar información del administrador -->
-                                <form>
+                                <form id="saveForm">
+                                    <input type="number" class="d-none" id="id_admin" name="id_admin">
                                     <!-- Campos de entrada para nombre, apellido, correo, teléfono y contraseña -->
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-name" placeholder="Nombre"
-                                            value="Ari">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="User-Apellido"
-                                            placeholder="Apellido" value="Peñate">
+                                        <input type="text" class="form-control" id="apellido" name="apellido"
+                                            placeholder="Apellido">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-mail" placeholder="Correo"
-                                            value="edgar.aripenate@gmailcom">
+                                        <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-phone" placeholder="Teléfono"
-                                            value="76476902">
+                                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-pass" placeholder="Contraseña"
-                                            value="********">
+                                        <input type="password" class="form-control" id="contrasenia" name="contrasenia" placeholder="Contraseña">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="password" class="form-control" id="contrasenia2" name="contrasenia2" placeholder="Contraseña">
                                     </div>
                                 </form>
 
                             </div>
                         </div>
                     </div>
-                    <!-- Botones de cierre y actualización del formulario -->
+                    <!-- Botones de cierre y envío del formulario -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                       
+                        <button type="submit" class="btn btn-success">Agregar</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Sección de los administradores -->
+    <!-- Título y buscador principal de la página -->
     <div class="gadgetit-card-header">
-        <!-- Título y buscador principal de la sección -->
         <span class="text-products">Administradores</span>
-        <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
-        <!-- Botón para agregar un nuevo administrador -->
-        <button class="gadgetit-btn gadgetit-btn-agregar" onclick="location.href='primer_uso.html'">
-            <img src="../../resources/img/agregar.svg" alt="Agregar" class="gadgetit-btn-icon"> Agregar
+        <!-- Barra de búsqueda para filtrar categorías -->
+        <form class="contenedor-b" id="searchForm">
+            <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+            <div class="botones">
+                <button type="submit" class="search-btn">Buscar</button>
+                <button type="reset" class="search-btn" onclick="fillTable()">X</button>
+            </div>
+        </form>
+        <!-- Botón para agregar un nuevo producto -->
+        <button class="gadgetit-btn gadgetit-btn-agragar" onclick="openCreate()">
+            <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
         </button>
     </div>
 
     <!-- Contenedores de administradores -->
-    
 
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Ari Peñate </div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                
-            </div>
-        </div>
-    </div>
 
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Andres Rosales</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-               
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Kevin Rolin</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/Profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">S_pendor</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                
-            </div>
-        </div>
-    </div>
+    <div id="tarjetas"></div>
 
     <br>
-
-    <!-- Navegación de la sección de administradores -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <a class="page-link">Previous</a>
-            </li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item">
-                <a class="page-link" href="#">Next</a>
-            </li>
-        </ul>
-    </nav>
 
     <!-- Pie de página -->
     <footer> </footer>
@@ -180,11 +104,14 @@
     <!-- Scripts de la página -->
     <script src="../../resources/js/admin/plantilla_nav_admin.js"></script>
     <script src="../../resources/js/admin/plantilla_ft_admin.js"></script>
-    <script src="../../resources/js/admin/add_img.js"></script>
     <!-- Bootstrap Bundle JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-    </script>
+        </script>
+
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/admin/administrador.js"></script>
 
 </body>
 

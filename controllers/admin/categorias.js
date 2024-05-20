@@ -104,6 +104,7 @@
     *   Retorno: ninguno.
     */
     const openCreate = () => {
+        change();
         // Se muestra la caja de diálogo con su título.
         SAVE_MODAL.show();
         MODAL_TITLE.textContent = 'Crear categoría';
@@ -117,6 +118,7 @@
     *   Retorno: ninguno.
     */
     const openUpdate = async (id) => {
+        change();
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
         FORM.append('id_Categoria', id);
@@ -134,6 +136,8 @@
             ID_CATEGORIA.value = ROW.id_Categoria;
             NOMBRE_CATEGORIA.value = ROW.nombreC;
             DESCRIPCION_CATEGORIA.value = ROW.Descripcion;
+            set();
+            document.getElementById('imagePreview').src = `${SERVER_URL}images/categorias/${ROW.foto}`;
         } else {
             sweetAlert(2, DATA.error, false);
         }

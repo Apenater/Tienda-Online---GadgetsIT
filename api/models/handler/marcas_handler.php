@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once('../../helpers/database.php');
+require_once ('../../helpers/database.php');
 /*
  *  Clase para manejar el comportamiento de los datos de la tabla MARCA.
  */
@@ -75,9 +75,13 @@ class MarcaHandler
 
     public function deleteRow()
     {
-        $sql = 'DELETE FROM tb_marcas
-                WHERE id_marca = ?';
-        $params = array($this->id_marca);
-        return Database::executeRow($sql, $params);
+        // Primero, elimina todos los productos asociados con la marca
+        $sqlProducts = 'DELETE FROM tb_productos WHERE id_marca = ?';
+        Database::executeRow($sqlProducts, array($this->id_marca));
+
+        // Luego, elimina la marca
+        $sqlBrand = 'DELETE FROM tb_marcas WHERE id_marca = ?';
+        return Database::executeRow($sqlBrand, array($this->id_marca));
     }
+
 }
