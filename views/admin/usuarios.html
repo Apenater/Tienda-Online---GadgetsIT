@@ -40,25 +40,21 @@
                                 <form>
                                     <!-- Campos de entrada para nombre, apellido, correo, teléfono y contraseña -->
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-name" placeholder="Nombre"
-                                            value="Ari">
+                                        <input type="text" class="form-control" name="nombreCliente" id="user-name" placeholder="Nombre" value="" readonly>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="User-Apellido"
-                                            placeholder="Apellido" value="Peñate">
+                                        <input type="text" class="form-control" name="apellidoCliente" id="User-Apellido" placeholder="Apellido" value="" readonly>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-mail" placeholder="Correo"
-                                            value="edgar.aripenate@gmailcom">
+                                        <input type="text" class="form-control" name="correoCliente" id="user-mail" placeholder="Correo" value="" readonly>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-phone" placeholder="Teléfono"
-                                            value="76476902">
+                                        <input type="text" class="form-control" name="telefonoCliente" id="user-phone" placeholder="Teléfono" value="" readonly>
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="user-pass" placeholder="Contraseña"
-                                            value="********">
+                                        <input type="text" class="form-control" name="contraseniaCliente" id="user-pass" placeholder="Contraseña" value="" readonly>
                                     </div>
+                                    
                                 </form>
 
                             </div>
@@ -67,7 +63,6 @@
                     <!-- Botones de cierre y actualización del formulario -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-success">Actualizar</button>
                     </div>
                 </div>
             </div>
@@ -79,8 +74,13 @@
         <div class="gadgetit-card-header">
             <!-- Título y buscador principal de la sección -->
             <span class="text-products">Clientes</span>
-            <input class="form-control" id="SearchBar" type="search" placeholder="Buscar" style="width: 50%;">
-
+            <form class="contenedor-b" id="searchForm">
+                <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+                <div class="botones">
+                    <button type="submit" class="search-btn">Buscar</button>
+                    <button type="reset" class="search-btn" onclick="fillTable()">X</button>
+                </div>
+            </form>
         </div>
 
     </div>
@@ -98,69 +98,11 @@
                 <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
                     Ver Info
                 </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
             </div>
         </div>
     </div>
 
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Andres Rosales</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
 
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">Kevin Rolin</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/Profile.svg" alt="Profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">S_pendor</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                    Ver Info
-                </button>
-                <button class="gadgetit-btn gadgetit-btn-rojo">
-                    <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                </button>
-            </div>
-        </div>
-    </div>
 
     <br>
 

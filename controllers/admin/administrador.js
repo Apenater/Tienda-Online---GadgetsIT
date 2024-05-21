@@ -1,4 +1,3 @@
-
 // Constante para completar la ruta de la API.
 const ADMINISTRADOR_API = 'services/admin/administrador.php';
 // Constante para establecer el formulario de buscar.
@@ -6,16 +5,28 @@ const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
 const TARJETAS = document.getElementById('tarjetas');
 // Constantes para establecer los elementos del componente Modal.
-const SAVE_MODAL = new bootstrap.Modal('#exampleModal'),
+const SAVE_MODAL = new bootstrap.Modal(document.getElementById('exampleModal')),
     MODAL_TITLE = document.getElementById('exampleModalLabel');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-ID_ADMIN = document.getElementById('id_admin'),
-    NOMBRE_ADMIN = document.getElementById('nombre'),
-    APELLIDO_ADMIN = document.getElementById('apellido'),
-    TELEFONO_ADMIN  = document.getElementById('telefono'),
-    CONTRASENIA_ADMIN = document.getElementById('contrasenia');
+    ID_ADMIN = document.getElementById('id_admin'),
+    NOMBRE_ADMIN = document.getElementById('nombreAdministrador'),
+    APELLIDO_ADMIN = document.getElementById('apellidoAdministrador'),
+    TELEFONO_ADMIN = document.getElementById('telefono'),
+    CORREO_ADMIN = document.getElementById('correoAdministrador'),
+    CONTRASENIA_ADMIN = document.getElementById('telefono'),
+    CONTRASENIA_ADMIN2 = document.getElementById('contrasenia2');
 
+
+
+const SAVE_MODAL2 = new bootstrap.Modal(document.getElementById('exampleModall')),
+    MODAL_TITLE2 = document.getElementById('exampleModalLabell');
+const
+    ID_ADMIN2 = document.getElementById('id_admin'),
+    NOMBRE_ADMIN2 = document.getElementById('nombreAdministradorr'),
+    APELLIDO_ADMIN2 = document.getElementById('apellidoAdministradorr'),
+    TELEFONO_ADMIN2 = document.getElementById('telefonoo'),
+    CORREO_ADMIN2 = document.getElementById('correoAdministradorr')
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -38,11 +49,11 @@ SAVE_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se verifica la acción a realizar.
-    (id_marca.value) ? action = 'updateRow' : action = 'createRow';
+    const action = ID_ADMIN.value ? 'updateRow' : 'createRow';
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SAVE_FORM);
     // Petición para guardar los datos del formulario.
-    const DATA = await fetchData(CATEGORIA_API, action, FORM);
+    const DATA = await fetchData(ADMINISTRADOR_API, action, FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se cierra la caja de diálogo.
@@ -65,7 +76,7 @@ const fillTable = async (form = null) => {
     // Se inicializa el contenido de la tabla.
     TARJETAS.innerHTML = '';
     // Se verifica la acción a realizar.
-    (form) ? action = 'searchRows' : action = 'readAll';
+    const action = form ? 'searchRows' : 'readAll';
     // Petición para obtener los registros disponibles.
     const DATA = await fetchData(ADMINISTRADOR_API, action, form);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -74,28 +85,26 @@ const fillTable = async (form = null) => {
         DATA.dataset.forEach(row => {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             TARJETAS.innerHTML += `
-
-            <div class="gadgetit-container">
-        <div class="gadgetit-card">
-            <div class="gadgetit-card-image">
-                <img src="../../resources/img/profile.svg" alt="profile">
-            </div>
-            <div class="gadgetit-card-content">
-                <div class="gadgetit-card-title">${row.nombre}</div>
-            </div>
-            <div class="gadgetit-card-actions">
-                    <button type="button" class="gadgetit-btn gadgetit-btn-verde"  onclick="openUpdate(${row.id_admin})">
-                    <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                            Actualizar
-                        </button>
-                        <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_admin})">
-                        <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                        </button>
+                <div class="gadgetit-container">
+                    <div class="gadgetit-card">
+                        <div class="gadgetit-card-image">
+                            <img src="../../resources/img/profile.svg" alt="profile">
+                        </div>
+                        <div class="gadgetit-card-content">
+                            <div class="gadgetit-card-title">${row.nombre}</div>
+                        </div>
+                        <div class="gadgetit-card-actions">
+                            <button type="button" class="gadgetit-btn gadgetit-btn-amrarillo" onclick="openUpdate(${row.id_admin})">
+                                <img src="../../resources/img/fin.png" alt="Actualizar" class="gadgetit-btn-icon">
+                                Ver informacion
+                            </button>
+                            <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_admin})">
+                                <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
+                            </button>
+                        </div>
                     </div>
-        </div>
-    </div>
-
-                `;
+                </div>
+            `;
         });
     } else {
         sweetAlert(4, DATA.error, true);
@@ -108,7 +117,11 @@ const fillTable = async (form = null) => {
 *   Retorno: ninguno.
 */
 const openCreate = () => {
-    location.href = 'primer_uso.html';
+    SAVE_MODAL.show();
+    MODAL_TITLE.textContent = 'Crear administrador';
+    // Se prepara el formulario.
+    SAVE_FORM.reset();
+    ID_ADMIN.value = '';
 }
 
 /*
@@ -119,22 +132,22 @@ const openCreate = () => {
 const openUpdate = async (id) => {
     // Se define una constante tipo objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('id_marca', id);
+    FORM.append('id_admin', id);
     // Petición para obtener los datos del registro solicitado.
-    const DATA = await fetchData(CATEGORIA_API, 'readOne', FORM);
+    const DATA = await fetchData(ADMINISTRADOR_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se muestra la caja de diálogo con su título.
-        SAVE_MODAL.show();
-        MODAL_TITLE.textContent = 'Actualizar marca';
+        SAVE_MODAL2.show();
         // Se prepara el formulario.
         SAVE_FORM.reset();
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        id_marca.value = ROW.id_marca;
-        NOMBRE_MARCAS.value = ROW.nombre_marca;
-        set();
-        document.getElementById('imagePreview').src = `${SERVER_URL}images/marcas/${ROW.imagen_marca}`;
+        ID_ADMIN2.value = ROW.id_admin;
+        NOMBRE_ADMIN2.value = ROW.nombre;
+        APELLIDO_ADMIN2.value = ROW.apellido;
+        CORREO_ADMIN2.value = ROW.correo;
+        TELEFONO_ADMIN2.value = ROW.telefono;
     } else {
         sweetAlert(2, DATA.error, false);
     }
@@ -147,14 +160,14 @@ const openUpdate = async (id) => {
 */
 const openDelete = async (id) => {
     // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Desea eliminar la marca de forma permanente?');
+    const RESPONSE = await confirmAction('¿Desea eliminar el administrador de forma permanente?');
     // Se verifica la respuesta del mensaje.
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
-        FORM.append('id_marca', id);
+        FORM.append('id_admin', id);
         // Petición para eliminar el registro seleccionado.
-        const DATA = await fetchData(CATEGORIA_API, 'deleteRow', FORM);
+        const DATA = await fetchData(ADMINISTRADOR_API, 'deleteRow', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
         if (DATA.status) {
             // Se muestra un mensaje de éxito.
@@ -176,7 +189,7 @@ const openReport = (id) => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
     const PATH = new URL(`${SERVER_URL}reports/admin/productos_categoria.php`);
     // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
-    PATH.searchParams.append('id_marca', id);
+    PATH.searchParams.append('id_admin', id);
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }
