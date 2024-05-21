@@ -84,11 +84,11 @@ class AdministradorHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono,
+        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono
                 FROM tb_administrador
-                WHERE apellido LIKE ? OR nombre LIKE ? OR correo lIKE ? OR telefono LIKE ?
+                WHERE nombre LIKE ?
                 ORDER BY apellido';
-        $params = array($value, $value);
+        $params = array($value);
         return Database::getRows($sql, $params);
     }
 

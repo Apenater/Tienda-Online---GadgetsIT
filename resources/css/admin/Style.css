@@ -198,6 +198,13 @@ input[type="search"].form-control {
   background-color: #ff2e2e;
 }
 
+.gadgetit-btn-amrarillo {
+  background-color: #003c5dee;
+}
+.gadgetit-btn-amrarillo:hover {
+  background-color: #003654;
+}
+
 /* Estilos para el botón rojo al pasar el ratón por encima */
 .gadgetit-btn-rojo:hover {
   background-color: #e10000;
