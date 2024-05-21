@@ -41,23 +41,28 @@
                                     <input type="number" class="d-none" id="id_admin" name="id_admin">
                                     <!-- Campos de entrada para nombre, apellido, correo, teléfono y contraseña -->
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+                                        <input type="text" class="form-control" id="nombreAdministrador" name="nombreAdministrador"
+                                            placeholder="Nombre">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="apellido" name="apellido"
+                                        <input type="text" class="form-control" id="apellidoAdministrador" name="apellidoAdministrador"
                                             placeholder="Apellido">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" id="correo" name="correo" placeholder="Correo">
+                                        <input type="email" class="form-control" id="correoAdministrador" name="correoAdministrador"
+                                            placeholder="Correo">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono">
+                                        <input type="tel" class="form-control" id="telefono" name="telefono"
+                                            placeholder="Teléfono">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="password" class="form-control" id="contrasenia" name="contrasenia" placeholder="Contraseña">
+                                        <input type="password" class="form-control" id="contrasenia_admin" name="contrasenia_admin"
+                                            placeholder="Contraseña">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="password" class="form-control" id="contrasenia2" name="contrasenia2" placeholder="Contraseña">
+                                        <input type="password" class="form-control" id="confirmarClave"
+                                            name="confirmarClave" placeholder="Repetir contraseña">
                                     </div>
                                 </form>
 
@@ -67,7 +72,7 @@
                     <!-- Botones de cierre y envío del formulario -->
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                        <button type="submit" class="btn btn-success">Agregar</button>
+                        <button type="submit" form="saveForm" class="btn btn-success">Agregar</button>
                     </div>
                 </div>
             </div>
@@ -87,13 +92,11 @@
         </form>
         <!-- Botón para agregar un nuevo producto -->
         <button class="gadgetit-btn gadgetit-btn-agragar" onclick="openCreate()">
-            <img src="../../resources/img/agregar.svg" alt="Actualizar" class="gadgetit-btn-icon"> Agregar
+            <img src="../../resources/img/agregar.svg" alt="Agregar" class="gadgetit-btn-icon"> Agregar
         </button>
     </div>
 
     <!-- Contenedores de administradores -->
-
-
     <div id="tarjetas"></div>
 
     <br>
