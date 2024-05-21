@@ -62,7 +62,7 @@ class AdministradorHandler
 
     public function readProfile()
     {
-        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono
+        $sql = 'SELECT id_admin, nombre, apellido, correo, telefono, contrasenia_admin
                 FROM tb_administrador
                 WHERE id_admin = ?';
         $params = array($_SESSION['id_admin']);
