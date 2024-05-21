@@ -95,7 +95,7 @@ const fillTable = async (form = null) => {
                         </div>
                         <div class="gadgetit-card-actions">
                             <button type="button" class="gadgetit-btn gadgetit-btn-amrarillo" onclick="openUpdate(${row.id_admin})">
-                                <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
+                                <img src="../../resources/img/fin.png" alt="Actualizar" class="gadgetit-btn-icon">
                                 Ver informacion
                             </button>
                             <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_admin})">
