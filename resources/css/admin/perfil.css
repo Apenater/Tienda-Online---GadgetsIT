@@ -99,6 +99,72 @@ body {
 }
 
 
+.cerrar {
+    
+    display: inline-block;
+    margin: 20px 0;
+    padding: 16px 30px;
+    background-color: #ba0000;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+  
+
+  
+  .cerrar:hover {
+    background-color: #980000;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+.cerrar img {
+    width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 30px;
+    margin-right: 8px; /* Espacio entre la imagen y el texto del botón */
+}
+
+
+
+.cambiar {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 16px 30px;
+    background-color: #0071a5;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+  
+
+  
+  .cambiar:hover {
+    background-color: #006594;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+
+.cambiar img {
+    width: 30px; /* Ajusta el tamaño de la imagen según sea necesario */
+    height: 30px;
+    margin-right: 8px; /* Espacio entre la imagen y el texto del botón */
+}
+
+
 .actualizar:hover {
     background-color: #003f5c;
 }
