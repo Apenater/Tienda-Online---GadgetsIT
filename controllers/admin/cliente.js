@@ -82,7 +82,7 @@ const fillTable = async (form = null) => {
                         <div class="gadgetit-card-title">${row.nombreCliente}</div>
                     </div>
                     <div class="gadgetit-card-actions">
-                        <button class="gadgetit-btn gadgetit-btn-verde" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.id_usuario})">
                             Ver Info
                         </button>
                     </div>
@@ -115,26 +115,24 @@ const openCreate = () => {
 *   Retorno: ninguno.
 */
 const openUpdate = async (id) => {
-    change();
     // Se define una constante tipo objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('ID_CLIENTE', id);
+    FORM.append('id_usuario', id);
     // Petición para obtener los datos del registro solicitado.
     const DATA = await fetchData(CLIENTE_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se muestra la caja de diálogo con su título.
         SAVE_MODAL.show();
-        MODAL_TITLE.textContent = 'Actualizar categoría';
         // Se prepara el formulario.
         SAVE_FORM.reset();
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_CLIENTE.value = ROW.ID_CLIENTE;
-        NOMBRE_CATEGORIA.value = ROW.nombreC;
-        DESCRIPCION_CATEGORIA.value = ROW.Descripcion;
-        set();
-        document.getElementById('imagePreview').src = `${SERVER_URL}images/categorias/${ROW.foto}`;
+        ID_CLIENTE.value = ROW.id_usuario;
+        NOMBRE_CLIENTE.value = ROW.nombreCliente;
+        APELLIDO_CLIENTE.value = ROW.apellidoCliente;
+        CORREO_CLIENTE.value = ROW.correoCliente;
+        TELEFONO_CLIENTE.value = ROW.telefonoCliente;
     } else {
         sweetAlert(2, DATA.error, false);
     }
@@ -152,7 +150,7 @@ const openDelete = async (id) => {
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
-        FORM.append('ID_CLIENTE', id);
+        FORM.append('id_usuario', id);
         // Petición para eliminar el registro seleccionado.
         const DATA = await fetchData(CLIENTE_API, 'deleteRow', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
