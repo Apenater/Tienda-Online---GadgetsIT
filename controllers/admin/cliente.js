@@ -5,7 +5,7 @@ const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
 const TARJETAS = document.getElementById('tarjetas');
 // Constantes para establecer los elementos del componente Modal.
-const SAVE_MODAL = new bootstrap.Modal('#exampleModal'),
+const SAVE_MODAL = new bootstrap.Modal(document.getElementById('exampleModal')),
     MODAL_TITLE = document.getElementById('exampleModalLabel');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
@@ -13,8 +13,7 @@ const SAVE_FORM = document.getElementById('saveForm'),
     NOMBRE_CLIENTE= document.getElementById('nombreCliente'),
     APELLIDO_CLIENTE= document.getElementById('apellidoCliente'),
     TELEFONO_CLIENTE= document.getElementById('telefonoCliente'),
-    CORREO_CLIENTE= document.getElementById('correoCliente'),
-    CONTRASENIA_CLIENTE= document.getElementById('contraseniaCliente');
+    CORREO_CLIENTE= document.getElementById('correoCliente');
 
     // Método del evento para cuando el documento ha cargado.
     document.addEventListener('DOMContentLoaded', () => {
