@@ -10,10 +10,10 @@ const SAVE_MODAL = new bootstrap.Modal(document.getElementById('exampleModal')),
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
     ID_CLIENTE= document.getElementById('id_usuario'),
-    NOMBRE_CLIENTE= document.getElementById('nombreCliente'),
-    APELLIDO_CLIENTE= document.getElementById('apellidoCliente'),
-    TELEFONO_CLIENTE= document.getElementById('telefonoCliente'),
-    CORREO_CLIENTE= document.getElementById('correoCliente');
+    NOMBRE_CLIENTE= document.getElementById('nombre'),
+    APELLIDO_CLIENTE= document.getElementById('apellido'),
+    TELEFONO_CLIENTE= document.getElementById('telefono'),
+    CORREO_CLIENTE= document.getElementById('correo');
 
     // Método del evento para cuando el documento ha cargado.
     document.addEventListener('DOMContentLoaded', () => {
@@ -78,7 +78,7 @@ const fillTable = async (form = null) => {
                         <img src="../../resources/img/profile.svg" alt="profile">
                     </div>
                     <div class="gadgetit-card-content">
-                        <div class="gadgetit-card-title">${row.nombreCliente}</div>
+                        <div class="gadgetit-card-title">${row.nombre}</div>
                     </div>
                     <div class="gadgetit-card-actions">
                         <button class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.id_usuario})">
@@ -99,15 +99,6 @@ const fillTable = async (form = null) => {
 *   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
-const openCreate = () => {
-    change();
-    // Se muestra la caja de diálogo con su título.
-    SAVE_MODAL.show();
-    MODAL_TITLE.textContent = 'Crear categoría';
-    // Se prepara el formulario.
-    SAVE_FORM.reset();
-}
-
 /*
 *   Función asíncrona para preparar el formulario al momento de actualizar un registro.
 *   Parámetros: id (identificador del registro seleccionado).
@@ -128,10 +119,10 @@ const openUpdate = async (id) => {
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
         ID_CLIENTE.value = ROW.id_usuario;
-        NOMBRE_CLIENTE.value = ROW.nombreCliente;
-        APELLIDO_CLIENTE.value = ROW.apellidoCliente;
-        CORREO_CLIENTE.value = ROW.correoCliente;
-        TELEFONO_CLIENTE.value = ROW.telefonoCliente;
+        NOMBRE_CLIENTE.value = ROW.nombre;
+        APELLIDO_CLIENTE.value = ROW.apellido;
+        CORREO_CLIENTE.value = ROW.correo;
+        TELEFONO_CLIENTE.value = ROW.telefono;
     } else {
         sweetAlert(2, DATA.error, false);
     }
@@ -142,27 +133,6 @@ const openUpdate = async (id) => {
 *   Parámetros: id (identificador del registro seleccionado).
 *   Retorno: ninguno.
 */
-const openDelete = async (id) => {
-    // Llamada a la función para mostrar un mensaje de confirmación, capturando la respuesta en una constante.
-    const RESPONSE = await confirmAction('¿Desea eliminar la categoría de forma permanente?');
-    // Se verifica la respuesta del mensaje.
-    if (RESPONSE) {
-        // Se define una constante tipo objeto con los datos del registro seleccionado.
-        const FORM = new FormData();
-        FORM.append('id_usuario', id);
-        // Petición para eliminar el registro seleccionado.
-        const DATA = await fetchData(CLIENTE_API, 'deleteRow', FORM);
-        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-        if (DATA.status) {
-            // Se muestra un mensaje de éxito.
-            await sweetAlert(1, DATA.message, true);
-            // Se carga nuevamente la tabla para visualizar los cambios.
-            fillTable();
-        } else {
-            sweetAlert(2, DATA.error, false);
-        }
-    }
-}
 
 /*
 *   Función para abrir un reporte parametrizado de productos de una categoría.

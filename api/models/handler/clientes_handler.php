@@ -2,7 +2,7 @@
 // Se incluye la clase para trabajar con la base de datos.
 require_once('../../helpers/database.php');
 /*
- *  Clase para manejar el comportamiento de los datos de la tabla administrador.
+ *  Clase para manejar el comportamiento de los datos de la tabla cliente.
  */
 class ClienteHandler
 {
@@ -17,7 +17,7 @@ class ClienteHandler
     protected $contrasenia_usuario = null;
 
     /*
-     *  Métodos para gestionar la cuenta del administrador.
+     *  Métodos para gestionar la cuenta del cliente.
      */
     public function checkUser($username, $password)
     {
@@ -91,15 +91,7 @@ class ClienteHandler
         $params = array($value, $value);
         return Database::getRows($sql, $params);
     }
-
-    public function createRow()
-    {
-        $sql = 'INSERT INTO tb_clientes(nombre, apellido, correo, telefono, contrasenia_usuario)
-                VALUES(?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->apellido, $this->correo, $this->telefono, $this->contrasenia_usuario);
-        return Database::executeRow($sql, $params);
-    }
-
+    
     public function readAll()
     {
         $sql = 'SELECT id_usuario, nombre, apellido, correo, telefono
