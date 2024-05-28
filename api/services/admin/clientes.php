@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase del modelo.
-require_once('../../models/data/cliente_data.php');
+require_once('../../models/data/clientes_data.php');
 
 // Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
@@ -11,7 +11,7 @@ if (isset($_GET['action'])) {
     // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'session' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'username' => null);
     // Se verifica si existe una sesión iniciada como cliente, de lo contrario se finaliza el script con un mensaje de error.
-    if (isset($_SESSION['id_usuario']) ) {
+    if (isset($_SESSION['id_admin']) ) {
         $result['session'] = 1;
         // Se compara la acción a realizar cuando un cliente ha iniciado sesión.
         switch ($_GET['action']) {
@@ -28,18 +28,15 @@ if (isset($_GET['action'])) {
             case 'createRow':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$cliente->setNombre($_POST['nombreCliente']) or
-                    !$cliente->setApellido($_POST['apellidoCliente']) or
-                    !$cliente->setCorreo($_POST['correoCliente']) or
-                    !$cliente->setTelefono($_POST['telefonoCliente']) or
-                    !$cliente->setClave($_POST['contraseniaCliente'])
+                    !$cliente->setNombre($_POST['nombre']) or
+                    !$cliente->setApellido($_POST['apellido']) or
+                    !$cliente->setCorreo($_POST['correo']) or
+                    !$cliente->setTelefono($_POST['telefono']) or
+                    !$cliente->setClave($_POST['contrasenia_usuario'])
                 ) {
                     $result['error'] = $cliente->getDataError();
-                } elseif ($_POST['contraseniaCliente'] != $_POST['confirmarClave']) {
+                } elseif ($_POST['contrasenia_usuario'] != $_POST['confirmarClave']) {
                     $result['error'] = 'Contraseñas diferentes';
-                } elseif ($cliente->createRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'cliente creado correctamente';
                 } else {
                     $result['error'] = 'Ocurrió un problema al crear el cliente';
                 }
@@ -65,10 +62,10 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$cliente->setId($_POST['id_usuario']) or
-                    !$cliente->setNombre($_POST['nombreCliente']) or
-                    !$cliente->setApellido($_POST['apellidoCliente']) or
-                    !$cliente->setCorreo($_POST['correoCliente']) or
-                    !$cliente->setTelefono($_POST['telefonoCliente'])
+                    !$cliente->setNombre($_POST['nombre']) or
+                    !$cliente->setApellido($_POST['apellido']) or
+                    !$cliente->setCorreo($_POST['correo']) or
+                    !$cliente->setTelefono($_POST['telefono'])
                 ) {
                     $result['error'] = $cliente->getDataError();
                 } elseif ($cliente->updateRow()) {
@@ -116,10 +113,10 @@ if (isset($_GET['action'])) {
             case 'editProfile':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$cliente->setNombre($_POST['nombreCliente']) or
-                    !$cliente->setApellido($_POST['apellidoCliente']) or
-                    !$cliente->setCorreo($_POST['correoCliente']) or
-                    !$cliente->setTelefono($_POST['telefonoCliente'])
+                    !$cliente->setNombre($_POST['nombre']) or
+                    !$cliente->setApellido($_POST['apellido']) or
+                    !$cliente->setCorreo($_POST['correo']) or
+                    !$cliente->setTelefono($_POST['telefono'])
                 ) {
                     $result['error'] = $cliente->getDataError();
                 } elseif ($cliente->editProfile()) {
@@ -130,21 +127,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al modificar el perfil';
                 }
                 break;
-            case 'changePassword':
-                $_POST = Validator::validateForm($_POST);
-                if (!$cliente->checkPassword($_POST['claveActual'])) {
-                    $result['error'] = 'Contraseña actual incorrecta';
-                } elseif ($_POST['claveNueva'] != $_POST['confirmarClave']) {
-                    $result['error'] = 'Confirmación de contraseña diferente';
-                } elseif (!$cliente->setClave($_POST['claveNueva'])) {
-                    $result['error'] = $cliente->getDataError();
-                } elseif ($cliente->changePassword()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'Contraseña cambiada correctamente';
-                } else {
-                    $result['error'] = 'Ocurrió un problema al cambiar la contraseña';
-                }
-                break;
+
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }
@@ -162,25 +145,22 @@ if (isset($_GET['action'])) {
             case 'signUp':
                 $_POST = Validator::validateForm($_POST);
                 if (
-                    !$cliente->setNombre($_POST['nombreCliente']) or
-                    !$cliente->setApellido($_POST['apellidoCliente']) or
-                    !$cliente->setCorreo($_POST['correoCliente']) or
-                    !$cliente->setTelefono($_POST['telefonoCliente']) or
-                    !$cliente->setClave($_POST['contraseniaCliente'])
+                    !$cliente->setNombre($_POST['nombre']) or
+                    !$cliente->setApellido($_POST['apellido']) or
+                    !$cliente->setCorreo($_POST['correo']) or
+                    !$cliente->setTelefono($_POST['telefono']) or
+                    !$cliente->setClave($_POST['contrasenia_usuario'])
                 ) {
                     $result['error'] = $cliente->getDataError();
-                } elseif ($_POST['contraseniaCliente'] != $_POST['confirmarClave']) {
+                } elseif ($_POST['contrasenia_usuario'] != $_POST['confirmarClave']) {
                     $result['error'] = 'Contraseñas diferentes';
-                } elseif ($cliente->createRow()) {
-                    $result['status'] = 1;
-                    $result['message'] = 'cliente registrado correctamente';
                 } else {
                     $result['error'] = 'Ocurrió un problema al registrar el cliente';
                 }
                 break;
             case 'logIn':
                 $_POST = Validator::validateForm($_POST);
-                if ($cliente->checkUser($_POST['alias'], $_POST['clave'])) {
+                if ($cliente->checkUser($_POST['correo'], $_POST['clave'])) {
                     $result['status'] = 1;
                     $result['message'] = 'Autenticación correcta';
                 } else {
