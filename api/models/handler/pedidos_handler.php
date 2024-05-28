@@ -50,17 +50,11 @@ class ProductosHandler
 
     public function readAll()
     {
-        $sql = 'SELECT p.idProducto, p.imagen_producto, p.nombreProducto, p.descripcionProducto, 
-                CASE 
-                    WHEN p.hasDiscount = 1 THEN ROUND(p.precioProducto - (p.precioProducto * o.descuento / 100), 2)
-                    ELSE p.precioProducto 
-                END AS precioProducto,
-                c.nombreC, p.estadoProducto, p.Modelo, m.nombre_marca, p.existencias_producto, p.especificacionesProducto
-                FROM tb_productos p
-                INNER JOIN tb_categorias c ON p.id_categoria = c.id_categoria
-                INNER JOIN tb_marcas m ON p.id_marca = m.id_marca
-                LEFT JOIN tb_ofertas o ON p.idProducto = o.idProducto AND p.hasDiscount = 1
-                ORDER BY p.nombreProducto';
+        $sql = 'SELECT p.idPedido, p.fecha_registro, p.total, p.direccion_pedido, p.estado_pedido, p.id_cliente,
+        c.nombre, c.apellido, c.correo, c.telefono
+ FROM tb_pedido p
+ JOIN tb_clientes c ON p.id_cliente = c.id_usuario;
+ ';
         return Database::getRows($sql);
     }
 

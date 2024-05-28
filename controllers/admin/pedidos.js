@@ -1,42 +1,27 @@
 // Constantes para completar las rutas de la API.
-const PRODUCTO_API = 'services/admin/productos.php';
-const CATEGORIA_API = 'services/admin/categorias.php';
-const MARCA_API = 'services/admin/marcas.php';
+const PEDIDOS_API = 'services/admin/pedidos.php';
+const PRODUCTOS_API = 'services/admin/productos.php';
 
 const SEARCH_FORM = document.getElementById('searchForm');
 
 const TABLE_BODY = document.getElementById('tarjetas');
+const TABLE_BODY2 = document.getElementById('tarjetas2');
 
 const SAVE_MODAL = new bootstrap.Modal('#exampleModal'),
     MODAL_TITLE = document.getElementById('exampleModalLabel');
 
-const SAVE_FORM = document.getElementById('saveForm'),
-    ID_PRODUCTO = document.getElementById('idProducto'),
-    NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
-    DESCRIPCION_PRODUCTO = document.getElementById('descripcionProducto'),
-    MODELO_PRODUCTO = document.getElementById('modeloProducto'),
-    ESPECIFICACIONES_PRODUCTO = document.getElementById('especificacionesProducto'),
-    PRECIO_PRODUCTO = document.getElementById('precioProducto'),
-    EXISTENCIAS_PRODUCTO = document.getElementById('existenciasProducto'),
-    ESTADO_PRODUCTO = document.getElementById('estadoProducto');
-
-
+const SAVE_FORM = document.getElementById('saveForm');
 
 document.addEventListener('DOMContentLoaded', async () => {
-    // Llamada a la función para mostrar el encabezado y pie del documento.
     loadTemplate();
 
-    // Petición para obtener los datos del usuario que ha iniciado sesión.
     const DATA = await fetchData(USER_API, 'readProfile');
-    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         fillTable();
     } else {
         sweetAlert(2, DATA.error, null);
     }
 });
-
-
 
 SEARCH_FORM.addEventListener('submit', (event) => {
     event.preventDefault();
@@ -45,60 +30,35 @@ SEARCH_FORM.addEventListener('submit', (event) => {
 });
 
 
-SAVE_FORM.addEventListener('submit', async (event) => {
-    event.preventDefault();
-    (ID_PRODUCTO.value) ? action = 'updateRow' : action = 'createRow';
-    const FORM = new FormData(SAVE_FORM);
-    const DATA = await fetchData(PRODUCTO_API, action, FORM);
-    if (DATA.status) {
-        //document.getElementById('inputGroupFile01').value = '';
-        SAVE_MODAL.hide();
-        SAVE_FORM.reset();
-        sweetAlert(1, DATA.message, true);
-        fillTable();
-    } else {
-        sweetAlert(2, DATA.error, false);
-    }
-});
-
-
 const fillTable = async (form = null) => {
     TABLE_BODY.innerHTML = '';
     (form) ? action = 'searchRows' : action = 'readAll';
-    const DATA = await fetchData(PRODUCTO_API, action, form);
+    const DATA = await fetchData(PEDIDOS_API, action, form);
     if (DATA.status) {
         DATA.dataset.forEach(row => {
 
             TABLE_BODY.innerHTML += `
-                <div class="gadgetit-container">
-                    <div class="gadgetit-card">
-                        <div class="gadgetit-card-image">
-                            <img src="${SERVER_URL}images/productos/${row.imagen_producto}" alt="img">
-                        </div>
-                        <div class="gadgetit-card-principal">
-                            <div class="gadgetit-card-title">${row.nombreProducto}</div>
-                            <div class="gadgetit-card-description">${row.descripcionProducto}</div>
-                        </div>
-                        <div class="gadgetit-card-content">
-                            <div class="gadgetit-card-title">$${row.precioProducto}</div>
-                            <div class="gadgetit-card-description">${row.nombre_marca}</div>
-                        </div>
-                        <div class="gadgetit-card-content">
-                            <div class="gadgetit-card-title">${row.existencias_producto}</div>
-                            <div class="gadgetit-card-description">En Stock</div>
-                        </div>
 
-                        <div class="gadgetit-card-actions">
-                            <button type="button" class="gadgetit-btn gadgetit-btn-verde"  onclick="openUpdate(${row.idProducto})">
-                                <img src="../../resources/img/actualizar.svg" alt="Actualizar" class="gadgetit-btn-icon">
-                                Actualizar
-                            </button>   
-                            <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.idProducto})">
-                                <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
-                            </button>
-                        </div>
+            <div class="gadgetit-container">
+            <div class="gadgetit-card">
+                <div class="gadgetit-card-image">
+                    <img src="../../resources/img/profile.svg" alt="profile">
+                </div>
+                <div class="gadgetit-card-content">
+                    <div class="gadgetit-card-title">${row.nombre} ${row.apellido}</div>
+                </div>
+                <div class="gadgetit-card-actions">
+                    <!-- Botón para ver detalles del pedido -->
+                    <button type="button" class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.idProducto}">
+                        Ver pedido
+                    </button>
+                    <!-- Botón para rechazar el pedido -->
+                    <button type="button class="gadgetit-btn gadgetit-btn-rojo onclick="openDelete(${row.idProducto})">
+                        <img src="../../resources/img/rechazar.svg" alt="rechazar" class="gadgetit-btn-iconn"> Rechazar
+                    </button>
                     </div>
                 </div>
+            </div>
             `;
         });
     } else {

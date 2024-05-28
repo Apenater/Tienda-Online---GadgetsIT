@@ -1,3 +1,18 @@
+document.addEventListener('DOMContentLoaded', async () => {
+    // Llamada a la función para mostrar el encabezado y pie del documento.
+    loadTemplate();
+
+    // Petición para obtener los datos del usuario que ha iniciado sesión.
+    const DATA = await fetchData(USER_API, 'readProfile');
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (DATA.status) {
+        fillTable();
+    } else {
+        sweetAlert(2, DATA.error, null);
+    }
+});
+
+
 document.addEventListener('DOMContentLoaded', function () {
     var ctxProd = document.getElementById('productosMasVendidos').getContext('2d');
     var chartProductos = new Chart(ctxProd, {
