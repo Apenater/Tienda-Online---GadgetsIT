@@ -39,10 +39,14 @@ HEADER.innerHTML = `
             <li class="nav-item">
                 <a class="nav-link" href="login.html">Iniciar Sesión</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="perfil.html">Mi perfil</a>
+            </li>
             <!-- Enlace al carrito de compras -->
             <li class="nav-item">
                 <a class="nav-link" href="carrito.html"><img src="../../resources/img/carrito light.svg" alt=""></a>
             </li>
+            
         </ul>
     </div>
   </div>
