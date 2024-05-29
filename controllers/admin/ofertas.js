@@ -14,12 +14,20 @@ const SAVE_FORM = document.getElementById('saveForm'),
     TITULO = document.getElementById('tituloDescuento'),
     DESCRIPCION = document.getElementById('descripcionDescuento'),
     DESCUENTO = document.getElementById('decuentoDescuento');
-    PRODUCTO = document.getElementById('productoDescuento');
+PRODUCTO = document.getElementById('productoDescuento');
 
-// Método del evento para cuando el documento ha cargado.
-document.addEventListener('DOMContentLoaded', () => {
-    // Llamada a la función para llenar la tabla con los registros existentes.
-    fillTable();
+document.addEventListener('DOMContentLoaded', async () => {
+    // Llamada a la función para mostrar el encabezado y pie del documento.
+    loadTemplate();
+
+    // Petición para obtener los datos del usuario que ha iniciado sesión.
+    const DATA = await fetchData(USER_API, 'readProfile');
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (DATA.status) {
+        fillTable();
+    } else {
+        sweetAlert(2, DATA.error, null);
+    }
 });
 
 // Método del evento para cuando se envía el formulario de buscar.
