@@ -10,7 +10,7 @@ define('USERNAME', 'root');
 define('PASSWORD', '');
 
 // // Intentar establecer conexión con la base de datos
-// $conn = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);
+// $conn = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);jkl
 
 // // Verificar conexión
 // if ($conn->connect_error) {
