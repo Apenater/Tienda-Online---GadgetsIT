@@ -77,22 +77,6 @@ const fillTable = async (form = null) => {
         DATA.dataset.forEach(row => {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
             TARJETAS.innerHTML += `
-                <div class="gadgetit-container">
-                <div class="gadgetit-card">
-                    <div class="gadgetit-card-image">
-                        <img src="../../resources/img/profile.svg" alt="profile">
-                    </div>
-                    <div class="gadgetit-card-content">
-                        <div class="gadgetit-card-title">${row.nombre}</div>
-                    </div>
-                    <div class="gadgetit-card-actions">
-                        <button class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.id_usuario})">
-                            Ver Info
-                        </button>
-                    </div>
-                </div>
-            </div>
-
             <div class="col">
             <div class="card h-100 border-light">
               <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top" alt="..." loading="lazy">
@@ -127,46 +111,75 @@ const fillTable = async (form = null) => {
 *   Parámetros: id (identificador del registro seleccionado).
 *   Retorno: ninguno.
 */
+const openCreate = () => {
+    change();
+    // Se muestra la caja de diálogo con su título.
+    SAVE_MODAL.show();
+    MODAL_TITLE.textContent = 'Crear producto';
+    // Se prepara el formulario.
+    SAVE_FORM.reset();
+    EXISTENCIAS_PRODUCTO.disabled = false;
+    fillSelectCategoria(CATEGORIA_API, 'readAll', 'categoriaProducto');
+    fillSelectMarca(MARCA_API, 'readAll', 'marcaProducto');
+}
+
+
 const openUpdate = async (id) => {
-    // Se define una constante tipo objeto con los datos del registro seleccionado.
+    change();
+    // Se define un objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('id_usuario', id);
+    FORM.append('idProducto', id);
     // Petición para obtener los datos del registro solicitado.
     const DATA = await fetchData(PRODUCTO_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         // Se muestra la caja de diálogo con su título.
         SAVE_MODAL.show();
+        MODAL_TITLE.textContent = 'Actualizar producto';
         // Se prepara el formulario.
         SAVE_FORM.reset();
+        //EXISTENCIAS_PRODUCTO.disabled = true;
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_PRODUCTO.value = ROW.id_usuario;
-        NOMBRE_CLIENTE.value = ROW.nombre;
-        APELLIDO_CLIENTE.value = ROW.apellido;
-        CORREO_CLIENTE.value = ROW.correo;
-        TELEFONO_CLIENTE.value = ROW.telefono;
+        ID_PRODUCTO.value = ROW.idProducto;
+        NOMBRE_PRODUCTO.value = ROW.nombreProducto;
+        MODELO_PRODUCTO.value = ROW.Modelo;
+        DESCRIPCION_PRODUCTO.value = ROW.descripcionProducto;
+        PRECIO_PRODUCTO.value = ROW.precioProducto;
+        EXISTENCIAS_PRODUCTO.value = ROW.existencias_producto;
+        ESPECIFICACIONES_PRODUCTO.value = ROW.especificacionesProducto;
+        fillSelectMarca(MARCA_API, 'readAll', 'marcaProducto', ROW.id_marca);
+        fillSelectCategoria(CATEGORIA_API, 'readAll', 'categoriaProducto', ROW.id_categoria);
+        set();
+        document.getElementById('imagePreview').src = `${SERVER_URL}images/productos/${ROW.imagen_producto}`;
     } else {
         sweetAlert(2, DATA.error, false);
     }
 }
 
-/*
-*   Función asíncrona para eliminar un registro.
-*   Parámetros: id (identificador del registro seleccionado).
-*   Retorno: ninguno.
-*/
+const openDelete = async (id) => {
+    const RESPONSE = await confirmAction('¿Desea eliminar el producto de forma permanente?');
+    if (RESPONSE) {
+        const FORM = new FormData();
+        FORM.append('idProducto', id);
+        const DATA = await fetchData(PRODUCTO_API, 'deleteRow', FORM);
+        if (DATA.status) {
+            await sweetAlert(1, DATA.message, true);
+            fillTable();
+        } else {
+            sweetAlert(2, DATA.error, false);
+        }
+    }
+}
 
 /*
-*   Función para abrir un reporte parametrizado de productos de una categoría.
-*   Parámetros: id (identificador del registro seleccionado).
+*   Función para abrir un reporte automático de productos por categoría.
+*   Parámetros: ninguno.
 *   Retorno: ninguno.
 */
-const openReport = (id) => {
+const openReport = () => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
-    const PATH = new URL(`${SERVER_URL}reports/admin/productos_categoria.php`);
-    // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
-    PATH.searchParams.append('ID_PRODUCTO', id);
+    const PATH = new URL(`${SERVER_URL}reports/admin/productos.php`);
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }
