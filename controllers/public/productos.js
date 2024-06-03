@@ -1,5 +1,5 @@
 // Constante para completar la ruta de la API.
-const PRODUCTO_API = 'services/admin/productos.php';
+const PRODUCTO_API = 'services/public/productos.php';
 const CATEGORIA_API = 'services/admin/categorias.php';
 const MARCA_API = 'services/admin/marcas.php';
 
