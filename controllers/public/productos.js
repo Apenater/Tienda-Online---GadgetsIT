@@ -7,21 +7,31 @@ const SEARCH_FORM = document.getElementById('searchForm');
 
 const TABLE_BODY = document.getElementById('tarjetas');
 
+const SAVE_FORM = document.getElementById('saveForm'),
+    ID_PRODUCTO = document.getElementById('idProducto'),
+    NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
+    DESCRIPCION_PRODUCTO = document.getElementById('descripcionProducto'),
+    MODELO_PRODUCTO = document.getElementById('modeloProducto'),
+    ESPECIFICACIONES_PRODUCTO = document.getElementById('especificacionesProducto'),
+    PRECIO_PRODUCTO = document.getElementById('precioProducto'),
+    EXISTENCIAS_PRODUCTO = document.getElementById('existenciasProducto'),
+    ESTADO_PRODUCTO = document.getElementById('estadoProducto');
+
 /** */
 SEARCH_FORM.addEventListener('submit', (event) => {
-    event.preventDefault();
-    const FORM = new FormData(SEARCH_FORM);
-    fillTable(FORM);
+  event.preventDefault();
+  const FORM = new FormData(SEARCH_FORM);
+  fillTable(FORM);
 });
 
 const fillTable = async (form = null) => {
-    TABLE_BODY.innerHTML = '';
-    (form) ? action = 'searchRows' : action = 'readAll';
-    const DATA = await fetchData(PRODUCTO_API, action, form);
-    if (DATA.status) {
-        DATA.dataset.forEach(row => {
+  TABLE_BODY.innerHTML = '';
+  (form) ? action = 'searchRows' : action = 'readAll';
+  const DATA = await fetchData(PRODUCTO_API, action, form);
+  if (DATA.status) {
+    DATA.dataset.forEach(row => {
 
-            TABLE_BODY.innerHTML += `
+      TABLE_BODY.innerHTML += `
         <div class="col">
           <div class="card h-100 border-light">
             <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top" alt="..." loading="lazy">
@@ -40,10 +50,10 @@ const fillTable = async (form = null) => {
           </div>
         </div>
             `;
-        });
-    } else {
-        sweetAlert(4, DATA.error, true);
-    }
+    });
+  } else {
+    sweetAlert(4, DATA.error, true);
+  }
 }
 
 /*
@@ -52,8 +62,8 @@ const fillTable = async (form = null) => {
 *   Retorno: ninguno.
 */
 const openReport = () => {
-    // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
-    const PATH = new URL(`${SERVER_URL}reports/public/productos.php`);
-    // Se abre el reporte en una nueva pestaña.
-    window.open(PATH.href);
+  // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
+  const PATH = new URL(`${SERVER_URL}reports/public/productos.php`);
+  // Se abre el reporte en una nueva pestaña.
+  window.open(PATH.href);
 }
