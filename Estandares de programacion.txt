@@ -1,0 +1,13 @@
+Estandares para JavaScript
+- Usar const y let en lugar de var
+- Utilizar punto y coma
+- Utilizar comillas simples	
+- Para las constantes utilizar mayúsculas separadas por un guion bajo
+- Usar tab para mantener ordenado el código
+
+Estandares de PHP
+- Todo archivo de php debe utilizar la etiqueta <?php
+- Utilizar PascalCase para las clases
+- Utilizar camelCase para los métodos
+- Para las constantes utilizar mayúsculas separadas por un guion bajo
+- Para la estructura utilizar tabs

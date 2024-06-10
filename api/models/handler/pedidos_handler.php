@@ -1,6 +1,6 @@
 <?php
 // Se incluye la clase para trabajar con la base de datos.
-require_once ('../../helpers/database.php');
+require_once('../../helpers/database.php');
 /*
  *	Clase para manejar el comportamiento de los datos de la tabla PRODUCTO.
  */
@@ -52,9 +52,9 @@ class ProductosHandler
     {
         $sql = 'SELECT p.idPedido, p.fecha_registro, p.total, p.direccion_pedido, p.estado_pedido, p.id_cliente,
         c.nombre, c.apellido, c.correo, c.telefono
- FROM tb_pedido p
- JOIN tb_clientes c ON p.id_cliente = c.id_usuario;
- ';
+        FROM tb_pedido p
+        JOIN tb_clientes c ON p.id_cliente = c.id_usuario;
+        ';
         return Database::getRows($sql);
     }
 
