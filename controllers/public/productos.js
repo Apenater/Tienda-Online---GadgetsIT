@@ -8,20 +8,25 @@ const SEARCH_FORM = document.getElementById('searchForm');
 const TABLE_BODY = document.getElementById('tarjetas');
 
 const SAVE_FORM = document.getElementById('saveForm'),
-    ID_PRODUCTO = document.getElementById('idProducto'),
-    NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
-    DESCRIPCION_PRODUCTO = document.getElementById('descripcionProducto'),
-    MODELO_PRODUCTO = document.getElementById('modeloProducto'),
-    ESPECIFICACIONES_PRODUCTO = document.getElementById('especificacionesProducto'),
-    PRECIO_PRODUCTO = document.getElementById('precioProducto'),
-    EXISTENCIAS_PRODUCTO = document.getElementById('existenciasProducto'),
-    ESTADO_PRODUCTO = document.getElementById('estadoProducto');
+  ID_PRODUCTO = document.getElementById('idProducto'),
+  NOMBRE_PRODUCTO = document.getElementById('nombreProducto'),
+  DESCRIPCION_PRODUCTO = document.getElementById('descripcionProducto'),
+  MODELO_PRODUCTO = document.getElementById('modeloProducto'),
+  ESPECIFICACIONES_PRODUCTO = document.getElementById('especificacionesProducto'),
+  PRECIO_PRODUCTO = document.getElementById('precioProducto'),
+  EXISTENCIAS_PRODUCTO = document.getElementById('existenciasProducto'),
+  ESTADO_PRODUCTO = document.getElementById('estadoProducto');
 
 /** */
 SEARCH_FORM.addEventListener('submit', (event) => {
   event.preventDefault();
   const FORM = new FormData(SEARCH_FORM);
   fillTable(FORM);
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // Mandar a llamar la funcion para mostrar los productos en la pagina
+  fillTable();
 });
 
 const fillTable = async (form = null) => {

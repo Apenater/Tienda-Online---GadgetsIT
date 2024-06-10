@@ -2,10 +2,8 @@
 require_once('../../models/data/productos_data.php');
 
 if (isset($_GET['action'])) {
-    session_start();
     $producto = new ProductosData;
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'fileStatus' => null);
-    if (isset($_SESSION['id_admin'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':
@@ -122,9 +120,6 @@ if (isset($_GET['action'])) {
         header('Content-type: application/json; charset=utf-8');
         // Se imprime el resultado en formato JSON y se retorna al controlador.
         print(json_encode($result));
-    } else {
-        print(json_encode('Acceso denegado'));
-    }
 } else {
     print(json_encode('Recurso no disponible'));
 }
