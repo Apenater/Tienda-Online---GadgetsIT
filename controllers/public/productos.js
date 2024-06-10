@@ -25,7 +25,7 @@ SEARCH_FORM.addEventListener('submit', (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Mandar a llamar la funcion para mostrar los productos en la pagina
+  // Mandar a llamar la funcion para mostrar los productos en la
   fillTable();
 });
 
@@ -35,7 +35,7 @@ const fillTable = async (form = null) => {
   const DATA = await fetchData(PRODUCTO_API, action, form);
   if (DATA.status) {
     DATA.dataset.forEach(row => {
-
+m
       TABLE_BODY.innerHTML += `
         <div class="col">
           <div class="card h-100 border-light">
