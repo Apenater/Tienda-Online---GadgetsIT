@@ -35,6 +35,8 @@
     
     <header> </header>
 
+    <h4 id="mainTitle"></h4>
+
     <main class="contenedor">
         <div class="card mb-3 producto-descripcion border-light rounded-5" style="max-width: 900px; height: 420px;">
             <div class="row g-0">
@@ -43,20 +45,21 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h1 class="card-title display-5 fw-bold ">Apple Watch</h1>
-                        <h4>Series 5 SE</h4>
-                        <h5>$ 529.29</h5>
-                        <p class="card-text">El Apple Watch más fuerte y equipado desafía los límites una vez más. Ahora
-                            con el flamante S9 SiP, una forma nueva y mágica de usar tu reloj sin siquiera tocar la
-                            pantalla, la más brillante de Apple hasta este momento. Además, ahora puedes elegir
-                            combinaciones de cajas y correas neutras en carbono.
-                        </p>
+                        <h1 class="card-title display-5 fw-bold" id="nombreProducto"></h1>
+                        <h4 id="Modelo"></h4>
+                        <h5 id="precioFinal">$</h5>
+                        <p class="card-text" id="descripcionProducto"></p>
                         <!-- descripcion del producto -->
-                        <button class="boton btn agregar-carrito">
-                            <span class="texto">Agregar al carrito</span>
-                            <span class="icono"><img src="../../resources/img/carrito light.svg" alt=""
-                                    loading="lazy"></span>
-                        </button>
+                        <form class="row" id="shoppingForm">
+                            <!-- Campo oculto para asignar el id del producto -->
+                            <input type="number" class="d-none" id="idProducto" name="idProducto">
+                            <button class="boton btn agregar-carrito">
+                                <span class="texto">Agregar al carrito</span>
+                                <span class="icono"><img src="../../resources/img/carrito light.svg" alt=""
+                                        loading="lazy"></span>
+                            </button>
+                        </form>
+
                         <!-- Boton para agregar al carrito -->
                     </div>
                 </div>
@@ -70,11 +73,7 @@
         <div class="articulo mt-4" style="max-width: 900px; margin: auto;">
             <h4>Sobre este articulo</h4>
             <ul class="lista">
-                <li>Compatible con Apple Watch Series 7/8/9 (solo 1.61 pulgadas)</li>
-                <li>Funda todo en uno para Apple Watch con protector de pantalla, bordes y corona</li>
-                <li>Protector de pantalla integrado que desvía arañazos y raspaduras</li>
-                <li>El diseño de ajuste preciso abraza el Apple Watch y se mantiene encendido cuando se golpea</li>
-                <li>Incluye garantía limitada de por vida de OtterBox (consulta el sitio web para más detalles)</li>
+                <li id="especificacionesProducto"></li>
             </ul>
             <!-- Caracteristicas del producto -->
         </div>
@@ -172,6 +171,9 @@
       crossorigin="anonymous"></script>
     <script src="../../resources/js/public/plantilla_menu.js"></script>
 
+    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+    <script type="text/javascript" src="../../controllers/public/producto.js"></script>
 
 
 </body>

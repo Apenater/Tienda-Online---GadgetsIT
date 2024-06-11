@@ -3,6 +3,7 @@ const PRODUCTO_API = 'services/public/productos.php';
 const CATEGORIA_API = 'services/admin/categorias.php';
 const MARCA_API = 'services/admin/marcas.php';
 
+const PARAMS = new URLSearchParams(location.search);
 const SEARCH_FORM = document.getElementById('searchForm');
 
 const TABLE_BODY = document.getElementById('tarjetas');
@@ -25,7 +26,7 @@ SEARCH_FORM.addEventListener('submit', (event) => {
 });
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Mandar a llamar la funcion para mostrar los productos en la
+  // Mandar a llamar la funcion para mostrar los productos en 
   fillTable();
 });
 
@@ -35,7 +36,7 @@ const fillTable = async (form = null) => {
   const DATA = await fetchData(PRODUCTO_API, action, form);
   if (DATA.status) {
     DATA.dataset.forEach(row => {
-m
+
       TABLE_BODY.innerHTML += `
         <div class="col">
           <div class="card h-100 border-light">
@@ -43,12 +44,12 @@ m
             <div class="card-body">
               <h5 class="card-title">${row.nombreProducto}</h5>
               <div class="descripcion-precio">
-                <p class="card-text">${row.descripcionProducto}</p>
-                <h5>$${row.precioProducto}</h5>
+                <p class="card-text">${row.Modelo}</p>
+                <h5>$${row.precioFinal}</h5>
               </div>
               <ul class="iconos-caracteristicas">
                 <li>
-                  <a href="producto.html"><img src="../../resources/img/carrito.svg" alt="añadir al carrito"></a>
+                  <a href="producto.html?id=${row.idProducto}"><img src="../../resources/img/carrito.svg" alt="añadir al carrito"></a>
                 </li>
               </ul>
             </div>
