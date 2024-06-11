@@ -50,7 +50,7 @@ const fillTable = async (form = null) => {
                 <h5 class="card-title">${row.nombreProducto}</h5>
                 <div class="descripcion-precio">
                   <p class="card-text">${row.Modelo}</p>
-                  <h5>$${row.precioFinal}</h5>
+                  <h5>$${row.precioProducto}</h5>
                 </div>
                 <ul class="iconos-caracteristicas">
                   <li>

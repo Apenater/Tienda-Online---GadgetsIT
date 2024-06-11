@@ -54,7 +54,7 @@ class ProductosHandler
                 CASE 
                     WHEN p.hasDiscount = 1 THEN ROUND(p.precioProducto - (p.precioProducto * o.descuento / 100), 2)
                     ELSE p.precioProducto 
-                END AS precioFinal,
+                END AS precioProducto,
                 c.nombreC, p.estadoProducto, p.Modelo, m.nombre_marca, p.existencias_producto, p.especificacionesProducto
                 FROM tb_productos p
                 INNER JOIN tb_categorias c ON p.id_categoria = c.id_categoria
