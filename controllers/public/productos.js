@@ -19,9 +19,13 @@ const SAVE_FORM = document.getElementById('saveForm'),
   ESTADO_PRODUCTO = document.getElementById('estadoProducto');
 
 /** */
+// Método del evento para cuando se envía el formulario de buscar.
 SEARCH_FORM.addEventListener('submit', (event) => {
+  // Se evita recargar la página web después de enviar el formulario.
   event.preventDefault();
+  // Constante tipo objeto con los datos del formulario.
   const FORM = new FormData(SEARCH_FORM);
+  // Llamada a la función para llenar la tabla con los resultados de la búsqueda.
   fillTable(FORM);
 });
 
@@ -39,28 +43,31 @@ const fillTable = async (form = null) => {
 
       TABLE_BODY.innerHTML += `
         <div class="col">
-          <div class="card h-100 border-light">
-            <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top" alt="..." loading="lazy">
-            <div class="card-body">
-              <h5 class="card-title">${row.nombreProducto}</h5>
-              <div class="descripcion-precio">
-                <p class="card-text">${row.Modelo}</p>
-                <h5>$${row.precioFinal}</h5>
+          <a href="producto.html?id=${row.idProducto}" class="text-decoration-none">
+            <div class="card h-100 border-light">
+              <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top imagen" alt="${row.nombreProducto}" loading="lazy">
+              <div class="card-body">
+                <h5 class="card-title">${row.nombreProducto}</h5>
+                <div class="descripcion-precio">
+                  <p class="card-text">${row.Modelo}</p>
+                  <h5>$${row.precioFinal}</h5>
+                </div>
+                <ul class="iconos-caracteristicas">
+                  <li>
+                    <img class="imagen-carrito" src="../../resources/img/carrito.svg" alt="añadir al carrito">
+                  </li>
+                </ul>
               </div>
-              <ul class="iconos-caracteristicas">
-                <li>
-                  <a href="producto.html?id=${row.idProducto}"><img src="../../resources/img/carrito.svg" alt="añadir al carrito"></a>
-                </li>
-              </ul>
             </div>
-          </div>
+          </a>
         </div>
-            `;
+      `;
     });
   } else {
     sweetAlert(4, DATA.error, true);
   }
 }
+
 
 /*
 *   Función para abrir un reporte automático de productos por categoría.

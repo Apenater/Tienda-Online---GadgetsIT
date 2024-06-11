@@ -21,6 +21,7 @@
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../../resources/css/base/Normalize.css">
   <link rel="stylesheet" href="../../resources/css/public/productos.css">
+  <link rel="stylesheet" href="../../resources/css/admin/Style.css">
   <link rel="stylesheet" href="../../resources/css/public/login.css">
   <link rel="stylesheet" href="../../resources/css/public/footer.css">
   <link rel="stylesheet" href="../../resources/css/public/header.css">
@@ -34,11 +35,13 @@
 
   <header> </header>
 
-  <div class="input-group  buscador">
-    <input type="text" class="form-control" placeholder="Apple Watch, Samsung S21, Macbook Pro, ..."
-      aria-label="Buscar..." id="searchForm">
-    <button class="btn btn-outline-primary" type="submit">Buscar</button>
-  </div>
+  <form class="contenedor-b" id="searchForm">
+    <input type="search" class="form-control" name="search" placeholder="Buscar" required>
+    <div class="botones">
+        <button type="submit" class="search-btn">Buscar</button>
+        <button type="reset" class="search-btn" onclick="fillTable()">X</button>
+    </div>
+</form>
 
   <main class="contenedor">
 
@@ -49,7 +52,7 @@
 
       </div>
     </div>
-    
+
   </main>
 
 

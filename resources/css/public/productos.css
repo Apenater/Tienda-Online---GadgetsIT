@@ -52,8 +52,12 @@ main {
 }
 
 /* Estilos para las imágenes de las tarjetas */
-.card img {
+.imagen-carrito {
     height: 10rem;
+}
+
+.imagen {
+    object-fit: cover;
 }
 
 /* Ajuste para la clase contenedoor-tarjetas */
@@ -66,5 +70,14 @@ main {
 .buscador{
     padding-top: 0px;
     margin: 0% 10%;
+}
+
+.card {
+    max-width: 18rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.05);
 }
 
