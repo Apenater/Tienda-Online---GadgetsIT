@@ -1,5 +1,6 @@
 // Constantes para completar la ruta de la API.
 const PRODUCTO_API = 'services/public/productos.php';
+const COMENTARIO_API = 'services/public/comentarios.php';
 // const PEDIDO_API = 'services/public/pedido.php';
 
 // Constante tipo objeto para obtener los parámetros disponibles en la URL.
@@ -29,6 +30,41 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.getElementById('mainTitle').textContent = DATA.error;
         // Se limpia el contenido cuando no hay datos para mostrar.
         document.getElementById('detalle').innerHTML = '';
+    }
+});
+
+document.addEventListener('DOMContentLoaded', async () => {
+    // Se define un objeto con los datos de la categoría seleccionada.
+    const FORM = new FormData();
+    FORM.append('idProducto', PARAMS.get('id'));
+    // Petición para solicitar los productos de la categoría seleccionada.
+    const DATA = await fetchData(COMENTARIO_API, 'readComentariosProducto', FORM);
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+    if (DATA.status) {
+        // Se inicializa el contenedor de productos.
+        PRODUCTOS.innerHTML = '';
+        // Se recorre el conjunto de registros fila por fila a través del objeto row.
+        DATA.dataset.forEach(row => {
+            // Se crean y concatenan las tarjetas con los datos de cada producto.
+            PRODUCTOS.innerHTML += `
+            <div class="comentario">
+                <div class="titulo-comentario">
+                    <h5></h5>
+                    <button class="like-button" id="likeButton">
+                        <img src="../../resources/img/Vector.svg" alt="" loading="lazy" />
+                        <span id="likeCount"></span>
+                    </button>
+                </div>
+                <p class="comentario-contenido" id="">
+
+                </p>
+                <hr>
+            </div>
+            `;
+        });
+    } else {
+        // Se presenta un mensaje de error cuando no existen datos para mostrar.
+        MAIN_TITLE.textContent = DATA.error;
     }
 });
 
