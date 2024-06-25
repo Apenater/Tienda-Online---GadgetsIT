@@ -50,9 +50,9 @@ class ComentariosHandler {
     }
 
     // Método para ocultar un comentario
-    public function hideComment($id) {
+    public function hideComment() {
         $sql = "UPDATE tb_comentarios SET status = 0 WHERE id_Comentarios = ?";
-        $params = array($id);
+        $params = array($this->id);
         return $this->db->executeRow($sql, $params);
     }
 

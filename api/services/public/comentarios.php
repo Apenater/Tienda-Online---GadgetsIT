@@ -21,7 +21,7 @@ if (isset($_GET['action'])) {
             case 'hide':
                 if (!$comentario->setId($_POST['idComentario'])) {
                     $result['error'] = $comentario->getDataError();
-                } elseif ($comentario->hideComment($comentario->id)) {
+                } elseif ($comentario->hideComment()) {
                     $result['status'] = 1;
                     $result['message'] = 'Comentario ocultado correctamente';
                 } else {

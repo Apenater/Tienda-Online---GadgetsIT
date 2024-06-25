@@ -82,13 +82,6 @@ class ComentariosData extends ComentariosHandler
         }
     }
 
-    public function hideComment($id) {
-        if ($this->setId($id)) {
-            return parent::hideComment($this->id);
-        } else {
-            return false;
-        }
-    }
 
     /*
      * Métodos para obtener el valor de los atributos adicionales.
