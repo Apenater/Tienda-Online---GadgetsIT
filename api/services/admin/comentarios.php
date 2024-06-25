@@ -29,7 +29,7 @@ if (isset($_GET['action'])) {
             case 'readOne':
                 if (!$comentario->setId($_POST['idComentario'])) {
                     $result['error'] = $comentario->getDataError();
-                } elseif ($result['dataset'] = $comentario->readOne()) {
+                } elseif ($result['dataset'] = $comentario->readOne($id)) {
                     $result['status'] = 1;
                 } else {
                     $result['error'] = 'Comentario inexistente';
