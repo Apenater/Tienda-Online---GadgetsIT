@@ -2,6 +2,7 @@
 require_once('../../models/data/comentarios_data.php');
 
 if (isset($_GET['action'])) {
+<<<<<<< HEAD
     session_start();
     $comentario = new ComentariosData();
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null);
@@ -42,6 +43,7 @@ if (isset($_GET['action'])) {
     echo json_encode($result);
 } else {
     echo json_encode(array('error' => 'Recurso no disponible'));
+=======
     $comentario = new ComentariosData;
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null);
 
@@ -145,5 +147,6 @@ if (isset($_GET['action'])) {
     print(json_encode($result));
 } else {
     print(json_encode('Recurso no disponible'));
+>>>>>>> 5f8f0a0696775257495f00f62fc006819e7c95d4
 }
 ?>

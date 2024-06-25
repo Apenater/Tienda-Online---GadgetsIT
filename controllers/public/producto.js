@@ -1,38 +1,67 @@
 // Constantes para completar la ruta de la API.
 const PRODUCTO_API = 'services/public/productos.php';
+<<<<<<< HEAD
+const COMENTARIOS_API = 'services/public/comentarios.php';
+=======
 const COMENTARIO_API = 'services/public/comentarios.php';
 // const PEDIDO_API = 'services/public/pedido.php';
+>>>>>>> 5f8f0a0696775257495f00f62fc006819e7c95d4
 
 // Constante tipo objeto para obtener los parámetros disponibles en la URL.
 const PARAMS = new URLSearchParams(location.search);
 // Constante para establecer el formulario de agregar un producto al carrito de compras.
 const SHOPPING_FORM = document.getElementById('shoppingForm');
 
-// Método del eventos para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
-    // Constante tipo objeto con los datos del producto seleccionado.
+    const idProducto = PARAMS.get('id');
+    await cargarProducto(idProducto);
+    cargarComentarios(idProducto);
+});
+
+async function cargarProducto(idProducto) {
     const FORM = new FormData();
-    FORM.append('idProducto', PARAMS.get('id'));
-    // Petición para solicitar los datos del producto seleccionado.
+    FORM.append('idProducto', idProducto);
     const DATA = await fetchData(PRODUCTO_API, 'readOne', FORM);
-    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
-        // Se colocan los datos en la página web de acuerdo con el producto seleccionado previamente.
         document.getElementById('imagen_producto').src = SERVER_URL.concat('images/productos/', DATA.dataset.imagen_producto);
         document.getElementById('nombreProducto').textContent = DATA.dataset.nombreProducto;
         document.getElementById('descripcionProducto').textContent = DATA.dataset.descripcionProducto;
-        document.getElementById('precioFinal').textContent = DATA.dataset.precioFinal;
+        document.getElementById('precioFinal').textContent = `$${DATA.dataset.precioFinal}`;
         document.getElementById('Modelo').textContent = DATA.dataset.Modelo;
         document.getElementById('especificacionesProducto').textContent = DATA.dataset.especificacionesProducto;
         document.getElementById('idProducto').value = DATA.dataset.idProducto;
     } else {
-        // Se presenta un mensaje de error cuando no existen datos para mostrar.
-        document.getElementById('mainTitle').textContent = DATA.error;
-        // Se limpia el contenido cuando no hay datos para mostrar.
-        document.getElementById('detalle').innerHTML = '';
+        document.getElementById('mainTitle').textContent = 'Producto no encontrado';
+        document.querySelector('.contenedor').innerHTML = '<p>Producto no encontrado</p>';
     }
-});
+}
 
+<<<<<<< HEAD
+function cargarComentarios(idProducto) {
+    fetch(`${COMENTARIOS_API}?action=readAll&idProducto=${idProducto}`)
+        .then(response => response.json())
+        .then(result => {
+            if (result.status && result.dataset.length > 0) {
+                const comentariosContainer = document.querySelector('.Opiniones');
+                comentariosContainer.innerHTML = ''; // Limpiar comentarios previos
+                result.dataset.forEach(comentario => {
+                    comentariosContainer.innerHTML += `
+                        <div class="comentario">
+                            <div class="titulo-comentario">
+                                <h5>${comentario.usuario}</h5>
+                            </div>
+                            <p class="comentario-contenido">${comentario.texto}</p>
+                            <hr>
+                        </div>
+                    `;
+                });
+            } else {
+                document.querySelector('.Opiniones').innerHTML = '<p>No hay comentarios para este producto.</p>';
+            }
+        })
+        .catch(error => console.error('Error al cargar los comentarios:', error));
+}
+=======
 document.addEventListener('DOMContentLoaded', async () => {
     // Se define un objeto con los datos de la categoría seleccionada.
     const FORM = new FormData();
@@ -85,3 +114,4 @@ document.addEventListener('DOMContentLoaded', async () => {
 //         sweetAlert(3, DATA.error, true, 'login.html');
 //     }
 // });
+>>>>>>> 5f8f0a0696775257495f00f62fc006819e7c95d4
