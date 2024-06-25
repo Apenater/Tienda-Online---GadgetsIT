@@ -23,7 +23,7 @@ class ComentarioHandler
         $value = '%' . Validator::getSearchValue() . '%';
         $sql = 'SELECT c.id_comentario, c.comentario, c.fecha_publicacion, p.nombre_producto, u.nombre_usuario
                 FROM tb_comentarios AS c
-                INNER JOIN tb_productos AS p ON c.id_producto = p.id_producto
+                INNER JOIN tb_productos AS p ON c.id_Producto = p.id_Producto
                 INNER JOIN tb_clientes AS u ON c.id_usuario = u.id_usuario
                 WHERE c.comentario LIKE ?
                 ORDER BY c.fecha_publicacion DESC';
@@ -34,7 +34,7 @@ class ComentarioHandler
     
     public function createRow()
     {
-        $sql = 'INSERT INTO tb_comentarios(comentario, fecha_publicacion, id_usuario, id_producto)
+        $sql = 'INSERT INTO tb_comentarios(comentario, fecha_publicacion, id_usuario, id_Producto)
                 VALUES(?, ?, ?, ?)';
         $params = array($this->comentario, $this->fechaPublicacion, $this->usuario, $this->producto);
         return Database::executeRow($sql, $params);
@@ -44,7 +44,7 @@ class ComentarioHandler
     {
         $sql = 'SELECT c.id_comentario, c.comentario, c.fecha_publicacion, p.nombre_producto, u.nombre_usuario
                 FROM tb_comentarios AS c
-                INNER JOIN tb_productos AS p ON c.id_producto = p.id_producto
+                INNER JOIN tb_productos AS p ON c.id_Producto = p.id_Producto
                 INNER JOIN tb_clientes AS u ON c.id_usuario = u.id_usuario
                 ORDER BY c.fecha_publicacion DESC';
         return Database::getRows($sql);
@@ -52,7 +52,7 @@ class ComentarioHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id_comentario, comentario, fecha_publicacion, id_usuario, id_producto
+        $sql = 'SELECT id_comentario, comentario, fecha_publicacion, id_usuario, id_Producto
                 FROM tb_comentarios
                 WHERE id_comentario = ?';
         $params = array($this->id);
@@ -62,7 +62,7 @@ class ComentarioHandler
     public function updateRow()
     {
         $sql = 'UPDATE tb_comentarios
-                SET comentario = ?, fecha_publicacion = ?, id_usuario = ?, id_producto = ?
+                SET comentario = ?, fecha_publicacion = ?, id_usuario = ?, id_Producto = ?
                 WHERE id_comentario = ?';
         $params = array($this->comentario, $this->fechaPublicacion, $this->usuario, $this->producto, $this->id);
         return Database::executeRow($sql, $params);
@@ -81,7 +81,7 @@ class ComentarioHandler
         $sql = 'SELECT c.id_comentario, c.comentario, c.fecha_publicacion, u.nombre_usuario
                 FROM tb_comentarios AS c
                 INNER JOIN tb_clientes AS u ON c.id_usuario = u.id_usuario
-                WHERE c.id_producto = ?
+                WHERE c.id_Producto = ?
                 ORDER BY c.fecha_publicacion DESC';
         $params = array($this->producto);
         return Database::getRows($sql, $params);

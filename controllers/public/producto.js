@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     // Se define un objeto con los datos de la categoría seleccionada.
     const FORM = new FormData();
     FORM.append('idProducto', PARAMS.get('id'));
-    // Petición para solicitar los productos de la categoría seleccionada.
+    // Petición para solicitar los comentarios del producto
     const DATA = await fetchData(COMENTARIO_API, 'readComentariosProducto', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {

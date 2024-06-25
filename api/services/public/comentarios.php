@@ -23,7 +23,7 @@ if (isset($_GET['action'])) {
                 !$comentario->setComentario($_POST['comentario']) ||
                 !$comentario->setFechaPublicacion($_POST['fechaPublicacion']) ||
                 !$comentario->setUsuario($_POST['id_usuario']) ||
-                !$comentario->setProducto($_POST['id_producto'])
+                !$comentario->setProducto($_POST['id_Producto'])
             ) {
                 $result['error'] = $comentario->getDataError();
             } elseif ($comentario->createRow()) {
@@ -60,7 +60,7 @@ if (isset($_GET['action'])) {
                 !$comentario->setComentario($_POST['comentario']) ||
                 !$comentario->setFechaPublicacion($_POST['fechaPublicacion']) ||
                 !$comentario->setUsuario($_POST['id_usuario']) ||
-                !$comentario->setProducto($_POST['id_producto'])
+                !$comentario->setProducto($_POST['id_Producto'])
             ) { 
                 $result['error'] = $comentario->getDataError();
             } elseif ($comentario->updateRow()) {
@@ -83,7 +83,7 @@ if (isset($_GET['action'])) {
             break;
 
         case 'readComentariosProducto':
-            if (!$comentario->setProducto($_POST['id_producto'])) {
+            if (!$comentario->setProducto($_POST['id_Producto'])) {
                 $result['error'] = $comentario->getDataError();
             } elseif ($result['dataset'] = $comentario->readComentariosProducto()) {
                 $result['status'] = 1;
