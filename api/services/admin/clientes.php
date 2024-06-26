@@ -154,6 +154,9 @@ if (isset($_GET['action'])) {
                     $result['error'] = $cliente->getDataError();
                 } elseif ($_POST['contrasenia_usuario'] != $_POST['confirmarClave']) {
                     $result['error'] = 'Contraseñas diferentes';
+                } elseif ($cliente->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Usuario registrado correctamente';
                 } else {
                     $result['error'] = 'Ocurrió un problema al registrar el cliente';
                 }
