@@ -32,7 +32,8 @@ async function cargarProducto(idProducto) {
 }
 
 function cargarComentarios(idProducto) {
-    fetch(`${COMENTARIOS_API}?action=readAll&idProducto=${idProducto}`)
+    fetch(`${COMENTARIOS_API}?action=readAll&idProducto=${idProducto}
+        ../..readAll/api/services/admin/comentarios.php?action=`)
         .then(response => response.json())
         .then(result => {
             if (result.status && result.dataset.length > 0) {

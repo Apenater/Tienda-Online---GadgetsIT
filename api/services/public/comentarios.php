@@ -19,7 +19,7 @@ if (isset($_GET['action'])) {
             }
             break;
         case 'hide':
-            if (!$comentario->setId($_POST['idComentario'])) {
+            if (!$comentario->setId($_POST['id_Comentarios'])) {
                 $result['error'] = $comentario->getDataError();
             } elseif ($comentario->hideComment()) {
                 $result['status'] = 1;

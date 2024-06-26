@@ -1,4 +1,4 @@
-const COMENTARIO_API = 'services/public/comentarios.php';
+const COMENTARIOS_API = 'services/public/comentarios.php';
 
 const INPUT_COMENTAR = document.getElementById('comentar')
 
@@ -38,16 +38,13 @@ INPUT_COMENTAR.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se verifica la acción a realizar.
-    (id_marca.value) ? action = 'updateRow' : action = 'createRow';
+    (id.value) ? action = 'updateRow' : action = 'createRow';
     // Constante tipo objeto con los datos del formulario.
-    const FORM = new FormData(SAVE_FORM);
+    const FORM = new FormData(INPUT_COMENTAR);
     // Petición para guardar los datos del formulario.
-    const DATA = await fetchData(CATEGORIA_API, action, FORM);
+    const DATA = await fetchData(COMENTARIOS_API, action, FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
-        // Se cierra la caja de diálogo.
-        SAVE_MODAL.hide();
-        // Se muestra un mensaje de éxito.
         sweetAlert(1, DATA.message, true);
         // Se carga nuevamente la tabla para visualizar los cambios.
         fillTable();
