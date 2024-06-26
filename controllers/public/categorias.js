@@ -6,7 +6,7 @@ const CATEGORIAS = document.getElementById('categoria');
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', async () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
-
+    loadTemplate();
     // Se establece el título del contenido principal.
     // Petición para obtener las categorías disponibles.
     const DATA = await fetchData(CATEGORIA_API, 'readAll');

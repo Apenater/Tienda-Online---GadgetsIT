@@ -8,7 +8,8 @@ const PARAMS = new URLSearchParams(location.search);
 const SHOPPING_FORM = document.getElementById('shoppingForm');
 
 document.addEventListener('DOMContentLoaded', async () => {
-    const idProducto = PARAMS.get(id);
+    loadTemplate();
+    const idProducto = PARAMS.get(idPproducto);
     await cargarProducto(idProducto);
     cargarComentarios(idProducto);
 });

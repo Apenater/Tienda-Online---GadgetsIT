@@ -6,7 +6,7 @@ if (isset($_GET['action'])) {
     $producto = new ProductosData;
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null);
     
-    if (isset($_SESSION['idAdministrador']) || true) { // Ajuste temporal para pruebas
+    if (isset($_SESSION['id_usuari']) || true) { // Ajuste temporal para pruebas
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':

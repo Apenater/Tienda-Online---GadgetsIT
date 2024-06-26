@@ -27,17 +27,17 @@
                     <p class="holat">¡Hola de nuevo!</p>
                     <form id="login-form" action="/login" method="post">
                         <div class="input-group">
-                            <input type="email" id="email" name="email" placeholder="Correo electronico" required>
+                            <input type="email" id="correo" name="correo" placeholder="Correo electronico" required>
                             <span class="input-icon">&#9993;</span>
                         </div>
                         <div class="input-group">
-                            <input type="password" id="password" name="password" placeholder="Contraseña" required>
+                            <input type="password" id="clave" name="clave" placeholder="Contraseña" required>
                             <span class="input-icon">&#128274;</span>
                         </div>
                         <div class="mb-3">
                             <a href="../../views/public/recuperacion.html" class="forgot-password-link" >¿Contraseña olvidada?</a>
                         </div>
-                        <button type="submit" class="login-btn"  onclick="window.location.href='marcas.html'">LogIn</button>
+                        <button type="submit" class="login-btn">Iniciar Sesión</button>
                         <div class="signup-link">
                             ¿No tienes cuenta? <a href="../../views/public/crear_cuenta.html" >Crear cuenta</a>
                         </div>
@@ -51,10 +51,11 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.11/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
-    <script type="text/javascript" src="../../controllers/utils/components.js"></script>
-    <script type="text/javascript" src="../../controllers/public/login.js"></script>
 
+        <!-- Inclusión del archivo JavaScript para la funcionalidad del formulario de login -->
+        <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
+        <script type="text/javascript" src="../../controllers/utils/components.js"></script>
+        <script type="text/javascript" src="../../controllers/public/login.js"></script>
 
 </body>
 

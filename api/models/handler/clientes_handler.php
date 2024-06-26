@@ -51,6 +51,14 @@ class ClienteHandler
         }
     }
 
+    public function createRow()
+    {
+        $sql = 'INSERT INTO tb_clientes(nombre, apellido, correo, telefono, contrasenia_usuario)
+                VALUES(?, ?, ?, ?, ?)';
+        $params = array($this->nombre, $this->apellido, $this->correo, $this->telefono, $this->contrasenia_usuario);
+        return Database::executeRow($sql, $params);
+    }
+
     public function changePassword()
     {
         $sql = 'UPDATE tb_clientes

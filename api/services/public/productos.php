@@ -5,7 +5,7 @@ if (isset($_GET['action'])) {
     session_start();
     $producto = new ProductosData;
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'fileStatus' => null);
-    if (isset($_SESSION['idAdministrador']) || true) {
+    if (isset($_SESSION['id_usuario']) || true) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':

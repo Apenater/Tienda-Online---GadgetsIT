@@ -3,6 +3,7 @@ const COMENTARIOS_API = 'services/public/comentarios.php';
 const INPUT_COMENTAR = document.getElementById('comentar')
 
 document.addEventListener('DOMContentLoaded', function() {
+    loadTemplate();
     const idProducto = getParameterByName('idProducto'); // Función para obtener el ID del producto desde la URL
     cargarComentarios(idProducto);
 
