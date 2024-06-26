@@ -3,52 +3,76 @@ const COMENTARIOS_API = 'services/public/comentarios.php';
 const INPUT_COMENTAR = document.getElementById('comentar')
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadComments();
+    const idProducto = getParameterByName('idProducto'); // Función para obtener el ID del producto desde la URL
+    cargarComentarios(idProducto);
+
+    document.getElementById('button-enviar').addEventListener('click', function() {
+        enviarComentario(idProducto);
+    });
 });
 
-function loadComments() {
-    fetch('../../api/services/admin/comentarios.php?action=readAll')
+function cargarComentarios(idProducto) {
+    fetch(`comentarios.php?action=readAll&idProducto=${idProducto}`)
         .then(response => response.json())
         .then(result => {
-            if (result.status) {
-                displayComments(result.dataset);
+            const comentariosContainer = document.getElementById('comentarios');
+            if (result.status && result.dataset.length > 0) {
+                comentariosContainer.innerHTML = '';
+                result.dataset.forEach(comentario => {
+                    comentariosContainer.innerHTML += `
+                        <div class="comentario">
+                            <div class="titulo-comentario">
+                                <h5>${comentario.usuarioNombre} - ${comentario.fechaPublicacion}</h5>
+                            </div>
+                            <p class="comentario-contenido">${comentario.comentario}</p>
+                            <hr>
+                        </div>
+                    `;
+                });
             } else {
-                console.error('No se pudieron cargar los comentarios:', result.error);
+                comentariosContainer.innerHTML = '<p>No hay comentarios para este producto.</p>';
             }
         })
         .catch(error => console.error('Error al cargar los comentarios:', error));
 }
 
-function displayComments(comments) {
-    const container = document.querySelector('.Opiniones');
-    comments.forEach(comment => {
-        container.innerHTML += `
-            <div class="comentario">
-                <div class="titulo-comentario">
-                    <h5>${comment.usuario} - ${comment.fechaPublicacion}</h5>
-                </div>
-                <p class="comentario-contenido">${comment.comentario}</p>
-                <hr>
-            </div>
-        `;
-    });
+function enviarComentario(idProducto) {
+    const comentario = document.getElementById('comentar').value;
+    const idUsuario = 1; // Obtener este valor según la sesión del usuario
+
+    if (comentario.trim() === '') {
+        alert('El comentario no puede estar vacío');
+        return;
+    }
+
+    const data = new FormData();
+    data.append('comentario', comentario);
+    data.append('id_Producto', idProducto);
+    data.append('id_usuario', idUsuario);
+
+    fetch('comentarios.php?action=createRow', {
+        method: 'POST',
+        body: data
+    })
+    .then(response => response.json())
+    .then(result => {
+        if (result.status) {
+            alert('Comentario enviado');
+            document.getElementById('comentar').value = '';
+            cargarComentarios(idProducto);
+        } else {
+            console.error(result.error);
+        }
+    })
+    .catch(error => console.error('Error al enviar el comentario:', error));
 }
 
-INPUT_COMENTAR.addEventListener('submit', async (event) => {
-    // Se evita recargar la página web después de enviar el formulario.
-    event.preventDefault();
-    // Se verifica la acción a realizar.
-    (id.value) ? action = 'updateRow' : action = 'createRow';
-    // Constante tipo objeto con los datos del formulario.
-    const FORM = new FormData(INPUT_COMENTAR);
-    // Petición para guardar los datos del formulario.
-    const DATA = await fetchData(COMENTARIOS_API, action, FORM);
-    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
-    if (DATA.status) {
-        sweetAlert(1, DATA.message, true);
-        // Se carga nuevamente la tabla para visualizar los cambios.
-        fillTable();
-    } else {
-        sweetAlert(2, DATA.error, false);
-    }
-});
+function getParameterByName(name) {
+    const url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)');
+    const results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
