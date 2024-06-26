@@ -35,7 +35,7 @@ const fillTable = async (form = null) => {
         // Se recorre el conjunto de registros fila por fila.
         DATA.dataset.forEach(row => {
             // Se crean y concatenan las filas de la tabla con los datos de cada registro.
-            TARJETAS.innerHTML += `
+            TABLE_BODY.innerHTML += `
             <div class="col">
             <div class="card h-100 border-light">
               <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top" alt="..." loading="lazy">
