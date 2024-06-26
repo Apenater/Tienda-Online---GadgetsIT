@@ -9,7 +9,7 @@ const SHOPPING_FORM = document.getElementById('shoppingForm');
 
 document.addEventListener('DOMContentLoaded', async () => {
     loadTemplate();
-    const idProducto = PARAMS.get(idPproducto);
+    const idProducto = PARAMS.get('id');
     await cargarProducto(idProducto);
     cargarComentarios(idProducto);
 });
