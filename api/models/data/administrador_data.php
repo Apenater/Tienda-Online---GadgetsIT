@@ -17,7 +17,7 @@ class AdministradorData extends AdministradorHandler
     public function setId($value)
     {
         if (Validator::validateNaturalNumber($value)) {
-            $this->id_admin = $value;
+            $this->id = $value;
             return true;
         } else {
             $this->data_error = 'El identificador del administrador es incorrecto';
@@ -61,19 +61,22 @@ class AdministradorData extends AdministradorHandler
         } elseif (Validator::validateLength($value, $min, $max)) {
             $this->correo = $value;
             return true;
-        } else { 
+        } else {
             $this->data_error = 'El correo debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         }
     }
 
-    public function setTelefono($value)
+    public function setAlias($value, $min = 6, $max = 25)
     {
-        if (Validator::validatePhone($value)) {
-            $this->telefono = $value;
+        if (!Validator::validateAlphanumeric($value)) {
+            $this->data_error = 'El alias debe ser un valor alfanumérico';
+            return false;
+        } elseif (Validator::validateLength($value, $min, $max)) {
+            $this->alias = $value;
             return true;
         } else {
-            $this->data_error = 'El teléfono debe tener el formato (2, 6, 7)###-####';
+            $this->data_error = 'El alias debe tener una longitud entre ' . $min . ' y ' . $max;
             return false;
         }
     }
@@ -81,7 +84,7 @@ class AdministradorData extends AdministradorHandler
     public function setClave($value)
     {
         if (Validator::validatePassword($value)) {
-            $this->contrasenia_admin = password_hash($value, PASSWORD_DEFAULT);
+            $this->clave = password_hash($value, PASSWORD_DEFAULT);
             return true;
         } else {
             $this->data_error = Validator::getPasswordError();

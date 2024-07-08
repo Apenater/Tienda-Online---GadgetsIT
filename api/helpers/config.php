@@ -6,18 +6,6 @@ date_default_timezone_set('America/El_Salvador');
 // Constantes para establecer las credenciales de conexión con el servidor de bases de datos.
 define('SERVER', 'localhost');
 define('DATABASE', 'gadgetsit');
-define('USERNAME', 'root'); 
+define('USERNAME', 'root');
 define('PASSWORD', '');
-
-// // Intentar establecer conexión con la base de datos
-// $conn = new mysqli(SERVER, USERNAME, PASSWORD, DATABASE);jkl
-
-// // Verificar conexión
-// if ($conn->connect_error) {
-//     die("Conexión fallida: " . $conn->connect_error);
-// } else {
-//     echo "¡Conexión exitosa!";
-// }
-
-// // Cerrar la conexión
-// $conn->close();
+?>

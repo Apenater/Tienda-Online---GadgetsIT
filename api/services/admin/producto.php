@@ -1,11 +1,17 @@
 <?php
-require_once('../../models/data/productos_data.php');
+// Se incluye la clase del modelo.
+require_once('../../models/data/producto_data.php');
 
+// Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
 if (isset($_GET['action'])) {
+    // Se crea una sesión o se reanuda la actual para poder utilizar variables de sesión en el script.
     session_start();
-    $producto = new ProductosData;
+    // Se instancia la clase correspondiente.
+    $producto = new ProductoData;
+    // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
     $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null, 'fileStatus' => null);
-    if (isset($_SESSION['id_admin'])) {
+    // Se verifica si existe una sesión iniciada como administrador, de lo contrario se finaliza el script con un mensaje de error.
+    if (isset($_SESSION['idAdministrador'])) {
         // Se compara la acción a realizar cuando un administrador ha iniciado sesión.
         switch ($_GET['action']) {
             case 'searchRows':
@@ -22,22 +28,19 @@ if (isset($_GET['action'])) {
                 $_POST = Validator::validateForm($_POST);
                 if (
                     !$producto->setNombre($_POST['nombreProducto']) or
-                    !$producto->setModelo($_POST['modeloProducto']) or
                     !$producto->setDescripcion($_POST['descripcionProducto']) or
                     !$producto->setPrecio($_POST['precioProducto']) or
-                    !$producto->setEspecificaciones($_POST['especificacionesProducto']) or
                     !$producto->setExistencias($_POST['existenciasProducto']) or
                     !$producto->setCategoria($_POST['categoriaProducto']) or
-                    !$producto->setMarca($_POST['marcaProducto']) or
                     !$producto->setEstado(isset($_POST['estadoProducto']) ? 1 : 0) or
-                    !$producto->setImagen($_FILES['foto'])
+                    !$producto->setImagen($_FILES['imagenProducto'])
                 ) {
                     $result['error'] = $producto->getDataError();
                 } elseif ($producto->createRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Producto creado correctamente';
                     // Se asigna el estado del archivo después de insertar.
-                    $result['fileStatus'] = Validator::saveFile($_FILES['foto'], $producto::RUTA_IMAGEN);
+                    $result['fileStatus'] = Validator::saveFile($_FILES['imagenProducto'], $producto::RUTA_IMAGEN);
                 } else {
                     $result['error'] = 'Ocurrió un problema al crear el producto';
                 }
@@ -65,21 +68,18 @@ if (isset($_GET['action'])) {
                     !$producto->setId($_POST['idProducto']) or
                     !$producto->setFilename() or
                     !$producto->setNombre($_POST['nombreProducto']) or
-                    !$producto->setModelo($_POST['modeloProducto']) or
-                    !$producto->setEspecificaciones($_POST['especificacionesProducto']) or
                     !$producto->setDescripcion($_POST['descripcionProducto']) or
                     !$producto->setPrecio($_POST['precioProducto']) or
                     !$producto->setCategoria($_POST['categoriaProducto']) or
-                    !$producto->setMarca($_POST['marcaProducto']) or
                     !$producto->setEstado(isset($_POST['estadoProducto']) ? 1 : 0) or
-                    !$producto->setImagen($_FILES['foto'], $producto->getFilename())
+                    !$producto->setImagen($_FILES['imagenProducto'], $producto->getFilename())
                 ) {
                     $result['error'] = $producto->getDataError();
                 } elseif ($producto->updateRow()) {
                     $result['status'] = 1;
                     $result['message'] = 'Producto modificado correctamente';
                     // Se asigna el estado del archivo después de actualizar.
-                    $result['fileStatus'] = Validator::changeFile($_FILES['foto'], $producto::RUTA_IMAGEN, $producto->getFilename());
+                    $result['fileStatus'] = Validator::changeFile($_FILES['imagenProducto'], $producto::RUTA_IMAGEN, $producto->getFilename());
                 } else {
                     $result['error'] = 'Ocurrió un problema al modificar el producto';
                 }

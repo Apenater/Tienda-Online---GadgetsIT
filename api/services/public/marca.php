@@ -14,7 +14,7 @@ if (isset($_GET['action'])) {
             if ($result['dataset'] = $marca->readAll()) {
                 $result['status'] = 1;
             } else {
-                $result['error'] = 'No existen categorías para mostrar';
+                $result['error'] = 'No existen marcas para mostrar';
             }
             break;
         default:
@@ -29,3 +29,4 @@ if (isset($_GET['action'])) {
 } else {
     print(json_encode('Recurso no disponible'));
 }
+?>
