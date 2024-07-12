@@ -13,7 +13,7 @@ class MarcaHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id, nombre_marca, imagen_marca, descripcion_marca
+        $sql = 'SELECT id_marca, nombre_marca, imagen_marca, descripcion_marca
                 FROM marca
                 WHERE nombre_marca LIKE ? OR descripcion_marca LIKE ?
                 ORDER BY nombre_marca';
@@ -31,7 +31,7 @@ class MarcaHandler
 
     public function readAll()
     {
-        $sql = 'SELECT id, nombre_marca, imagen_marca, descripcion_marca
+        $sql = 'SELECT id_marca, nombre_marca, imagen_marca, descripcion_marca
                 FROM marca
                 ORDER BY nombre_marca';
         return Database::getRows($sql);
@@ -39,9 +39,9 @@ class MarcaHandler
 
     public function readOne()
     {
-        $sql = 'SELECT id, nombre_marca, imagen_marca, descripcion_marca
+        $sql = 'SELECT id_marca, nombre_marca, imagen_marca, descripcion_marca
                 FROM marca
-                WHERE id = ?';
+                WHERE id_marca = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -50,7 +50,7 @@ class MarcaHandler
     {
         $sql = 'SELECT imagen_marca
                 FROM marca
-                WHERE id = ?';
+                WHERE id_marca = ?';
         $params = array($this->id);
         return Database::getRow($sql, $params);
     }
@@ -59,7 +59,7 @@ class MarcaHandler
     {
         $sql = 'UPDATE marca
                 SET imagen_marca = ?, nombre_marca = ?, descripcion_marca = ?
-                WHERE id = ?';
+                WHERE id_marca = ?';
         $params = array($this->imagen, $this->nombre, $this->descripcion, $this->id);
         return Database::executeRow($sql, $params);
     }
@@ -67,7 +67,7 @@ class MarcaHandler
     public function deleteRow()
     {
         $sql = 'DELETE FROM marca
-                WHERE id = ?';
+                WHERE id_marca = ?';
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }

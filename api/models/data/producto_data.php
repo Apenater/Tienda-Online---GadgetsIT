@@ -1,8 +1,8 @@
 <?php
-require_once('../../helpers/database.php');
 require_once('../../helpers/validator.php');
+require_once('../../models/handler/producto_handler.php');
 
-class ProductoData {
+class ProductoData extends ProductoHandler {
     protected $id = null;
     protected $nombre = null;
     protected $descripcion = null;
@@ -42,26 +42,6 @@ class ProductoData {
             $this->data_error = 'El identificador de la marca es incorrecto';
             return false;
         }
-    }
-
-    public function readProductosCategoria($idCategoria = null, $idMarca = null) {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto
-                FROM producto
-                WHERE estado_producto = true';
-        $params = array();
-
-        if ($idCategoria) {
-            $sql .= ' AND id_categoria = ?';
-            $params[] = $idCategoria;
-        }
-
-        if ($idMarca) {
-            $sql .= ' AND id_marca = ?';
-            $params[] = $idMarca;
-        }
-
-        $sql .= ' ORDER BY nombre_producto';
-        return Database::getRows($sql, $params);
     }
 
     public function getDataError() {

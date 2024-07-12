@@ -1,54 +1,51 @@
 <?php
-// Se incluye la clase para trabajar con la base de datos.
-require_once('../../helpers/database.php');
-require_once('../../helpers/validator.php');
-require_once('../../models/producto_handler.php'); // Asumiendo que esta es la ruta correcta.
+// Se incluye la clase del modelo.
+require_once('../../models/data/producto_data.php');
 
-// Asegúrate de iniciar la sesión si es necesario y manejar el control de acceso aquí.
-
-header('Content-type: application/json; charset=utf-8');
-
-class ProductoAPI {
-    private $producto;
-
-    public function __construct() {
-        $this->producto = new ProductoHandler();
-    }
-
-    public function execute() {
-        $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null);
-        if (isset($_GET['action'])) {
-            switch ($_GET['action']) {
-                case 'readProductos':
-                    $idCategoria = $_GET['idCategoria'] ?? null;
-                    $idMarca = $_GET['idMarca'] ?? null;
-                    $result = $this->readProductos($idCategoria, $idMarca);
-                    break;
-                default:
-                    $result['error'] = 'Acción no disponible';
-                    break;
+// Se comprueba si existe una acción a realizar, de lo contrario se finaliza el script con un mensaje de error.
+if (isset($_GET['action'])) {
+    // Se instancia la clase correspondiente.
+    $producto = new ProductoData;
+    // Se declara e inicializa un arreglo para guardar el resultado que retorna la API.
+    $result = array('status' => 0, 'message' => null, 'dataset' => null, 'error' => null, 'exception' => null);
+    // Se compara la acción a realizar según la petición del controlador.
+    switch ($_GET['action']) {
+        case 'readProductosCategoria':
+            if (!$producto->setCategoria($_POST['idCategoria'])) {
+                $result['error'] = $producto->getDataError();
+            } elseif ($result['dataset'] = $producto->readProductosCategoria()) {
+                $result['status'] = 1;
+            } else {
+                $result['error'] = 'No existen productos para mostrar';
             }
-        } else {
-            $result['error'] = 'Recurso no disponible';
-        }
-        echo json_encode($result);
+            break;
+        case 'readProductosMarca':
+            if (!$producto->setMarca($_POST['idMarca'])) {
+                $result['error'] = $producto->getDataError();
+            } elseif ($result['dataset'] = $producto->readProductosMarca()) {
+                $result['status'] = 1;
+            } else {
+                $result['error'] = 'No existen productos para mostrar';
+            }
+            break;
+        case 'readOne':
+            if (!$producto->setId($_POST['idProducto'])) {
+                $result['error'] = $producto->getDataError();
+            } elseif ($result['dataset'] = $producto->readOne()) {
+                $result['status'] = 1;
+            } else {
+                $result['error'] = 'Producto inexistente';
+            }
+            break;
+        default:
+            $result['error'] = 'Acción no disponible';
     }
-
-    private function readProductos($idCategoria, $idMarca) {
-        if ($idCategoria) {
-            $this->producto->setCategoria($idCategoria);
-        }
-        if ($idMarca) {
-            $this->producto->setMarca($idMarca);
-        }
-        $productos = $this->producto->readProductosCategoria();
-        if ($productos) {
-            return ['status' => 1, 'dataset' => $productos];
-        } else {
-            return ['status' => 0, 'error' => 'No se encontraron productos'];
-        }
-    }
+    // Se obtiene la excepción del servidor de base de datos por si ocurrió un problema.
+    $result['exception'] = Database::getException();
+    // Se indica el tipo de contenido a mostrar y su respectivo conjunto de caracteres.
+    header('Content-type: application/json; charset=utf-8');
+    // Se imprime el resultado en formato JSON y se retorna al controlador.
+    print(json_encode($result));
+} else {
+    print(json_encode('Recurso no disponible'));
 }
-
-$api = new ProductoAPI();
-$api->execute();

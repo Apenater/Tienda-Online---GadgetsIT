@@ -1,8 +1,14 @@
 <?php
+// Se incluye la clase para trabajar con la base de datos.
 require_once('../../helpers/database.php');
-require_once('../../helpers/validator.php');
-
-class ProductoHandler {
+/*
+*	Clase para manejar el comportamiento de los datos de la tabla PRODUCTO.
+*/
+class ProductoHandler
+{
+    /*
+    *   Declaración de atributos para el manejo de datos.
+    */
     protected $id = null;
     protected $nombre = null;
     protected $descripcion = null;
@@ -10,51 +16,11 @@ class ProductoHandler {
     protected $existencias = null;
     protected $imagen = null;
     protected $categoria = null;
-    protected $marca = null;
     protected $estado = null;
+    protected $marca = null;
 
+    // Constante para establecer la ruta de las imágenes.
     const RUTA_IMAGEN = '../../images/productos/';
-
-    // Asignar el ID de la categoría
-    public function setCategoria($value) {
-        if (Validator::validateNaturalNumber($value)) {
-            $this->categoria = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // Asignar el ID de la marca
-    public function setMarca($value) {
-        if (Validator::validateNaturalNumber($value)) {
-            $this->marca = $value;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    // Leer productos por categoría y/o marca
-    public function readProductosCategoria() {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto
-                FROM producto
-                WHERE estado_producto = 1';
-        $params = [];
-
-        if ($this->categoria) {
-            $sql .= ' AND id_categoria = ?';
-            $params[] = $this->categoria;
-        }
-
-        if ($this->marca) {
-            $sql .= ' AND id_marca = ?';
-            $params[] = $this->marca;
-        }
-
-        $sql .= ' ORDER BY nombre_producto';
-        return Database::getRows($sql, $params);
-    }
 
     /*
     *   Métodos para realizar las operaciones SCRUD (search, create, read, update, and delete).
@@ -125,12 +91,25 @@ class ProductoHandler {
 
     public function readProductosCategoria()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto
+        
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, id_categoria
                 FROM producto
                 INNER JOIN categoria USING(id_categoria)
                 WHERE id_categoria = ? AND estado_producto = true
                 ORDER BY nombre_producto';
         $params = array($this->categoria);
+    
+        return Database::getRows($sql, $params);
+    }
+
+    public function readProductosMarca()
+    {
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, id_marca
+                FROM producto
+                INNER JOIN marca USING(id_marca)
+                WHERE id_marca = ? AND estado_producto = true
+                ORDER BY nombre_producto';
+        $params = array($this->marca);
         return Database::getRows($sql, $params);
     }
 
