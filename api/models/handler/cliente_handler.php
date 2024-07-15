@@ -143,6 +143,15 @@ class ClienteHandler
         return Database::getRow($sql, $params);
     }
 
+    public function readProfile()
+    {
+        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, telefono_cliente, direccion_cliente, nacimiento_cliente, dui_cliente
+                FROM cliente
+                WHERE id_cliente = ?';
+        $params = array($_SESSION['idCliente']);
+        return Database::getRow($sql, $params);
+    }
+
     //Agregar esta función en el archivo handler.php de clientes
 
 public function readOneCorreo($correo)

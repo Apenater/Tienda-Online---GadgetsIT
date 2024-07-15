@@ -20,10 +20,9 @@ if (isset($_GET['action'])) {
                     $result['status'] = 1;
                     $result['username'] = $_SESSION['correoCliente'];
                     $result['name'] = $cliente->readOneCorreo($_SESSION['correoCliente']);
-                   }
-                   else {
+                } else {
                     $result['error'] = 'Correo de usuario indefinido';
-                    $result['name'] ='No se pudo obtener el usuario';
+                    $result['name'] = 'No se pudo obtener el usuario';
                 }
                 break;
             case 'logOut':
@@ -32,6 +31,45 @@ if (isset($_GET['action'])) {
                     $result['message'] = 'Sesión eliminada correctamente';
                 } else {
                     $result['error'] = 'Ocurrió un problema al cerrar la sesión';
+                }
+                break;
+            case 'readProfile':
+                if ($result['dataset'] = $cliente->readProfile()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'Ocurrió un problema al leer el perfil';
+                }
+                break;
+            case 'editProfile':
+                $_POST = Validator::validateForm($_POST);
+                if (
+                    !$administrador->setNombre($_POST['nombreAdministrador']) or
+                    !$administrador->setApellido($_POST['apellidoAdministrador']) or
+                    !$administrador->setCorreo($_POST['correoAdministrador']) or
+                    !$administrador->setAlias($_POST['aliasAdministrador'])
+                ) {
+                    $result['error'] = $administrador->getDataError();
+                } elseif ($administrador->editProfile()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Perfil modificado correctamente';
+                    $_SESSION['aliasAdministrador'] = $_POST['aliasAdministrador'];
+                } else {
+                    $result['error'] = 'Ocurrió un problema al modificar el perfil';
+                }
+                break;
+            case 'changePassword':
+                $_POST = Validator::validateForm($_POST);
+                if (!$administrador->checkPassword($_POST['claveActual'])) {
+                    $result['error'] = 'Contraseña actual incorrecta';
+                } elseif ($_POST['claveNueva'] != $_POST['confirmarClave']) {
+                    $result['error'] = 'Confirmación de contraseña diferente';
+                } elseif (!$administrador->setClave($_POST['claveNueva'])) {
+                    $result['error'] = $administrador->getDataError();
+                } elseif ($administrador->changePassword()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Contraseña cambiada correctamente';
+                } else {
+                    $result['error'] = 'Ocurrió un problema al cambiar la contraseña';
                 }
                 break;
             default:
@@ -62,7 +100,7 @@ if (isset($_GET['action'])) {
                 if (!$captcha['success']) {
                     $result['recaptcha'] = 1;
                     $result['error'] = 'No eres humano';
-                } elseif(!isset($_POST['condicion'])) {
+                } elseif (!isset($_POST['condicion'])) {
                     $result['error'] = 'Debe marcar la aceptación de términos y condiciones';
                 } elseif (
                     !$cliente->setNombre($_POST['nombreCliente']) or
@@ -84,28 +122,28 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al registrar la cuenta';
                 }
                 break;
-                case 'signUpMovil':
-                    $_POST = Validator::validateForm($_POST);
+            case 'signUpMovil':
+                $_POST = Validator::validateForm($_POST);
                 if (
-                        !$cliente->setNombre($_POST['nombreCliente']) or
-                        !$cliente->setApellido($_POST['apellidoCliente']) or
-                        !$cliente->setCorreo($_POST['correoCliente']) or
-                        !$cliente->setDireccion($_POST['direccionCliente']) or
-                        !$cliente->setDUI($_POST['duiCliente']) or
-                        !$cliente->setNacimiento($_POST['nacimientoCliente']) or
-                        !$cliente->setTelefono($_POST['telefonoCliente']) or
-                        !$cliente->setClave($_POST['claveCliente'])
-                    ) {
-                        $result['error'] = $cliente->getDataError();
-                    } elseif ($_POST['claveCliente'] != $_POST['confirmarClave']) {
-                        $result['error'] = 'Contraseñas diferentess';
-                    } elseif ($cliente->createRow()) {
-                        $result['status'] = 1;
-                        $result['message'] = 'Cuenta registrada correctamente';
-                    } else {
-                        $result['error'] = 'Ocurrió un problema al registrar la cuenta';
-                    }
-                    break;
+                    !$cliente->setNombre($_POST['nombreCliente']) or
+                    !$cliente->setApellido($_POST['apellidoCliente']) or
+                    !$cliente->setCorreo($_POST['correoCliente']) or
+                    !$cliente->setDireccion($_POST['direccionCliente']) or
+                    !$cliente->setDUI($_POST['duiCliente']) or
+                    !$cliente->setNacimiento($_POST['nacimientoCliente']) or
+                    !$cliente->setTelefono($_POST['telefonoCliente']) or
+                    !$cliente->setClave($_POST['claveCliente'])
+                ) {
+                    $result['error'] = $cliente->getDataError();
+                } elseif ($_POST['claveCliente'] != $_POST['confirmarClave']) {
+                    $result['error'] = 'Contraseñas diferentess';
+                } elseif ($cliente->createRow()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Cuenta registrada correctamente';
+                } else {
+                    $result['error'] = 'Ocurrió un problema al registrar la cuenta';
+                }
+                break;
             case 'logIn':
                 $_POST = Validator::validateForm($_POST);
                 if (!$cliente->checkUser($_POST['correo'], $_POST['clave'])) {
@@ -130,4 +168,3 @@ if (isset($_GET['action'])) {
 } else {
     print(json_encode('Recurso no disponible'));
 }
-
