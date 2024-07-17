@@ -224,6 +224,23 @@ input[type="search"].form-control {
   background-color: #009966;
 }
 
+
+
+
+.gadgetit-btn-pdf {
+  height: 20px;
+  border-radius: 16px;
+  padding: 0 40px;
+  padding-top: 200px;
+  background-color: #ff8a42;
+}
+
+/* Estilos para el botón agregar al pasar el ratón por encima */
+.gadgetit-btn-pdf:hover {
+  background-color: #f87523;
+}
+
+
 /* Estilos para los iconos de los botones */
 .gadgetit-btn-icon,
 .gadgetit-btn-iconn {
