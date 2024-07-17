@@ -1,8 +1,8 @@
 const PERFIL_FORM = document.getElementById('perfilForm'),
-NOMBRE_EMPLEADO = document.getElementById('nombreEmpleado'),
-APELLIDO_EMPLEADO = document.getElementById('apellidoEmpleado'),
-TELEFONO_EMPLEADO = document.getElementById('telefonoEmpleado'),
-CORREO_EMPLEADO = document.getElementById('correoEmpleado');
+NOMBRE_EMPLEADO = document.getElementById('nombreAdministrador'),
+APELLIDO_EMPLEADO = document.getElementById('apellidoAdministrador'),
+ALIAS_EMPLEADO = document.getElementById('aliasAdministrador'),
+CORREO_EMPLEADO = document.getElementById('correoAdministrador');
 const PASSWORD_MODAL = new bootstrap.Modal(document.getElementById('passwordModal'));
 // Constante para establecer el formulario de cambiar contraseña.
 const PASSWORD_FORM = document.getElementById('passwordForm');
@@ -17,10 +17,10 @@ const DATA = await fetchData(USER_API, 'readProfile');
 if (DATA.status) {
     // Se inicializan los campos del formulario con los datos del usuario que ha iniciado sesión.
     const ROW = DATA.dataset;
-    NOMBRE_EMPLEADO.value = ROW.nombre;
-    APELLIDO_EMPLEADO.value = ROW.apellido;
-    CORREO_EMPLEADO.value = ROW.correo;
-    TELEFONO_EMPLEADO.value = ROW.telefono;
+    NOMBRE_EMPLEADO.value = ROW.nombre_administrador;
+    APELLIDO_EMPLEADO.value = ROW.apellido_administrador;
+    CORREO_EMPLEADO.value = ROW.correo_administrador;
+    ALIAS_EMPLEADO.value = ROW.alias_administrador;
 } else {
     sweetAlert(2, DATA.error, null);
 }

@@ -1,5 +1,5 @@
 // Constante para completar la ruta de la API.
-const CLIENTE_API = 'services/admin/clientes.php';
+const CLIENTE_API = 'services/public/cliente.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
@@ -78,10 +78,10 @@ const fillTable = async (form = null) => {
                         <img src="../../resources/img/profile.svg" alt="profile">
                     </div>
                     <div class="gadgetit-card-content">
-                        <div class="gadgetit-card-title">${row.nombre}</div>
+                        <div class="gadgetit-card-title">${row.nombre_cliente}</div>
                     </div>
                     <div class="gadgetit-card-actions">
-                        <button class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.id_usuario})">
+                        <button class="gadgetit-btn gadgetit-btn-verde" onclick="openUpdate(${row.id_cliente})">
                             Ver Info
                         </button>
                     </div>
@@ -107,7 +107,7 @@ const fillTable = async (form = null) => {
 const openUpdate = async (id) => {
     // Se define una constante tipo objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('id_usuario', id);
+    FORM.append('idCliente', id);
     // Petición para obtener los datos del registro solicitado.
     const DATA = await fetchData(CLIENTE_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -118,11 +118,11 @@ const openUpdate = async (id) => {
         SAVE_FORM.reset();
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_CLIENTE.value = ROW.id_usuario;
-        NOMBRE_CLIENTE.value = ROW.nombre;
-        APELLIDO_CLIENTE.value = ROW.apellido;
-        CORREO_CLIENTE.value = ROW.correo;
-        TELEFONO_CLIENTE.value = ROW.telefono;
+        ID_CLIENTE.value = ROW.id_cliente;
+        NOMBRE_CLIENTE.value = ROW.nombre_cliente;
+        APELLIDO_CLIENTE.value = ROW.apellido_cliente;
+        CORREO_CLIENTE.value = ROW.correo_cliente;
+        TELEFONO_CLIENTE.value = ROW.telefono_cliente;
     } else {
         sweetAlert(2, DATA.error, false);
     }

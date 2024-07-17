@@ -2,14 +2,10 @@
 <html lang="es">
 
 <head>
-    <!-- Metaetiqueta para el juego de caracteres -->
     <meta charset="UTF-8">
-    <!-- Metaetiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página -->
     <title>Productos</title>
 
-    <!-- Hojas de estilo -->
     <link type="image/png" rel="icon" href="../../resources/img/icon.png">
     <link rel="stylesheet" href="../../resources/css/admin/footer.css">
     <link rel="stylesheet" href="../../resources/css/admin/Style.css">
@@ -50,7 +46,7 @@
                                     <i id="addImageIcon" class="fa fa-upload fa-5x"
                                         style="cursor: pointer; display: block; color: rgb(0, 0, 0);"></i>
                                     <!-- Input para cargar la imagen -->
-                                    <input type="file" name="foto" id="inputGroupFile01" accept="image/*"
+                                    <input type="file" name="imagenProducto" id="inputGroupFile01" accept="image/*"
                                         style="display: none;">
                                 </div>
                                 <!-- Columna para el formulario de datos del producto -->
@@ -62,20 +58,12 @@
                                             placeholder="Nombre">
                                     </div>
                                     <div class="mb-3">
-                                        <input type="text" class="form-control" name="modeloProducto" id="modeloProducto"
-                                            placeholder="Modelo">
-                                    </div>
-                                    <div class="mb-3">
                                         <input type="text" class="form-control" name="descripcionProducto"
                                             id="descripcionProducto" placeholder="Descripción">
                                     </div>
                                     <div class="mb-3">
                                         <input type="number" class="form-control" name="precioProducto" id="precioProducto"
                                             placeholder="Precio">
-                                    </div>
-                                    <div class="mb-3">
-                                        <textarea class="form-control" id="especificacionesProducto" name="especificacionesProducto"
-                                            placeholder="Especificaciones" ></textarea>
                                     </div>
                                     <div class="row mb-3">
                                         <!-- Selector de categoría -->
@@ -87,7 +75,7 @@
                                         <!-- Selector de marca -->
                                         <div class="col-md-6">
                                             <select class="form-select form-select-sm" aria-label="Small select example"
-                                            id="marcaProducto" name="marcaProducto" aria-placeholder="Categoria" required>
+                                            id="marcaProducto" name="marcaProducto" aria-placeholder="Marca" required>
                                             </select>
                                         </div>
                                         <!-- Campo de entrada para la cantidad de productos -->

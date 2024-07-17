@@ -2,53 +2,41 @@
 <html lang="es">
 
 <head>
-    <!-- Declaración del tipo de documento y especificación del lenguaje -->
     <meta charset="UTF-8">
-    <!-- Etiqueta para la adaptación del diseño a dispositivos móviles -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Título de la página -->z
     <title>Login admin</title>
-    <!-- Enlace al archivo CSS para estilos específicos de la página de login -->
     <link rel="stylesheet" href="../../resources/css/admin/login.css">
     <link type="image/png" rel="icon" href="../../resources/img/icon.png">
 </head>
 
 <body>
 
-    <!-- Contenedor principal del formulario de login -->
     <div class="login-wrapper">
         <div class="login-branding">
-            <!-- Logo de la aplicación o marca -->
             <h1 class="login-logo">GADGETSIT</h1>
         </div>
     </div>
 
     <div class="login-container">
-        <!-- Encabezado indicando que es el formulario de login para administradores -->
         <h1>Administrador</h1>
 
-        <!-- Formulario de login -->
         <form id="login-form" action="/login" method="post">
-            <!-- Campo para ingresar el correo electrónico -->
             <div class="input-group">
-                <input type="email" id="email" name="alias" placeholder="Email Address" required>
-                <!-- Ícono para indicar que este campo es para el correo electrónico -->
-                <span class="input-icon">&#9993;</span>
+                <input type="text" id="alias" name="alias" placeholder="Username" required>
+                <span class="input-icon">👤</span>
             </div>
-            <!-- Campo para ingresar la contraseña -->
             <div class="input-group">
                 <input type="password" id="password" name="clave" placeholder="Password" required>
-                <!-- Ícono para indicar que este campo es para la contraseña -->
                 <span class="input-icon">&#128274;</span>
             </div>
-            <!-- Botón para enviar el formulario -->
             <button type="submit" class="login-btn">Siguiente</button>
-            <!-- Botón adicional para acceder a la tienda, este botón parece ser un agregado opcional -->
-            <button type="button" class="tienda-btn">Tienda</button>
+            <a href="/tienda-online---gadgetsit/views/public">
+                <button type="button" class="tienda-btn">Tienda</button>
+            </a>
+            
         </form>
     </div>
 
-    <!-- Inclusión del archivo JavaScript para la funcionalidad del formulario de login -->
     <script type="text/javascript" src="../../resources/js/sweetalert.min.js"></script>
     <script type="text/javascript" src="../../controllers/utils/components.js"></script>
     <script type="text/javascript" src="../../controllers/admin/index.js"></script>

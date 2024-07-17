@@ -36,7 +36,7 @@ html {
     top: 50%;
     transform: translateY(-50%);
     width: 400px;
-    padding: 40px;
+    padding: 10px 40px;
     background: #ffffff;
     border-radius: 10px;
     text-align: center;
@@ -47,14 +47,12 @@ html {
 .login-container h1 {
     font-size: 32px;
     color: #000000;
-
     margin-bottom: 10px;
 }
 
 /* Estilos para los párrafos del formulario */
 .login-container p {
     color: #555;
-
     margin-bottom: 30px;
 }
 

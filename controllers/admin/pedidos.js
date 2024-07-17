@@ -1,5 +1,5 @@
 // Constantes para completar las rutas de la API.
-const PEDIDOS_API = 'services/admin/pedidos.php';
+const PEDIDOS_API = 'services/public/pedido.php';
 const PRODUCTOS_API = 'services/admin/productos.php';
 
 const SEARCH_FORM = document.getElementById('searchForm');

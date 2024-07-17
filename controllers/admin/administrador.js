@@ -99,14 +99,14 @@ const fillTable = async (form = null) => {
                             <img src="../../resources/img/profile.svg" alt="profile">
                         </div>
                         <div class="gadgetit-card-content">
-                            <div class="gadgetit-card-title">${row.nombre}</div>
+                            <div class="gadgetit-card-title">${row.nombre_administrador}</div>
                         </div>
                         <div class="gadgetit-card-actions">
-                            <button type="button" class="gadgetit-btn gadgetit-btn-amrarillo" onclick="openUpdate(${row.id_admin})">
+                            <button type="button" class="gadgetit-btn gadgetit-btn-amrarillo" onclick="openUpdate(${row.id_administrador})">
                                 <img src="../../resources/img/fin.png" alt="Actualizar" class="gadgetit-btn-icon">
                                 Ver informacion
                             </button>
-                            <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_admin})">
+                            <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_administrador})">
                                 <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
                             </button>
                         </div>
@@ -140,7 +140,7 @@ const openCreate = () => {
 const openUpdate = async (id) => {
     // Se define una constante tipo objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('id_admin', id);
+    FORM.append('idAdministrador', id);
     // Petición para obtener los datos del registro solicitado.
     const DATA = await fetchData(ADMINISTRADOR_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
@@ -151,11 +151,11 @@ const openUpdate = async (id) => {
         SAVE_FORM.reset();
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        ID_ADMIN2.value = ROW.id_admin;
-        NOMBRE_ADMIN2.value = ROW.nombre;
-        APELLIDO_ADMIN2.value = ROW.apellido;
-        CORREO_ADMIN2.value = ROW.correo;
-        TELEFONO_ADMIN2.value = ROW.telefono;
+        ID_ADMIN2.value = ROW.id_administrador;
+        NOMBRE_ADMIN2.value = ROW.nombre_administrador;
+        APELLIDO_ADMIN2.value = ROW.apellido_administrador;
+        CORREO_ADMIN2.value = ROW.correo_administrador;
+        TELEFONO_ADMIN2.value = ROW.alias_administrador;
     } else {
         sweetAlert(2, DATA.error, false);
     }
@@ -173,7 +173,7 @@ const openDelete = async (id) => {
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
-        FORM.append('id_admin', id);
+        FORM.append('idAdministrador', id);
         // Petición para eliminar el registro seleccionado.
         const DATA = await fetchData(ADMINISTRADOR_API, 'deleteRow', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.

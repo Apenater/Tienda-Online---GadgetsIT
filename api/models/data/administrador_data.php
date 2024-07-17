@@ -1,19 +1,12 @@
 <?php
-// Se incluye la clase para validar los datos de entrada.
 require_once('../../helpers/validator.php');
-// Se incluye la clase padre.
 require_once('../../models/handler/administrador_handler.php');
-/*
- *  Clase para manejar el encapsulamiento de los datos de la tabla USUARIO.
- */
+
+
 class AdministradorData extends AdministradorHandler
 {
-    // Atributo genérico para manejo de errores.
     private $data_error = null;
 
-    /*
-     *  Métodos para validar y asignar valores de los atributos.
-     */
     public function setId($value)
     {
         if (Validator::validateNaturalNumber($value)) {

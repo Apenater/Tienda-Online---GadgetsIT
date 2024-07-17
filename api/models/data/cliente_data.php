@@ -1,19 +1,12 @@
 <?php
-// Se incluye la clase para validar los datos de entrada.
 require_once('../../helpers/validator.php');
-// Se incluye la clase padre.
 require_once('../../models/handler/cliente_handler.php');
-/*
-*	Clase para manejar el encapsulamiento de los datos de la tabla CLIENTE.
-*/
+
 class ClienteData extends ClienteHandler
 {
-    // Atributo genérico para manejo de errores.
     private $data_error = null;
 
-    /*
-    *   Métodos para validar y establecer los datos.
-    */
+
     public function setId($value)
     {
         if (Validator::validateNaturalNumber($value)) {
@@ -70,6 +63,21 @@ class ClienteData extends ClienteHandler
         }
     }
 
+    public function setCorreo2($value, $min = 8, $max = 100)
+    {
+        if (!Validator::validateEmail($value)) {
+            $this->data_error = 'El correo no es válido';
+            return false;
+        } elseif (!Validator::validateLength($value, $min, $max)) {
+            $this->data_error = 'El correo debe tener una longitud entre ' . $min . ' y ' . $max;
+            return false;
+        } 
+        else {
+            $this->correo = $value;
+            return true;
+        }
+    }
+
     public function setTelefono($value)
     {
         if (Validator::validatePhone($value)) {
@@ -81,6 +89,7 @@ class ClienteData extends ClienteHandler
         }
     }
 
+
     public function setDUI($value)
     {
         if (!Validator::validateDUI($value)) {
@@ -88,6 +97,17 @@ class ClienteData extends ClienteHandler
             return false;
         } elseif($this->checkDuplicate($value)) {
             $this->data_error = 'El DUI ingresado ya existe';
+            return false;
+        } else {
+            $this->dui = $value;
+            return true;
+        }
+    }
+
+    public function setDUI2($value)
+    {
+        if (!Validator::validateDUI($value)) {
+            $this->data_error = 'El DUI debe tener el formato ########-#';
             return false;
         } else {
             $this->dui = $value;

@@ -28,9 +28,10 @@ class ProductoHandler
     public function searchRows()
     {
         $value = '%' . Validator::getSearchValue() . '%';
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, nombre_marca, existencias_producto, estado_producto
                 FROM producto
                 INNER JOIN categoria USING(id_categoria)
+                INNER JOIN marca USING(id_marca)
                 WHERE nombre_producto LIKE ? OR descripcion_producto LIKE ?
                 ORDER BY nombre_producto';
         $params = array($value, $value);
@@ -39,17 +40,18 @@ class ProductoHandler
 
     public function createRow()
     {
-        $sql = 'INSERT INTO producto(nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto, estado_producto, id_categoria, id_administrador)
+        $sql = 'INSERT INTO producto(nombre_producto, descripcion_producto, precio_producto, existencias_producto, imagen_producto,  id_categoria, id_administrador, id_marca)
                 VALUES(?, ?, ?, ?, ?, ?, ?, ?)';
-        $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen, $this->estado, $this->categoria, $_SESSION['idAdministrador']);
+        $params = array($this->nombre, $this->descripcion, $this->precio, $this->existencias, $this->imagen, $this->categoria, $_SESSION['idAdministrador'], $this->marca);
         return Database::executeRow($sql, $params);
     }
 
     public function readAll()
     {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, estado_producto
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, nombre_categoria, nombre_marca, estado_producto, existencias_producto
                 FROM producto
                 INNER JOIN categoria USING(id_categoria)
+                INNER JOIN marca USING(id_marca)
                 ORDER BY nombre_producto';
         return Database::getRows($sql);
     }

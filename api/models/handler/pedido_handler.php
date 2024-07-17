@@ -83,6 +83,15 @@ class PedidoHandler
         return Database::getRows($sql, $params);
     }
 
+    public function readAll()
+    {
+        $sql = 'SELECT id_detalle, nombre_producto, imagen_producto, detalle_pedido.precio_producto, detalle_pedido.cantidad_producto
+                FROM detalle_pedido
+                INNER JOIN pedido USING(id_pedido)
+                INNER JOIN producto USING(id_producto)';
+        return Database::getRows($sql);
+    }
+
     // Método para finalizar un pedido por parte del cliente.
     public function finishOrder()
     {

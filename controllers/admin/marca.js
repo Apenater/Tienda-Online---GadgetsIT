@@ -1,6 +1,6 @@
 
 // Constante para completar la ruta de la API.
-const CATEGORIA_API = 'services/admin/marcas.php';
+const CATEGORIA_API = 'services/admin/marca.php';
 // Constante para establecer el formulario de buscar.
 const SEARCH_FORM = document.getElementById('searchForm');
 // Constantes para establecer los elementos de la tabla.
@@ -130,7 +130,7 @@ const openUpdate = async (id) => {
     change();
     // Se define una constante tipo objeto con los datos del registro seleccionado.
     const FORM = new FormData();
-    FORM.append('id_marca', id);
+    FORM.append('idMarca', id);
     // Petición para obtener los datos del registro solicitado.
     const DATA = await fetchData(CATEGORIA_API, 'readOne', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.

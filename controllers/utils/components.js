@@ -108,7 +108,7 @@ const fillSelectCategoria = async (filename, action, select, selected = null) =>
     document.getElementById(select).innerHTML = content;
 }
 
-const fillSelectMarca = async (filename, action, select, selected = null) => {
+const  fillSelectMarca = async (filename, action, select, selected = null) => {
     // Petición para obtener los datos.
     const DATA = await fetchData(filename, action);
     let content = '';
