@@ -45,7 +45,7 @@ const fillTable = async (form = null) => {
                     <img src="../../resources/img/profile.svg" alt="profile">
                 </div>
                 <div class="gadgetit-card-content">
-                    <div class="gadgetit-card-title">${row.nombre} ${row.apellido}</div>
+                    <div class="gadgetit-card-title">${row.nombre_cliente} ${row.apellido_cliente}</div>
                 </div>
                 <div class="gadgetit-card-actions">
                     <!-- Botón para ver detalles del pedido -->

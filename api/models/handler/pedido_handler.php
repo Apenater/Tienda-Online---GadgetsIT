@@ -72,7 +72,7 @@ class PedidoHandler
     }
 
     // Método para obtener los productos que se encuentran en el carrito de compras.
-    public function readDetail()
+    public function readDetail2()
     {
         $sql = 'SELECT id_detalle, nombre_producto, imagen_producto, detalle_pedido.precio_producto, detalle_pedido.cantidad_producto
                 FROM detalle_pedido
@@ -83,12 +83,36 @@ class PedidoHandler
         return Database::getRows($sql, $params);
     }
 
-    public function readAll()
+    public function readDetail()
     {
         $sql = 'SELECT id_detalle, nombre_producto, imagen_producto, detalle_pedido.precio_producto, detalle_pedido.cantidad_producto
                 FROM detalle_pedido
                 INNER JOIN pedido USING(id_pedido)
-                INNER JOIN producto USING(id_producto)';
+                INNER JOIN producto USING(id_producto)
+                WHERE id_pedido = ?';
+        $params = $this->id_pedido;
+        return Database::getRows($sql, $params);
+    }
+
+    public function readAll()
+    {
+        $sql = 'SELECT 
+    dp.id_detalle,
+    p.nombre_producto,
+    p.imagen_producto,
+    dp.precio_producto,
+    dp.cantidad_producto,
+    c.nombre_cliente,
+    c.apellido_cliente
+FROM 
+    detalle_pedido dp
+INNER JOIN 
+    pedido pe ON dp.id_pedido = pe.id_pedido
+INNER JOIN 
+    producto p ON dp.id_producto = p.id_producto
+INNER JOIN 
+    cliente c ON pe.id_cliente = c.id_cliente
+';
         return Database::getRows($sql);
     }
 

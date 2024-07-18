@@ -92,6 +92,15 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['error'] = 'No existen pedidos para mostrar';
                 }
+            break;
+            case 'readDetail':
+                if (!$pedido->getOrder()) {
+                    $result['error'] = 'No ha agregado productos al carrito';
+                } elseif ($result['dataset'] = $pedido->readDetail2()) {
+                    $result['status'] = 1;
+                } else {
+                    $result['error'] = 'No existen productos en el carrito';
+                }
                 break;
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
