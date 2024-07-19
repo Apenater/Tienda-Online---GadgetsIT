@@ -10,9 +10,10 @@ const SAVE_MODAL = new bootstrap.Modal('#exampleModal'),
     MODAL_TITLE = document.getElementById('exampleModalLabel');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-    ID_MARCA = document.getElementById('id_marca'),
-    NOMBRE_MARCAS = document.getElementById('nombre_marca'),
-    IMAGEN_MARCA = document.getElementById('imagen_marca');
+    ID_MARCA = document.getElementById('idMarca'),
+    NOMBRE_MARCAS = document.getElementById('nombreMarca'),
+    DESCRIPCION_MARCAS = document.getElementById('descripcionMarca'),
+    IMAGEN_MARCA = document.getElementById('inputGroupFile01');
 
 document.addEventListener('DOMContentLoaded', async () => {
     // Llamada a la función para mostrar el encabezado y pie del documento.
@@ -43,7 +44,7 @@ SAVE_FORM.addEventListener('submit', async (event) => {
     // Se evita recargar la página web después de enviar el formulario.
     event.preventDefault();
     // Se verifica la acción a realizar.
-    (id_marca.value) ? action = 'updateRow' : action = 'createRow';
+    (ID_MARCA.value) ? action = 'updateRow' : action = 'createRow';
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SAVE_FORM);
     // Petición para guardar los datos del formulario.
@@ -142,8 +143,9 @@ const openUpdate = async (id) => {
         SAVE_FORM.reset();
         // Se inicializan los campos con los datos.
         const ROW = DATA.dataset;
-        id_marca.value = ROW.id_marca;
+        ID_MARCA.value = ROW.id_marca;
         NOMBRE_MARCAS.value = ROW.nombre_marca;
+        DESCRIPCION_MARCAS.value = ROW.descripcion_marca;
         set();
         document.getElementById('imagePreview').src = `${SERVER_URL}images/marcas/${ROW.imagen_marca}`;
     } else {
@@ -163,7 +165,7 @@ const openDelete = async (id) => {
     if (RESPONSE) {
         // Se define una constante tipo objeto con los datos del registro seleccionado.
         const FORM = new FormData();
-        FORM.append('id_marca', id);
+        FORM.append('idMarca', id);
         // Petición para eliminar el registro seleccionado.
         const DATA = await fetchData(CATEGORIA_API, 'deleteRow', FORM);
         // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
