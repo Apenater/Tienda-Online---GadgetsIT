@@ -1,5 +1,6 @@
 // Constante para completar la ruta de la API.
 const PRODUCTO_API = 'services/admin/producto.php';
+const MARCA_API = 'services/admin/marca.php';
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -81,94 +82,112 @@ const graficoPastelCategorias = async () => {
     }
 }
 
-// Función para generar el gráfico de ventas diarias (ejemplo, debes adaptar según tus datos reales)
-const graficoVentasDiarias = () => {
-    const ctx = document.getElementById('ventasDiarias').getContext('2d');
-    new Chart(ctx, {
-        type: 'line',
-        data: {
-            labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'],
-            datasets: [{
-                label: 'Ventas diarias',
-                data: [12, 19, 3, 5, 2, 3, 10],
-                borderColor: 'rgb(75, 192, 192)',
-                tension: 0.1
-            }]
-        },
-        options: {
-            responsive: true,
-            scales: {
-                y: {
-                    beginAtZero: true
+// Función asíncrona para generar el gráfico de ventas diarias
+const graficoVentasDiarias = async () => {
+    try {
+        const DATA = await fetchData(PRODUCTO_API, 'ventasDiarias');
+        if (DATA.status) {
+            const ctx = document.getElementById('ventasDiarias').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: DATA.dataset.map(row => row.fecha),
+                    datasets: [{
+                        label: 'Ventas diarias',
+                        data: DATA.dataset.map(row => row.total_ventas),
+                        borderColor: 'rgb(75, 192, 192)',
+                        tension: 0.1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
                 }
-            }
+            });
+        } else {
+            document.getElementById('ventasDiarias').remove();
+            console.log(DATA.error);
         }
-    });
+    } catch (error) {
+        console.error('Error fetching daily sales data:', error);
+    }
 }
 
-// Función para generar el gráfico de productos más vendidos (ejemplo, debes adaptar según tus datos reales)
-const graficoProductosMasVendidos = () => {
-    const ctx = document.getElementById('productosMasVendidos').getContext('2d');
-    new Chart(ctx, {
-        type: 'bar',
-        data: {
-            labels: ['Producto A', 'Producto B', 'Producto C', 'Producto D', 'Producto E'],
-            datasets: [{
-                label: 'Unidades vendidas',
-                data: [12, 19, 3, 5, 2],
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)'
-                ],
-                borderWidth: 1
-            }]
-        },
-        options: {
-            scales: {
-                y: {
-                    beginAtZero: true
+// Función asíncrona para generar el gráfico de productos más vendidos
+const graficoProductosMasVendidos = async () => {
+    try {
+        const DATA = await fetchData(PRODUCTO_API, 'productosMasVendidos');
+        if (DATA.status) {
+            const ctx = document.getElementById('productosMasVendidos').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: DATA.dataset.map(row => row.nombre_producto),
+                    datasets: [{
+                        label: 'Unidades vendidas',
+                        data: DATA.dataset.map(row => row.unidades_vendidas),
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
                 }
-            }
+            });
+        } else {
+            document.getElementById('productosMasVendidos').remove();
+            console.log(DATA.error);
         }
-    });
+    } catch (error) {
+        console.error('Error fetching top selling products data:', error);
+    }
 }
 
-// Función para generar el gráfico de marcas más vendidas (ejemplo, debes adaptar según tus datos reales)
-const graficoMarcasMasVendidas = () => {
-    const ctx = document.getElementById('marcasMasVendidas').getContext('2d');
-    new Chart(ctx, {
-        type: 'doughnut',
-        data: {
-            labels: ['Marca A', 'Marca B', 'Marca C', 'Marca D', 'Marca E'],
-            datasets: [{
-                label: 'Ventas por marca',
-                data: [300, 50, 100, 40, 120],
-                backgroundColor: [
-                    'rgb(255, 99, 132)',
-                    'rgb(54, 162, 235)',
-                    'rgb(255, 205, 86)',
-                    'rgb(75, 192, 192)',
-                    'rgb(153, 102, 255)'
-                ]
-            }]
-        },
-        options: {
-            responsive: true,
-            plugins: {
-                legend: {
-                    position: 'top',
+// Función asíncrona para generar el gráfico de marcas más vendidas
+const graficoMarcasMasVendidas = async () => {
+    try {
+        const DATA = await fetchData(MARCA_API, 'getPopularBrands');
+        if (DATA.status) {
+            const ctx = document.getElementById('marcasMasVendidas').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: DATA.dataset.map(row => row.nombre_marca),
+                    datasets: [{
+                        label: 'Productos por marca',
+                        data: DATA.dataset.map(row => row.cantidad_productos),
+                        backgroundColor: [
+                            'rgb(255, 99, 132)',
+                            'rgb(54, 162, 235)',
+                            'rgb(255, 205, 86)',
+                            'rgb(75, 192, 192)',
+                            'rgb(153, 102, 255)'
+                        ]
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: {
+                            position: 'top',
+                        }
+                    }
                 }
-            }
+            });
+        } else {
+            document.getElementById('marcasMasVendidas').remove();
+            console.log(DATA.error);
         }
-    });
+    } catch (error) {
+        console.error('Error fetching popular brands data:', error);
+    }
 }

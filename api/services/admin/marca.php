@@ -91,6 +91,15 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al eliminar la marca';
                 }
                 break;
+            case 'getPopularBrands':
+                $limit = isset($_POST['limit']) ? (int)$_POST['limit'] : 5;
+                if ($result['dataset'] = $categoria->getPopularBrands($limit)) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Se obtuvieron las ' . $limit . ' marcas más populares';
+                } else {
+                    $result['error'] = 'No se pudieron obtener las marcas populares';
+                }
+                break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }
