@@ -136,6 +136,8 @@ class ProductoHandler
         return Database::getRows($sql);
     }
 
+    
+
     /*
     *   Métodos para generar reportes.
     */
@@ -149,4 +151,7 @@ class ProductoHandler
         $params = array($this->categoria);
         return Database::getRows($sql, $params);
     }
+
+
+    
 }

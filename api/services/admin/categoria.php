@@ -92,6 +92,26 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al eliminar la categoría';
                 }
                 break;
+            case 'getCategoriaAdvancedStats':
+                $result['dataset'] = $categoria->getCategoriaAdvancedStats();
+                if ($result['dataset'] !== false) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Estadísticas avanzadas de categorías obtenidas correctamente';
+                } else {
+                    $result['status'] = 0;
+                    $result['error'] = 'No se pudieron obtener las estadísticas avanzadas de las categorías';
+                }
+                break;
+
+
+            case 'contarCategoriasConInfo':
+                if ($result['dataset'] = $categoria->contarCategoriasConInfo()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Información de categorías obtenida correctamente';
+                } else {
+                    $result['error'] = 'No se pudo obtener la información de las categorías';
+                }
+                break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }

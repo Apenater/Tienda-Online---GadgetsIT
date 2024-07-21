@@ -81,4 +81,48 @@ class CategoriaHandler
         $params = array($this->id);
         return Database::executeRow($sql, $params);
     }
+
+
+    public function getCategoriaAdvancedStats()
+{
+    $sql = 'SELECT 
+            c.id_categoria, 
+            c.nombre_categoria, 
+            COUNT(p.id_producto) AS total_productos,
+            MIN(p.precio_producto) AS precio_minimo,
+            MAX(p.precio_producto) AS precio_maximo,
+            (MAX(p.precio_producto) - MIN(p.precio_producto)) AS rango_precios
+        FROM 
+            categoria c
+        LEFT JOIN 
+            producto p ON c.id_categoria = p.id_categoria
+        GROUP BY 
+            c.id_categoria, c.nombre_categoria';
+
+    try {
+        $result = Database::getRows($sql);
+        if ($result === false) {
+            // Si getRows devuelve false, lanza una excepción
+            throw new Exception("Error executing query");
+        }
+        return $result;
+    } catch (Exception $e) {
+        // Log the error and return false to indicate failure
+        error_log('Error in getCategoriaAdvancedStats: ' . $e->getMessage());
+        return false;
+    }
+}
+
+    /*
+     *  Método para contar las categorías y obtener información adicional.
+     */
+    public function contarCategoriasConInfo()
+    {
+        $sql = 'SELECT 
+                SUM(CASE WHEN descripcion_categoria IS NOT NULL AND descripcion_categoria != "" THEN 1 ELSE 0 END) as con_info,
+                SUM(CASE WHEN descripcion_categoria IS NULL OR descripcion_categoria = "" THEN 1 ELSE 0 END) as sin_info,
+                COUNT(id_categoria) as total_categorias
+            FROM categoria';
+        return Database::getRow($sql);
+    }
 }
