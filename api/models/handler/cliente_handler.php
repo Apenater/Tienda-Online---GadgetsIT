@@ -149,13 +149,18 @@ class ClienteHandler
 
     //Agregar esta función en el archivo handler.php de clientes
 
-public function readOneCorreo($correo)
-{
-    $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente, estado_cliente
+    public function readOneCorreo($correo)
+    {
+        $sql = 'SELECT id_cliente, nombre_cliente, apellido_cliente, correo_cliente, dui_cliente, telefono_cliente, nacimiento_cliente, direccion_cliente, estado_cliente
             FROM cliente
             WHERE correo_cliente = ?';
-    $params = array($correo);
-    return Database::getRow($sql, $params);
-}
-
+        $params = array($correo);
+        return Database::getRow($sql, $params);
+    }
+    public function countClients()
+    {
+        $sql = 'SELECT COUNT(*) as client_count FROM cliente';
+        $result = Database::getRow($sql);
+        return $result['client_count'];
+    }
 }

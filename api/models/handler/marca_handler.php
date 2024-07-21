@@ -73,16 +73,14 @@ class MarcaHandler
     }
 
     public function getPopularBrands($limit = 5)
-    {
-        $sql = 'SELECT m.id_marca, m.nombre_marca, COUNT(p.id_producto) AS cantidad_productos
-                FROM marca m
-                LEFT JOIN producto p ON m.id_marca = p.id_marca
-                GROUP BY m.id_marca, m.nombre_marca
-                ORDER BY cantidad_productos DESC
-                LIMIT ?';
-        $params = array($limit);
-        return Database::getRows($sql, $params);
-    }
-
+{
+    $sql = 'SELECT m.id, m.nombre_marca, COUNT(p.id_producto) AS cantidad_productos
+            FROM marca m
+            LEFT JOIN producto p ON m.id = p.id_marca
+            GROUP BY m.id, m.nombre_marca
+            ORDER BY cantidad_productos DESC
+            LIMIT ?';
+    $params = array($limit);
+    return Database::getRows($sql, $params);
 }
-?>
+}
