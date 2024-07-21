@@ -14,11 +14,7 @@ document.addEventListener('DOMContentLoaded', async () => {
          // Se muestra el formulario para iniciar sesión.
          LOGIN_FORM.classList.remove('d-none');
          sweetAlert(4, DATA.message, true);
-     } else {;
-         // Se muestra el formulario para registrar el primer usuario.
-         location.href = 'primer_uso.html';
-         sweetAlert(4, DATA.error, true);
-     }
+     } 
  });
 
 
