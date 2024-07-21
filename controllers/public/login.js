@@ -1,4 +1,4 @@
-const USER_API = 'services/admin/clientes.php';
+const USER_API = 'services/public/cliente.php';
 // Constante para establecer el formulario de inicio de sesión.
 const LOGIN_FORM = document.getElementById('login-form');
 

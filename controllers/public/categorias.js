@@ -25,9 +25,9 @@ document.addEventListener('DOMContentLoaded', async () => {
               <a href="productos.html" style="text-decoration: none;">
               <div class="negro">
                 <div class="negro-content">
-                  <h1 class="negro-title">${row.nombreC}</h1>
+                  <h1 class="negro-title">${row.nombre_categoria}</h1>
                 </div>
-                <img src="${SERVER_URL}images/categorias/${row.foto}" alt="Image-ct">              </div>
+                <img src="${SERVER_URL}images/categorias/${row.imagen_categoria}" alt="Image-ct">              </div>
             </a>
       
             `;

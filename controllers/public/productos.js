@@ -1,7 +1,7 @@
 // Constante para completar la ruta de la API.
-const PRODUCTO_API = 'services/public/productos.php';
-const CATEGORIA_API = 'services/admin/categorias.php';
-const MARCA_API = 'services/admin/marcas.php';
+const PRODUCTO_API = 'services/public/producto.php';
+const CATEGORIA_API = 'services/public/categoria.php';
+const MARCA_API = 'services/public/marca.php';
 
 const SEARCH_FORM = document.getElementById('searchForm');
 
@@ -41,10 +41,10 @@ const fillTable = async (form = null) => {
             <div class="card h-100 border-light">
               <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top" alt="..." loading="lazy">
               <div class="card-body">
-                <h5 class="card-title">${row.nombreProducto}</h5>
+                <h5 class="card-title">${row.nombre_producto}</h5>
                 <div class="descripcion-precio">
-                  <p class="card-text">${row.descripcionProducto}</p>
-                  <h5>$ ${row.precioProducto}</h5>
+                  <p class="card-text">${row.descripcion_producto}</p>
+                  <h5>$ ${row.precio_producto}</h5>
                 </div>
                 <ul class="iconos-caracteristicas">
                   <li>

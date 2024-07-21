@@ -9,17 +9,17 @@ const SAVE_MODAL = new bootstrap.Modal(document.getElementById('exampleModal')),
     MODAL_TITLE = document.getElementById('exampleModalLabel');
 // Constantes para establecer los elementos del formulario de guardar.
 const SAVE_FORM = document.getElementById('saveForm'),
-    ID_CLIENTE= document.getElementById('id_usuario'),
-    NOMBRE_CLIENTE= document.getElementById('nombre'),
-    APELLIDO_CLIENTE= document.getElementById('apellido'),
-    TELEFONO_CLIENTE= document.getElementById('telefono'),
-    CORREO_CLIENTE= document.getElementById('correo');
+    ID_CLIENTE = document.getElementById('id_usuario'),
+    NOMBRE_CLIENTE = document.getElementById('nombre'),
+    APELLIDO_CLIENTE = document.getElementById('apellido'),
+    TELEFONO_CLIENTE = document.getElementById('telefono'),
+    CORREO_CLIENTE = document.getElementById('correo');
 
-    // Método del evento para cuando el documento ha cargado.
-    document.addEventListener('DOMContentLoaded', () => {
-        // Llamada a la función para llenar la tabla con los registros existentes.
-        fillTable();
-    });
+// Método del evento para cuando el documento ha cargado.
+document.addEventListener('DOMContentLoaded', () => {
+    // Llamada a la función para llenar la tabla con los registros existentes.
+    fillTable();
+});
 
 // Método del evento para cuando se envía el formulario de buscar.
 SEARCH_FORM.addEventListener('submit', (event) => {
