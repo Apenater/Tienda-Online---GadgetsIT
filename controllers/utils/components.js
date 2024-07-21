@@ -1,3 +1,6 @@
+/*
+*   CONTROLADOR DE USO GENERAL EN TODAS LAS PÁGINAS WEB.
+*/
 // Constante para establecer la ruta base del servidor.
 const SERVER_URL = 'http://localhost/Tienda-Online---GadgetsIT/api/';
 
@@ -53,93 +56,93 @@ const sweetAlert = async (type, text, timer, url = null) => {
         case 4:
             title = 'Aviso';
             icon = 'info';
-            break;
     }
-    // Se declara una constante tipo objeto con las opciones disponibles.
-    const OPTIONS = {
+    // Se define un objeto con las opciones principales para el mensaje.
+    let options = {
         title: title,
         text: text,
         icon: icon,
         closeOnClickOutside: false,
-        closeOnEsc: false
+        closeOnEsc: false,
+        button: {
+            text: 'Aceptar'
+        }
     };
-    // Se evalúa el uso del temporizador.
-    if (timer) {
-        OPTIONS.timer = 3000;
-        OPTIONS.button = false;
-        // Se muestra el mensaje de confirmación.
-        await swal(OPTIONS);
-    } else {
-        OPTIONS.button = 'Aceptar';
-        // Se muestra el mensaje de confirmación y se espera la acción del usuario.
-        await swal(OPTIONS);
-    }
-    // Se verifica la url para realizar la redirección.
-    if (url) {
-        location.href = url
-    }
+    // Se verifica el uso del temporizador.
+    (timer) ? options.timer = 3000 : options.timer = null;
+    // Se muestra el mensaje.
+    await swal(options);
+    // Se direcciona a una página web si se indica.
+    (url) ? location.href = url : undefined;
 }
 
 /*
-*   Función para generar un gráfico de barras.
-*   Requiere la librería Chart para funcionar.
-*   Parámetros: canvas (identificador del lienzo), xAxis (valores para el eje x), yAxis (valores para el eje y), legend (leyenda de los datos) y title (título del gráfico).
+*   Función asíncrona para cargar las opciones en un select de formulario.
+*   Parámetros: filename (nombre del archivo), action (acción a realizar), select (identificador del select en el formulario) y filter (dato opcional para seleccionar una opción o filtrar los datos).
+*   Retorno: ninguno.
+*/
+const fillSelect = async (filename, action, select, filter = undefined) => {
+    // Se verifica si el filtro contiene un objeto para enviar a la API.
+    const FORM = (typeof (filter) == 'object') ? filter : null;
+    // Petición para obtener los datos.
+    const DATA = await fetchData(filename, action, FORM);
+    let content = '';
+    // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje.
+    if (DATA.status) {
+        content += '<option value="" selected>Seleccione una opción</option>';
+        // Se recorre el conjunto de registros fila por fila a través del objeto row.
+        DATA.dataset.forEach(row => {
+            // Se obtiene el dato del primer campo de la sentencia SQL.
+            value = Object.values(row)[0];
+            // Se obtiene el dato del segundo campo de la sentencia SQL.
+            text = Object.values(row)[1];
+            // Se verifica el valor del filtro para enlistar las opciones.
+            const SELECTED = (typeof (filter) == 'number') ? filter : null;
+            if (value != SELECTED) {
+                content += `<option value="${value}">${text}</option>`;
+            } else {
+                content += `<option value="${value}" selected>${text}</option>`;
+            }
+        });
+    } else {
+        content += '<option>No hay opciones disponibles</option>';
+    }
+    // Se agregan las opciones a la etiqueta select mediante el id.
+    document.getElementById(select).innerHTML = content;
+}
+
+/*
+*   Función para generar un gráfico de barras verticales.
+*   Requiere la librería chart.js para funcionar.
+*   Parámetros: canvas (identificador de la etiqueta canvas), xAxis (datos para el eje X), yAxis (datos para el eje Y), legend (etiqueta para los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
 const barGraph = (canvas, xAxis, yAxis, legend, title) => {
-    const context = document.getElementById(canvas).getContext('2d');
-    const chart = new Chart(context, {
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = [];
+    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
+    xAxis.forEach(() => {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+    });
+    // Se crea una instancia para generar el gráfico con los datos recibidos.
+    new Chart(document.getElementById(canvas), {
         type: 'bar',
         data: {
             labels: xAxis,
             datasets: [{
                 label: legend,
                 data: yAxis,
-                backgroundColor: [
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 99, 132, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: colors
             }]
         },
         options: {
-            responsive: true,
             plugins: {
-                legend: {
-                    display: false,
-                },
                 title: {
                     display: true,
                     text: title
-                }
-            },
-            scales: {
-                y: {
-                    beginAtZero: true
+                },
+                legend: {
+                    display: false
                 }
             }
         }
@@ -148,55 +151,29 @@ const barGraph = (canvas, xAxis, yAxis, legend, title) => {
 
 /*
 *   Función para generar un gráfico de pastel.
-*   Requiere la librería Chart para funcionar.
-*   Parámetros: canvas (identificador del lienzo), labels (etiquetas de los datos), values (valores de los datos) y title (título del gráfico).
+*   Requiere la librería chart.js para funcionar.
+*   Parámetros: canvas (identificador de la etiqueta canvas), legends (valores para las etiquetas), values (valores de los datos) y title (título del gráfico).
 *   Retorno: ninguno.
 */
-const pieGraph = (canvas, labels, values, title) => {
-    const context = document.getElementById(canvas).getContext('2d');
-    const chart = new Chart(context, {
+const pieGraph = (canvas, legends, values, title) => {
+    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
+    let colors = [];
+    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
+    values.forEach(() => {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+    });
+    // Se crea una instancia para generar el gráfico con los datos recibidos.
+    new Chart(document.getElementById(canvas), {
         type: 'pie',
         data: {
-            labels: labels,
+            labels: legends,
             datasets: [{
                 data: values,
-                backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(54, 162, 235, 0.2)',
-                    'rgba(255, 206, 86, 0.2)',
-                    'rgba(75, 192, 192, 0.2)',
-                    'rgba(153, 102, 255, 0.2)',
-                    'rgba(255, 159, 64, 0.2)',
-                    'rgba(255, 99, 132, 0.2)'
-                ],
-                borderColor: [
-                    'rgba(255, 99, 132, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(54, 162, 235, 1)',
-                    'rgba(255, 206, 86, 1)',
-                    'rgba(75, 192, 192, 1)',
-                    'rgba(153, 102, 255, 1)',
-                    'rgba(255, 159, 64, 1)',
-                    'rgba(255, 99, 132, 1)'
-                ],
-                borderWidth: 1
+                backgroundColor: colors
             }]
         },
         options: {
-            responsive: true,
             plugins: {
-                legend: {
-                    display: true,
-                },
                 title: {
                     display: true,
                     text: title
@@ -207,14 +184,52 @@ const pieGraph = (canvas, labels, values, title) => {
 }
 
 /*
-*   Función asíncrona para realizar peticiones a la API.
-*   Parámetros: api (ruta de la API) y action (acción solicitada).
-*   Retorno: objeto con los datos de la respuesta.
+*   Función asíncrona para cerrar la sesión del usuario.
+*   Parámetros: ninguno.
+*   Retorno: ninguno.
 */
-const fetchData = async (api, action) => {
-    const response = await fetch(`${SERVER_URL}${api}`, {
-        method: 'POST',
-        body: new URLSearchParams({ action: action })
-    });
-    return await response.json();
+const logOut = async () => {
+    // Se muestra un mensaje de confirmación y se captura la respuesta en una constante.
+    const RESPONSE = await confirmAction('¿Está seguro de cerrar la sesión?');
+    // Se verifica la respuesta del mensaje.
+    if (RESPONSE) {
+        // Petición para eliminar la sesión.
+        const DATA = await fetchData(USER_API, 'logOut');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+        if (DATA.status) {
+            sweetAlert(1, DATA.message, true, 'index.html');
+        } else {
+            sweetAlert(2, DATA.exception, false);
+        }
+    }
+}
+
+/*
+*   Función asíncrona para intercambiar datos con el servidor.
+*   Parámetros: filename (nombre del archivo), action (accion a realizar) y form (objeto opcional con los datos que serán enviados al servidor).
+*   Retorno: constante tipo objeto con los datos en formato JSON.
+*/
+const fetchData = async (filename, action, form = null) => {
+    // Se define una constante tipo objeto para establecer las opciones de la petición.
+    const OPTIONS = {};
+    // Se determina el tipo de petición a realizar.
+    if (form) {
+        OPTIONS.method = 'post';
+        OPTIONS.body = form;
+    } else {
+        OPTIONS.method = 'get';
+    }
+    try {
+        // Se declara una constante tipo objeto con la ruta específica del servidor.
+        const PATH = new URL(SERVER_URL + filename);
+        // Se agrega un parámetro a la ruta con el valor de la acción solicitada.
+        PATH.searchParams.append('action', action);
+        // Se define una constante tipo objeto con la respuesta de la petición.
+        const RESPONSE = await fetch(PATH.href, OPTIONS);
+        // Se retorna el resultado en formato JSON.
+        return await RESPONSE.json();
+    } catch (error) {
+        // Se muestra un mensaje en la consola del navegador web cuando ocurre un problema.
+        console.log(error);
+    }
 }
