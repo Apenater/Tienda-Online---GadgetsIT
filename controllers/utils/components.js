@@ -425,7 +425,6 @@ const logOut = async () => {
 
 
 
-
 /*
 *   Función asíncrona para intercambiar datos con el servidor.
 *   Parámetros: filename (nombre del archivo), action (accion a realizar) y form (objeto opcional con los datos que serán enviados al servidor).
