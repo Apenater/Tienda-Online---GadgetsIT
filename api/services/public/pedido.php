@@ -36,7 +36,7 @@ if (isset($_GET['action'])) {
             case 'readDetail':
                 if (!$pedido->getOrder()) {
                     $result['error'] = 'No ha agregado productos al carrito';
-                } elseif ($result['dataset'] = $pedido->readDetail()) {
+                } elseif ($result['dataset'] = $pedido->readDetail2()) {
                     $result['status'] = 1;
                 } else {
                     $result['error'] = 'No existen productos en el carrito';
