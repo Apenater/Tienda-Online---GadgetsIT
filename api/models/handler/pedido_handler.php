@@ -79,19 +79,18 @@ class PedidoHandler
                 INNER JOIN pedido USING(id_pedido)
                 INNER JOIN producto USING(id_producto)
                 WHERE id_pedido = ?';
-           $params = array($_SESSION['idPedido']);
+        $params = array($_SESSION['idPedido']);
         return Database::getRows($sql, $params);
     }
 
     public function readDetail()
     {
-        print_r($params = $this->id_pedido);
         $sql = 'SELECT id_detalle, nombre_producto, imagen_producto, detalle_pedido.precio_producto, detalle_pedido.cantidad_producto
                 FROM detalle_pedido
                 INNER JOIN pedido USING(id_pedido)
                 INNER JOIN producto USING(id_producto)
                 WHERE id_pedido = ?';
-        $params = $this->id_pedido;
+        $params = array($_SESSION['idPedido']);
         return Database::getRows($sql, $params);
     }
 

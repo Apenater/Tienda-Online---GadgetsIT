@@ -138,6 +138,7 @@ const finish = async () => {
     if (RESPONSE) {
         const DATA = await fetchData(PEDIDO_API, 'finishOrder');
         if (DATA.status) {
+            openReport();
             await sweetAlert(1, DATA.message, true);
             fillTable();
         } else {
