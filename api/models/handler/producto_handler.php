@@ -104,16 +104,6 @@ class ProductoHandler
         return Database::getRows($sql, $params);
     }
 
-    public function readProductosMarca()
-    {
-        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, id_marca
-                FROM producto
-                INNER JOIN marca USING(id_marca)
-                WHERE id_marca = ? AND estado_producto = true
-                ORDER BY nombre_producto';
-        $params = array($this->marca);
-        return Database::getRows($sql, $params);
-    }
 
     /*
     *   Métodos para generar gráficos.
@@ -152,6 +142,15 @@ class ProductoHandler
         return Database::getRows($sql, $params);
     }
 
-
+    public function readProductosMarca()
+    {
+        $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, id_marca, estado_producto
+                FROM producto
+                INNER JOIN marca USING(id_marca)
+                WHERE id_marca = ? AND estado_producto = true
+                ORDER BY nombre_producto';
+        $params = array($this->marca);
+        return Database::getRows($sql, $params);
+    }
     
 }
