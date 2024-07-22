@@ -124,13 +124,32 @@ if (isset($_GET['action'])) {
                     $result['dataset'] = array();
                 }
                 break;
-                case 'getTopSellingProducts':
-                    $result['dataset'] = $pedido->getTopSellingProducts();
+            case 'getTopSellingProducts':
+                $result['dataset'] = $pedido->getTopSellingProducts();
+                if ($result['dataset'] !== false) {
+                    $result['status'] = 1;
+                } else {
+                    $result['status'] = 1;
+                    $result['dataset'] = array();
+                }
+                break;
+            case 'top5ClientesConMasPedidos':
+                if ($result['dataset'] = $pedido->top5ClientesConMasPedidos()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Top 5 clientes con más pedidos obtenidos correctamente';
+                } else {
+                    $result['error'] = 'No se pudo obtener el top 5 de clientes con más pedidos';
+                }
+                break;
+
+                case 'predictFutureSales':
+                    $days = isset($_POST['days']) ? intval($_POST['days']) : 30; // Por defecto, 30 días si no se especifica
+                    $result['dataset'] = $pedido->predictFutureSales($days);
                     if ($result['dataset'] !== false) {
                         $result['status'] = 1;
+                        $result['message'] = 'Predicción de ventas generada correctamente';
                     } else {
-                        $result['status'] = 1;
-                        $result['dataset'] = array();
+                        $result['error'] = 'No hay suficientes datos para hacer predicciones';
                     }
                     break;
             default:

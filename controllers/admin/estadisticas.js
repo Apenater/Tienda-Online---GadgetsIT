@@ -5,6 +5,7 @@ const CLIENTE_API = 'services/public/cliente.php';
 const CATEGORIA_API = 'services/admin/categoria.php';
 const PEDIDO_API = 'services/public/pedido.php';
 
+
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
     // Constante para obtener el número de horas.
@@ -32,6 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
     graficoCategoriasConInfo();
     graficoLineaPedidosFinalizados();
     graficoTopProductosVendidos();
+    graficoTop5ProductosMasExistencias();
+    graficoTop5ClientesConMasPedidos();
+    graficoPredictVentas(); // Nueva función para el gráfico de predicción de ventas
+
 
 });
 
@@ -279,4 +284,99 @@ const graficoTopProductosVendidos = async () => {
         ctx.fillText('Error al cargar los datos', 10, 50);
     }
 
+}
+
+// Función asíncrona para mostrar un gráfico de barras con los 5 productos con más existencias.
+const graficoTop5ProductosMasExistencias = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(PRODUCTO_API, 'top5ProductosMasExistencias');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a graficar.
+            let productos = [];
+            let existencias = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                productos.push(row.nombre_producto);
+                existencias.push(row.existencias_producto);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de barras.
+            top5ProcutMasExi('chart9', productos, existencias, 'Cantidad de existencias', 'Top 5 productos con más existencias');
+        } else {
+            document.getElementById('chart9').remove();
+            console.log(DATA.error);
+        }
+    } catch (error) {
+        console.error('Error fetching top 5 products with most stock:', error);
+    }
+}
+
+
+const graficoTop5ClientesConMasPedidos = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(PEDIDO_API, 'top5ClientesConMasPedidos');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se remueve la etiqueta canvas.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a graficar.
+            let clientes = [];
+            let totalPedidos = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                clientes.push(row.nombre_cliente);
+                totalPedidos.push(row.total_pedidos);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de barras.
+            top5ClientesMasPedi('chart10', clientes, totalPedidos, 'Cantidad de pedidos', 'Top 5 clientes con más pedidos');
+        } else {
+            document.getElementById('chart10').remove();
+            console.log(DATA.error);
+        }
+    } catch (error) {
+        console.error('Error fetching top 5 clients with most orders:', error);
+    }
+}
+
+
+// Función para generar un gráfico de líneas con las predicciones de ventas futuras
+const graficoPredictVentas = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(PEDIDO_API, 'predictFutureSales');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a graficar.
+            let fechas = [];
+            let ventasPrevistas = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                fechas.push(row.fecha);
+                ventasPrevistas.push(row.ventas_previstas);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de líneas.
+            if (fechas.length > 0 && ventasPrevistas.length > 0) {
+                multiLineGraph('chart11', fechas, ventasPrevistas, 'Ventas Previstas ($)', 'Predicción de ventas futuras');
+            } else {
+                // Mostrar un mensaje en el canvas si no hay datos
+                const ctx = document.getElementById('chart11').getContext('2d');
+                ctx.font = '20px Arial';
+                ctx.fillText('No hay datos de predicción para mostrar', 10, 50);
+            }
+        } else {
+            // Mostrar un mensaje en el canvas si hay un error
+            const ctx = document.getElementById('chart11').getContext('2d');
+            ctx.font = '20px Arial';
+            ctx.fillText('Error al cargar los datos de predicción de ventas', 10, 50);
+        }
+    } catch (error) {
+        console.error('Error fetching sales prediction data:', error);
+        // Mostrar un mensaje de error en el canvas
+        const ctx = document.getElementById('chart11').getContext('2d');
+        ctx.font = '20px Arial';
+        ctx.fillText('Error al cargar los datos de predicción', 10, 50);
+    }
 }

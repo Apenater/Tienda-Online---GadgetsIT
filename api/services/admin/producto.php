@@ -26,8 +26,8 @@ if (isset($_GET['action'])) {
                     !$producto->setExistencias($_POST['existenciasProducto']) or
                     !$producto->setCategoria($_POST['categoriaProducto']) or
                     !$producto->setImagen($_FILES['imagenProducto']) or
-                    !$producto->setMarca($_POST['marcaProducto']) 
-                    
+                    !$producto->setMarca($_POST['marcaProducto'])
+
                 ) {
                     $result['error'] = $producto->getDataError();
                 } elseif ($producto->createRow()) {
@@ -98,7 +98,7 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['error'] = 'No hay datos disponibles';
                 }
-                break; 
+                break;
             case 'porcentajeProductosCategoria':
                 if ($result['dataset'] = $producto->porcentajeProductosCategoria()) {
                     $result['status'] = 1;
@@ -106,7 +106,14 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay datos disponibles';
                 }
                 break;
-                
+            case 'top5ProductosMasExistencias':
+                if ($result['dataset'] = $producto->top5ProductosMasExistencias()) {
+                    $result['status'] = 1;
+                    $result['message'] = 'Top 5 productos con más existencias obtenidos correctamente';
+                } else {
+                    $result['error'] = 'No se pudo obtener el top 5 de productos con más existencias';
+                }
+                break;
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }

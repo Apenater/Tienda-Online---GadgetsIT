@@ -229,8 +229,6 @@ const clientCountBarGraph = (canvas, xAxis, yAxis, legend, title) => {
     });
 }
 
-
-
 const graficoCategoriasConInfos = (canvas, xAxis, yAxis, legend, title) => {
     // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
     let colors = [];
@@ -274,86 +272,71 @@ const graficoCategoriasConInfos = (canvas, xAxis, yAxis, legend, title) => {
 
 
 
+
+
+
 const getCategoriaAdvancedStatsss = (canvas, categorias, totalProductos, precioMinimo, precioMaximo, rangoPrecios, precioMediana, title) => {
-    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
-    let colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#FF9F40'];
-    // Se crea una instancia para generar el gráfico con los datos recibidos.
+    let colors = ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'];
     new Chart(document.getElementById(canvas), {
-        type: 'bar',
+        type: 'radar',
         data: {
             labels: categorias,
             datasets: [
                 {
                     label: 'Total Productos',
                     data: totalProductos,
-                    backgroundColor: colors[0],
-                    yAxisID: 'y-axis-1'
+                    backgroundColor: colors[0] + '40',
+                    borderColor: colors[0],
+                    pointBackgroundColor: colors[0]
                 },
                 {
                     label: 'Precio Mínimo',
                     data: precioMinimo,
-                    backgroundColor: colors[1],
-                    yAxisID: 'y-axis-2'
+                    backgroundColor: colors[1] + '40',
+                    borderColor: colors[1],
+                    pointBackgroundColor: colors[1]
                 },
                 {
                     label: 'Precio Máximo',
                     data: precioMaximo,
-                    backgroundColor: colors[2],
-                    yAxisID: 'y-axis-2'
+                    backgroundColor: colors[2] + '40',
+                    borderColor: colors[2],
+                    pointBackgroundColor: colors[2]
                 },
                 {
                     label: 'Rango de Precios',
                     data: rangoPrecios,
-                    backgroundColor: colors[3],
-                    yAxisID: 'y-axis-2'
+                    backgroundColor: colors[3] + '40',
+                    borderColor: colors[3],
+                    pointBackgroundColor: colors[3]
                 },
                 {
                     label: 'Precio Mediana',
                     data: precioMediana,
-                    backgroundColor: colors[4],
-                    yAxisID: 'y-axis-2'
+                    backgroundColor: colors[4] + '40',
+                    borderColor: colors[4],
+                    pointBackgroundColor: colors[4]
                 }
             ]
         },
         options: {
-            responsive: true,
-            title: {
-                display: true,
-                text: title
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                },
+                legend: {
+                    display: true
+                }
             },
             scales: {
-                yAxes: [
-                    {
-                        id: 'y-axis-1',
-                        type: 'linear',
-                        position: 'left',
-                        ticks: {
-                            beginAtZero: true
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Total Productos'
-                        }
-                    },
-                    {
-                        id: 'y-axis-2',
-                        type: 'linear',
-                        position: 'right',
-                        ticks: {
-                            beginAtZero: true
-                        },
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Precio ($)'
-                        }
-                    }
-                ]
+                r: {
+                    beginAtZero: true
+                }
             }
         }
     });
 }
-
-
 
 const lineGraph = (canvas, xAxis, yAxis, legend, title) => {
     // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
@@ -396,6 +379,46 @@ const lineGraph = (canvas, xAxis, yAxis, legend, title) => {
 
 
 const barGraphh = (canvas, xAxis, yAxis, legend, title) => {
+    let colors = [];
+    xAxis.forEach(() => {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+    });
+    new Chart(document.getElementById(canvas), {
+        type: 'bar',
+        data: {
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: yAxis,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            indexAxis: 'y',
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                },
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                    ticks: {
+                        precision: 0
+                    }
+                }
+            }
+        }
+    });
+}
+
+
+
+const top5ProcutMasExi = (canvas, xAxis, yAxis, legend, title) => {
     // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
     let colors = [];
     // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
@@ -435,32 +458,108 @@ const barGraphh = (canvas, xAxis, yAxis, legend, title) => {
     });
 }
 
+const top5ClientesMasPedi = (canvas, xAxis, yAxis, legend, title) => {
+    let colors = [];
+    xAxis.forEach(() => {
+        colors.push('#' + (Math.random().toString(16)).substring(2, 8));
+    });
+    new Chart(document.getElementById(canvas), {
+        type: 'doughnut',
+        data: {
+            labels: xAxis,
+            datasets: [{
+                label: legend,
+                data: yAxis,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: title
+                },
+                legend: {
+                    display: true
+                }
+            }
+        }
+    });
+}
 
 
+const multiLineGraph = (canvas, labels, datasets, title) => {
+    // Generamos colores aleatorios para cada conjunto de datos
+    const generateColors = () => {
+        return '#' + (Math.random().toString(16)).substring(2, 8);
+    };
 
+    // Preparamos los datasets con colores aleatorios
+    const chartDatasets = datasets.map(dataset => ({
+        label: dataset.label,
+        data: dataset.data,
+        borderColor: generateColors(),
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        pointRadius: 3,
+        pointHoverRadius: 5
+    }));
 
-
-
-
-
-
-
-
-
-
-
+    // Creamos la instancia del gráfico
+    new Chart(document.getElementById(canvas), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: chartDatasets
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: title,
+                    font: {
+                        size: 16
+                    }
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false
+                }
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Período'
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Valor'
+                    },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
 
 
 const marGraph = (canvas, legends, values, title) => {
-    // Se declara un arreglo para guardar códigos de colores en formato hexadecimal.
     let colors = [];
-    // Se generan códigos hexadecimales de 6 cifras de acuerdo con el número de datos a mostrar y se agregan al arreglo.
     values.forEach(() => {
         colors.push('#' + (Math.random().toString(16)).substring(2, 8));
     });
-    // Se crea una instancia para generar el gráfico con los datos recibidos.
     new Chart(document.getElementById(canvas), {
-        type: 'pie',
+        type: 'polarArea',
         data: {
             labels: legends,
             datasets: [{
@@ -473,6 +572,9 @@ const marGraph = (canvas, legends, values, title) => {
                 title: {
                     display: true,
                     text: title
+                },
+                legend: {
+                    display: true
                 }
             }
         }
