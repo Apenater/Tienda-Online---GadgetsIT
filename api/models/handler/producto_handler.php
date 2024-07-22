@@ -163,6 +163,12 @@ class ProductoHandler
         return Database::getRows($sql);
     }
 
-
-    
+    public function top5ProductosMasExistencias()
+    {
+        $sql = 'SELECT nombre_producto, existencias_producto 
+                FROM producto 
+                ORDER BY existencias_producto DESC 
+                LIMIT 5';
+        return Database::getRows($sql);
+    }
 }

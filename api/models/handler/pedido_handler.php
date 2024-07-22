@@ -210,4 +210,65 @@ INNER JOIN
 
         return $result;
     }
+
+    public function top5ClientesConMasPedidos()
+    {
+        $sql = 'SELECT c.nombre_cliente, COUNT(p.id_pedido) as total_pedidos
+                FROM cliente c
+                JOIN pedido p ON c.id_cliente = p.id_cliente
+                GROUP BY c.id_cliente
+                ORDER BY total_pedidos DESC
+                LIMIT 5';
+        return Database::getRows($sql);
+    }
+
+
+    public function predictFutureSales($days = 30)
+    {
+        // Obtener datos históricos de ventas
+        $sql = 'SELECT 
+                DATE(fecha_pedido) AS fecha,
+                SUM(dp.cantidad_producto * dp.precio_producto) AS total_ventas
+            FROM 
+                pedido p
+            INNER JOIN 
+                detalle_pedido dp ON p.id_pedido = dp.id_pedido
+            WHERE 
+                p.estado_pedido = "Finalizado"
+                AND p.fecha_pedido >= DATE_SUB(CURDATE(), INTERVAL 90 DAY)
+            GROUP BY 
+                DATE(fecha_pedido)
+            ORDER BY 
+                fecha';
+
+        $historicalData = Database::getRows($sql);
+
+        if (empty($historicalData)) {
+            return false;
+        }
+
+        // Calcular la tendencia promedio
+        $totalDays = count($historicalData);
+        $totalSales = array_sum(array_column($historicalData, 'total_ventas'));
+        $averageDailySales = $totalSales / $totalDays;
+
+        // Calcular la tasa de crecimiento
+        $firstDaySales = $historicalData[0]['total_ventas'];
+        $lastDaySales = $historicalData[$totalDays - 1]['total_ventas'];
+        $growthRate = ($lastDaySales - $firstDaySales) / $firstDaySales / $totalDays;
+
+        // Predecir ventas futuras
+        $predictions = [];
+        $lastDate = new DateTime($historicalData[$totalDays - 1]['fecha']);
+        for ($i = 1; $i <= $days; $i++) {
+            $predictedDate = $lastDate->modify('+1 day');
+            $predictedSales = $averageDailySales * (1 + $growthRate * $i);
+            $predictions[] = [
+                'fecha' => $predictedDate->format('Y-m-d'),
+                'ventas_previstas' => round($predictedSales, 2)
+            ];
+        }
+
+        return $predictions;
+    }
 }
