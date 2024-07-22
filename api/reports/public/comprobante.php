@@ -3,10 +3,9 @@
 require_once('../../helpers/report.php');
 
 // Se instancia la clase para crear el reporte.
-$pdf = new Report;
+$pdf = new PublicReport;
 
 // Se incluyen las clases para la transferencia y acceso a datos.
-require_once('../../models/data/producto_data.php');
 require_once('../../models/data/pedido_data.php');
 require_once('../../models/data/cliente_data.php');
 
@@ -18,7 +17,7 @@ $cliente = new ClienteHandler(); // Asegúrate de que esta clase existe y tiene 
 $detalle_pedido = $producto->readDetail2();
 
 // Obtener información del cliente
-$usuario_info = $cliente->readOneCorreo($_SESSION['correo_cliente']);
+$usuario_info = $cliente->readOneCorreo(['correo_cliente']);
 
 // Verificar si hay detalles del pedido
 if ($detalle_pedido) {
@@ -54,8 +53,11 @@ if ($detalle_pedido) {
         
         // Mostrar imagen del producto
         $image_path = '../../images/productos/' . $item['imagen_producto'];
-        $pdf->image($image_path, $pdf->GetX(), $pdf->GetY(), 20, 20); // Ajusta la posición y tamaño de la imagen
-        $pdf->cell(30, 10, '', 1, 0, 'C'); // Espacio para la imagen
+        if (file_exists($image_path)) {
+            $pdf->image($image_path, $pdf->GetX(), $pdf->GetY(), 20, 20); // Ajusta la posición y tamaño de la imagen
+        } else {
+            $pdf->cell(30, 10, 'No Image', 1, 0, 'C'); // Espacio para la imagen si no existe
+        }
         
         $pdf->cell(30, 10, number_format($item['precio_producto'], 2), 1, 0, 'R');
         $pdf->cell(30, 10, $item['cantidad_producto'], 1, 1, 'R');
