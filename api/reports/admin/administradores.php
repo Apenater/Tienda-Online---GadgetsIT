@@ -23,11 +23,10 @@ if ($dataAdministradores = $administrador->readAll()) {
     $pdf->setTextColor(255, 255, 255); // Color de texto blanco para los encabezados
 
     // Se imprimen las celdas con los encabezados.
-    $pdf->cell(30, 10, 'Nombre', 1, 0, 'C', 1);
-    $pdf->cell(30, 10, 'Apellido', 1, 0, 'C', 1);
-    $pdf->cell(50, 10, 'Correo', 1, 0, 'C', 1);
-    $pdf->cell(30, 10, 'Alias', 1, 0, 'C', 1);
-    $pdf->cell(30, 10, 'Teléfono', 1, 1, 'C', 1);
+    $pdf->cell(40, 10, 'Nombre', 1, 0, 'C', 1);
+    $pdf->cell(40, 10, 'Apellido', 1, 0, 'C', 1);
+    $pdf->cell(60, 10, 'Correo', 1, 0, 'C', 1);
+    $pdf->cell(40, 10, 'Alias', 1, 1, 'C', 1);
 
     // Se establece la fuente para los datos de los administradores.
     $pdf->setFont('Arial', '', 11);
@@ -38,11 +37,10 @@ if ($dataAdministradores = $administrador->readAll()) {
     foreach ($dataAdministradores as $rowAdministrador) {
         // Se imprimen las celdas con los datos de los administradores.
         $pdf->setFillColor($fill ? 230 : 255); // Color de relleno gris más claro y blanco alternante
-        $pdf->cell(30, 10, $pdf->encodeString($rowAdministrador['nombre_administrador']), 1, 0, '', $fill);
-        $pdf->cell(30, 10, $pdf->encodeString($rowAdministrador['apellido_administrador']), 1, 0, '', $fill);
-        $pdf->cell(50, 10, $pdf->encodeString($rowAdministrador['correo_administrador']), 1, 0, '', $fill);
-        $pdf->cell(30, 10, $pdf->encodeString($rowAdministrador['alias_administrador']), 1, 0, '', $fill);
-        $pdf->cell(30, 10, $pdf->encodeString($rowAdministrador['telefono_administrador']), 1, 1, '', $fill);
+        $pdf->cell(40, 10, $pdf->encodeString($rowAdministrador['nombre_administrador']), 1, 0, '', $fill);
+        $pdf->cell(40, 10, $pdf->encodeString($rowAdministrador['apellido_administrador']), 1, 0, '', $fill);
+        $pdf->cell(60, 10, $pdf->encodeString($rowAdministrador['correo_administrador']), 1, 0, '', $fill);
+        $pdf->cell(40, 10, $pdf->encodeString($rowAdministrador['alias_administrador']), 1, 1, '', $fill);
         // Alternar color de relleno
         $fill = !$fill;
     }
