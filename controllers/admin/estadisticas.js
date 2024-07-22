@@ -31,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
     getCategoriaAdvancedStats();
     graficoCategoriasConInfo();
     graficoLineaPedidosFinalizados();
+    graficoTopProductosVendidos();
+
 });
 
 // Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
@@ -237,4 +239,44 @@ const graficoLineaPedidosFinalizados = async () => {
         ctx.font = '20px Arial';
         ctx.fillText('Error al cargar los datos', 10, 50);
     }
+}
+
+const graficoTopProductosVendidos = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(PEDIDO_API, 'getTopSellingProducts');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a graficar.
+            let productos = [];
+            let cantidades = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                productos.push(row.nombre_producto);
+                cantidades.push(row.total_vendido);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de barras.
+            if (productos.length > 0 && cantidades.length > 0) {
+                barGraphh('chart8', productos, cantidades, 'Cantidad vendida', 'Top 5 de productos más vendidos');
+            } else {
+                // Mostrar un mensaje en el canvas si no hay datos
+                const ctx = document.getElementById('chart8').getContext('2d');
+                ctx.font = '20px Arial';
+                ctx.fillText('No hay datos de ventas para mostrar', 10, 50);
+            }
+        } else {
+            // Mostrar un mensaje en el canvas si hay un error
+            const ctx = document.getElementById('chart8').getContext('2d');
+            ctx.font = '20px Arial';
+            ctx.fillText('Error al cargar los datos de productos más vendidos', 10, 50);
+        }
+    } catch (error) {
+        console.error('Error fetching top selling products data:', error);
+        // Mostrar un mensaje de error en el canvas
+        const ctx = document.getElementById('chart8').getContext('2d');
+        ctx.font = '20px Arial';
+        ctx.fillText('Error al cargar los datos', 10, 50);
+    }
+
 }

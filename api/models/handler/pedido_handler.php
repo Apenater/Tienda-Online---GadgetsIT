@@ -149,9 +149,9 @@ INNER JOIN
 
     // Método para obtener los pedidos que ya han sido finalizados.
     public function getFinishedOrders()
-{
-    $this->estado = 'Finalizado';
-    $sql = 'SELECT 
+    {
+        $this->estado = 'Finalizado';
+        $sql = 'SELECT 
                 DATE(fecha_pedido) AS fecha,
                 COUNT(*) AS total_pedidos
             FROM 
@@ -162,24 +162,52 @@ INNER JOIN
                 DATE(fecha_pedido)
             ORDER BY 
                 fecha';
-    $params = array($this->estado);
-    $result = Database::getRows($sql, $params);
-    
-    if (empty($result)) {
-        $checkSql = 'SELECT COUNT(*) as count FROM pedido WHERE estado_pedido = ?';
-        $checkResult = Database::getRow($checkSql, $params);
-        
-        if ($checkResult['count'] == 0) {
-            return false;
-        } else {
-            // Si hay pedidos finalizados pero no se pueden agrupar, devolvemos un array con un solo elemento
-            return array(array(
-                'fecha' => date('Y-m-d'),
-                'total_pedidos' => $checkResult['count']
-            ));
+        $params = array($this->estado);
+        $result = Database::getRows($sql, $params);
+
+        if (empty($result)) {
+            $checkSql = 'SELECT COUNT(*) as count FROM pedido WHERE estado_pedido = ?';
+            $checkResult = Database::getRow($checkSql, $params);
+
+            if ($checkResult['count'] == 0) {
+                return false;
+            } else {
+                // Si hay pedidos finalizados pero no se pueden agrupar, devolvemos un array con un solo elemento
+                return array(array(
+                    'fecha' => date('Y-m-d'),
+                    'total_pedidos' => $checkResult['count']
+                ));
+            }
         }
+
+        return $result;
     }
-    
-    return $result;
-}
+
+    public function getTopSellingProducts()
+    {
+        $sql = 'SELECT 
+                p.nombre_producto,
+                SUM(dp.cantidad_producto) AS total_vendido
+            FROM 
+                detalle_pedido dp
+            INNER JOIN 
+                producto p ON dp.id_producto = p.id_producto
+            INNER JOIN 
+                pedido pe ON dp.id_pedido = pe.id_pedido
+            WHERE 
+                pe.estado_pedido = "Finalizado"
+            GROUP BY 
+                p.id_producto
+            ORDER BY 
+                total_vendido DESC
+            LIMIT 5';
+
+        $result = Database::getRows($sql);
+
+        if (empty($result)) {
+            return false;
+        }
+
+        return $result;
+    }
 }
