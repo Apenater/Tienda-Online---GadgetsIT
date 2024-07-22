@@ -1,7 +1,5 @@
-const USER_API = 'services/admin/administrador.php';
+const USER_API = 'services/public/cliente.php';
 const HEADER = document.querySelector('header');
-
-
 
 
 document.addEventListener('scroll', () => {
