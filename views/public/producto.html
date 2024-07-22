@@ -28,8 +28,6 @@
     <link rel="stylesheet" href="../../resources/css/base/Normalize.css">
     <link rel="stylesheet" href="../../resources/css/public/producto.css">
     <link rel="stylesheet" href="../../resources/css/public/footer.css">
-  <link rel="stylesheet" href="../../resources/css/public/login.css">
-  <link rel="stylesheet" href="../../resources/css/public/header.css">
   <link rel="stylesheet" href="../../resources/css/public/scroll.css">
 </head>
 
@@ -52,17 +50,12 @@
                         <h5 id="precioProducto"></h5>
                         <p class="card-text" id="descripcionProducto"></p>
                         <!-- descripcion del producto -->
-                        <form class="row" id="shoppingForm">
-                            <!-- Campo oculto para asignar el id del producto -->
-                            <input type="number" class="d-none" id="idProducto" name="idProducto">
-                            <button class="boton btn agregar-carrito">
-                                <span class="texto">Agregar al carrito</span>
-                                <span class="icono"><img src="../../resources/img/carrito light.svg" alt=""
-                                        loading="lazy"></span>
-                            </button>
-                        </form>
-
-                        <!-- Boton para agregar al carrito -->
+                        <!-- Campo oculto para asignar el id del producto -->
+                        <button class="boton btn agregar-carrito" onclick="add()">
+                            <span class="texto">Agregar al carrito</span>
+                            <span class="icono"><img src="../../resources/img/carrito light.svg" alt=""
+                                    loading="lazy"></span>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -71,15 +64,6 @@
         <hr>
     </main>
 
-    <section class="contenedor">
-        <div class="articulo mt-4" style="max-width: 900px; margin: auto;">
-            <h4>Sobre este articulo</h4>
-            <ul class="lista">
-                <li id="especificacionesProducto"></li>
-            </ul>
-            <!-- Caracteristicas del producto -->
-        </div>
-    </section>
 
     <section class="contenedor">
         <div class="Opiniones">
