@@ -100,7 +100,7 @@ class PublicReport extends FPDF
         session_start();
         
         // Verificar si el usuario está logueado
-        if (isset($_SESSION['correo_cliente'])) {
+        if (isset($_SESSION['idCliente'])) {
             // Se asigna el título del documento a la propiedad de la clase.
             $this->title = $title;
             // Se establece el título del documento (true = utf-8).
