@@ -54,16 +54,35 @@ class Report extends FPDF
     *   Se llama automáticamente en el método addPage()
     */
     public function header()
-    {
-        // Se ubica el título.
-        $this->cell(20);
+    {   
+        require_once('../../models/data/administrador_data.php');
+    
+        $administrador = new AdministradorHandler();
+        $usuario_info = $administrador->readProfile();
+    
+        // Logo
+        $this->image('../../../resources/img/icon.png', 10, 10, 20);
+    
+        // Título
         $this->setFont('Arial', 'B', 15);
-        $this->cell(166, 10, $this->encodeString($this->title), 0, 1, 'C');
-        // Se ubica la fecha y hora del servidor.
-        $this->cell(20);
+        $this->cell(0, 10, $this->encodeString($this->title), 0, 1, 'C');
+    
+        // Fecha y hora
         $this->setFont('Arial', '', 10);
-        $this->cell(166, 10, 'Fecha/Hora: ' . date('d-m-Y H:i:s'), 0, 1, 'C');
-        // Se agrega un salto de línea para mostrar el contenido principal del documento.
+        $this->cell(0, 5, 'Fecha/Hora: ' . date('d-m-Y H:i:s'), 0, 1, 'C');
+    
+        // Línea separadora
+        $this->Line(10, 35, 200, 35);
+    
+        // Información del usuario
+        $this->ln(5);
+        $this->setFont('Arial', 'B', 12);
+        $this->cell(0, 10, $this->encodeString('Información del Usuario'), 0, 1, 'L');
+        $this->setFont('Arial', '', 12);
+        $this->cell(0, 7, 'Correo: ' . $usuario_info['correo_administrador'], 0, 1, 'L');
+        $this->cell(0, 7, 'Nombre: ' . $usuario_info['nombre_administrador'], 0, 1, 'L');
+    
+        // Espacio adicional antes del contenido principal
         $this->ln(10);
     }
 
@@ -88,6 +107,7 @@ class PublicReport extends FPDF
 
     // Propiedad para guardar el título del reporte.
     private $title = null;
+    
 
     /*
     *   Método para iniciar el reporte con el encabezado del documento.
@@ -96,6 +116,7 @@ class PublicReport extends FPDF
     */
     public function startReport($title)
     {
+
         // Se inicia o se reanuda la sesión para utilizar variables de sesión.
         session_start();
         
@@ -130,8 +151,12 @@ class PublicReport extends FPDF
     *   Se sobrescribe el método de la librería para establecer la plantilla del encabezado de los reportes.
     *   Se llama automáticamente en el método addPage()
     */
+    
     public function header()
-    {
+    {   
+
+
+        $this->image('../../../resources/img/icon.png', 15, 15, 20);
         // Se ubica el título.
         $this->cell(20);
         $this->setFont('Arial', 'B', 15);
