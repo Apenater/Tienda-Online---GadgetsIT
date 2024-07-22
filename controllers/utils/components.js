@@ -488,7 +488,69 @@ const top5ClientesMasPedi = (canvas, xAxis, yAxis, legend, title) => {
 }
 
 
+const multiLineGraph = (canvas, labels, datasets, title) => {
+    // Generamos colores aleatorios para cada conjunto de datos
+    const generateColors = () => {
+        return '#' + (Math.random().toString(16)).substring(2, 8);
+    };
 
+    // Preparamos los datasets con colores aleatorios
+    const chartDatasets = datasets.map(dataset => ({
+        label: dataset.label,
+        data: dataset.data,
+        borderColor: generateColors(),
+        backgroundColor: 'transparent',
+        borderWidth: 2,
+        pointRadius: 3,
+        pointHoverRadius: 5
+    }));
+
+    // Creamos la instancia del gráfico
+    new Chart(document.getElementById(canvas), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: chartDatasets
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                    display: true,
+                    text: title,
+                    font: {
+                        size: 16
+                    }
+                },
+                legend: {
+                    display: true,
+                    position: 'bottom'
+                },
+                tooltip: {
+                    mode: 'index',
+                    intersect: false
+                }
+            },
+            scales: {
+                x: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Período'
+                    }
+                },
+                y: {
+                    display: true,
+                    title: {
+                        display: true,
+                        text: 'Valor'
+                    },
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+}
 
 
 const marGraph = (canvas, legends, values, title) => {
