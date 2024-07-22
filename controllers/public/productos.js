@@ -7,12 +7,24 @@ const SEARCH_FORM = document.getElementById('searchForm');
 
 const TABLE_BODY = document.getElementById('tarjetas');
 
+const PARAMS = new URLSearchParams(location.search);
+
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
   loadTemplate();
-  // Llamada a la función para llenar la tabla con los registros existentes.
-  fillTable();
+  const idProducto = PARAMS.get('idProducto');
+  const idCategoria = PARAMS.get('idCategoria');
+  const idMarca = PARAMS.get('idMarca');
+  
+  if (idCategoria) {
+    fillTable({idCategoria: idCategoria}, 'readProductosCategoria');
+  } else if (idMarca) {
+    fillTable({idMarca: idMarca}, 'readProductosMarca');
+  } else {
+    fillTable();
+  }
 });
+
 
 // Método del evento para cuando se envía el formulario de buscar.
 SEARCH_FORM.addEventListener('submit', (event) => {
@@ -24,38 +36,35 @@ SEARCH_FORM.addEventListener('submit', (event) => {
   fillTable(FORM);
 });
 
-const fillTable = async (form = null) => {
-  // Se inicializa el contenido de la tabla.
+const fillTable = async (form = null, action = 'readAll') => {
   TABLE_BODY.innerHTML = '';
-  // Se verifica la acción a realizar.
-  (form) ? action = 'searchRows' : action = 'readAll';
-  // Petición para obtener los registros disponibles.
-  const DATA = await fetchData(PRODUCTO_API, action, form);
-  // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
+  let postData = form instanceof FormData ? form : new FormData();
+  if (form && !(form instanceof FormData)) {
+    for (let key in form) {
+      postData.append(key, form[key]);
+    }
+  }
+
+  const DATA = await fetchData(PRODUCTO_API, action, postData);
   if (DATA.status) {
-    // Se recorre el conjunto de registros fila por fila.
-    // Se recorre el conjunto de registros fila por fila.
     DATA.dataset.forEach(row => {
-      // Se crean y concatenan las filas de la tabla con los datos de cada registro.
       TABLE_BODY.innerHTML += `
-      <div class="col">
+        <div class="col">
           <div class="card h-100 border-light">
-              <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top" alt="..." loading="lazy">
-              <div class="card-body">
-                  <h5 class="card-title">${row.nombre_producto}</h5>
-                  <div class="descripcion-precio">
-                      <p class="card-text">${row.descripcion_producto}</p>
-                      <h5>$ ${row.precio_producto}</h5>
-                  </div>
-                  <ul class="iconos-caracteristicas">
-                      <li>
-                          <a href="producto.html?id=${row.id_producto}"><img src="../../resources/img/carrito.svg" alt="añadir al carrito"></a>
-                      </li>
-                  </ul>
+            <img src="${SERVER_URL}images/productos/${row.imagen_producto}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">${row.nombre_producto}</h5>
+              <div class="descripcion-precio">
+                <p class="card-text">${row.descripcion_producto}</p>
+                <h5>$ ${row.precio_producto}</h5>
               </div>
+              <ul class="iconos-caracteristicas">
+                <li><a href="producto.html?id=${row.id_producto}"><img src="../../resources/img/carrito.svg" alt="añadir al carrito"></a></li>
+              </ul>
+            </div>
           </div>
-      </div>
-  `;
+        </div>
+      `;
     });
   } else {
     sweetAlert(4, DATA.error, true);

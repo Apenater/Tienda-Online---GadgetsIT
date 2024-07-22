@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             CATEGORIAS.innerHTML += `
                 
 
-              <a href="productos.html" style="text-decoration: none;">
+              <a href="productos.html?idCategoria=${row.id_categoria}" style="text-decoration: none;">
               <div class="negro">
                 <div class="negro-content">
                   <h1 class="negro-title">${row.nombre_categoria}</h1>

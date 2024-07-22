@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 
 
 
-                <a href="productos.html">
+                <a href="productos.html?idMarca=${row.id_marca}"">
                 <div class="negro">
                 <img src="${SERVER_URL}images/marcas/${row.imagen_marca}" alt="Image-ct">
                 </div>
