@@ -146,4 +146,27 @@ INNER JOIN
         $params = array($this->id_detalle, $_SESSION['idPedido']);
         return Database::executeRow($sql, $params);
     }
+
+    // Método para obtener los pedidos que ya han sido finalizados.
+    public function getFinishedOrders()
+    {
+        $this->estado = 'Finalizado';
+        $sql = 'SELECT 
+                dp.id_detalle,
+                p.nombre_producto,
+                p.imagen_producto,
+                dp.precio_producto,
+                dp.cantidad_producto,
+                pe.estado_pedido
+            FROM 
+                detalle_pedido dp
+            INNER JOIN 
+                pedido pe ON dp.id_pedido = pe.id_pedido
+            INNER JOIN 
+                producto p ON dp.id_producto = p.id_producto
+            WHERE 
+                pe.estado_pedido = ?';
+        $params = array($this->estado);
+        return Database::getRows($sql, $params);
+    }
 }

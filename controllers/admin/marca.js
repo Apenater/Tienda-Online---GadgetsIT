@@ -97,6 +97,9 @@ const fillTable = async (form = null) => {
                         <button type="button" class="gadgetit-btn gadgetit-btn-rojo" onclick="openDelete(${row.id_marca})">
                         <img src="../../resources/img/eliminar.svg" alt="Eliminar" class="gadgetit-btn-iconn"> Eliminar
                         </button>
+                        <button type="button" class="gadgetit-btn gadgetit-btn-pdf" onclick="openReport(${row.id_marca})">
+                        <img src="../../resources/img/Vector.png" alt="Eliminar" class="gadgetit-btn-iconn"> Reportes
+                        </button>
                     </div>
                 </div>
             </div>
