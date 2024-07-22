@@ -27,7 +27,7 @@ if ($dataClientes = $cliente->readAll()) {
     $pdf->cell(30, 10, 'Apellido', 1, 0, 'C', 1);
     $pdf->cell(50, 10, 'Correo', 1, 0, 'C', 1);
     $pdf->cell(30, 10, 'DUI', 1, 0, 'C', 1);
-    $pdf->cell(30, 10, 'Teléfono', 1, 1, 'C', 1);
+    $pdf->cell(30, 10, 'Estado', 1, 1, 'C', 1);
 
     // Se establece la fuente para los datos de los clientes.
     $pdf->setFont('Arial', '', 11);
@@ -42,7 +42,7 @@ if ($dataClientes = $cliente->readAll()) {
         $pdf->cell(30, 10, $pdf->encodeString($rowCliente['apellido_cliente']), 1, 0, '', $fill);
         $pdf->cell(50, 10, $pdf->encodeString($rowCliente['correo_cliente']), 1, 0, '', $fill);
         $pdf->cell(30, 10, $pdf->encodeString($rowCliente['dui_cliente']), 1, 0, '', $fill);
-        $pdf->cell(30, 10, $pdf->encodeString($rowCliente['telefono_cliente']), 1, 1, '', $fill);
+        $pdf->cell(30, 10, $pdf->encodeString($rowCliente['estado_cliente']), 1, 1, '', $fill);
         // Alternar color de relleno
         $fill = !$fill;
     }
