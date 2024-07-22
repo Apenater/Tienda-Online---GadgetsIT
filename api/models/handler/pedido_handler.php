@@ -224,8 +224,8 @@ INNER JOIN
 
     public function predictFutureSales($days = 30)
     {
-        // Obtener datos históricos de ventas
-        $sql = 'SELECT 
+        try {
+            $sql = 'SELECT 
                 DATE(fecha_pedido) AS fecha,
                 SUM(dp.cantidad_producto * dp.precio_producto) AS total_ventas
             FROM 
@@ -239,35 +239,43 @@ INNER JOIN
                 DATE(fecha_pedido)
             ORDER BY 
                 fecha';
-
-        $historicalData = Database::getRows($sql);
-
-        if (empty($historicalData)) {
-            return false;
+    
+            $historicalData = Database::getRows($sql);
+    
+            if (empty($historicalData) || count($historicalData) < 7) { // Aseguramos tener al menos una semana de datos
+                return ['status' => false, 'error' => 'No hay suficientes datos para hacer predicciones'];
+            }
+    
+            $predictions = [];
+            $lastDate = new DateTime(end($historicalData)['fecha']);
+            
+            // Calcular la tendencia lineal
+            $n = count($historicalData);
+            $sumX = $sumY = $sumXY = $sumX2 = 0;
+            foreach ($historicalData as $i => $data) {
+                $x = $i;
+                $y = $data['total_ventas'];
+                $sumX += $x;
+                $sumY += $y;
+                $sumXY += $x * $y;
+                $sumX2 += $x * $x;
+            }
+            $slope = ($n * $sumXY - $sumX * $sumY) / ($n * $sumX2 - $sumX * $sumX);
+            $intercept = ($sumY - $slope * $sumX) / $n;
+    
+            // Generar predicciones
+            for ($i = 1; $i <= $days; $i++) {
+                $lastDate->modify('+1 day');
+                $predictedSales = $intercept + $slope * ($n + $i - 1);
+                $predictions[] = [
+                    'fecha' => $lastDate->format('Y-m-d'),
+                    'ventas_previstas' => max(0, round($predictedSales, 2)) // Asegurar que no sea negativo
+                ];
+            }
+    
+            return ['status' => true, 'dataset' => $predictions];
+        } catch (Exception $e) {
+            return ['status' => false, 'error' => 'Error al procesar los datos: ' . $e->getMessage()];
         }
-
-        // Calcular la tendencia promedio
-        $totalDays = count($historicalData);
-        $totalSales = array_sum(array_column($historicalData, 'total_ventas'));
-        $averageDailySales = $totalSales / $totalDays;
-
-        // Calcular la tasa de crecimiento
-        $firstDaySales = $historicalData[0]['total_ventas'];
-        $lastDaySales = $historicalData[$totalDays - 1]['total_ventas'];
-        $growthRate = ($lastDaySales - $firstDaySales) / $firstDaySales / $totalDays;
-
-        // Predecir ventas futuras
-        $predictions = [];
-        $lastDate = new DateTime($historicalData[$totalDays - 1]['fecha']);
-        for ($i = 1; $i <= $days; $i++) {
-            $predictedDate = $lastDate->modify('+1 day');
-            $predictedSales = $averageDailySales * (1 + $growthRate * $i);
-            $predictions[] = [
-                'fecha' => $predictedDate->format('Y-m-d'),
-                'ventas_previstas' => round($predictedSales, 2)
-            ];
-        }
-
-        return $predictions;
     }
 }

@@ -344,39 +344,24 @@ const graficoTop5ClientesConMasPedidos = async () => {
 // Función para generar un gráfico de líneas con las predicciones de ventas futuras
 const graficoPredictVentas = async () => {
     try {
-        // Petición para obtener los datos del gráfico.
         const DATA = await fetchData(PEDIDO_API, 'predictFutureSales');
-        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje.
-        if (DATA.status) {
-            // Se declaran los arreglos para guardar los datos a graficar.
-            let fechas = [];
-            let ventasPrevistas = [];
-            // Se recorre el conjunto de registros fila por fila a través del objeto row.
-            DATA.dataset.forEach(row => {
-                // Se agregan los datos a los arreglos.
-                fechas.push(row.fecha);
-                ventasPrevistas.push(row.ventas_previstas);
-            });
-            // Llamada a la función para generar y mostrar un gráfico de líneas.
-            if (fechas.length > 0 && ventasPrevistas.length > 0) {
-                multiLineGraph('chart11', fechas, ventasPrevistas, 'Ventas Previstas ($)', 'Predicción de ventas futuras');
-            } else {
-                // Mostrar un mensaje en el canvas si no hay datos
-                const ctx = document.getElementById('chart11').getContext('2d');
-                ctx.font = '20px Arial';
-                ctx.fillText('No hay datos de predicción para mostrar', 10, 50);
-            }
+        if (DATA.status && DATA.dataset) {
+            const fechas = DATA.dataset.map(item => item.fecha);
+            const ventasPrevistas = DATA.dataset.map(item => item.ventas_previstas);
+            
+            multiLineGraph('chart11', fechas, [
+                {
+                    label: 'Ventas Previstas',
+                    data: ventasPrevistas
+                }
+            ], 'Predicción de ventas futuras');
         } else {
-            // Mostrar un mensaje en el canvas si hay un error
-            const ctx = document.getElementById('chart11').getContext('2d');
-            ctx.font = '20px Arial';
-            ctx.fillText('Error al cargar los datos de predicción de ventas', 10, 50);
+            console.error('Error al obtener los datos para predicción de ventas:', DATA.error || 'Sin datos');
+            sweetAlert(2, DATA.error || 'No se pudieron cargar los datos de predicción de ventas.', false);
         }
     } catch (error) {
-        console.error('Error fetching sales prediction data:', error);
-        // Mostrar un mensaje de error en el canvas
-        const ctx = document.getElementById('chart11').getContext('2d');
-        ctx.font = '20px Arial';
-        ctx.fillText('Error al cargar los datos de predicción', 10, 50);
+        console.error('Error al cargar la predicción de ventas:', error);
+        sweetAlert(2, 'Error al cargar los datos de predicción.', false);
     }
 }
+

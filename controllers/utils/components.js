@@ -489,6 +489,13 @@ const top5ClientesMasPedi = (canvas, xAxis, yAxis, legend, title) => {
 
 
 const multiLineGraph = (canvas, labels, datasets, title) => {
+    // Verificar si el elemento canvas existe
+    const canvasElement = document.getElementById(canvas);
+    if (!canvasElement) {
+        console.error(`El elemento canvas con id '${canvas}' no se encontró.`);
+        return;
+    }
+
     // Generamos colores aleatorios para cada conjunto de datos
     const generateColors = () => {
         return '#' + (Math.random().toString(16)).substring(2, 8);
@@ -506,7 +513,7 @@ const multiLineGraph = (canvas, labels, datasets, title) => {
     }));
 
     // Creamos la instancia del gráfico
-    new Chart(document.getElementById(canvas), {
+    new Chart(canvasElement, {
         type: 'line',
         data: {
             labels: labels,
@@ -536,14 +543,14 @@ const multiLineGraph = (canvas, labels, datasets, title) => {
                     display: true,
                     title: {
                         display: true,
-                        text: 'Período'
+                        text: 'Fecha'
                     }
                 },
                 y: {
                     display: true,
                     title: {
                         display: true,
-                        text: 'Valor'
+                        text: 'Ventas Previstas ($)'
                     },
                     beginAtZero: true
                 }
