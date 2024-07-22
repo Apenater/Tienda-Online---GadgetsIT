@@ -8,6 +8,7 @@
     <!-- Incluir Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../resources/css/public/login.css">
+    <link type="image/png" rel="icon" href="../../resources/img/icon.png">
 </head>
 
 <body>
@@ -26,24 +27,36 @@
                     <h5>Crear Cuenta</h5>
                     <form action="/login" method="post" id="signup-Form">
                         <div class="input-group">
-                            <input type="text" id="nombre" name="nombre" placeholder="Nombre" required>
+                            <input type="text" id="nombreCliente" name="nombreCliente" placeholder="Nombre" required>
                             <span class="input-icon">&#128100;</span>
                         </div>
                         <div class="input-group">
-                            <input type="text" id="apellido" name="apellido" placeholder="Apellido" required>
+                            <input type="text" id="apellidoCliente" name="apellidoCliente" placeholder="Apellido" required>
                             <span class="input-icon">&#128100;</span>
                         </div>
                         <div class="input-group">
-                            <input type="email" id="correo" name="correo" placeholder="Correo electrónico" required>
+                            <input type="email" id="correoCliente" name="correoCliente" placeholder="Correo electrónico" required>
                             <span class="input-icon">&#9993;</span>
                         </div>
                         <div class="input-group">
-                            <input type="text" id="telefono" name="telefono" placeholder="Teléfono" required>
+                            <input type="text" id="duiCliente" name="duiCliente" placeholder="DUI" required>
+                            <span class="input-icon">🪪;</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="direccionCliente" name="direccionCliente" placeholder="Dirección" required>
+                            <span class="input-icon">🏠;</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="nacimientoCliente" name="nacimientoCliente" placeholder="Fecha de Nacimiento" required>
+                            <span class="input-icon">📅;</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="telefonoCliente" name="telefonoCliente" placeholder="Numero de Telefono" required>
                             <span class="input-icon">&#128222;</span>
                         </div>
                         <div class="form-container">
                             <div class="input-group">
-                                <input type="password" id="contrasenia_usuario" name="contrasenia_usuario" placeholder="Contraseña" required>
+                                <input type="password" id="claveCliente" name="claveCliente" placeholder="Contraseña" required>
                                 <span class="input-icon">&#128274;</span>
                             </div>
                             <div class="input-group">

@@ -55,6 +55,21 @@ class ClienteHandler
         return Database::executeRow($sql, $params);
     }
 
+    public function checkPassword($password)
+    {
+        $sql = 'SELECT clave_cliente
+                FROM cliente
+                WHERE id_cliente = ?';
+        $params = array($_SESSION['idCliente']);
+        $data = Database::getRow($sql, $params);
+        // Se verifica si la contraseña coincide con el hash almacenado en la base de datos.
+        if (password_verify($password, $data['clave_cliente'])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     public function editProfile()
     {
         $sql = 'UPDATE cliente

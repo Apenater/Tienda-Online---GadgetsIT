@@ -1,4 +1,4 @@
-const USER_API = 'services/admin/clientes.php';
+const USER_API = 'services/public/cliente.php';
 // Constante para establecer el formulario de registro del primer usuario.
 const SIGNUP_FORM = document.getElementById('signup-Form');
 
@@ -10,7 +10,7 @@ SIGNUP_FORM.addEventListener('submit', async (event) => {
     // Constante tipo objeto con los datos del formulario.
     const FORM = new FormData(SIGNUP_FORM);
     // Petición para registrar el primer usuario del sitio privado.
-    const DATA = await fetchData(USER_API, 'signUp', FORM);
+    const DATA = await fetchData(USER_API, 'signUpMovil', FORM);
     // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje con la excepción.
     if (DATA.status) {
         sweetAlert(1, DATA.message, true, 'login.html');
