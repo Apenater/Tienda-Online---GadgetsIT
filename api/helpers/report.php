@@ -54,7 +54,8 @@ class Report extends FPDF
     *   Se llama automáticamente en el método addPage()
     */
     public function header()
-    {
+    {   
+        $this->image('../../../resources/img/icon.png', 15, 15, 20);
         // Se ubica el título.
         $this->cell(20);
         $this->setFont('Arial', 'B', 15);
@@ -131,7 +132,8 @@ class PublicReport extends FPDF
     *   Se llama automáticamente en el método addPage()
     */
     public function header()
-    {
+    {   
+        $this->image('../../../resources/img/icon.png', 15, 15, 20);
         // Se ubica el título.
         $this->cell(20);
         $this->setFont('Arial', 'B', 15);
