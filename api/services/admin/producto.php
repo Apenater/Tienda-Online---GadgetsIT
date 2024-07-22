@@ -98,7 +98,7 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['error'] = 'No hay datos disponibles';
                 }
-                break;
+                break; 
             case 'porcentajeProductosCategoria':
                 if ($result['dataset'] = $producto->porcentajeProductosCategoria()) {
                     $result['status'] = 1;

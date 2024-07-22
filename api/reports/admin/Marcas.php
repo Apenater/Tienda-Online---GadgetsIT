@@ -5,7 +5,7 @@ require_once('../../helpers/report.php');
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se verifica si existe un valor para la marca, de lo contrario se muestra un mensaje.
-if (isset($_GET['idMarca'])) {
+if (isset($_GET['id_marca'])) {
     // Se incluyen las clases para la transferencia y acceso a datos.
     require_once('../../models/data/marca_data.php');
     require_once('../../models/data/producto_data.php');
@@ -13,7 +13,7 @@ if (isset($_GET['idMarca'])) {
     $marca = new MarcaData;
     $producto = new ProductoData;
     // Se establece el valor de la marca, de lo contrario se muestra un mensaje.
-    if ($marca->setId($_GET['idMarca']) && $producto->setMarca($_GET['idMarca'])) {
+    if ($marca->setId($_GET['id_marca']) && $producto->setMarca($_GET['id_marca'])) {
         // Se verifica si la marca existe, de lo contrario se muestra un mensaje.
         if ($rowMarca = $marca->readOne()) {
             // Se inicia el reporte con el encabezado del documento.
@@ -27,7 +27,7 @@ if (isset($_GET['idMarca'])) {
                 $pdf->setTextColor(255, 255, 255); // Color de texto blanco para los encabezados
                 // Se imprimen las celdas con los encabezados.
                 $pdf->cell(80, 10, 'Nombre', 1, 0, 'C', 1);
-                $pdf->cell(50, 10, 'Descripción', 1, 0, 'C', 1);
+                $pdf->cell(50, 10, 'Descripcion', 1, 0, 'C', 1);
                 $pdf->cell(30, 10, 'Precio (US$)', 1, 0, 'C', 1);
                 $pdf->cell(30, 10, 'Estado', 1, 1, 'C', 1);
                 

@@ -5,7 +5,7 @@ require_once('../../helpers/report.php');
 // Se instancia la clase para crear el reporte.
 $pdf = new Report;
 // Se verifica si existe un valor para la categoría, de lo contrario se muestra un mensaje.
-if (isset($_GET['idCategoria'])) {
+if (isset($_GET['id_categoria'])) {
     // Se incluyen las clases para la transferencia y acceso a datos.
     require_once('../../models/data/categoria_data.php');
     require_once('../../models/data/producto_data.php');
@@ -13,7 +13,7 @@ if (isset($_GET['idCategoria'])) {
     $categoria = new CategoriaData;
     $producto = new ProductoData;
     // Se establece el valor de la categoría, de lo contrario se muestra un mensaje.
-    if ($categoria->setId($_GET['idCategoria']) && $producto->setCategoria($_GET['idCategoria'])) {
+    if ($categoria->setId($_GET['id_categoria']) && $producto->setCategoria($_GET['id_categoria'])) {
         // Se verifica si la categoría existe, de lo contrario se muestra un mensaje.
         if ($rowCategoria = $categoria->readOne()) {
             // Se inicia el reporte con el encabezado del documento.

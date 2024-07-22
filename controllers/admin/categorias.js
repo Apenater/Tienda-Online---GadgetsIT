@@ -67,7 +67,7 @@ const fillTable = async (form = null) => {
                             </button>
                             
 
-                             <button type="button" class="gadgetit-btn gadgetit-btn-pdf" onclick="openReport(${row.id_marca})">
+                             <button type="button" class="gadgetit-btn gadgetit-btn-pdf" onclick="openReport(${row.id_categoria})">
                         <img src="../../resources/img/Vector.png" alt="Eliminar" class="gadgetit-btn-iconn"> Reportes
                         </button>
                         </div>
@@ -131,9 +131,9 @@ const openDelete = async (id) => {
 */
 const openReport = (id) => {
     // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
-    const PATH = new URL(`${SERVER_URL}reports/admin/productos_categoria.php`);
+    const PATH = new URL(`${SERVER_URL}reports/admin/categorias.php`);
     // Se agrega un parámetro a la ruta con el valor del registro seleccionado.
-    PATH.searchParams.append('id_Categoria', id);
+    PATH.searchParams.append('id_categoria', id);
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }
