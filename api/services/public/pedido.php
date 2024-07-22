@@ -68,6 +68,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al remover el producto';
                 }
                 break;
+
                 // Acción para finalizar el carrito de compras.
             case 'finishOrder':
                 if ($pedido->finishOrder()) {
@@ -77,6 +78,18 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'Ocurrió un problema al finalizar el pedido';
                 }
                 break;
+
+            case 'getFinishedOrders':
+                $result['dataset'] = $pedido->getFinishedOrders();
+                if ($result['dataset'] !== false) {
+                    $result['status'] = 1;
+                } else {
+                    $result['status'] = 1;
+                    $result['dataset'] = array();
+                }
+                break;
+
+
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }
@@ -92,7 +105,7 @@ if (isset($_GET['action'])) {
                 } else {
                     $result['error'] = 'No existen pedidos para mostrar';
                 }
-            break;
+                break;
             case 'readDetail':
                 if (!$pedido->getOrder()) {
                     $result['error'] = 'No ha agregado productos al carrito';
@@ -102,6 +115,16 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No existen productos en el carrito';
                 }
                 break;
+            case 'getFinishedOrders':
+                $result['dataset'] = $pedido->getFinishedOrders();
+                if ($result['dataset'] !== false) {
+                    $result['status'] = 1;
+                } else {
+                    $result['status'] = 1;
+                    $result['dataset'] = array();
+                }
+                break;
+
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }
