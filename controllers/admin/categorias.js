@@ -137,3 +137,10 @@ const openReport = (id) => {
     // Se abre el reporte en una nueva pestaña.
     window.open(PATH.href);
 }
+
+const openReport2 = () => {
+    // Se declara una constante tipo objeto con la ruta específica del reporte en el servidor.
+    const PATH = new URL(`${SERVER_URL}reports/admin/categoriasG.php`);
+    // Se abre el reporte en una nueva pestaña.
+    window.open(PATH.href);
+}

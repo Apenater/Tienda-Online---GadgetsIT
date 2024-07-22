@@ -14,7 +14,7 @@ $categoria = new CategoriaHandler;
 // Se verifica si existen registros para mostrar, de lo contrario se imprime un mensaje.
 if ($datacategoriaes = $categoria->readAll()) {
     // Se inicia el reporte con el encabezado del documento.
-    $pdf->startReport('Listado de categoriaes');
+    $pdf->startReport('Listado de categorias');
 
     // Se establece un color de relleno para los encabezados.
     $pdf->setFillColor(50, 50, 50);
@@ -24,9 +24,7 @@ if ($datacategoriaes = $categoria->readAll()) {
 
     // Se imprimen las celdas con los encabezados.
     $pdf->cell(40, 10, 'Nombre', 1, 0, 'C', 1);
-    $pdf->cell(40, 10, 'Apellido', 1, 0, 'C', 1);
-    $pdf->cell(60, 10, 'Correo', 1, 0, 'C', 1);
-    $pdf->cell(40, 10, 'Alias', 1, 1, 'C', 1);
+    $pdf->cell(100, 10, 'Descripcion', 1, 1, 'C', 1);
 
     // Se establece la fuente para los datos de los categoriaes.
     $pdf->setFont('Arial', '', 11);
@@ -38,15 +36,13 @@ if ($datacategoriaes = $categoria->readAll()) {
         // Se imprimen las celdas con los datos de los categoriaes.
         $pdf->setFillColor($fill ? 230 : 255); // Color de relleno gris más claro y blanco alternante
         $pdf->cell(40, 10, $pdf->encodeString($rowcategoria['nombre_categoria']), 1, 0, '', $fill);
-        $pdf->cell(40, 10, $pdf->encodeString($rowcategoria['apellido_categoria']), 1, 0, '', $fill);
-        $pdf->cell(60, 10, $pdf->encodeString($rowcategoria['correo_categoria']), 1, 0, '', $fill);
-        $pdf->cell(40, 10, $pdf->encodeString($rowcategoria['alias_categoria']), 1, 1, '', $fill);
+        $pdf->cell(100, 10, $pdf->encodeString($rowcategoria['descripcion_categoria']), 1, 1, '', $fill);
         // Alternar color de relleno
         $fill = !$fill;
     }
 
     // Se llama implícitamente al método footer() y se envía el documento al navegador web.
-    $pdf->output('I', 'categoriaes.pdf');
+    $pdf->output('I', 'categorias.pdf');
 } else {
     print('No hay categoriaes para mostrar');
 }
