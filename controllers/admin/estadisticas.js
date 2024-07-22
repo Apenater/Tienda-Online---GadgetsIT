@@ -3,7 +3,7 @@ const PRODUCTO_API = 'services/admin/producto.php';
 const MARCA_API = 'services/admin/marca.php';
 const CLIENTE_API = 'services/public/cliente.php';
 const CATEGORIA_API = 'services/admin/categoria.php';
-
+const PEDIDO_API = 'services/public/pedido.php';
 
 // Método del evento para cuando el documento ha cargado.
 document.addEventListener('DOMContentLoaded', () => {
@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     graficoBarrasClientes();
     getCategoriaAdvancedStats();
     graficoCategoriasConInfo();
+    graficoLineaPedidosFinalizados();
 });
 
 // Función asíncrona para mostrar un gráfico de barras con la cantidad de productos por categoría.
@@ -193,5 +194,47 @@ const graficoCategoriasConInfo = async () => {
         }
     } catch (error) {
         console.error('Error fetching categories info data:', error);
+    }
+}
+
+
+
+// Función asíncrona para mostrar un gráfico de línea con los pedidos finalizados por día.
+const graficoLineaPedidosFinalizados = async () => {
+    try {
+        // Petición para obtener los datos del gráfico.
+        const DATA = await fetchData(PEDIDO_API, 'getFinishedOrders');
+        // Se comprueba si la respuesta es satisfactoria, de lo contrario se muestra un mensaje.
+        if (DATA.status) {
+            // Se declaran los arreglos para guardar los datos a graficar.
+            let fechas = [];
+            let totalPedidos = [];
+            // Se recorre el conjunto de registros fila por fila a través del objeto row.
+            DATA.dataset.forEach(row => {
+                // Se agregan los datos a los arreglos.
+                fechas.push(row.fecha);
+                totalPedidos.push(row.total_pedidos);
+            });
+            // Llamada a la función para generar y mostrar un gráfico de líneas.
+            if (fechas.length > 0 && totalPedidos.length > 0) {
+                lineGraph('chart7', fechas, totalPedidos, 'Pedidos Finalizados', 'Pedidos finalizados por día');
+            } else {
+                // Mostrar un mensaje en el canvas si no hay datos
+                const ctx = document.getElementById('chart7').getContext('2d');
+                ctx.font = '20px Arial';
+                ctx.fillText('No hay pedidos finalizados para mostrar', 10, 50);
+            }
+        } else {
+            // Mostrar un mensaje en el canvas si hay un error
+            const ctx = document.getElementById('chart7').getContext('2d');
+            ctx.font = '20px Arial';
+            ctx.fillText('Error al cargar los datos de pedidos finalizados', 10, 50);
+        }
+    } catch (error) {
+        console.error('Error fetching finished orders data:', error);
+        // Mostrar un mensaje de error en el canvas
+        const ctx = document.getElementById('chart7').getContext('2d');
+        ctx.font = '20px Arial';
+        ctx.fillText('Error al cargar los datos', 10, 50);
     }
 }

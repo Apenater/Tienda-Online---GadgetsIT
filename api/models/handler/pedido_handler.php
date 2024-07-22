@@ -149,24 +149,37 @@ INNER JOIN
 
     // Método para obtener los pedidos que ya han sido finalizados.
     public function getFinishedOrders()
-    {
-        $this->estado = 'Finalizado';
-        $sql = 'SELECT 
-                dp.id_detalle,
-                p.nombre_producto,
-                p.imagen_producto,
-                dp.precio_producto,
-                dp.cantidad_producto,
-                pe.estado_pedido
+{
+    $this->estado = 'Finalizado';
+    $sql = 'SELECT 
+                DATE(fecha_pedido) AS fecha,
+                COUNT(*) AS total_pedidos
             FROM 
-                detalle_pedido dp
-            INNER JOIN 
-                pedido pe ON dp.id_pedido = pe.id_pedido
-            INNER JOIN 
-                producto p ON dp.id_producto = p.id_producto
+                pedido
             WHERE 
-                pe.estado_pedido = ?';
-        $params = array($this->estado);
-        return Database::getRows($sql, $params);
+                estado_pedido = ?
+            GROUP BY 
+                DATE(fecha_pedido)
+            ORDER BY 
+                fecha';
+    $params = array($this->estado);
+    $result = Database::getRows($sql, $params);
+    
+    if (empty($result)) {
+        $checkSql = 'SELECT COUNT(*) as count FROM pedido WHERE estado_pedido = ?';
+        $checkResult = Database::getRow($checkSql, $params);
+        
+        if ($checkResult['count'] == 0) {
+            return false;
+        } else {
+            // Si hay pedidos finalizados pero no se pueden agrupar, devolvemos un array con un solo elemento
+            return array(array(
+                'fecha' => date('Y-m-d'),
+                'total_pedidos' => $checkResult['count']
+            ));
+        }
     }
+    
+    return $result;
+}
 }
