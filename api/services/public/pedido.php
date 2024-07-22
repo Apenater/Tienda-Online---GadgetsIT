@@ -124,7 +124,15 @@ if (isset($_GET['action'])) {
                     $result['dataset'] = array();
                 }
                 break;
-
+                case 'getTopSellingProducts':
+                    $result['dataset'] = $pedido->getTopSellingProducts();
+                    if ($result['dataset'] !== false) {
+                        $result['status'] = 1;
+                    } else {
+                        $result['status'] = 1;
+                        $result['dataset'] = array();
+                    }
+                    break;
             default:
                 $result['error'] = 'Acción no disponible fuera de la sesión';
         }

@@ -106,6 +106,7 @@ if (isset($_GET['action'])) {
                     $result['error'] = 'No hay datos disponibles';
                 }
                 break;
+                
             default:
                 $result['error'] = 'Acción no disponible dentro de la sesión';
         }

@@ -93,14 +93,14 @@ class ProductoHandler
 
     public function readProductosCategoria()
     {
-        
+
         $sql = 'SELECT id_producto, imagen_producto, nombre_producto, descripcion_producto, precio_producto, existencias_producto, id_categoria
                 FROM producto
                 INNER JOIN categoria USING(id_categoria)
                 WHERE id_categoria = ? AND estado_producto = true
                 ORDER BY nombre_producto';
         $params = array($this->categoria);
-    
+
         return Database::getRows($sql, $params);
     }
 
@@ -126,7 +126,7 @@ class ProductoHandler
         return Database::getRows($sql);
     }
 
-    
+
 
     /*
     *   Métodos para generar reportes.
@@ -162,5 +162,7 @@ class ProductoHandler
                 ORDER BY nombre_producto';
         return Database::getRows($sql);
     }
+
+
     
 }
